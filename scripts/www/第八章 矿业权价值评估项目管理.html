@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="aK5Njs7dAiQobijS9MwqRq">
+<head data-page-node-id="CIeSuQf7LxJrBrssgqy7YY">
+<meta charset="UTF-8" data-page-node-id="yY5ld5MZq1KFZqdGNZUyND">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" data-page-node-id="nh5HKSAxxAWmcZvexQCzvN">
+<title>第八章 矿业权价值评估项目管理 · 学霸版</title>
+<style>
+:root{
+  --brand:#1d5fd6; --brand-soft:#e8f0fe;
+  --ok:#1f9d57; --ok-soft:#e6f6ed;
+  --warn:#d9730d; --warn-soft:#fdf0e2;
+  --key:#c02666; --key-soft:#fbe7f0;
+  --purple:#7c3aed; --purple-soft:#f1ebfd;
+  --ink:#1f2937; --muted:#5b6472; --line:#e3e8ef;
+  --bg:#f5f7fa; --card:#ffffff; --sidebar-w:300px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.75;font-size:15.5px;}
+#progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--brand),var(--purple));
+  width:0%;z-index:1000;transition:width .1s linear;}
+.layout{display:flex;align-items:flex-start;max-width:1380px;margin:0 auto;}
+#sidebar{width:var(--sidebar-w);min-width:var(--sidebar-w);position:sticky;top:0;height:100vh;overflow-y:auto;
+  background:var(--card);border-right:1px solid var(--line);padding:22px 18px;transition:transform .25s,margin .25s;}
+#sidebar.hidden{transform:translateX(-100%);margin-left:calc(-1 * var(--sidebar-w));}
+#sidebar .brand{font-weight:800;font-size:16px;color:var(--brand);margin-bottom:2px;}
+#sidebar .sub{font-size:12.5px;color:var(--muted);margin-bottom:14px;}
+#sidebar nav a{display:block;padding:7px 11px;border-radius:8px;color:var(--ink);text-decoration:none;
+  font-size:13.5px;margin:2px 0;border-left:3px solid transparent;transition:all .15s;}
+#sidebar nav a:hover{background:var(--brand-soft);color:var(--brand);}
+#sidebar nav a.active{background:var(--brand-soft);color:var(--brand);border-left-color:var(--brand);font-weight:700;}
+#sidebar nav a.lv1{font-weight:700;margin-top:10px;color:var(--brand);}
+#sidebar nav a.lv2{padding-left:24px;font-size:13px;color:var(--muted);}
+main{flex:1;min-width:0;padding:0 40px 60px;}
+.topbar{position:sticky;top:0;z-index:100;background:rgba(245,247,250,.92);backdrop-filter:blur(6px);
+  padding:10px 0;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);margin:0 -40px;padding:10px 40px;}
+#toggle{cursor:pointer;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:6px 10px;
+  font-size:14px;color:var(--ink);}
+.topbar .tt{font-weight:700;color:var(--brand);}
+.hero{background:linear-gradient(135deg,var(--brand) 0%,#3b6fd6 55%,var(--purple) 100%);color:#fff;
+  border-radius:16px;padding:34px 36px;margin:22px 0 26px;box-shadow:0 10px 30px rgba(29,95,214,.22);}
+.hero h1{font-size:27px;letter-spacing:.5px;margin-bottom:10px;}
+.hero .tagline{font-size:15px;opacity:.92;max-width:900px;}
+.hero .meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;}
+.hero .meta span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:5px 13px;
+  border-radius:20px;font-size:13px;}
+.map{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:24px;}
+.map h2{font-size:17px;color:var(--brand);margin-bottom:14px;}
+.map .row{display:flex;gap:12px;flex-wrap:wrap;}
+.map .node{flex:1;min-width:200px;border:1px solid var(--line);border-radius:12px;padding:14px 15px;position:relative;}
+.map .node .n{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;border-radius:50%;
+  background:var(--brand);color:#fff;font-weight:800;font-size:13px;margin-bottom:8px;}
+.map .node .t{font-weight:700;font-size:14.5px;}
+.map .node .d{font-size:12.8px;color:var(--muted);margin-top:4px;}
+.map .node:nth-child(1){border-left:4px solid var(--brand);}
+.map .node:nth-child(2){border-left:4px solid var(--ok);}
+.map .node:nth-child(3){border-left:4px solid var(--key);}
+.map .node:nth-child(4){border-left:4px solid var(--purple);}
+.memo{margin-bottom:26px;}
+.memo h2{font-size:17px;color:var(--key);margin-bottom:14px;}
+.memo .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:13px;}
+.memo .m{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 16px;border-top:3px solid var(--key);}
+.memo .m:nth-child(4n+2){border-top-color:var(--brand);}
+.memo .m:nth-child(4n+3){border-top-color:var(--ok);}
+.memo .m:nth-child(4n+4){border-top-color:var(--purple);}
+.memo .m .no{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:1px;}
+.memo .m .t{font-weight:700;font-size:14.5px;margin:3px 0 5px;}
+.memo .m .d{font-size:13px;color:var(--muted);}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:22px;}
+section h2{font-size:21px;color:var(--brand);margin-bottom:6px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+section h2 .tag{font-size:12px;font-weight:700;background:var(--brand-soft);color:var(--brand);padding:3px 10px;border-radius:6px;}
+section .lead{color:var(--muted);font-size:14.5px;margin-bottom:16px;}
+section h3{font-size:17px;color:var(--ink);margin:22px 0 10px;padding-left:11px;border-left:4px solid var(--brand);}
+section h4{font-size:15px;color:var(--brand);margin:16px 0 8px;}
+.def{background:var(--brand-soft);border-left:4px solid var(--brand);border-radius:0 10px 10px 0;padding:13px 16px;margin:12px 0;}
+.def .k{font-weight:800;color:var(--brand);font-size:13.5px;margin-bottom:4px;}
+.def .v{font-size:14.5px;}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0;}
+.warnbox{background:var(--warn-soft);border:1px solid #f3c98a;border-radius:10px;padding:13px 16px;margin:14px 0;}
+.warnbox .wt{font-weight:800;color:var(--warn);font-size:13.5px;margin-bottom:5px;}
+.keybox{background:var(--key-soft);border:1px solid #f0a9c6;border-radius:10px;padding:13px 16px;margin:14px 0;}
+.keybox .wt{font-weight:800;color:var(--key);font-size:13.5px;margin-bottom:5px;}
+.okbox{background:var(--ok-soft);border:1px solid #a5d8bb;border-radius:10px;padding:13px 16px;margin:14px 0;}
+.okbox .wt{font-weight:800;color:var(--ok);font-size:13.5px;margin-bottom:5px;}
+.card.case{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0;border-left:4px solid var(--purple);}
+.case .cno{display:inline-block;background:var(--purple-soft);color:var(--purple);font-weight:800;font-size:12px;
+  padding:2px 9px;border-radius:6px;margin-bottom:7px;}
+.case .lbl{font-weight:800;color:var(--purple);font-size:13.5px;margin:8px 0 3px;}
+.case .lbl.bg{color:var(--muted);}
+.case .lbl.pro{color:var(--ok);}
+.case .lbl.fix{color:var(--warn);}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px;}
+th{background:var(--brand-soft);color:var(--brand);text-align:left;padding:9px 12px;border:1px solid var(--line);font-weight:700;}
+td{padding:9px 12px;border:1px solid var(--line);vertical-align:top;}
+tr:nth-child(even) td{background:#fafbfd;}
+ul.clean,ol.clean{margin:10px 0 10px 22px;}
+ul.clean li,ol.clean li{margin:5px 0;}
+.quiz{background:#fff;border:1px dashed var(--purple);border-radius:12px;padding:16px 18px;margin:18px 0;}
+.quiz .q{font-weight:700;color:var(--purple);margin:9px 0 3px;font-size:14.5px;}
+.quiz .a{color:var(--muted);font-size:13.8px;padding-left:16px;border-left:3px solid var(--purple-soft);}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:20px 0 30px;}
+@media (max-width:900px){
+  #sidebar{position:fixed;left:0;top:0;z-index:500;box-shadow:2px 0 20px rgba(0,0,0,.12);}
+  #sidebar.hidden{transform:translateX(-100%);}
+  main{padding:0 18px 50px;}
+  .topbar{margin:0 -18px;padding:10px 18px;}
+  .cols{grid-template-columns:1fr;}
+}
+</style>
+
+/* ===== fold6-adapt: vivo X Fold6 折叠屏适配 (安全区/行宽/断点/防溢出) ===== */
+html{scroll-behavior:smooth}
+body{font-size:17px;line-height:1.8}
+.content,.inner,#main,main{max-width:38em;margin:0 auto}
+img,video,table,pre,iframe{max-width:100%;height:auto}
+table{display:block;overflow-x:auto}
+@media (min-width:600px){
+  body{font-size:19px}
+}
+@media (max-width:600px){
+  .content,.inner,#main,main{max-width:none}
+  .wrap{padding-left:20px!important;padding-right:20px!important}
+}
+img,video,svg,canvas{max-width:100%}
+/* ===== end fold6-adapt ===== */
+
+
+/* ===== fold6-center: 隐藏目录后内容居中 ===== */
+#sidebar.hidden{position:absolute;left:0;top:0;width:var(--sidebar-w);z-index:900;}
+#sidebar.hidden ~ main,
+#sidebar.hidden ~ #main,
+#sidebar.hidden ~ .content,
+#sidebar.hidden ~ .inner{max-width:none;margin:0;padding-left:20px;padding-right:20px;}
+#sidebar.hidden ~ main > *,
+#sidebar.hidden ~ #main > *,
+#sidebar.hidden ~ .content > *,
+#sidebar.hidden ~ .inner > *{max-width:38em;margin-left:auto;margin-right:auto;}
+/* ===== end fold6-center ===== */
+
+</head>
+<body data-page-node-id="NyDHmi87J4Oti6px2iAWQT">
+<div id="progress" data-page-node-id="c2nTzyg5XUgiABTANMxA2y"></div>
+<div class="layout" data-page-node-id="vnN70KEnq4Gv3ZjTQCX2q1">
+<aside id="sidebar" data-page-node-id="8AcqYbXlkGuWUgsnkrO0NQ">
+  <div class="brand" data-page-node-id="rmp7QEZqcKOmVHjYpdg62H">矿业权价值评估</div>
+  <div class="sub" data-page-node-id="bgl1dOczE0UCISbfoTuaY7">第八章 · 项目管理 · 学霸版</div>
+  <nav data-page-node-id="OL12RbSDZVkSKMAu2FTd0G">
+    <a href="#map" class="lv1" data-page-node-id="LUZMdYTINHBMF1UmtOvWvr">📍 学习地图</a>
+    <a href="#memo" class="lv1" data-page-node-id="jKLPzsTzImc8RiAOuTXD8y">⚡ 高频考点速记卡</a>
+    <a href="#s1" class="lv1" data-page-node-id="884FJXd3XxBo7v42HiJSc2">第一节 出让收益评估项目管理</a>
+    <a href="#s1-1" class="lv2" data-page-node-id="dSLLLLtKIO4xjHxQUjy9mK">出让收益·征收·评估</a>
+    <a href="#s1-2" class="lv2" data-page-node-id="cB61EbIBpPKMagr6IaLVQ8">项目委托</a>
+    <a href="#s1-3" class="lv2" data-page-node-id="pCKlU94hn4k96gOc208eJa">报告公示流程</a>
+    <a href="#s1-4" class="lv2" data-page-node-id="5QRg3X7eVwzyjRKmjpzgEv">市场基准价</a>
+    <a href="#s2" class="lv1" data-page-node-id="PqVoPxtriakkAeyHzWeHsk">第二节 涉企业国有资产项目管理</a>
+    <a href="#s2-1" class="lv2" data-page-node-id="lXPjv4Nwjon1dKN3aNHdly">委托·基本要求·备选库</a>
+    <a href="#s2-2" class="lv2" data-page-node-id="vs6gI8cHjUnKQjPOmwsDhN">核准与备案</a>
+    <a href="#s2-3" class="lv2" data-page-node-id="cF9bOF9at92KrqO9p7qio7">报告使用·90%</a>
+    <a href="#s3" class="lv1" data-page-node-id="8RxE3asWKsAYWusipWp1ZA">第三节 涉执司法评估项目管理</a>
+    <a href="#s3-1" class="lv2" data-page-node-id="dBnEXZre6OXmDoF0VvHGpU">名单库管理</a>
+    <a href="#s3-2" class="lv2" data-page-node-id="q01Y4J6YoheqKIFsmeHkEd">项目委托</a>
+    <a href="#s3-3" class="lv2" data-page-node-id="WFTmZQdRhZs6NtB295CJZy">项目履行·30日</a>
+    <a href="#compare" class="lv1" data-page-node-id="pX8Wtd6KJSPp6IjG6FHPNK">三条管理线横向对比</a>
+  </nav>
+</aside>
+<main data-page-node-id="szgG41AwtqU9Bx7Hnw5l4Y">
+<div class="topbar" data-page-node-id="XPHPvjOyQqEaMVooXG9E4J">
+  <button id="toggle" data-page-node-id="kAK0yhMgmMQkY2Kp6rrW3Z">☰ 目录</button>
+  <span class="tt" data-page-node-id="Td7zbsd19SSoSrIKNwFiLr">第八章 矿业权价值评估项目管理</span>
+</div>
+<div class="hero" data-page-node-id="EAHxQUm4EliYJTll6im13g">
+  <h1 data-page-node-id="zfAyHXokFHIG4pIEAO8KsS">第八章 · 矿业权价值评估项目管理</h1>
+  <div class="tagline" data-page-node-id="KKpc0derCKX7pcPXvBEjA2">矿业权价值评估涉及矿业权管理、国有资产及公共利益，监督管理部门对其项目管理作出具体规定。本章从"谁管、怎么委托、报告怎么公示/核准/备案、数字红线在哪里"四个维度，把三条管理线（出让收益线、企业国有资产线、司法评估线）讲清楚。</div>
+  <div class="meta" data-page-node-id="QrrUIMF48YmOE4GLoyBIE2">
+    <span data-page-node-id="3L49zrofkwHkgK25YKbqIs">📖 共 3 节 · 9 页</span>
+    <span data-page-node-id="L2tBhvsSA0lskGxhhrJJEX">🎯 三大管理场景</span>
+    <span data-page-node-id="sWABzLEi0Je8TILILW3dD3">⏱️ 建议学习 60 分钟</span>
+    <span data-page-node-id="uUiDqaQhxjws0W4Zn7sZHh">📌 重点：公示/核准/备案/30日/90%</span>
+  </div>
+</div>
+
+<div class="map" id="map" data-page-node-id="4u3ES59ohVlTgO08PaLnuE">
+  <h2 data-page-node-id="wVMBDwDz3Dh57X8rUsHDpE">🗺️ 本章学习地图</h2>
+  <div class="row" data-page-node-id="NELOTdfjQY01T72LtZe4x7">
+    <div class="node" data-page-node-id="4ktAAE4Txtsbyy3dN1HCdy"><span class="n" data-page-node-id="BNjoDbgB4ZnLujBAUIasFg">1</span><div class="t" data-page-node-id="3KtqYru5wQHVxDtAtbzvgP">出让收益评估管理</div><div class="d" data-page-node-id="ymq3LsNg2zOGvisTxD3O29">概念·征收·委托·公示·市场基准价（最核心，必考）</div></div>
+    <div class="node" data-page-node-id="h3EEH1NfTSCjPxtnrJpL2t"><span class="n" data-page-node-id="82mTylGGnMhdbHkpXDden4">2</span><div class="t" data-page-node-id="t4bWZb1sDVtovVLpmfb5U0">企业国有资产项目</div><div class="d" data-page-node-id="3yukBGYHsAyLRaTgIGKJ0J">委托基本要求·备选库·核准/备案·90%红线</div></div>
+    <div class="node" data-page-node-id="opl99mskxcd2EMbgRPtY0d"><span class="n" data-page-node-id="K3Dwwxp8Ba6zkMpPR97rww">3</span><div class="t" data-page-node-id="4ow5nCz8s0u6vYjVdEwQKJ">涉执司法评估项目</div><div class="d" data-page-node-id="t4CZVS2Hv8uO1OyvzTnDKD">名单库·委托·履行·30日出具+15日延期</div></div>
+    <div class="node" data-page-node-id="KDyFosRCFYWEIScFUYmNpf"><span class="n" data-page-node-id="CWZLPXyYkICKPGJ2bOxh4I">4</span><div class="t" data-page-node-id="2plSjrPcvFsNf6lMQgosaO">横向对比</div><div class="d" data-page-node-id="ualY8qXaGIqz2hTnhzO1fh">三条线在"谁委托/如何选机构/报告如何生效"上的差异</div></div>
+  </div>
+</div>
+
+<div class="memo" id="memo" data-page-node-id="RuroYFFknGwJA4O8vS8txk">
+  <h2 data-page-node-id="10bFmbkTwPYqNhgsge3EXc">⚡ 高频考点速记卡（先扫一遍，再看正文）</h2>
+  <div class="grid" data-page-node-id="CMcn99rxgOqVSz3ul6u2aM">
+    <div class="m" data-page-node-id="vCIvjHSup3MetUvG3QtSSI"><div class="no" data-page-node-id="FJfGYURHDD8l1iGdJDtFqM">CARD 01</div><div class="t" data-page-node-id="OjhiS5yQGznM278v0utkE1">出让收益概念</div><div class="d" data-page-node-id="bOvAFN441NL4MJ2n7SbZLc">国家基于自然资源所有权向矿业权人收取的国有资源有偿使用收入，含探矿权+采矿权出让收益。</div></div>
+    <div class="m" data-page-node-id="bhRWYmqiWMPUHGusKmO8DP"><div class="no" data-page-node-id="chslX3TVA5saUagOCLMWdQ">CARD 02</div><div class="t" data-page-node-id="qfQIaZcay70WUSvAMxBnLT">协议出让·就高</div><div class="d" data-page-node-id="8m8F1pEKQPHNTd5M70PYhz">协议方式出让时，出让收益按"评估价值 vs 基准价测算值"就高确定；竞争方式按招拍挂结果确定。</div></div>
+    <div class="m" data-page-node-id="DS6O62eDOUPbXuV67TkwA8"><div class="no" data-page-node-id="YbjG6yxU4e6EOvaPZlqGHE">CARD 03</div><div class="t" data-page-node-id="YBBVZyfU6tAWGaWT9XVdIr">至少两名评估师</div><div class="d" data-page-node-id="V3VMUt2CqhOMCGhK1eXbL2">出让收益评估项目由评估机构承担，须指派至少 2 名矿业权评估师承办；机构选法由随机摇号→招投标演变。</div></div>
+    <div class="m" data-page-node-id="GfJCFgsNSLVJ6Fmc17CtRU"><div class="no" data-page-node-id="cST01n2EqFAmKlWfUlnP4F">CARD 04</div><div class="t" data-page-node-id="hWnpHfu0S0q0tXpiM1jrGB">公示"10+10"</div><div class="d" data-page-node-id="Bll8o3QCFMQoYSLyJA72M9">收到报告 10 个工作日内，对≥基准价的报告公示 10 个工作日；公示无异议后公开，结果自公开之日起生效，有效期 1 年。</div></div>
+    <div class="m" data-page-node-id="9BXUutzM9XA33SI0ozKfpn"><div class="no" data-page-node-id="NjtADpXZpFKhmSd6HIk2Fx">CARD 05</div><div class="t" data-page-node-id="LuSxGjP0L7WfwpDpKckVaQ">低于基准价不公示</div><div class="d" data-page-node-id="myQSl05kiVgG0cA54HQLI8">评估结果低于矿业权出让收益市场基准价的，报告不予接收、不予公示（保底价性质）。</div></div>
+    <div class="m" data-page-node-id="b84GTFQQ7ggQmb8AxXFUX6"><div class="no" data-page-node-id="YxRWtI6nnBB1LLFGa0rUpZ">CARD 06</div><div class="t" data-page-node-id="1ac5Y1sACZimlpZ2Vngzzb">基准价每3年更新</div><div class="d" data-page-node-id="iJlY7E6iut7rQaqeWfxEKw">市场基准价由地方自然资源部门定期制定、经省级政府同意后公布，报自然资源部备案，原则上每 3 年更新一次。</div></div>
+    <div class="m" data-page-node-id="WY034mDnP8dhS474gixseu"><div class="no" data-page-node-id="2DXkPAH6YWm0oWOZhGZNvA">CARD 07</div><div class="t" data-page-node-id="EmC8UERYWXLs4O4lXWLghw">备案/核准是生效条件</div><div class="d" data-page-node-id="gU3NmdgrB9oovZ1HMkZj0o">涉及企业国有资产的评估报告，核准或备案是评估结果生效的必要条件；备案表是办理产权登记、股权转让的必备文件。</div></div>
+    <div class="m" data-page-node-id="FpNRS2nD2oJ31M1e85EOxw"><div class="no" data-page-node-id="T2wT5zl0D2gDzcYwWHeR3Z">CARD 08</div><div class="t" data-page-node-id="CKLgPUjniVGB86CCFznaPS">交易价90%+30日</div><div class="d" data-page-node-id="i0mkXm5HJNoaXUq1TBYZxj">交易价格低于评估结果 90% 时须暂停交易；司法评估 30 日内出具报告，可两次延期、每次不超 15 日。</div></div>
+  </div>
+</div>
+
+<section id="s1" data-page-node-id="kohf7epOxcPKIr9ZxAOYQW">
+  <h2 data-page-node-id="uHtHaNJhw4jaOfaXuvtqaR">第一节 矿业权出让收益评估项目管理 <span class="tag" data-page-node-id="wGRB8P5xYZED5KzER0uzTL">最核心 · 必考</span></h2>
+  <p class="lead" data-page-node-id="LetL8OULgdsnX7GCgWfxk3">矿业权出让收益评估是矿业权价值评估的主要业务之一，是涉及矿业权管理和矿产资源所有者权益管理的重要专业支撑。本节按"概念→征收→委托→公示→使用→市场基准价"的链条展开。</p>
+
+  <h3 id="s1-1" data-page-node-id="oZGAy5MJHc0vGj8UaBDVnk">一、矿业权出让收益</h3>
+  <div class="def" data-page-node-id="wSJ3HaHkgtdJYfuQFRCoIE"><div class="k" data-page-node-id="42MSXSN67xg3VjuX59ZqEK">出让收益概念</div><div class="v" data-page-node-id="T2Ct0WKVAuE1syI3bri4yN">矿业权出让收益是<b data-page-node-id="6sBEdFvkEi0fpuM7y73lfS">国家基于自然资源所有权</b>，依法向矿业权人收取的<b data-page-node-id="dsr7iYKyq1d6N6A3jtoeIx">国有资源有偿使用收入</b>。包括<b data-page-node-id="ZQTFNFDNIp0QZPuTIUeGaG">探矿权出让收益</b>和<b data-page-node-id="0rPgI6J7Cbtf2aim04RytD">采矿权出让收益</b>。</div></div>
+
+  <h4 data-page-node-id="ExXvjeFYaAqMCorZY9lJ7x">征收权限（属地征收为原则）</h4>
+  <ul class="clean" data-page-node-id="TETX0FD4S9b9JdSUuAQzGa">
+    <li data-page-node-id="hNrajIAnAQ2MnpraURRvGz">原则上按矿业权<b data-page-node-id="DtBdVOHJzXmDXJGzq5N3Sz">属地征收</b>。</li>
+    <li data-page-node-id="0zdNh3zXWHeFz6ld103mPc">跨市、县级行政区域的：具体征收机关由有关<b data-page-node-id="YmMZquGP4tvkcGVMBNeOeQ">省</b>（自治区、直辖市、计划单列市）税务部门会同同级财政、自然资源主管部门确定。</li>
+    <li data-page-node-id="CUZWfnonZ4iSCEtOVPLLgF">跨省级行政区域、以及同时跨省级与我国管辖海域的：由<b data-page-node-id="HDhwY0gydSZoXMsZVkS28p">税务总局会同财政部、自然资源部</b>确定。</li>
+    <li data-page-node-id="5vvqy7B3Q69NotldV8o8RN">陆域/海域油气矿业权跨省的：按钻井/钻井平台所在地确定；按成交价征收部分按海域管辖权并按面积比例分别计征，按出让收益率征收部分按钻井平台所在海域确定。</li>
+  </ul>
+
+  <h4 data-page-node-id="P0OBEjY71PgmZwNVeNYzje">征收方式与"按出让金额方式"的权益确定</h4>
+  <div class="cols" data-page-node-id="n0ToUKbsz6hGR79UDmudQt">
+    <div class="warnbox" data-page-node-id="RegYnZ3lcCYR6PcEMQy84M"><div class="wt" data-page-node-id="7cURHyY8nj85PEJsJVghr3">竞争方式出让</div>通过招标、拍卖、挂牌等竞争方式出让的，出让收益<b data-page-node-id="lJ0FZwAfZMsB5te0nKjS8I">按招拍挂结果</b>确定。</div>
+    <div class="keybox" data-page-node-id="7VLR2SRsYA2thDfr1cG6d9"><div class="wt" data-page-node-id="SVIORxmTJPoGYgC3VDoG8O">协议方式出让（考点）</div>通过协议方式出让的，出让收益按 <b data-page-node-id="joviZBbVt6eBrdAry5vwRe">评估价值</b> 与 <b data-page-node-id="9GsnYQDuTJSjiYsCjS7p3B">矿业权出让收益基准价测算值</b> <b data-page-node-id="ArVzXT938J1eGGByxQyuJw">就高确定</b>。</div>
+  </div>
+
+  <h4 data-page-node-id="YQa6dwn69C1PorDm86zNWJ">评估的作用</h4>
+  <p style="margin:6px 0" data-page-node-id="rE63WfZ2DMMsnwGb59XcIc">出让收益评估主要适用于<b data-page-node-id="2HLtW5VbTvxuACN72E7rUO">按出让金额方式</b>征收的情形：</p>
+  <ul class="clean" data-page-node-id="kpxutzSvgdBQ61JQoVd5PG">
+    <li data-page-node-id="H44eLFJk7UFMERgckunbQE">竞争方式出让时：为确定矿业权出让<b data-page-node-id="WOeXbdvbjLfkhcSNOiroyc">底价或起拍价、保留价</b>提供参考意见。</li>
+    <li data-page-node-id="v9lhWDAH92Ez3ltmZajjG2">协议方式出让时：为确定矿业权出让收益提供参考意见。</li>
+  </ul>
+
+  <h3 id="s1-2" data-page-node-id="h6aPV96vtFmML0GbiNIJCn">二、出让收益评估项目委托</h3>
+  <ul class="clean" data-page-node-id="HlisbxK69Nnw1gfeHjD4CC">
+    <li data-page-node-id="SXFFg51ZE7u2Ryswck3GHV">由<b data-page-node-id="l15CBaOJxzRzyWp2FBo4Ua">省级自然资源行政主管部门</b>负责组织开展，大部分省依矿业权管理权限一并开展。</li>
+    <li data-page-node-id="ausU9iuUZQiAQbUIatb8qr">由<b data-page-node-id="g4lD1Y0hheO6NjmEswBNYe">矿业权评估机构</b>承担，应指派<b data-page-node-id="lVtNPTWPsvKZERbKUZSL7F">至少 2 名矿业权评估师</b>承办。</li>
+    <li data-page-node-id="EEoPFsvnACxOtC6L40dPsm">机构选法演变：过去常采用<b data-page-node-id="meWQy0hMBA44yAjggxKMsP">随机摇号</b>；目前大部分省采取<b data-page-node-id="weSf3m8xU5r0PDL1ezZ0bI">招投标</b>方式选择评估机构。</li>
+  </ul>
+  <div class="def" data-page-node-id="SmWUaZpqnTflDAE9uE3Mvv"><div class="k" data-page-node-id="4K5XjIovaYBZp3FxDoKvWa">委托合同要点</div><div class="v" data-page-node-id="1BDRbrOy17KpM1Aq9P2c2G">除约定事项、评估目的、评估基准日、评估期限、评估费等外，还明确<b data-page-node-id="9X0UE5CNWFoCSvM12Tg7gU">签订事由、评估机构资质情况、评估项目取得方式</b>，并约定主管部门需提供的资料。</div></div>
+
+  <h3 id="s1-3" data-page-node-id="wcdrsGwaoewAMyOi1oQxME">三、出让收益评估报告公示</h3>
+  <h4 data-page-node-id="FdRAz9PwT62a4wXYvt2Cle">报告提交</h4>
+  <ul class="clean" data-page-node-id="ITWd7up5MXPmhyI9fWh9D9">
+    <li data-page-node-id="SNNBMjUjkP0AoFF2Gj3md6">评估机构按法律、评估准则、合同要求和约定期限完成工作，向委托的自然资源行政主管部门提交：<b data-page-node-id="olRhTpvEICIrcckhC4Ktsa">报送评估报告的函、评估报告、评估报告主要参数表、承诺书</b>（电子和纸质件各一份）。</li>
+    <li data-page-node-id="OFMtsaJ8qZRVuoxmp1nmPG">评估机构和承办评估师应在承诺书上盖章、签字，对报告的<b data-page-node-id="HFNSCF7xrI0N3CIRD6VsgY">独立、客观、公正和真实性</b>承担法律责任。</li>
+  </ul>
+
+  <h4 data-page-node-id="8vr4zx9H5Fjhva7AiwVjtX">公示流程（四步，重点）</h4>
+  <ol class="clean" data-page-node-id="Z4406UXIWCA6otih2p5mcS">
+    <li data-page-node-id="xq2UwUkwItlNg8jUjEpfgW"><b data-page-node-id="mnlxKstNW94iZagdESSj1p">比对</b>：收到报告后，将评估结果与矿业权出让收益<b data-page-node-id="yCSptcYKkG5jvqEQJEOJX1">市场基准价</b>比较；结果<b data-page-node-id="kKoz5nsxOjI8aP1N8iXiGj">高于</b>基准价的予以公示，<b data-page-node-id="FPPM6yXnzDQA9gz1ULRgg0">低于</b>基准价的不予接收、公示。</li>
+    <li data-page-node-id="7y6O2Nw2cDuiVQyVNf1kmg"><b data-page-node-id="udMzvJJIKi9TkZPzDFBXNO">公示</b>：对不低于基准价的报告，在收到后 <b data-page-node-id="l5x4AZRA0wLDtwkVk8Iaqa">10 个工作日内</b>，在门户网站公示 <b data-page-node-id="N2ysDtdO0Ela76iwMZyNNr">10 个工作日</b>（公示评估报告、主要参数表和承诺书）。</li>
+    <li data-page-node-id="Msgio3hkN8w5MzetM7fNZD"><b data-page-node-id="tMJ8hUZqxPxEtFNSgeJSyX">异议处理</b>：对公示报告有异议的，交评估机构处理；机构应<b data-page-node-id="3XptvtHoWKSXF2AbFwLVt4">逐条研究并作出说明或修改</b>，主管部门再就报告、参数表及说明/修改情况公示（10 个工作日），可组织沟通。</li>
+    <li data-page-node-id="gnHSnTJAyH8Y0bv5jYdJHP"><b data-page-node-id="sIWPpwINyH4pXYsOHayDhJ">公开生效</b>：公示无异议后予以公开，评估结果自公开之日起生效，<b data-page-node-id="aZ6idgLHDBAq17Q8bNXuCh">有效期一年</b>。</li>
+  </ol>
+  <div class="warnbox" data-page-node-id="peUhlDsuhGgjiE3bRSBTND"><div class="wt" data-page-node-id="jaz6Qg4ViLmSzAmZvJKeQY">易错提醒 · 数字</div>①比对时低于基准价 → 不接收不公示；②"10 个工作日"出现两次（接收期限 + 公示期限）；③生效时点是"公开之日"，不是"公示之日"，有效期 1 年。</div>
+
+  <h3 id="s1-4" data-page-node-id="B9fpK9ebvrvSwdCsz8rVrj">四、报告的使用 & 五、矿业权出让收益市场基准价</h3>
+  <h4 data-page-node-id="j24GbXJhQLQS12pFao0Shx">报告使用</h4>
+  <ul class="clean" data-page-node-id="6qwn5wHGKEhVFGDuYyoGGm">
+    <li data-page-node-id="Ia16dbkwjCXiV4DEOW02ev">公示无异议后，主管部门以评估结果为参考，结合本地区实际规定，经一系列决策程序确定出让收益（或底价），同时确定<b data-page-node-id="C2CwEEQmhYWP5VSXLc6ZpR">首期缴纳比例和缴纳期限</b>，向矿业权人下达缴款通知书。</li>
+    <li data-page-node-id="Mkeo5G82nF7O0zRVd3zkBs">最终确定的出让收益、首期缴纳比例和缴纳期限均在<b data-page-node-id="CKVzfMbMBeyOfqDCmDGEqL">矿业权出让合同</b>中体现。</li>
+    <li data-page-node-id="O6AowH52IanGf3IALPzWt5">主管部门将报送函、评估报告、主要参数表、承诺书等电子和纸质件作为<b data-page-node-id="6SPcpHeGqHy6iGkiG1Zbmt">业务档案</b>存档备查。</li>
+  </ul>
+
+  <h4 data-page-node-id="v0VFbuJgE0ddN0dIgxPonx">市场基准价（概述）</h4>
+  <p style="margin:6px 0" data-page-node-id="DhltiSAIg7fJAQclulGVA4">相关文件并未明确给出"矿业权出让收益市场基准价"的定义，业内一致看法：</p>
+  <ol class="clean" data-page-node-id="AVx54vJ5eRdVqQvKeLufFC">
+    <li data-page-node-id="AyxQCrThCeEGelFoVW9u8j">是为维护矿产资源所有者权益、国有自然资源资产不受损失而制定的矿业权出让<b data-page-node-id="QHvEKBNgkI7SHyVcxezDAm">保底价</b>；出让过程中确定的出让收益（或底价）<b data-page-node-id="lpGuFqSaMbSFZHH3rImVnV">不得低于</b>该基准价。</li>
+    <li data-page-node-id="xp804gOK85vGYNGOwEPWyw">由地方自然资源行政主管部门定期制定，经<b data-page-node-id="IFbSfQ8R4bJ2D773wn7yeM">省级人民政府</b>同意后公布执行，结果报<b data-page-node-id="FO8zVuVnGWBlQnl2K9bh9y">自然资源部</b>备案；<b data-page-node-id="dePd0g7kjsBbJWEH5jrCGN">原则上每三年更新一次</b>。</li>
+    <li data-page-node-id="QEhViH8FmcLPO6Pyanbck2">确定时根据本地区出让实际选择矿种，以矿业权出让成交价格等统计数据为基础，以现行技术经济水平下预期收益为制定/调整依据，按评估指南选择恰当方式<b data-page-node-id="4mzCVCiPP6kDuUMEwgRS14">模拟评估</b>，考虑地质工作程度、区域成矿地质条件及资源品级、产品价格、开采技术条件、交通运输条件、地区差异等因素，科学设计调整系数，综合形成。</li>
+    <li data-page-node-id="aTUbAGtzPEmmXnqAecviFv">各省发布的文件中通常包括：各矿种采矿权出让收益市场基准价标准、探矿权（各勘查阶段）/共伴生矿/产品/开采方式/地区等调整系数、更新期限、矿产品销售价格浮动幅度、核算公式等。</li>
+  </ol>
+
+  <h4 data-page-node-id="BlhkF89bGEWQT8gcxjTpzZ">市场基准价的核算与使用</h4>
+  <div class="def" data-page-node-id="QDlh7hlMiv5CdCjmgw0aQU"><div class="k" data-page-node-id="gk3D98FSASp8Fy4sBLgrAG">表现形式</div><div class="v" data-page-node-id="ptlhpiWsApdK7g3NcKQFUk">目前发布形式均为<b data-page-node-id="N0ZF8TCZnloJ4k01PW9XYv">各矿种单位基准价格</b>（含矿种、基准价、品位/品级调整系数、单位等，见表 8-1）。</div></div>
+  <p style="margin:8px 0 4px;font-weight:700" data-page-node-id="YGQEqcTOk67Q7arOmMWcul">核算公式：</p>
+  <table data-page-node-id="Pi55zD8B49VOGaaS6sA05D">
+    <tr data-page-node-id="K62StfAcXgIsxcAU7Ah7g7"><th data-page-node-id="lui6YnFFby3ImYgejcQA5I">对象</th><th data-page-node-id="if2EInNb9wLXrd4JlWyAHK">核算公式</th><th data-page-node-id="KoBkulVGomscNjCSoPPnnx">要点</th></tr>
+    <tr data-page-node-id="OGyPMmStuCVdDXqR1Nqh3I"><td data-page-node-id="jcW6K7zDIsFdw66H30qZaO">采矿权出让收益市场基准价</td><td data-page-node-id="xCPP7E6YyvFvh843McLqeV">各类矿种基准价 × 各类矿种资源储量 × 调整系数</td><td data-page-node-id="s8nMF2CVdasX5ijSYtiOGu">各类矿种指采矿权范围内经评审备案登记、储量平衡表有保有储量数据的矿种；资源量/可采储量对应确定</td></tr>
+    <tr data-page-node-id="mSGk2B85XLEnwcGMP8oTVa"><td data-page-node-id="bYpGYslzQtXLO02wfJJC9P">探矿权（已探获储量）</td><td data-page-node-id="73TTSX2Uh2J2KrFOoViH9M">探矿权出让收益市场基准价 = 采矿权出让收益市场基准价 × 调整系数</td><td data-page-node-id="3923IcSOQbbu21NMIiYBnq">探矿权范围内已探获矿产资源储量时适用</td></tr>
+    <tr data-page-node-id="bgTOLkOLkcHsoJ2eInLyEf"><td data-page-node-id="2E8PFrYu46v8Ur7HzUeemR">探矿权（空白地）</td><td data-page-node-id="ZEhtGUADCSSFKiUGAIDmYN">探矿权出让收益市场基准价 = 探矿权面积 × 空白地市场基准价</td><td data-page-node-id="TaabBcPvTxbZB0X231ZnJh">探矿权为空白地时适用</td></tr>
+  </table>
+  <div class="keybox" data-page-node-id="VF5vnLa1sIMxKz3b0HcCeP"><div class="wt" data-page-node-id="pWIf1xPD1JQ9f4xQFALsWD">比较口径（易错）</div>市场基准价与评估结果的比较，应以<b data-page-node-id="8XwIRtbOCDOpsimcn1BtVq">拟出让矿业权整体</b>为单位，即把核算的矿业权出让收益基准价与评估结果比较，<b data-page-node-id="O07Y16KKzOg0ykN5naVSkf">而不是按单个矿种</b>比较。</div>
+
+  <div class="quiz" data-page-node-id="TWEN13w2A4IWc7OVZsgTnF">
+    <div class="q" data-page-node-id="m7Ak8qX76oR4ChpJDg2zxi">第一节 考点自测</div>
+    <div class="a" data-page-node-id="NRFxoXBhmDwDy7K29uD4O9">① 协议方式出让时，矿业权出让收益按"评估价值 vs 基准价测算值"____ 确定？（答案：就高）</div>
+    <div class="a" data-page-node-id="Sja4rFfjtIMB8uLsjQ46Q9">② 出让收益评估项目应指派至少 ____ 名矿业权评估师承办？（答案：2 名）</div>
+    <div class="a" data-page-node-id="JUtsWWaGWt89x02hAtGGlx">③ 评估结果低于市场基准价时如何处理？公示期限是几个工作日？结果自何时起生效、有效期多长？（答案：不予接收、不予公示；公示 10 个工作日；自公开之日起生效，有效期 1 年）</div>
+    <div class="a" data-page-node-id="LbBA73YoWPyBKliUYG4xWr">④ 市场基准价原则上每 ____ 年更新一次？空白地探矿权基准价如何核算？（答案：3 年；探矿权面积 × 空白地市场基准价）</div>
+  </div>
+</section>
+
+<section id="s2" data-page-node-id="CkrfaRaavheunQZSwDAIng">
+  <h2 data-page-node-id="D4EGA0asBLjBWhAPPNLWxj">第二节 涉及企业国有资产的矿业权价值评估项目管理 <span class="tag" data-page-node-id="vTQCjrm86FB6ZJd8oTalpe">核准/备案 · 90%红线</span></h2>
+  <p class="lead" data-page-node-id="QOALc4Q10VNxOmRMZyLR2Q">在企业国有资产交易过程中涉及矿业权时，当事人应按国有资产评估管理相关规定委托评估。须遵守《国有资产评估管理办法》（国务院令第91号）、《企业国有资产评估管理暂行办法》（国务院国资委令第12号）、《企业国有资产交易监督管理办法》（国资委、财政部令第32号）等。</p>
+
+  <h3 id="s2-1" data-page-node-id="5pwpdVgxCrDbz3ejTwXhSo">一、项目委托</h3>
+  <h4 data-page-node-id="4Oa6eKelpD2tNgnSypt5bk">承担此类项目应具备的基本要求（暂行办法）</h4>
+  <ol class="clean" data-page-node-id="eJxWbyfSttarCI2DrKF9BK">
+    <li data-page-node-id="vAZQJXJGXWnAe6MPJMGDvG">遵守国家有关法律、行政法规、规章及企业国有资产评估的政策规定，严格履行法定职责，<b data-page-node-id="UulRbmM358JF7h7DAI7T12">近三年内没有违法、违规记录</b>。</li>
+    <li data-page-node-id="F4PA5xVHCQPX43g4D99FIs">评估机构具有<b data-page-node-id="rsFeoZIH5qz5A1A8H8MpNz">《探矿权采矿权评估资格证书》</b>。</li>
+    <li data-page-node-id="gcLfjFfRrnDCXHvT8NmkXA">评估机构具有<b data-page-node-id="NGMYmgyuSiDDli8DahdLOE">符合法定要求的矿业权评估师</b>。</li>
+    <li data-page-node-id="r6ZOeYwIE9rwXffAEHZhdk">与企业负责人<b data-page-node-id="FlGCblypHdywDvhW2jkbNH">无经济利益关系</b>。</li>
+    <li data-page-node-id="gDn5hGUBzNOlCqZU0IWHp8"><b data-page-node-id="NGda4SRPSpCxJIn4OBWLrt">未向同一经济行为提供审计业务服务</b>。</li>
+  </ol>
+
+  <h4 data-page-node-id="TuG75fwk73MpQrCCG1PVma">中央企业评估机构备选库管理</h4>
+  <ul class="clean" data-page-node-id="SxL0W8mU6RZdPFAXgH8Vhi">
+    <li data-page-node-id="Q94yteQesDGNq39nx2WFhn">依据国资发产权〔2011〕68号、〔2016〕42号，中央企业建立<b data-page-node-id="Czq5vYaI56V8a8ND8gL6DV">评估机构备选库</b>，制订选聘管理制度、完善选聘程序、明确选聘条件、建立执业质量评价标准及考核体系。</li>
+    <li data-page-node-id="nozs94ZebNg0zetpfhwoZH">选聘矿业权评估机构时，机构应在该企业备选库中，目前一般通过<b data-page-node-id="MnIRyLLUxtcPj1u2YTfrUi">招投标</b>方式确定。</li>
+    <li data-page-node-id="ODQ54nNPPXOm09DsTvol6r">机构应严格依法、依准则执业，防止出现〔2016〕42号列示情形而被<b data-page-node-id="SAlw6mKU4QwPabScrPyk8k">解聘或除名</b>。各省市国资委通常也建立备选库并制定管理措施，机构同样须遵守。</li>
+  </ul>
+
+  <h3 id="s2-2" data-page-node-id="ZdzQCp1uALHKWGx7REe5uE">二、项目核准及备案</h3>
+  <div class="keybox" data-page-node-id="NXMFj8PLAA3ERfaknDfmNj"><div class="wt" data-page-node-id="AO4CwIzZUYc5zHzEH63oZ3">总原则（必背）</div>对涉及企业国有资产的矿业权价值评估报告的<b data-page-node-id="PxBkFXvcF4cO1giqed7LVn">核准或备案，是评估结果生效的必要条件</b>。在暂行办法（12号令）和交易监督管理办法（32号令）中均有明确规定。</div>
+
+  <div class="cols" data-page-node-id="fHzLVhZWuufyVLgWvle5e8">
+    <div class="def" data-page-node-id="C9yg6VlG13zIBeB0HEnMOi"><div class="k" data-page-node-id="9u6yq03J9lE9XNjbA09HK5">核准制</div><div class="v" data-page-node-id="ZPPkF8x0YOZ0z654MDhckc">对<b data-page-node-id="tYDQjfVz1Qltc89IhmQyAN">国务院或省级人民政府批准实施的重大经济行为</b>所涉及的评估事项，以及各级政府认为的其他重要评估事项，由履行出资人职责的机构管理，对评估报告进行<b data-page-node-id="M77zFRrEDzEQOEovF1N8GB">合规性和合理性审核</b>，保证结果公允、防止国有资产流失。</div></div>
+    <div class="def" data-page-node-id="VwOCSYMLlchVaonWFfLkUK"><div class="k" data-page-node-id="Ehee4IYOxBFemPxMqFCOQF">备案制</div><div class="v" data-page-node-id="iB4sRTri7TgYuxwCwfqu0b">对<b data-page-node-id="OEMHjElGquhIaxb5B7Yu8k">经履行出资人职责的机构、国家出资企业及其各级子企业批准的经济行为</b>所涉及的评估事项，由有备案权限的部门管理，同样进行合规性和合理性审核。体现国有资产<b data-page-node-id="BRlqhkJF9Aym1mTVESLmkb">分级管理</b>制度，及资产占有单位作为独立法人应承担的经营管理责任。</div></div>
+  </div>
+
+  <h4 data-page-node-id="wosbwLSFxaa4WkNzr21AmM">核准（中央企业适用《中央企业资产评估项目核准工作指引》国资发产权〔2010〕71号）</h4>
+  <p style="margin:6px 0" data-page-node-id="tQcZusxPt87BkIEdNoNY94">地方企业遵守各地规定。核准过程中，矿业权评估机构应汇报：</p>
+  <ol class="clean" data-page-node-id="i8doA4Lp7gIOnWDo1yloS7">
+    <li data-page-node-id="AJOAACHAagpRtMaAEwg68H">评估项目涉及的矿业权评估师名单。</li>
+    <li data-page-node-id="kYXJsyPsM0KK3rb7B6D4N3">矿业权人、矿业权评估对象的主要情况。</li>
+    <li data-page-node-id="ow1Eaa9wugVdOqjU5PouGd">矿业权有偿处置情况（矿业权价款和矿业权出让收益处置情况）及本次评估的处理情况。</li>
+    <li data-page-node-id="I3y4vVjTdpOmNGNp35yFos">评估项目涉及的矿产资源储量核实和评审备案情况。</li>
+    <li data-page-node-id="hNYwMQhW8WEiQUuU5C7Cl3">评估技术方案和评估基本过程描述。</li>
+    <li data-page-node-id="DFJnAN6h4y1KxeiabSFYpu">评估项目涉及的固定资产和土地使用权投资参数与资产评估、土地使用权评估的对接情况。</li>
+    <li data-page-node-id="5T31NvJyeGB9OMm3OPpMtP">完善矿业权权属的预计费用支出情况。</li>
+  </ol>
+
+  <h4 data-page-node-id="tgk2ow72KTBeTnx6xulDAs">备案（依据《企业国有资产评估项目备案工作指引》国资发产权〔2013〕64号）</h4>
+  <p style="margin:6px 0" data-page-node-id="mJffcWRUxYyWg0ofpEsJze">备案表的主要作用是作为企业办理<b data-page-node-id="hh2DWmHIKpAwKiau2DyILF">产权登记、股权设置和产权转让</b>等相关手续的<b data-page-node-id="BjvaMvv4L2EUAvSNw89iwK">必备文件</b>。备案管理单位重点关注：</p>
+  <ul class="clean" data-page-node-id="dmu8VvCvm0dXmVz05BOiih">
+    <li data-page-node-id="g2n7hk3jcE1a4dTHTSA6P3">矿业权价值评估范围、权属、矿业权有偿处置情况、矿产资源储量评审备案情况。</li>
+    <li data-page-node-id="0xJaycP4it0Z8dLP3OLi5C">评估报告是否符合矿业权价值评估准则要求；评估方法选取是否合理；相关参数选取依据是否充分；计算过程是否完整、确定的结果是否合理。</li>
+  </ul>
+
+  <h3 id="s2-3" data-page-node-id="tHd9IFThn7pS5KwpDoBBtO">三、评估报告的使用（数字红线）</h3>
+  <ul class="clean" data-page-node-id="RwYZtSEYumyQBePMFKLbYl">
+    <li data-page-node-id="dj2p74QFh4LoOmkYAcbB6E">企业进行与资产评估相应的经济行为时，应以经核准或备案的评估结果作为<b data-page-node-id="tRvX16fCsrxjhlESO7Vuxm">作价参考依据</b>；当交易价格低于评估结果的 <b data-page-node-id="WUO737YZMyDRPpoGvGCUYk">90%</b> 时，<b data-page-node-id="1sFs4wVqXUDjuqwuCk1PH0">应暂停交易</b>，经原经济行为批准机构同意后方可继续。</li>
+  </ul>
+  <table data-page-node-id="iRoZ5F0kyXxuVhYjT5vqE1">
+    <tr data-page-node-id="WTkhCW8xrDoLrKY929S6P9"><th data-page-node-id="Ue3krdBLTeTqhIfbWe6Qdb">交易方式</th><th data-page-node-id="hKT1ZQMwABslyKXkDCV1bi">规则（32号令）</th></tr>
+    <tr data-page-node-id="aFXkkqMa4OfPXCFEDVZUzx"><td data-page-node-id="smCzPCDFaqCcQ4KVzJD3Va">产权转让（公开）</td><td data-page-node-id="FS4jkQFCUjaPA4QyUf9rYR">转让价格以经核准/备案的评估结果为基础确定；首次正式信息披露的<b data-page-node-id="DEC47gHranVGAaOGfWaMqJ">转让底价不得低于</b>评估结果。披露期满未征集到受让方的，可延期或降低底价、变更受让条件后重新披露，<b data-page-node-id="lfgLDK55xbfZcqTljiczg0">重新披露时间不得少于 20 个工作日</b>。</td></tr>
+    <tr data-page-node-id="hwdanpn2bkb9ObyQGtTLLu"><td data-page-node-id="b1RijLmM0SRwZOhaqljvSY">降低底价重新披露</td><td data-page-node-id="Dqm1TmAKXrvvRYhfM04PmM">新的转让底价低于评估结果的 <b data-page-node-id="DfU1UNGvqFpgXJY8yHQfvi">90%</b> 时，应经<b data-page-node-id="0CmUzENBC6fU9LyA6KLY10">转让行为批准单位书面同意</b>。</td></tr>
+    <tr data-page-node-id="4uQ0DvHeBZAGFIbcArXOzC"><td data-page-node-id="lkspJoxXfowG1x4ojjfh0a">交易结果公告</td><td data-page-node-id="5z1MHdNDolLU5zMiLkFPfy">合同生效后，产权交易机构通过网站对外公告，内容含<b data-page-node-id="vCdUFlpv1clB2HWjgZQEX5">转让标的评估结果、转让底价、交易价格</b>。</td></tr>
+    <tr data-page-node-id="QWVDGP6PyJArM11f5HV8pV"><td data-page-node-id="kIKoA0P9Eq739L5SiXs8Jz">非公开协议转让</td><td data-page-node-id="cQytj0imCL41taTlFukuKr">转让价格<b data-page-node-id="48piZoZgoCvNpcS8bwgFLT">不得低于</b>经核准或备案的评估结果。</td></tr>
+  </table>
+  <div class="warnbox" data-page-node-id="e6yAwN5sboymmHS22ry5w9"><div class="wt" data-page-node-id="K8aHUx8p1vuyAvEivSnfAS">易错提醒 · 90% 与 20 个工作日</div>"低于评估结果 90% 暂停交易"针对一般经济行为；产权转让中"新底价低于 90% 需书面同意""重新披露不少于 20 个工作日"是 32 号令的专门要求，注意区分场景。</div>
+
+  <div class="quiz" data-page-node-id="tY7YJkGQkAvjZK1zFTP5fP">
+    <div class="q" data-page-node-id="HxTNtdgjoX2ZBhrVQmY5r6">第二节 考点自测</div>
+    <div class="a" data-page-node-id="JezVqGp5DLQgrVlnqwa0xf">① 承担涉企业国有资产矿业权评估项目，评估机构应具备什么资质？近三年内无什么记录？（答案：《探矿权采矿权评估资格证书》；无违法、违规记录）</div>
+    <div class="a" data-page-node-id="GcuDg1Z4iHcsk25Bl0zoHn">② 什么条件使评估结果生效？备案表是什么手续的必备文件？（答案：核准或备案是生效的必要条件；产权登记、股权设置和产权转让）</div>
+    <div class="a" data-page-node-id="Az3ifaVhXTHE25gw4aZJM8">③ 交易价格低于评估结果多少比例时应暂停交易？产权转让重新披露时间不得少于多少个工作日？（答案：90%；20 个工作日）</div>
+  </div>
+</section>
+
+<section id="s3" data-page-node-id="Jg758BxYBkeVZfL43E1OmT">
+  <h2 data-page-node-id="FHyH1Kr6rG8Nh5BbGI3nl9">第三节 人民法院委托涉执财产处置司法评估项目管理 <span class="tag" data-page-node-id="ncD2SBZqBeTGLlCehvJdly">名单库 · 30日/15日</span></h2>
+  <p class="lead" data-page-node-id="hTRRacaz9WHrFsL130kZID">依据《最高人民法院关于人民法院确定财产处置参考价若干问题的规定》（法释〔2018〕15号），矿业权价值评估是确定涉执矿业权处置参考价的重要途径之一。《人民法院委托评估工作规范》（法办〔2018〕273号）对项目管理作出明确规定。</p>
+
+  <h3 id="s3-1" data-page-node-id="kMMpO5TOjhjPhY6quJ22au">一、涉执财产处置司法评估机构名单库管理</h3>
+  <h4 data-page-node-id="5x6tsSSUcgamA9je8Cn7hk">名单库设立</h4>
+  <ul class="clean" data-page-node-id="Ch1uVhyvCDkIKx2mrCwqu4">
+    <li data-page-node-id="OuPLrfTALXSpHgFRRxPH2X">最高人民法院根据<b data-page-node-id="1MpC1RHEFu3xDkxqkJOFJD">中国矿业权评估师协会</b>推荐的矿业权评估机构名单建立"涉执财产处置司法评估机构名单库·矿业权名单分库"，目前<b data-page-node-id="o3iYLCVrKmBDja1GQSsaBk">未下设省、市两级名单子库</b>。</li>
+    <li data-page-node-id="lXUa77EVcPN5cFWlVYKBIN">入选机构及专业人员的基本信息、报备的收费标准，在<b data-page-node-id="I3rPhcqDWl1RLCJHWQ10iM">中国执行信息公开网</b>公示。</li>
+  </ul>
+  <h4 data-page-node-id="NIARnIXkgubytNKxYv79Qz">不得入库的情形</h4>
+  <ul class="clean" data-page-node-id="22uuVTR5aQT6Pp6uX2uETt">
+    <li data-page-node-id="I8o4qKDNuyMDVNNr7iOr65">因违反《资产评估法》或评估行业监督管理办法被有关部门处罚的，<b data-page-node-id="3XgLwKnzTzG3dowxTZxIkp">五年内不得推荐入库</b>。</li>
+    <li data-page-node-id="Vbz84kSPMOPa88BjYqjxvN">收费标准高于协会各评估机构平均收费标准 <b data-page-node-id="hY8Qi90OZHrQ1XGAtN2UxW">10%</b> 的，不得推荐入库。</li>
+  </ul>
+  <h4 data-page-node-id="ISu7Sc4AJDKqWq9Dzz0bsM">除名情形</h4>
+  <ul class="clean" data-page-node-id="9gFWMAVvYAXsXIzxIVX0IS">
+    <li data-page-node-id="jEREQ3F70hWEhCjFNsWzbx">协会应及时函告最高法除名的：①被纳入失信被执行人名单；②违反《资产评估法》或监督管理办法被处罚；③已办理企业注销登记；④已被市场监管部门吊销营业执照；⑤违反行业自律规定受严重惩戒。均建议<b data-page-node-id="MlHYvlH7EXP9FmcJXCBQXB">五年内不得再推荐入库</b>。</li>
+    <li data-page-node-id="SHLpIWEaGEV9ubYWKIZq1W">最高法通知协会除名的：①无正当理由拒绝司法评估；②存在弄虚作假；③未按照报备收费标准计算评估费用。均<b data-page-node-id="OHxIF9rJXaHouERuEVesm3">五年内不得再推荐入库</b>。</li>
+  </ul>
+  <h4 data-page-node-id="5Q1TionoSqo88gArSRl7iY">名单库更新</h4>
+  <p style="margin:6px 0" data-page-node-id="2mJdPmZcGnoUi3F5mYpQci">中国矿业权评估师协会<b data-page-node-id="JkQCQNrxLF0iNn4kr3KY5W">每年</b>根据最高法通报的已入库和新申请加入情况，重新推荐入库名单。</p>
+
+  <h3 id="s3-2" data-page-node-id="kk3v4XFa7L9GhSj8AdKDM2">二、涉执财产处置司法评估项目委托</h3>
+  <h4 data-page-node-id="FSD8bY2YhojllxTRsksp1p">应当委托评估的情形</h4>
+  <ol class="clean" data-page-node-id="07qDT1x5wZsHgpsJDMwF9Z">
+    <li data-page-node-id="2K04cjuCaRhCL6I3Kiv7ua">涉及国有资产或者公共利益等事项的。</li>
+    <li data-page-node-id="W6Q71owj68bRR02STNTn4H">法律、行政法规规定必须委托评估的。</li>
+    <li data-page-node-id="EFyGIxlG8H43p4exJ1nIrF">双方当事人要求委托评估的。</li>
+    <li data-page-node-id="3BFUZHZ76FBu5sT6Oa5XJy">司法网络询价平台不能或在期限内均未出具网络询价结果的。</li>
+    <li data-page-node-id="ckw1wNgcuceJoKky36u8x1">法律、行政法规有明确规定的。</li>
+  </ol>
+  <h4 data-page-node-id="cNxnELKH6s2tch8EpvlaDc">矿业权评估机构的选择</h4>
+  <ol class="clean" data-page-node-id="EUVf1GYiN81VvIvq7ciFAg">
+    <li data-page-node-id="YaiLqlftHAIyVjnklznLY2">法院采用当事人协商或摇号方式确定<b data-page-node-id="RBQnT85OINZc0b4VgfO9Pu">三家</b>矿业权评估机构及顺序。</li>
+    <li data-page-node-id="FEJElmy64QzjZlJUiqv72w">法院向第一顺位机构发送评估委托书，机构在期限内未接收的，法院撤回委托并另行委托下一顺序。</li>
+    <li data-page-node-id="IzV3KM2L14JFk7RbKbsyH5">机构收到委托书后，满足下列情形可在期限内申请不能承接：①与当事人或评估财产有利害关系；②已注销登记或被吊销营业执照；③依法不能评估的其他情形。理由成立则撤回委托另委下一顺序，不成立则通知继续；<b data-page-node-id="CWFHzSNPecCR772ZaqTsAa">未提出申请的视为接受委托</b>。</li>
+    <li data-page-node-id="bNQixTwJaHABVEQMg8YKIr">机构接受委托后，确定符合规定的承办评估师，并将其信息发送给法院。</li>
+  </ol>
+
+  <h3 id="s3-3" data-page-node-id="YuIXlVHBrHyU3IHl10tNX4">三、涉执财产处置司法评估项目履行</h3>
+  <p style="margin:6px 0" data-page-node-id="7HKuFodSgyZSHFwphYxHkG">评估师应按准则要求确定并履行评估程序；<b data-page-node-id="CGBNk0vcMNUtbJGopU9SWG">现场调查由人民法院组织进行</b>。</p>
+  <h4 data-page-node-id="f9LdNC8tg3KXrUjLpn0qNe">评估资料收集</h4>
+  <ul class="clean" data-page-node-id="vYoau5JzJQW1dOmmMRm8AQ">
+    <li data-page-node-id="oca1CBt4VVQMrjwKshTSpQ">法院未按《工作规范》提供全部材料，机构认为无法评估或影响结果的，应<b data-page-node-id="pSp4IEntb3AZDH8fq665Ze">及时告知</b>法院；法院应告知当事人并要求其提供材料或线索。</li>
+    <li data-page-node-id="CJFLxdtrFA6NAwzMLBMBIX">当事人不提供/无法提供、且按线索无法提取的，法院应通知机构<b data-page-node-id="IAIQVVqTEpwuyCBYmelgj2">根据现有材料评估</b>，并告知当事人缺乏材料可能影响结果的风险。</li>
+  </ul>
+  <h4 data-page-node-id="IBo6bJaSqI6qs2QXun0JeF">评估报告编制出具</h4>
+  <ul class="clean" data-page-node-id="9OysxClcpnBOIbV1lalmbz">
+    <li data-page-node-id="YBl4OiJREZn9dtbTUgBN7r">机构按准则要求编制出具评估报告。</li>
+    <li data-page-node-id="pFTTe1QAasWiB4QN1JD1iU">应在收到委托书和相关材料后 <b data-page-node-id="iFvxdjH2gKF8BWV4BkMLpa">30 日内</b>出具并提交法院；认为不能按期出具的，可在期限内申请延期，经法院批准后可延期，但<b data-page-node-id="GuvoCY84ZVbvFPAgE2pPCv">期限不得超过 15 日</b>；<b data-page-node-id="P2D9icsxYBoa4xk8NqdGZ4">可提出两次延期申请</b>。</li>
+    <li data-page-node-id="HMknpuaSo5o4kvRdRC07aD">未在期限内提交报告的，法院撤回委托，另行委托下一顺序机构重新评估。</li>
+  </ul>
+  <h4 data-page-node-id="RdmVyZHGvm63OauRGIexWg">报告审查及异议处理</h4>
+  <ul class="clean" data-page-node-id="PQhmX2LrhgFmF13Ye7cruK">
+    <li data-page-node-id="W1Bd0T0B7TByOTK195C5Dc">法院审查发现：财产基本信息错误、超出财产范围或遗漏财产、选定机构与报告签章机构不符、执业资格证明与署名人员不符、其他应书面说明或补正情形的，<b data-page-node-id="Acawpojt1uEU0ZFyxMyLGu">责令机构说明或补正</b>。</li>
+    <li data-page-node-id="4jmqbpTkfP3YZHNA98SRnJ">当事人、利害关系人认为存在基本信息错误、超范围或遗漏、机构/人员不具备资质、评估程序严重违法的，由<b data-page-node-id="N7KvwxsTE79KNPlDAeujJ3">法院审查、裁定、处理</b>。</li>
+    <li data-page-node-id="3Hjcu6O7Kgln0LlZIy0wqc">对参照标准、计算方法或评估结果等提出书面异议的，机构应在规定时限内书面说明；未说明或对说明仍有异议的，由<b data-page-node-id="Oa5qTIC5NQnGeD46Jsa3fK">相关行业协会在指定期限内组织专业技术评审</b>。</li>
+  </ul>
+  <div class="keybox" data-page-node-id="7V5LF6rL38pLG8jhrR15v6"><div class="wt" data-page-node-id="nFkCB1d4u2uXE9cnEWufzu">数字必背</div>30 日（出具报告）+ 15 日（每次延期上限）+ 两次（延期次数上限）+ 10%（入库收费上限）+ 五年（处罚/除名后不得再推荐入库）。</div>
+
+  <div class="quiz" data-page-node-id="TVZVizQGEeEBUpFJTTxtL7">
+    <div class="q" data-page-node-id="r7vzNkBn8B92DMYvjLoFFj">第三节 考点自测</div>
+    <div class="a" data-page-node-id="47NDPUF2G1wt4cOjulRDT2">① 涉执司法评估机构名单库目前是否下设省市两级子库？名单库多久更新一次？（答案：未下设省市两级子库；协会每年更新）</div>
+    <div class="a" data-page-node-id="Ruii7JFwKtO4CcLR5rCBoB">② 收费标准高于协会平均标准多少比例不得入库？机构未按时提交报告的后果？（答案：高于 10%；法院撤回委托，另委下一顺序机构重新评估）</div>
+    <div class="a" data-page-node-id="EuKH34hkoAr7pEfsDDsQxM">③ 司法评估报告应在收到委托书和材料后几日内出具？可延期几次、每次最长几日？（答案：30 日；两次；每次不超过 15 日）</div>
+  </div>
+</section>
+
+<section id="compare" data-page-node-id="O9ZcWU5p5m3VD7qQOCVLXd">
+  <h2 data-page-node-id="7ECkFUOpKocaghTrLH9H2k">三条管理线横向对比 <span class="tag" data-page-node-id="3kBa3uJT80Ct7YFFnOotUm">收尾 · 一张表记住</span></h2>
+  <table data-page-node-id="mgnnhz8RbXCECPcJ4aU5YH">
+    <tr data-page-node-id="go4Gc17BPkPqDFeoJjdLCA"><th data-page-node-id="FmL4oM4UXPbjOqHcNLbZ3m">维度</th><th data-page-node-id="zQyq7EA8UPcaXQl3iZiCtJ">出让收益线（第一节）</th><th data-page-node-id="HooJTkCbrjYH3pc6Ye18ep">企业国有资产线（第二节）</th><th data-page-node-id="E5oC44slecNXbzDBbvfXRd">司法评估线（第三节）</th></tr>
+    <tr data-page-node-id="PgvF5mRgHTlLM5b5LM8eGO"><td data-page-node-id="wIvr9HDPP3XFiixJf9hYgk">委托方</td><td data-page-node-id="5lCj4LcSDaIIFPTaLbYZOd">省级自然资源行政主管部门</td><td data-page-node-id="6rR2JfyJmDbCcD3LXiGy4B">企业/产权单位（按国资规定）</td><td data-page-node-id="Gw1WOCiIPsHL85PewowgRx">人民法院</td></tr>
+    <tr data-page-node-id="57OZkLvTvtF2UtCRmVW5km"><td data-page-node-id="oiaK5QaGpPXCPbX2E7GUjC">机构选择</td><td data-page-node-id="bPs75qOmSvwX6myrFH6018">招投标（原随机摇号）</td><td data-page-node-id="ZYe5mcZt1rRhD7Gs5EB166">中央企业评估机构备选库 + 招投标</td><td data-page-node-id="XXkR5HR1nRhqBWgbDcB495">摇号/协商确定三家及顺序，依顺位委托</td></tr>
+    <tr data-page-node-id="NLsa8yo0kNOGcMhdr8QXuf"><td data-page-node-id="5BE0tOT0yGZbQDiiDIfxU3">报告如何生效</td><td data-page-node-id="25lomePge9uFBtKkhljLr1">公示无异议后公开，自公开之日起生效，有效期 1 年</td><td data-page-node-id="EcUBdRsa3YLc4jdxUhXojN">核准或备案是生效的必要条件</td><td data-page-node-id="MMcBCP14bJbS5DCFukK38P">经法院审查，30 日内出具，异议由法院/协会评审处理</td></tr>
+    <tr data-page-node-id="Zi4ihVF41v2VPWYxdpRCAp"><td data-page-node-id="0fEsuta2oSj4oNdHMj955B">关键数字</td><td data-page-node-id="6YLXsCDQ1o7ict5XumoWtp">至少 2 名评估师；公示 10 个工作日；基准价每 3 年更新</td><td data-page-node-id="qm1r7f09Gi3lNQT2dDXDsz">近三年无违法违规；交易价低于 90% 暂停；重新披露 ≥20 个工作日</td><td data-page-node-id="gyaHPS580pzImvkBys0sjY">30 日出具；15 日延期上限；两次延期；收费高于 10% 不入库</td></tr>
+  </table>
+  <div class="okbox" data-page-node-id="LtKUAqhc9DZkXASXYERHHJ"><div class="wt" data-page-node-id="KOCivURSdSZYhnaTwGVKDf">本章一句话</div>三条管理线的差别本质在"谁委托、怎么选机构、报告如何生效"；出让收益线看"公示+基准价保底价"，国资线看"核准/备案+90%红线"，司法线看"名单库+30日/15日时限"。</div>
+</section>
+</main>
+</div>
+
+<footer data-page-node-id="MG0A1XGU0tjjRvUuKrTDSl">《矿业权价值评估(2023)》第八章 · 矿业权价值评估项目管理 · 学霸版学习页 · 仅供学习参考</footer>
+<script>
+window.addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.getElementById('progress').style.width=p+'%';});
+var links=[].slice.call(document.querySelectorAll('#sidebar a'));
+var secs=[].slice.call(document.querySelectorAll('section[id],#map,#memo'));
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var id='#'+e.target.id;links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')===id);});}});},{rootMargin:'-20% 0px -70% 0px'});
+secs.forEach(function(s){obs.observe(s);});
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('hidden');}
+</script>
+
+<a href="index.html" id="backtoindex" data-page-node-id="backtoindex2" style="position:fixed;right:18px;bottom:22px;z-index:9999;background:#1d5fd6;color:#fff;text-decoration:none;font-size:14px;font-weight:700;padding:10px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(29,95,214,.4);font-family:-apple-system,'PingFang SC',sans-serif;">← 返回目录</a>
+
+<script>
+/* ===== fold6-scroll: localStorage 滚动位置记忆 (折叠/展开重载恢复) ===== */
+(function(){
+  var key = 'fold6-scroll-' + location.pathname.split('/').pop() + location.search;
+  function save(){ try{ localStorage.setItem(key, String(window.scrollY || document.documentElement.scrollTop)); }catch(e){} }
+  function restore(){
+    try{
+      var y = parseInt(localStorage.getItem(key), 10);
+      if(isNaN(y) || y <= 0) return;
+      requestAnimationFrame(function(){
+        window.scrollTo(0, y);
+        setTimeout(function(){ window.scrollTo(0, y); }, 150);
+      });
+    }catch(e){}
+  }
+  if(location.hash) return; // 带锚点跳转时不恢复
+  window.addEventListener('beforeunload', save);
+  var t;
+  window.addEventListener('scroll', function(){ clearTimeout(t); t = setTimeout(save, 250); }, {passive:true});
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', restore);
+  else restore();
+})();
+/* ===== end fold6-scroll ===== */
+</script>
+</body>
+</html>
