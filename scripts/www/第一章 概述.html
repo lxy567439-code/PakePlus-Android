@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="fviHTCsnj0HbmguAkBryWJ">
+<head data-page-node-id="HtdHx3iN1386MU9OxQANNj">
+<meta charset="UTF-8" data-page-node-id="SHM5DmOBwWeZ98ujve04l4">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" data-page-node-id="5KA7K0nm8M3mb7axRvnBUX">
+<title>第一章 概述 · 矿业权价值评估（学霸版）</title>
+<style>
+:root{
+  --bg:#f5f7fa; --panel:#ffffff; --ink:#1f2933; --ink-soft:#52606d;
+  --line:#e4e9f0; --brand:#1d5fd6; --brand-soft:#e8f0fe; --brand-dk:#1447a8;
+  --ok:#1f9d57; --ok-soft:#e6f6ed; --warn:#d9730d; --warn-soft:#fdf1e3;
+  --key:#c02666; --key-soft:#fce8f1; --purple:#7c3aed; --purple-soft:#f1ebfd;
+  --sidebar-w:300px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.85;font-size:16px}
+a{color:inherit;text-decoration:none}
+
+/* layout */
+.wrap{display:flex;align-items:flex-start}
+.sidebar{position:sticky;top:0;width:var(--sidebar-w);height:100vh;overflow-y:auto;
+  background:var(--panel);border-right:1px solid var(--line);padding:22px 16px 40px;flex-shrink:0}
+.content{flex:1;min-width:0;padding:0 0 80px}
+.inner{max-width:900px;margin:0 auto;padding:0 40px}
+
+/* sidebar */
+.brand{display:flex;gap:10px;align-items:center;padding:6px 8px 18px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.brand .logo{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--brand),#4f8bff);
+  color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px}
+.brand b{font-size:15px;display:block;line-height:1.3}
+.brand small{color:var(--ink-soft);font-size:12px}
+.nav-h{font-size:12px;color:var(--ink-soft);letter-spacing:1px;padding:14px 10px 6px;font-weight:700}
+.nav a{display:block;padding:7px 10px;border-radius:8px;font-size:14px;color:var(--ink-soft);transition:.15s}
+.nav a:hover{background:var(--brand-soft);color:var(--brand-dk)}
+.nav a.lv2{padding-left:24px;font-size:13.5px}
+.progress-top{position:fixed;top:0;left:0;height:3px;background:var(--brand);width:0;z-index:50}
+
+/* hero */
+.hero{background:linear-gradient(135deg,#123a8a,#1d5fd6 60%,#3f7bf0);color:#fff;padding:46px 0 40px}
+.hero .inner{padding-top:0;padding-bottom:0}
+.kicker{display:inline-block;background:rgba(255,255,255,.18);padding:5px 14px;border-radius:999px;
+  font-size:13px;letter-spacing:1px;margin-bottom:16px}
+.hero h1{font-size:34px;font-weight:800;letter-spacing:1px;margin-bottom:12px}
+.hero p{max-width:680px;color:rgba(255,255,255,.9);font-size:15.5px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.meta span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+  padding:6px 14px;border-radius:8px;font-size:13px}
+
+/* section blocks */
+section{margin:44px 0}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.sec-num{flex-shrink:0;width:46px;height:46px;border-radius:12px;background:var(--brand-soft);color:var(--brand-dk);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px}
+.sec-head h2{font-size:24px;font-weight:800}
+.sec-head .tag{margin-left:auto;font-size:12px;color:var(--ink-soft);background:var(--panel);
+  border:1px solid var(--line);padding:4px 12px;border-radius:999px}
+
+h3.sub{font-size:19px;font-weight:800;margin:30px 0 12px;padding-left:12px;border-left:4px solid var(--brand);line-height:1.4}
+h4.sub{font-size:16.5px;font-weight:700;margin:20px 0 8px;color:var(--brand-dk)}
+p.body{margin:10px 0;color:var(--ink)}
+.lead{color:var(--ink-soft);font-size:15.5px;margin:6px 0 18px;padding:12px 16px;background:var(--panel);
+  border-radius:10px;border:1px solid var(--line)}
+
+/* term highlight */
+.term{background:var(--brand-soft);color:var(--brand-dk);padding:1px 6px;border-radius:5px;font-weight:600;white-space:nowrap}
+.hl{color:var(--key);font-weight:700}
+
+/* card grid */
+.grid{display:grid;gap:14px}
+.grid.g2{grid-template-columns:repeat(2,1fr)}
+.grid.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.card .ct{font-weight:800;font-size:15px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.card .ct .n{width:22px;height:22px;border-radius:6px;background:var(--brand-soft);color:var(--brand-dk);
+  font-size:12px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.card p{font-size:14px;color:var(--ink-soft);margin:0}
+
+/* callouts */
+.box{border-radius:12px;padding:14px 18px;margin:14px 0;font-size:14.5px;border:1px solid}
+.box .bt{font-weight:800;font-size:13px;letter-spacing:.5px;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.box.key{background:var(--key-soft);border-color:#f6c8dc;color:#7a1140}
+.box.key .bt{color:var(--key)}
+.box.warn{background:var(--warn-soft);border-color:#f4d3ac;color:#8a4a08}
+.box.warn .bt{color:var(--warn)}
+.box.info{background:var(--brand-soft);border-color:#c6dbfb;color:var(--brand-dk)}
+.box.info .bt{color:var(--brand-dk)}
+.box.ok{background:var(--ok-soft);border-color:#bfe6cf;color:#12633a}
+.box.ok .bt{color:var(--ok)}
+.box ul{margin:4px 0 0 18px}
+.box li{margin:3px 0}
+
+/* definition */
+.def{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--brand);
+  border-radius:10px;padding:16px 20px;margin:14px 0}
+.def .dl{font-size:12.5px;color:var(--brand-dk);font-weight:800;letter-spacing:1px;margin-bottom:6px}
+.def p{font-size:16px;margin:0;color:var(--ink)}
+.def .term{font-size:inherit}
+
+/* memory chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13.5px;font-weight:600}
+.chip.b{background:var(--brand-soft);border-color:#c6dbfb;color:var(--brand-dk)}
+.chip.g{background:var(--ok-soft);border-color:#bfe6cf;color:#12633a}
+.chip.k{background:var(--key-soft);border-color:#f6c8dc;color:var(--key)}
+.chip.p{background:var(--purple-soft);border-color:#ddd0f7;color:var(--purple)}
+
+/* table */
+table{width:100%;border-collapse:collapse;margin:14px 0;background:var(--panel);border-radius:10px;overflow:hidden;font-size:14px}
+thead th{background:#eef3fb;color:var(--brand-dk);text-align:left;padding:11px 14px;font-weight:700;border-bottom:2px solid var(--line)}
+tbody td{padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-soft)}
+tbody tr:nth-child(even){background:#fafbfd}
+tbody td b{color:var(--ink)}
+.tagpill{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:999px}
+.tp-b{background:var(--brand-soft);color:var(--brand-dk)}
+.tp-g{background:var(--ok-soft);color:#12633a}
+.tp-k{background:var(--key-soft);color:var(--key)}
+.tp-p{background:var(--purple-soft);color:var(--purple)}
+.tp-w{background:var(--warn-soft);color:#8a4a08}
+
+/* timeline */
+.tl{position:relative;margin:20px 0 8px;padding-left:6px}
+.tl::before{content:"";position:absolute;left:115px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl-item{display:flex;gap:18px;margin-bottom:16px;position:relative}
+.tl-date{width:100px;flex-shrink:0;text-align:right;font-weight:800;color:var(--brand-dk);font-size:14px;padding-top:2px}
+.tl-dot{width:14px;height:14px;border-radius:50%;background:var(--brand);border:3px solid #fff;box-shadow:0 0 0 2px var(--brand);
+  flex-shrink:0;margin-top:5px;z-index:2}
+.tl-body{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.tl-body .t{font-weight:800;font-size:14.5px;margin-bottom:3px}
+.tl-body p{font-size:13.5px;color:var(--ink-soft);margin:0}
+.tl-item.major .tl-dot{background:var(--key);box-shadow:0 0 0 2px var(--key)}
+.tl-item.major .tl-date{color:var(--key)}
+
+/* feature cards (四性) */
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:16px 0}
+.feat .f{background:var(--panel);border:1px solid var(--line);border-top:4px solid var(--brand);border-radius:12px;padding:16px 18px}
+.feat .f:nth-child(2){border-top-color:var(--ok)}
+.feat .f:nth-child(3){border-top-color:var(--warn)}
+.feat .f:nth-child(4){border-top-color:var(--purple)}
+.feat .f .fh{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.feat .f .fico{width:34px;height:34px;border-radius:9px;background:var(--brand-soft);display:flex;align-items:center;justify-content:center;font-size:18px}
+.feat .f:nth-child(2) .fico{background:var(--ok-soft)}
+.feat .f:nth-child(3) .fico{background:var(--warn-soft)}
+.feat .f:nth-child(4) .fico{background:var(--purple-soft)}
+.feat .f .fh b{font-size:17px}
+.feat .f p{font-size:14px;color:var(--ink-soft);margin:0}
+
+/* principles */
+.pr-group{margin:16px 0}
+.pr-list{display:grid;gap:10px;margin-top:8px}
+.pr{display:flex;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 16px}
+.pr .pi{flex-shrink:0;width:30px;height:30px;border-radius:8px;background:var(--purple-soft);color:var(--purple);
+  font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.pr .pc b{font-size:15px}
+.pr .pc p{font-size:13.8px;color:var(--ink-soft);margin:3px 0 0}
+.pr .pc .em{color:var(--key);font-weight:700}
+
+/* role cards (基本作用) */
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
+.role{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;position:relative;overflow:hidden}
+.role::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--brand)}
+.role:nth-child(2)::before{background:var(--ok)}
+.role:nth-child(3)::before{background:var(--purple)}
+.role .rn{font-size:34px;font-weight:800;color:#dce6f5;line-height:1;margin-bottom:6px}
+.role .rt{font-weight:800;font-size:15px;margin-bottom:6px}
+.role p{font-size:13.5px;color:var(--ink-soft);margin:0}
+
+/* 准则四层次 */
+.layers{display:grid;gap:10px;margin:14px 0}
+.layer{display:flex;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 18px;align-items:flex-start}
+.layer .ll{flex-shrink:0;text-align:center;min-width:78px}
+.layer .ll .big{font-weight:800;font-size:15px;color:var(--brand-dk)}
+.layer .ll .sm{font-size:11.5px;color:var(--ink-soft)}
+.layer .lc{font-size:14px;color:var(--ink-soft)}
+.layer .lc b{color:var(--ink)}
+
+/* quiz */
+.quiz{background:linear-gradient(135deg,#fffdf5,#fff7e6);border:1px solid #f2e2b8;border-radius:14px;padding:18px 22px;margin:24px 0}
+.quiz .qh{font-weight:800;font-size:15px;color:#8a5a00;display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.quiz ol{margin:0 0 0 20px}
+.quiz li{margin:9px 0;font-size:14.5px;color:#5b4a1a}
+.quiz li .ans{display:block;color:var(--ok);font-size:13px;font-weight:600;margin-top:2px}
+details.quiz details{margin-top:4px}
+
+/* study map top */
+.map{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 24px;margin:28px 0 0}
+.map .mh{font-weight:800;font-size:16px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.map-flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.map-node{flex:1;min-width:150px;background:var(--brand-soft);border:1px solid #c6dbfb;border-radius:10px;padding:12px 14px;position:relative}
+.map-node .mn{font-size:11.5px;color:var(--brand-dk);font-weight:800;letter-spacing:.5px}
+.map-node b{display:block;font-size:14.5px;margin:3px 0 2px}
+.map-node span{font-size:12px;color:var(--ink-soft);display:block}
+
+footer{margin-top:50px;padding:24px 0;border-top:1px solid var(--line);color:var(--ink-soft);font-size:13px;text-align:center}
+
+@media(max-width:900px){
+  .sidebar{display:none}
+  .inner{padding:0 20px}
+  .grid.g4,.feat,.roles{grid-template-columns:1fr}
+  .grid.g2{grid-template-columns:1fr}
+  .tl::before{left:10px}
+  .tl-date{width:auto;text-align:left}
+  .tl-item{flex-direction:column;gap:4px}
+  .tl-dot{order:-1;align-self:flex-start}
+}
+</style>
+
+/* ===== fold6-adapt: vivo X Fold6 折叠屏适配 (安全区/行宽/断点/防溢出) ===== */
+html{scroll-behavior:smooth}
+body{font-size:17px;line-height:1.8}
+.content,.inner,#main,main{max-width:38em;margin:0 auto}
+img,video,table,pre,iframe{max-width:100%;height:auto}
+table{display:block;overflow-x:auto}
+@media (min-width:600px){
+  body{font-size:19px}
+}
+@media (max-width:600px){
+  .content,.inner,#main,main{max-width:none}
+  .wrap{padding-left:20px!important;padding-right:20px!important}
+}
+img,video,svg,canvas{max-width:100%}
+/* ===== end fold6-adapt ===== */
+
+
+/* ===== fold6-center: 隐藏目录后内容居中 ===== */
+#sidebar.hidden{position:absolute;left:0;top:0;width:var(--sidebar-w);z-index:900;}
+#sidebar.hidden ~ main,
+#sidebar.hidden ~ #main,
+#sidebar.hidden ~ .content,
+#sidebar.hidden ~ .inner{max-width:none;margin:0;padding-left:20px;padding-right:20px;}
+#sidebar.hidden ~ main > *,
+#sidebar.hidden ~ #main > *,
+#sidebar.hidden ~ .content > *,
+#sidebar.hidden ~ .inner > *{max-width:38em;margin-left:auto;margin-right:auto;}
+/* ===== end fold6-center ===== */
+
+</head>
+<body data-page-node-id="Qft9KLfU4lj0DK3D3Rx6Hq">
+<div class="progress-top" id="pbar" data-page-node-id="b3PYsWwdE3CAdzQXBn7b0g"></div>
+<div class="wrap" data-page-node-id="AadYTw9agCJ2wycVx45P1L">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar" data-page-node-id="19xn7jbOJHGBumITiBGpZT">
+    <div class="brand" data-page-node-id="kUVXiutDkhtpJwxvtkGkdy">
+      <div class="logo" data-page-node-id="NHoY4jiKIUdjygOZ3bRiBW">矿</div>
+      <div data-page-node-id="EwUvBYT04ouVblNtEbAwQg"><b data-page-node-id="vYlayAxXVGpALb5OxdmuMP">矿业权价值评估</b><small data-page-node-id="MDwPyxC7vdy6fhhVYCsxMk">2023 · 学霸学习版</small></div>
+    </div>
+    <div class="nav-h" data-page-node-id="zNeSVjDdECv1MzkCX0jzMV">本章目录</div>
+    <nav class="nav" data-page-node-id="VGAJjfPBUJxOhGROzftDIQ">
+      <a href="#map" data-page-node-id="YcVaxPSkndqoIgOaNCFC1z">🗺️ 学习地图</a>
+      <a href="#quick" data-page-node-id="IieX5CFe5DtgeY0Rl2gVH4">⚡ 高频考点速记</a>
+      <a class="lv2" href="#s1" data-page-node-id="i39DkLDo7PlVVU8pJpppXA">第一节 · 基本概念与特点</a>
+      <a class="lv2" href="#s1-def" data-page-node-id="b5o86msIPGVQRjdRwfl8PK">◆ 核心定义（4 要点）</a>
+      <a class="lv2" href="#s1-dev" data-page-node-id="9QEcKxdLdMQYTYozT82PxZ">◆ 产生与发展（时间轴）</a>
+      <a class="lv2" href="#s1-feat" data-page-node-id="6vePGgHmBKEP72YXLn2BuZ">◆ 四大特点</a>
+      <a class="lv2" href="#s2" data-page-node-id="SL1EHjhOFLr5s6ybJUnXUP">第二节 · 评估原则</a>
+      <a class="lv2" href="#s2-work" data-page-node-id="GpofGDLhptwf2arrY35Jez">◆ 工作原则</a>
+      <a class="lv2" href="#s2-tech" data-page-node-id="T1xkkj3XTitw6Ik5GSV7U3">◆ 技术原则（3）</a>
+      <a class="lv2" href="#s2-econ" data-page-node-id="z8wvKCpcSByugearKsObkg">◆ 经济原则（9）</a>
+      <a class="lv2" href="#s3" data-page-node-id="XJzf1f6EEj7Agy5Zeo3dsU">第三节 · 基本作用（3）</a>
+      <a class="lv2" href="#s4" data-page-node-id="3Q8RG9kkhAkpoKi4qnrfBV">第四节 · 评估准则</a>
+      <a class="lv2" href="#s4-dev" data-page-node-id="27H3jOHFXcTMu96YnGDsjE">◆ 准则发展历程</a>
+      <a class="lv2" href="#s4-struct" data-page-node-id="H6Hk5H5AYGKUDIe6lWBVXz">◆ 准则四层次体系</a>
+      <a class="lv2" href="#s4-table" data-page-node-id="DJlAz8yhwQUIJ9nkZXA2VD">◆ 22 项准则速查表</a>
+    </nav>
+    <div class="nav-h" data-page-node-id="rx4wBEFuLNYtHdxIp1WiXB">备考建议</div>
+    <nav class="nav" data-page-node-id="eh5Xz3QEm5r9qDFt1KJIT0">
+      <a href="#quick" data-page-node-id="BsBd8IzOCiPtyvsi20EF69">先扫速记卡，建立框架</a>
+      <a href="#s1-dev" data-page-node-id="ylAmKzJf4Z4R9GJ5niK2ls">时间轴重点记年份+事件</a>
+      <a href="#s2-econ" data-page-node-id="iXEBjzR3B8ckuYSDoMLTvT">经济原则 9 条要会默写</a>
+      <a href="#s4-struct" data-page-node-id="VMQ8Y1mcHBjl5zfj1RifYF">四层次体系常考简答</a>
+    </nav>
+  </aside>
+
+  <!-- ============ CONTENT ============ -->
+  <main class="content" data-page-node-id="alRaUQVVDEKQmrWiebxCtK">
+    <div class="hero" data-page-node-id="J8mPJVAhKgJmNxXf5MwK2t">
+      <div class="inner" data-page-node-id="3e3nUGJE6e5GzseROq47DE">
+        <span class="kicker" data-page-node-id="8AdBIlMGaqOPk6sSoeIvTX">第一章 · 学霸精读版</span>
+        <h1 data-page-node-id="1qrvAxYm3a2TFyDhiZFtz1">概述</h1>
+        <p data-page-node-id="14SZKeqD1qfoN2h9UwOZlH">本章是全书的"地基"。矿产资源因<strong data-page-node-id="WEOuRyv8uv22MVYZXHg7mM">隐蔽性、耗竭性、国家所有</strong>等属性，决定了矿业权价值评估与一般资产评估有本质不同。本章要解决四件事：是什么 → 有何特点 → 遵循什么原则 → 起什么作用、由什么准则规范。</p>
+        <div class="meta" data-page-node-id="j3sNBTm1eRGejtsperV0ft">
+          <span data-page-node-id="Ou5cHPmXmRxssh1vaMNlYo">📄 教材 10 页</span>
+          <span data-page-node-id="r5kPqALboR4M2VQWaGEzvn">🧩 4 节</span>
+          <span data-page-node-id="eLCkawbA6i3NazzBBrSttl">🎯 重点：定义四要点 · 四大特点 · 9 条经济原则 · 准则四层次</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="inner" data-page-node-id="sA8mnjimo1x6DXYSifG1ff">
+
+      <!-- 学习地图 -->
+      <div class="map" id="map" data-page-node-id="fOnEi8aY8YGhuZMx1vJ94L">
+        <div class="mh" data-page-node-id="chHzGYQXLqauE5EL7DUZDM">🗺️ 全章学习地图（先记住这条主线）</div>
+        <div class="map-flow" data-page-node-id="swpZoWxSNmAA8WIgnUlCoD">
+          <div class="map-node" data-page-node-id="p1H2Z7t7y7PeR1OXs2GuwT"><span class="mn" data-page-node-id="7G1psybkBN4hM8YxhzyFZ2">第一节</span><b data-page-node-id="959iyGPHNC85MTSgRP5DBP">是什么 · 有何特点</b><span data-page-node-id="IjB946dFJpafvEPiYVYLe9">核心定义 4 要点 + 发展历程 + 公正/鉴证/咨询/专业 四性</span></div>
+          <div class="map-node" data-page-node-id="DAFVZNUh0PW2paLDCR2V3P"><span class="mn" data-page-node-id="PwLE5WXPLvKi36nyAVg4AZ">第二节</span><b data-page-node-id="DBPi9tUflIVxKZmAOT3tHH">遵循什么原则</b><span data-page-node-id="wZV8A0zmefu36TD8xJOAw2">工作原则 1 条 + 技术原则 3 条 + 经济原则 9 条</span></div>
+          <div class="map-node" data-page-node-id="PE3oyX8G5qK6NP6pW97izw"><span class="mn" data-page-node-id="BvqQq3eqH7aoM0J4Dnj4Cl">第三节</span><b data-page-node-id="UBiZzNH9Wk3E2VwH4ifJZy">起什么作用</b><span data-page-node-id="ixOAGl5v3zjzrC2IisgLKf">管理范畴 / 国有权益维护 / 中介体系支撑</span></div>
+          <div class="map-node" data-page-node-id="BtYKaRU4GidKg968uX754K"><span class="mn" data-page-node-id="VXphcrGvMjeHMUF4TBlkvJ">第四节</span><b data-page-node-id="jGsvkginlXWOAATq403QUe">由什么规范</b><span data-page-node-id="JKjPQ7aOTSrN10entZCTbt">准则体系：准则→技术规范→应用指南→指导意见（22 项）</span></div>
+        </div>
+      </div>
+
+      <!-- 速记卡 -->
+      <div class="map" id="quick" style="margin-top:18px" data-page-node-id="I2uXCXDGHBaDXkG4LUDoPG">
+        <div class="mh" data-page-node-id="fMF8EiZO1R7BoBSG7id4r2">⚡ 高频考点速记卡（考前 30 秒回看）</div>
+        <div class="grid g2" data-page-node-id="E4sff9CodwMvmkkIKiKeyH">
+          <div class="card" data-page-node-id="PwSpJvTVa9WHNPdlHfU7qf"><div class="ct" data-page-node-id="mThQg55FNQHy5pGA6Rrob2"><span class="n" data-page-node-id="Y2v9EL8VRDorov8kgPZDsk">1</span>评估主体是谁？</div><p data-page-node-id="FXKutBlANfVo08JmyqsmBW"><b data-page-node-id="mgQ5HbfkVpIVYefsquBMtO">矿业权评估机构 + 矿业权价值评估专业人员</b>。一般业务 ≥2 名专业人员；法定业务 ≥2 名矿业权评估师。</p></div>
+          <div class="card" data-page-node-id="GGPzVJzbbLLy5Tz7v0LDUV"><div class="ct" data-page-node-id="HaTYJWFuj98CAU33VAI8gL"><span class="n" data-page-node-id="plhfhIi7QWKI8H0CdGGUIS">2</span>评估客体是什么？</div><p data-page-node-id="7zRMJFLcN4ODmFcAPBXSQT"><b data-page-node-id="IkZ2G6KAL9cneWY6w0N9Sl">探矿权、采矿权</b>，以及与矿产资源相关的<b data-page-node-id="ykCTxMHGmzaBNpfGV2HRB3">其他经济权益</b>（如压覆矿补偿额、破坏矿开采损失额）。</p></div>
+          <div class="card" data-page-node-id="cv0UvwrfeWsZGuEb5g8RMt"><div class="ct" data-page-node-id="rmtmmerx8pe0XoQM3IbwDQ"><span class="n" data-page-node-id="24I7QZhqqvWqUdWTN91izW">3</span>四大特点口诀</div><p data-page-node-id="LLh0y51na3hOzZ2XpYD4A6"><b data-page-node-id="VaUp4Ht5r51upXBblrt3zv">公正 · 鉴证 · 咨询 · 专业</b>。注意：是<span class="hl" data-page-node-id="qxlILcLh56EiZAEmaLwseA">价值</span>鉴证，不是<span class="hl" data-page-node-id="xXRPQqkCp7W9toDtmkhmDo">权属</span>鉴证。</p></div>
+          <div class="card" data-page-node-id="R4zIdE8PeiTnHmggTRIYmx"><div class="ct" data-page-node-id="Vi34H0Zu82dj1ZJfEzbvR8"><span class="n" data-page-node-id="w2zrWBDPaTlWaGVY6gHhdP">4</span>最根本工作原则</div><p data-page-node-id="Z7HAXhg2nw2ULY3izCKca0"><b data-page-node-id="WNppJG2bHv2R6uu0qbUaca">独立、客观、公正</b>——既是法律要求，也是市场要求。</p></div>
+          <div class="card" data-page-node-id="oSH2QtForCEkQMwEIgdTBF"><div class="ct" data-page-node-id="QZrmeIl9XkGH8jRaD5mU7F"><span class="n" data-page-node-id="n7mD9vO1u5EqCi9tvjW5Vu">5</span>经济原则数一数</div><p data-page-node-id="kpn0RDTefaDHmTNsuEk5BW">共 <b data-page-node-id="L9jdeYZGz8cof3iTXK68zi">9 条</b>：预测、供求、多用途非替代、变动、竞争、收益递增递减、最有效利用、协调、均衡。</p></div>
+          <div class="card" data-page-node-id="Seb5CTeEnCD757gi8B0rwy"><div class="ct" data-page-node-id="jmsbxjx1L1dEZy6AaWGmyK"><span class="n" data-page-node-id="MPNFb2BCLIE0jXksBFsuPa">6</span>准则四层次</div><p data-page-node-id="YQsn0fSWkDYYlasWhrCGkG"><b data-page-node-id="R007zoE7HwDQxUQaEXDV91">准则 → 技术规范 → 应用指南 → 指导意见</b>，共 <b data-page-node-id="UYZssg7AB7nVh9DSRCiFQv">22 项</b>。</p></div>
+          <div class="card" data-page-node-id="wWKQnNFd2Sxvvc6LeHo32a"><div class="ct" data-page-node-id="GhrzfXHHDRxmuin7b8rGdH"><span class="n" data-page-node-id="2VIDbiahvhUQv7mE80FLoA">7</span>准则制定权分工</div><p data-page-node-id="mKKvpZCWp08UhJmqignxAf"><b data-page-node-id="b57I6jSwEZWBbpR9wSeBWS">自然资源部</b>管"基本准则"；<b data-page-node-id="LCgIcecPYeTnzAQEiHLiM0">中国矿业权评估师协会</b>管"执业准则 + 职业道德准则"。</p></div>
+          <div class="card" data-page-node-id="s0f3ysaXfJUgFvqsbUlC27"><div class="ct" data-page-node-id="LoaD29wFOwLxynLvUTYCOu"><span class="n" data-page-node-id="BIyZVGZ30yj8BvP7s6iZcq">8</span>两个发展阶段</div><p data-page-node-id="iPjCwA7c48SQQJ3ilkDaww">① 地质勘查成果评估（1990–1997）→ ② 探矿权采矿权评估（1997–至今）。</p></div>
+        </div>
+      </div>
+
+      <!-- ============ 第一节 ============ -->
+      <section id="s1" data-page-node-id="8pbqLR4BFZtwTN9op0UDvW">
+        <div class="sec-head" data-page-node-id="bUtsBgjHZE9PpoUMYYErAA">
+          <div class="sec-num" data-page-node-id="CPyHPI37BJTcdunpGAkXTF">01</div>
+          <h2 data-page-node-id="Qjq44UmBxgIRzhdbtcwglp">矿业权价值评估的基本概念和特点</h2>
+          <span class="tag" data-page-node-id="3alnlbJMBSkTWLXXVCsgmO">是什么 + 有何特点</span>
+        </div>
+        <p class="lead" data-page-node-id="Iv0XFBaKvB0xKfGerxQ57k">矿产资源的<strong data-page-node-id="rhue4M0arFTIwqA21eJJrb">隐蔽性、耗竭性</strong>及<strong data-page-node-id="S8NaA5Ut2fQRyCE0P7R3OE">国家所有</strong>等自然和社会属性，决定了矿业权价值评估的专业性与其它资产评估有着本质不同。</p>
+
+        <h3 class="sub" id="s1-def" data-page-node-id="fXrlPGCkIAyInqLDjGuKz7">一、基本概念 —— 先啃透"定义四要点"</h3>
+        <div class="def" data-page-node-id="OSwBcB4FBz03nGcb0PBFFf">
+          <div class="dl" data-page-node-id="0BPYHHSCHYrYbOELsvnpX9">核心定义 · 必背</div>
+          <p data-page-node-id="EEEgOFAT8YhZu38jkEs31r"><span class="term" data-page-node-id="k6hOSTFfkD01wS0BiFlmw1">矿业权价值评估</span>，是指<b data-page-node-id="s111WfOXgNQvpKow8FNQqc">矿业权评估机构及其矿业权价值评估专业人员</b>，根据委托对<b data-page-node-id="aL60TJoOt2bmdCnf7r9KuE">矿业权价值或矿产资源其他经济权益</b>进行评定、估算，并<b data-page-node-id="G3vllLX73TcuPhO3SfgM6i">出具矿业权价值评估报告</b>的专业服务行为。</p>
+        </div>
+        <p class="body" data-page-node-id="ncptmIF4hOj4EbYYvvdQ0k">理解这一定义，要拆解成四个要点（这是单选/多选最爱考的地方）：</p>
+
+        <div class="grid g2" data-page-node-id="fA4WKoqJLSpAEBziVDd7KS">
+          <div class="card" data-page-node-id="3xfPlqJsaDnvwUUXIMQeKO">
+            <div class="ct" data-page-node-id="FdIr6HAxDK97vTKJGS8Lzt"><span class="n" data-page-node-id="9l6Xuxu7n4itc5M7RPTiLC">1</span>主体（谁来评）</div>
+            <p data-page-node-id="GfhB86xFGWHgW3K1xmcKW5"><b data-page-node-id="4CalHWGzNrDKjljAjo4aCK">矿业权评估机构 + 矿业权价值评估专业人员</b>。机构须持"探矿权采矿权评估资格证书"；<b data-page-node-id="ejixoXaQofKodi6OyFHMCy">矿业权评估师</b>是经全国统考、取得《矿业权评估师职业资格证书》并在中矿协登记的人员。</p>
+            <div class="box warn" style="margin:10px 0 0" data-page-node-id="qK1qpgFqfqwCZJSTzJfhJx"><div class="bt" data-page-node-id="u0DHweU8H0HHcaQuDs0nr4">⚠️ 易错数字</div>一般业务 ≥ <b data-page-node-id="8ogHwLxh6LoABLaB1sI7QT">2 名</b>专业人员；<b data-page-node-id="4LvzFSStqToMxztkf7ovlr">法定业务</b> ≥ <b data-page-node-id="szkq4ce7QDaQwuOHvn6fko">2 名矿业权评估师</b>。报告须签名并盖章，机构与人员依法担责。</div>
+          </div>
+          <div class="card" data-page-node-id="KmwAy5queykesHWenS7Ajz">
+            <div class="ct" data-page-node-id="8H3clXVlWrEbhp1VjAgwPV"><span class="n" data-page-node-id="L4KH0QL0hBdWGNqKXzP97Z">2</span>客体（评什么）</div>
+            <p data-page-node-id="UlFQEb7cprHVRbBfK78ypi">即评估<b data-page-node-id="cxY88y5eQ12Edggv22ofM4">对象</b>：探矿权、采矿权，或<span class="term" data-page-node-id="vTdJBeAxS8sCRJGKVFBMtm">与矿产资源相关的其他经济权益</span>。</p>
+            <div class="box info" style="margin:10px 0 0" data-page-node-id="DQpAdMeaJ7kLxd6a5jnZcH"><div class="bt" data-page-node-id="iw5JFu4aDA8Gxg19DHmdLF">💡 举例</div>压覆矿产资源的<b data-page-node-id="SxlXPhrFjQdnMFMPyjTZRe">补偿额</b>、破坏矿产资源<b data-page-node-id="NeNiyzrEW04kIaucMene11">开采损失额</b>等——前提是"合法 + 可用货币计量"。</div>
+          </div>
+          <div class="card" data-page-node-id="8owC7sXsXU9vYtCAGfPn4C">
+            <div class="ct" data-page-node-id="MV4qETYBhf5h6gL8Bj06Qn"><span class="n" data-page-node-id="2pKx9FcU784f1aVnMGbPGA">3</span>法律性质（受什么约束）</div>
+            <p data-page-node-id="7lP9VnUIK70JjxDcHZQd0d">受<b data-page-node-id="ITS2V7Jaed0eDcBcm9tt3J">委托合同</b>约束：既约束评估行为本身，也约束委托/受托双方；含政府购买服务委托的"确定矿业权出让收益"评估。</p>
+            <div class="box info" style="margin:10px 0 0" data-page-node-id="j4Yf3EBF3yMZ1jGCgpGG9C"><div class="bt" data-page-node-id="sEj6vWM8KlgJGElHUPCAOB">💡 关键词</div>合同约定评估<b data-page-node-id="JJF3E44rK29ywG3NjY7Lum">目的、对象、范围</b>及双方权利义务；行为受法律保护，报告依法担责。</div>
+          </div>
+          <div class="card" data-page-node-id="cE3l0dYHFpttt7EyvPDBuB">
+            <div class="ct" data-page-node-id="cSNXjr494Rbbb8uotA6pB3"><span class="n" data-page-node-id="aayw69iqDBW8g3qR1ESEwu">4</span>内容及成果（产出什么）</div>
+            <p data-page-node-id="FmFX4FulhNccFHcMzSih25">内容 = 对评估对象价值<b data-page-node-id="t9x9nHHlxhtZAkVNW8DnQZ">评定估算</b>；最终成果 = 依据评估准则出具的<b data-page-node-id="iEiMF2pLrhmc4uW6E3aawT">矿业权价值评估报告</b>。</p>
+            <div class="box key" style="margin:10px 0 0" data-page-node-id="HYXgsdeLIODJf6x5qnaX3j"><div class="bt" data-page-node-id="5X65B41aqkOWErtJhMo28J">🎯 报告的双重身份</div>既是发表专业意见的<b data-page-node-id="iucJFTwTmIuAhzifzljwKa">载体</b>，也是<b data-page-node-id="VWxqUaTZw8ZYf9Cw4sczDa">履行委托合同义务</b>的证明。</div>
+          </div>
+        </div>
+
+        <h3 class="sub" id="s1-dev" data-page-node-id="bpnMECnYDrShYWrOI7Kr7t">（二）产生与发展 —— 一条时间轴记清</h3>
+        <p class="body" data-page-node-id="C3MO3HDBT8lRFPJHzYxlaj">我国矿业权价值评估伴随矿产资源勘查体制与矿业权管理体制的建立、调整、完善而发展，<b data-page-node-id="gRxCszl2RaTjzjJL24NEGP">大体两个阶段</b>：</p>
+
+        <div class="box key" data-page-node-id="H8CKMGQDsbC051o1EKY7YH"><div class="bt" data-page-node-id="v9vIcwYk8IyceD1nBOXde6">🎯 两阶段一句话区分</div>
+          <b data-page-node-id="KXRmmD6oUmk5A2oPJnoYDP">阶段一（1990–1997）</b>：评的是"矿产地勘报告 / 有价值勘查资料"（<b data-page-node-id="LRMbkXgeTyyYYaOrOCIrHz">地质勘查成果</b>，不是矿权）。<br data-page-node-id="otKPVSCQne6ESA0Vk8rrAU">
+          <b data-page-node-id="6tTVVtKdDoJBgGk26amI4B">阶段二（1997–至今）</b>：评的是"探矿权、采矿权"本身，并对机构实行<b data-page-node-id="kdqoHFaRCgRs9DZxEtMErG">资格管理</b>、对人员实行<b data-page-node-id="RDVxUbwq0t6s9McbnBzHfp">执业资格准入管理</b>。
+        </div>
+
+        <div class="tl" data-page-node-id="rH5bOLoYn9ZBhpAj7Edx9G">
+          <div class="tl-item" data-page-node-id="KUTdcgm48Ka61ZveGVaS5x"><div class="tl-date" data-page-node-id="6HN9TvyzgZQk2gcQ4ISJwn">1986</div><div class="tl-dot" data-page-node-id="hepyJlZHKcseiuB2T0IHyA"></div><div class="tl-body" data-page-node-id="yOfAtcgGywWDV7AE9hy7JJ"><div class="t" data-page-node-id="WBxUe2qL3waVYcWwypnDVX">《矿产资源法》颁布</div><p data-page-node-id="Uu7zGpA4AVPaN9P6i9Om5i">规定"采矿权不得买卖、出租，不得用作抵押"；地勘改革"成果商品化"催生评估需求。</p></div></div>
+          <div class="tl-item" data-page-node-id="OLa2jTAAzRETAqGEcjH1aM"><div class="tl-date" data-page-node-id="ejgHGIfuRvAawob6ekcW0f">1995.5</div><div class="tl-dot" data-page-node-id="4RkF4KVrcvOiJj45d8na0A"></div><div class="tl-body" data-page-node-id="USDxEHD6Qzx71slsBCv5Ds"><div class="t" data-page-node-id="TmLHXizxOwJck0xgFUXdeh">《地质勘查成果资产评估管理若干规定(试行)》</div><p data-page-node-id="AYoi7mY8uzWzVlJ4hBvDFM">地勘成果作为<b data-page-node-id="CqFEGiSzxjRcFuf7uCqV72">无形资产</b>评估作价，并购、转让、上市等必须评估。（阶段一标志）</p></div></div>
+          <div class="tl-item major" data-page-node-id="bH1q6c2rn8qcEXjFGNp5EX"><div class="tl-date" data-page-node-id="kR49AgJh3VG5pUziX8LKsT">1996–1998</div><div class="tl-dot" data-page-node-id="woyPeljsSxuaRNu0YpEjPL"></div><div class="tl-body" data-page-node-id="gsNtcZzwpodfwnJlEgIZLL"><div class="t" data-page-node-id="c9zhhZS4kLzAiOQqwEN1WD">法律基础奠定（阶段二起点）</div><p data-page-node-id="gbv8PBTyDMNKODs6iecRPU">1996《矿产资源法》修订 + 1998 国务院 240/241/242 号三个行政法规，建立矿业权流转制度，规定出让/转让国家出资勘查形成的矿权<b data-page-node-id="3xc9f4OaPg4dSTVdxYptFc">必须评估</b>。</p></div></div>
+          <div class="tl-item" data-page-node-id="SdG8nwAxaMqMpu53ALHTIO"><div class="tl-date" data-page-node-id="EakrKsiCV8NGfjl59B5KNf">1999</div><div class="tl-dot" data-page-node-id="emK5iyfrIJ3q9cJJX8wkiy"></div><div class="tl-body" data-page-node-id="1j0K3Fs36DQ0RGdn5eFnMs"><div class="t" data-page-node-id="xxj4uKrViLAATUFHcwkkqd">《探矿权采矿权评估管理暂行办法》</div><p data-page-node-id="A3detjcTUXaExkv7lU3jNL">"探矿权采矿权评估资格"制度正式实行。</p></div></div>
+          <div class="tl-item" data-page-node-id="qhD7uBCKbiGL7j6Bsih97y"><div class="tl-date" data-page-node-id="yTZOJaUPNVQBIBLEwmgY4X">2000</div><div class="tl-dot" data-page-node-id="8A25FDybHnuJGicjwuwkU6"></div><div class="tl-body" data-page-node-id="GYPMUkM9lAzB7xAQ7wvZY0"><div class="t" data-page-node-id="PJRSbwc9CmsrFXye5lDJbe">执业资格 + 第一部技术规范</div><p data-page-node-id="Zfvi7MVrQYAEHPtcGQ7lIO">矿业权评估师执业资格制度实施；发布第一部行业技术规范《探矿权采矿权评估方法指南(2000)》。→ 进入<b data-page-node-id="zPLFRULJ56gQZPC9AdCOvP">规范运行阶段</b>。</p></div></div>
+          <div class="tl-item major" data-page-node-id="OCVp8IpEQptyc1VihJ6zlC"><div class="tl-date" data-page-node-id="MotzZpgTEyN1KVSTVFIJiL">2003</div><div class="tl-dot" data-page-node-id="rpRrURVLIu6VWJRprreXNn"></div><div class="tl-body" data-page-node-id="dgah1rLlIMBztAEjHhX8OD"><div class="t" data-page-node-id="MyAoHQpuBES4OIuCACYm6H">国家确认"独立评估专业"</div><p data-page-node-id="w3Tp75gnHt8sZcL2JD2NHb">国办发〔2003〕101 号，明确矿业权评估为国家设立的<b data-page-node-id="brJcwar3EDqqneRl1s28Sv">六类评估专业之一</b>。</p></div></div>
+          <div class="tl-item major" data-page-node-id="RIjqpLKaArbpE7FavcvL90"><div class="tl-date" data-page-node-id="SF9qeEjkLZymRNqZjeX8sm">2006</div><div class="tl-dot" data-page-node-id="OTxoWbVOA5UEQ1zHZ7nlfB"></div><div class="tl-body" data-page-node-id="LBEGYvCgzHXoXQ3qy7TNQZ"><div class="t" data-page-node-id="AbSwGLVDT2oK3i17FBXZmZ">中矿协成立 · 行业自律</div><p data-page-node-id="PUQTvOBLhhCtw1AArFWmc8">中国矿业权评估师协会成立，资质资格管理职能移交行业组织 → 进入<b data-page-node-id="KtqqlPMKR31MdoawwlUn1e">行政监督 + 行业自律</b>结合阶段。</p></div></div>
+        </div>
+
+        <h3 class="sub" id="s1-feat" data-page-node-id="7NQlWtgKQYenKiOEkyVrtG">二、矿业权价值评估的特点 —— 记住"四性"</h3>
+        <p class="body" data-page-node-id="E6ETVDGVn6qxRuzBVneTmU">矿业权价值评估一般具有<b data-page-node-id="XVDGANx0D7rKXfsVbVez4s">公正性、鉴证性、咨询性、专业性</b>四大特点。</p>
+        <div class="feat" data-page-node-id="9Uc5Q2OEanj17myX92hovS">
+          <div class="f" data-page-node-id="qVojwAEmEkpvZBv8z55ToG"><div class="fh" data-page-node-id="akgl4G0HzzicxpzHu92dNZ"><div class="fico" data-page-node-id="mMCqoWqtHEgK5qRt8ekDpd">⚖️</div><b data-page-node-id="xvbV9lCadP7x8ZtZzC3UMv">公正性</b></div>
+            <p data-page-node-id="UYSO4FhP4qDqqqf7D2xaiQ">维护公共利益和各方当事人权益，<b data-page-node-id="jOCioGfh5Dpt8h3N7c3kHx">不片面维护某一方</b>。两保证：① 按法定准则（技术保证）；② 与矿权及相关当事人<b data-page-node-id="MxaiAbk4iZJBdeL9DMvFyG">无利害关系</b>的独立第三方（组织保证）。</p></div>
+          <div class="f" data-page-node-id="6izSyr01PGavKBPNM33fYl"><div class="fh" data-page-node-id="1kegiJXq4Xgx1COuNW3Rgc"><div class="fico" data-page-node-id="JoY7RxIJGhdacQTtfBvm4s">🔍</div><b data-page-node-id="ELvtoAikPEllAHy2n6AJqt">鉴证性</b></div>
+            <p data-page-node-id="bhHLiL0ZE3zd1GCJh3kFEy">对探矿权、采矿权价值进行<b data-page-node-id="QUNo41K4DljaoNmgHW09ec">鉴别和举证</b>，是经济鉴证类服务。<b data-page-node-id="3luAgmmbnjRa0ttsGVDswZ">承担专业、民事、刑事责任。</b></p>
+            <div class="box key" style="margin:8px 0 0" data-page-node-id="3rK9ffpARPCPYaDA3CnSb9"><div class="bt" data-page-node-id="UU8Uj2BB2Vddsj16QnQJYI">⚠️ 最易考</div>从事的是<b data-page-node-id="bwbFpF5g5Pghx8cHEKqIUD">价值鉴证</b>，<b data-page-node-id="jYRoZ7WluCdGvfCkPILwb0">不是权属鉴证</b>！</div></div>
+          <div class="f" data-page-node-id="WmZpZ09yxeU2FaAbsPKfHy"><div class="fh" data-page-node-id="iAewkQ264vKopcrPxjMs7B"><div class="fico" data-page-node-id="8wVEfLSEHJ6LfpWN03JReq">💬</div><b data-page-node-id="OOtTUXMf94vc5iJSHTfzRA">咨询性</b></div>
+            <p data-page-node-id="Wqz3WTZrmM6xF624uuluaa">结论是市场化流转的<b data-page-node-id="3RCIpmcgsAlbywC0FXwzFH">专业化估价意见</b>，<b data-page-node-id="hUOIb7OXTCOX7BOenksMiq">无强制执行效力</b>；只对结论合乎职业规范负责，<b data-page-node-id="0pC4tS0ooM0UKKfreosphf">不对交易定价决策负责</b>。</p>
+            <div class="box info" style="margin:8px 0 0" data-page-node-id="Ub93oTBMMwRiHntufjWgXG"><div class="bt" data-page-node-id="EOKD71l4akpa3m9gLQGvZR">💡 成交价由什么定？</div>当事人决策动机、谈判地位与技巧等综合因素——评估只是"参考"。</div></div>
+          <div class="f" data-page-node-id="I0q2dDZp6ORf9Z714ztBZs"><div class="fh" data-page-node-id="dAVB5tnBgX7u7LI2YPFTxa"><div class="fico" data-page-node-id="A9WOqqkpdr4SBgwYFC7uMd">🎓</div><b data-page-node-id="FgGGqeJ879eLiBCtF1O73L">专业性</b></div>
+            <p data-page-node-id="jbqPNhvQzhgqVCAa8e3lKg">受矿产自然属性影响最大，评估人员除价值评估理论外，还须掌握<b data-page-node-id="8mr35BcqJEgs4nqQrBzUlb">采、选、冶</b>等工程技术知识。</p>
+            <div class="chips" style="margin:8px 0 0" data-page-node-id="YZi0OMgcTH9DnCQKava1n3">
+              <span class="chip p" data-page-node-id="vJ0FbCBLxwTmnjhfbsWmWQ">地质学</span><span class="chip p" data-page-node-id="49hOciuDnXm1jSSsXKelWl">采矿学</span><span class="chip p" data-page-node-id="6ohxppJtwgl7Ud4LT6fmon">选矿学</span>
+              <span class="chip p" data-page-node-id="QVfhcDymKEaDkCmVdhNQNz">投资学</span><span class="chip p" data-page-node-id="7QHwtTGMJc2EfGJ5jimBTz">经济学</span><span class="chip p" data-page-node-id="ctjKlSdm8cfLHWR170CF7P">财会/金融/法学</span>
+            </div></div>
+        </div>
+
+        <div class="quiz" data-page-node-id="ZnRc9v3X7IPEQAYEEpiTC0">
+          <div class="qh" data-page-node-id="U3V2zj4Ml67ArH7tvutMHo">✏️ 本节考点自测（先想后看）</div>
+          <ol data-page-node-id="DY5ifCtMywwOKZWVETL2eN">
+            <li data-page-node-id="Jtbu0m5GFl1PQk443iJWfQ">矿业权价值评估的"主体"包括哪些？法定业务对人数和人员有何硬性要求？
+              <span class="ans" data-page-node-id="yeJEAjakvpDdDAjdJfJuuW">✔ 机构 + 专业人员；法定业务须 ≥2 名矿业权评估师。</span></li>
+            <li data-page-node-id="1QQGWvdckSZNCtHD8CbPXg">"鉴证性"里，矿业权价值评估做的是"价值鉴证"还是"权属鉴证"？
+              <span class="ans" data-page-node-id="e7rK4L8T2hmw1tI6GBFKZv">✔ 价值鉴证（不是权属鉴证）。</span></li>
+            <li data-page-node-id="1TzyMfsB9tyCfHSE9gJdfN">咨询性下，评估结论对最终成交价有没有强制约束力？
+              <span class="ans" data-page-node-id="vX69w5WglIsHfz3JeKPXDb">✔ 没有，仅供价值参考，成交由当事人决策定。</span></li>
+            <li data-page-node-id="kbqvJ6rKDJmOw0BYDWZXgR">2003 年国家对矿业权评估作出了什么重要确认？
+              <span class="ans" data-page-node-id="RLBxHowXvEJBTsBvWFpOqo">✔ 确认为国家设立的六类评估专业之一（独立评估专业）。</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ============ 第二节 ============ -->
+      <section id="s2" data-page-node-id="ikpRmOUKr2JYHz77omKDgf">
+        <div class="sec-head" data-page-node-id="pzVOKm7ToIGvsqQtuBSo7Q">
+          <div class="sec-num" data-page-node-id="xqO3HaNg6C8dimZcNpUc3E">02</div>
+          <h2 data-page-node-id="OORC638nomGhKjDdDH1fRt">矿业权价值评估原则</h2>
+          <span class="tag" data-page-node-id="9nMd1dHPtsKpD1O26Jg4wu">工作原则 + 技术/经济原则</span>
+        </div>
+
+        <h3 class="sub" id="s2-work" data-page-node-id="1xwB9reFOOrsqXuuiPcRD0">一、工作原则 —— 只有一条，但要背牢</h3>
+        <div class="box ok" data-page-node-id="7bYVakADUfBAHxnwxLb35u"><div class="bt" data-page-node-id="Dh6RioeSE201jlgQkvALei">✅ 最根本的工作原则</div>
+          <b data-page-node-id="QSqY8Gk6sPmDLCslCp4NV5">独立、客观、公正</b>。既是《资产评估法》的规定，也是市场要求。矿业权价值评估是联系矿业市场的<b data-page-node-id="am33iRcjawZJJwzKOpzygM">桥梁和纽带</b>，只有独立、客观、公正才能赢得市场信任。
+        </div>
+
+        <h3 class="sub" id="s2-tech" data-page-node-id="zIcpWg5GW0pSHnB8BTFlDZ">二、技术原则（3 条）</h3>
+        <p class="lead" data-page-node-id="eDYr0gB4pOh53rJk8uaReH">技术、经济原则与"矿产资源不同于其他资产的特殊属性"直接相关。技术原则管"科学可靠性"：</p>
+        <div class="pr-list" data-page-node-id="7Q6CJ5jvXRkcmxCk14hUKV">
+          <div class="pr" data-page-node-id="3ci54eOcVtN05ECKlwl93y"><div class="pi" data-page-node-id="1pWhsRgkGeGcfEzm1ieIOf">1</div><div class="pc" data-page-node-id="4dP4q8b0GViEyo59y5FAIE"><b data-page-node-id="v5lRCBuQwsBa1kK7BWn1yo">遵守地质规律和资源经济规律</b><p data-page-node-id="MMEZngBLFLBHtCi5fbFPAz">揭示储量<span class="em" data-page-node-id="Cro2xRvspnhnnoaBzoYwSC">可信度</span>、矿石品位及变化、地质赋存条件等，科学判断资源经济特性。</p></div></div>
+          <div class="pr" data-page-node-id="X6uiPdU3v88vqezmdzrMVw"><div class="pi" data-page-node-id="PERP76CygZQudmRg9FaMae">2</div><div class="pc" data-page-node-id="Fqq6J1zJqSgIr8HNWdB4SN"><b data-page-node-id="bR4lrjg2CKNJgPavoFHW0h">遵守地质勘查规范</b><p data-page-node-id="rtJNRGgaLbHRhKIpq2xiyc">勘查成果质量判断、储量圈定、<span class="em" data-page-node-id="iFI0tGdlSkoCQNIpmq71lx">地质勘查重置成本</span>计算等都要依据勘查规范，保证结果可靠科学。</p></div></div>
+          <div class="pr" data-page-node-id="smM2yNtcDr9fHCbI8fLLSr"><div class="pi" data-page-node-id="jzpXr07pnIWrYf6E072N62">3</div><div class="pc" data-page-node-id="6sSLoKAmFfYJRYfrXFmAIz"><b data-page-node-id="2I3kF9pRxNAR8iEJIdOfps">遵守采选技术规范</b><p data-page-node-id="HQPuEUO5iH8xBVRlT6DSyO">采矿权价值取决于矿山<b data-page-node-id="o6fgwMG1PWX5vvAhfFSC2Z">未来获利能力</b>，须用采选矿知识审视开拓方式、采矿方法、选矿工艺、产品方案等。</p></div></div>
+        </div>
+
+        <h3 class="sub" id="s2-econ" data-page-node-id="wMcSnNDfEresBt7pP4Zope">三、经济原则（9 条）—— 本章背诵重灾区</h3>
+        <p class="lead" data-page-node-id="y20HiQQCnL62zX98U0VXVm">建议按"<b data-page-node-id="FTQ8FNmZQjSDF5hfYgCjhk">预测→供求→多用途→变动→竞争→收益增减→最有效利用→协调→均衡</b>"顺序记忆。</p>
+        <div class="pr-list" data-page-node-id="tyOUKluCUrAaSSR5t1RyM2">
+          <div class="pr" data-page-node-id="TiqlqyuOplcfjabBeKDlBp"><div class="pi" data-page-node-id="jr6GxFAw7lESNaohAtBcW4">1</div><div class="pc" data-page-node-id="cygmnpYy5HTOspjbiR2mpE"><b data-page-node-id="GtbaALw8oHSbqbJNzipqRF">预测原则</b><p data-page-node-id="MmOgiYPzuuFKr9Mv7LPjcP">价值基于<b data-page-node-id="REaRkp8zdFhRKZlpV1uAIb">找矿前景与未来收益期望</b>，而非过去投入。探矿权评估重点是科学预测找矿前景与发现经济矿床的潜力。</p></div></div>
+          <div class="pr" data-page-node-id="zR2NEa6m75pPG37UPTXaXV"><div class="pi" data-page-node-id="fYaGR8QKP9WubBds9hW0aD">2</div><div class="pc" data-page-node-id="9HGDR0aR2QG99bzWH0PaJX"><b data-page-node-id="3P4n7pxAUyXBA0nM7ETsVr">供求原则</b><p data-page-node-id="lZ1xkuVM9jzeEZhkQ0y1ag">与需求<span class="em" data-page-node-id="1giLoJXT5HPcsk3ZUOnAn0">成正比</span>、与供应<span class="em" data-page-node-id="kNXIpKswLIKALlr5QS2msB">成反比</span>，且关系<b data-page-node-id="GcSUoA4NymaiGnW1YQJCzG">动态</b>变化，须把握基准日时点的供求。</p></div></div>
+          <div class="pr" data-page-node-id="IwLmSzajO3vRpPxGUvGjtZ"><div class="pi" data-page-node-id="iknNAG0YAYqTIHkaY2MHwb">3</div><div class="pc" data-page-node-id="aj43cRVJIBCv3CA3xiPBkK"><b data-page-node-id="s0lwe1BC6rnixqcIKLX0hG">多用途非替代原则</b><p data-page-node-id="2QtFbUhFmFG426L7ygUDWS">矿产有<b data-page-node-id="JTsfP6YSmAKF8pbsRq8mvr">用途多样性、共性、可替代性</b>。不同用途矿产品要用<b data-page-node-id="AVUUsrICxCVHDx0Z9HnHeZ">相对应用途的价格</b>（如石灰岩按制糖/制碱/化工/熔剂分价）。</p></div></div>
+          <div class="pr" data-page-node-id="lnvwbgse42Bt053XzEcEJI"><div class="pi" data-page-node-id="V8T5KU2G8Ya0qttCMZRTyI">4</div><div class="pc" data-page-node-id="n9w0GaGpW1ACFh1Q8zLpAP"><b data-page-node-id="6UziwSWCPzGgfiNdxAnn5J">变动原则</b><p data-page-node-id="fupW51A872DjCWV190PCZQ">采选冶技术、矿产品价格等因素变化会引起价值变动，须充分考虑并充分说明。</p></div></div>
+          <div class="pr" data-page-node-id="cE3UpNeGut4QpRklBy3RMH"><div class="pi" data-page-node-id="1ODLJjB6HCDbclBZWkEbc3">5</div><div class="pc" data-page-node-id="06fhbPla5hyNWgCiAFLSc7"><b data-page-node-id="pGOX7jNzSijv0GQwOSEVoA">竞争原则</b><p data-page-node-id="QSJeNFxgYfKViaKJX0kplb">公平市场价值在市场中形成，买卖竞争影响价格，须考虑市场竞争程度。</p></div></div>
+          <div class="pr" data-page-node-id="yfSY3OsEP77bpMWqHW3t9D"><div class="pi" data-page-node-id="VfblLkvYZ2lgZAQcuPgI49">6</div><div class="pc" data-page-node-id="PrM0bD8WRZMD1oQlKIAMLD"><b data-page-node-id="xoqZYnvCA7pAOW8Mf0GRRw">收益递增递减原则</b><p data-page-node-id="wqrCH9xsEaVfXsmqDqm0PI">源于<b data-page-node-id="8cFFXFbMAJgTe8QJB0hK33">边际效益递减</b>：追加投资初期收益增加，过临界点后不再成比例增加。</p></div></div>
+          <div class="pr" data-page-node-id="POcwJI8ijtxLUAgSAv3bXD"><div class="pi" data-page-node-id="2FZV35L2QSz4FR2jmdOfMy">7</div><div class="pc" data-page-node-id="iWqpTs8ivnrqHuN3TEfK86"><b data-page-node-id="XdXLVYrDviZ20C9fAbJBs3">最有效利用原则</b><p data-page-node-id="iJD9G80cVCw4dkO45Nc2Ag">以法律许可范围内<b data-page-node-id="XIB32EPnWRPNxcLmrzqDpU">最大限度发挥效用</b>的方式形成价值；评估以矿业权<b data-page-node-id="ARYon83ErCBAaKs50oPsm3">最佳利用</b>为前提。</p></div></div>
+          <div class="pr" data-page-node-id="vfE1XAl1BNxqwC1gA6hK4W"><div class="pi" data-page-node-id="YCl8KsllHOTDkZRwVClJCb">8</div><div class="pc" data-page-node-id="PwLhc9Zi300KByIIPHqb9k"><b data-page-node-id="4BctOdVLURlpjORWBHu2lk">协调原则</b><p data-page-node-id="pXfaLebOgoEOF3WrtENVkN">矿产开发须与自然环境、社会环境协调；与周围<b data-page-node-id="kxqN9gGnBwbEuXUJidnG2P">同质环境</b>的矿权价值更高。</p></div></div>
+          <div class="pr" data-page-node-id="EMFxWWlpPdsYn0ZK0MkL3R"><div class="pi" data-page-node-id="gVNU5ZluyTVeb20TMTWlHL">9</div><div class="pc" data-page-node-id="2afpS9TwHYlCPwf5dcncTf"><b data-page-node-id="l96duBhiKwAWD0DDb97EPy">均衡原则</b><p data-page-node-id="zL6zFyZJdmvBH7frElNlPA">各市场（资本、勘查劳务、矿产品、矿权交易）与生产要素<b data-page-node-id="jPBwUU2K4xwWTEEdR8WLbw">达到均衡、尚未边际递减</b>时收益最佳。</p></div></div>
+        </div>
+
+        <div class="quiz" data-page-node-id="z85xn5kkg004b8tnbBohHK">
+          <div class="qh" data-page-node-id="2C9pN86FF7jMypYFXc0rn5">✏️ 本节考点自测</div>
+          <ol data-page-node-id="DwkwAyGeTPCIRZ41Zv5iFV">
+            <li data-page-node-id="0ZA54DbhKs1cgUk8EcpdIV">矿业权价值评估最根本的工作原则是什么？
+              <span class="ans" data-page-node-id="rGK2kEB5Dh9bTWtxWXdixx">✔ 独立、客观、公正。</span></li>
+            <li data-page-node-id="uN3U8ZpGk2FHJibHAaX9lV">经济原则"多用途非替代"针对矿产的哪三个特性？举例说明。
+              <span class="ans" data-page-node-id="PT7bWVh65jl3sUPWQAUcyt">✔ 用途多样性、共性、可替代性；如石灰岩因 CaCO₃ 含量不同可作制糖/制碱/化工/熔剂用，须按对应用途价格。</span></li>
+            <li data-page-node-id="66Sq18WAb9WSFKDYSYJgFL">"收益递增递减原则"源自经济学哪一原理？
+              <span class="ans" data-page-node-id="ySFJeRSRPaV9GS8O16x4I3">✔ 边际效益递减原理。</span></li>
+            <li data-page-node-id="Mu433iFPWpRXUMNkyKQbH4">"最有效利用原则"中，评估应以什么为前提？
+              <span class="ans" data-page-node-id="ubbY6lyTz8xRLhV1cyRrPZ">✔ 以矿业权的最佳利用为前提（法律许可范围内最大限度发挥效用）。</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ============ 第三节 ============ -->
+      <section id="s3" data-page-node-id="bhND3E2FlQ0DgGDI4WsT5h">
+        <div class="sec-head" data-page-node-id="h4QgMxAw9zsRpBIusnfSMH">
+          <div class="sec-num" data-page-node-id="6STTeYKp76gVr6Xhyc4ES3">03</div>
+          <h2 data-page-node-id="6Zj4Plv9fEvbmomvUmrM9h">矿业权价值评估的基本作用</h2>
+          <span class="tag" data-page-node-id="BWLeHOTGpjDdCOoDATaD7S">三大作用</span>
+        </div>
+        <p class="lead" data-page-node-id="djLNzKXrcxjASjkA4pREAo">矿业权价值评估是随矿产资源法律制度完善而发展壮大的<b data-page-node-id="YlKjPfAMXEOOqeforWD1Co">中介服务业</b>，承担涉矿国有资产和重大公共利益评估任务，作用不可替代。</p>
+        <div class="roles" data-page-node-id="xXPfmyWZKlqZPrPQ2DrKoq">
+          <div class="role" data-page-node-id="RCzXCGX6r2hgeRNXO7bf4N"><div class="rn" data-page-node-id="A4cIS4Jns3QltJMJlQw4ZA">01</div><div class="rt" data-page-node-id="96seckcb3b23ZxtuS22ILX">矿业权管理的重要范畴</div>
+            <p data-page-node-id="k7uCE4H9uKoZkwJGDax8ie">矿业权<b data-page-node-id="t3vKMBQ5Dw7ceWD6v5rdAg">出让收益评估</b>是矿业权管理的重要范畴，是出让收益征收工作（矿业权管理必要环节）的重要参考。</p></div>
+          <div class="role" data-page-node-id="jPRwBSHTyVqhtHsVpm3v28"><div class="rn" data-page-node-id="xAlaWafmFd7MDyrACdkZ5p">02</div><div class="rt" data-page-node-id="KXgKB6NryovUBpo5wMf9nd">涉矿国有资产与公共利益的维护者</div>
+            <p data-page-node-id="lYPmKcdvPxPQ70uNM4E1Tn">宪法规定矿产资源<b data-page-node-id="Kx7lXSGkMZoGKEGVvfYY5F">归国家所有</b>。评估师在维护矿产资源国家权益、涉矿国有资产管理、涉矿上市公司业务中扮演维护者角色。</p></div>
+          <div class="role" data-page-node-id="9DHdbE1yHBUgO2FocJG6sh"><div class="rn" data-page-node-id="KFNnx8hHps7Jvfy76iTqvR">03</div><div class="rt" data-page-node-id="QOBObH0lkEjXkuYUQV2qPp">矿业权交易中介体系的重要支撑</div>
+            <p data-page-node-id="4q1TYfcRd2CWhGAEiGutEZ">起沟通信息、价值评估、技术法律的"催化剂"作用，把矿权交易、资本、勘查、劳务、矿产品市场有机结合，联系矿权人、银行、投资人、政府，推动市场全程运行。</p></div>
+        </div>
+        <div class="box key" data-page-node-id="L7mONqPWOZksGmIlXeAYyk"><div class="bt" data-page-node-id="xcsU5VfhILyDMKKyt7RnUk">🎯 一句话记牢</div><b data-page-node-id="8bv1MdfNKKbjQPe05NeuM7">管理（范畴）+ 维护（权益）+ 支撑（中介催化）</b>——三个角色别记混。</div>
+      </section>
+
+      <!-- ============ 第四节 ============ -->
+      <section id="s4" data-page-node-id="bufTCvxuURo7CAE02sBy4Y">
+        <div class="sec-head" data-page-node-id="QIx31dPQhI1BVPFAMCjj1K">
+          <div class="sec-num" data-page-node-id="7m49H2VYDVdJkOsubatKmc">04</div>
+          <h2 data-page-node-id="UbQWkvxdUNZMlvEVsXlu1Y">矿业权价值评估准则</h2>
+          <span class="tag" data-page-node-id="lIqn8okNT3PRUiq8v6xo9P">规范体系 · 四层次 · 22 项</span>
+        </div>
+
+        <h3 class="sub" data-page-node-id="eo04q3smJb9X1vq0OSDmsi">一、准则的基本概念、定位与作用</h3>
+        <div class="def" data-page-node-id="1AeG0foQh1pIrksqajbGna"><div class="dl" data-page-node-id="dXjejToJY90IByYO69MOI5">基本概念</div>
+          <p data-page-node-id="xJCoIAdr7qZcInd2aBCPUv"><span class="term" data-page-node-id="7cu2nzSXKLxLkyRQNl6jXz">矿业权价值评估准则</span>是规范评估机构及其专业人员<b data-page-node-id="cJmgsKWSilApmqweuesvRv">执业行为和职业道德行为</b>、保证执业质量的行业标准规范。</p></div>
+        <div class="box warn" data-page-node-id="DVjx4HUuwiaDooLBhn4V4m"><div class="bt" data-page-node-id="NdlqGb05Lb5WvvSZpCqwfr">⚠️ 制定权分工（常考）</div>
+          <b data-page-node-id="nT3807pd9GMeySmEbcETue">自然资源部</b> → 制定矿业权价值评估<b data-page-node-id="VqFSzUUcVRDEAZWz1ZIzsQ">基本准则</b>；<br data-page-node-id="grGpuOKLFxcdHV7trEUruA">
+          <b data-page-node-id="2a4UR73NIp3Efj3mSHqF9D">中国矿业权评估师协会</b> → 制定<b data-page-node-id="o6HQomywLrFRZ6ooGwCyrZ">执业准则</b> 和 <b data-page-node-id="zM4eCavsbsS5C8WbFU3MuD">职业道德准则</b>。
+        </div>
+        <p class="body" data-page-node-id="kiHdpOSOsLWPIDlCxVGmsA"><b data-page-node-id="O7kSMClFR22ADdWjDtu6ee">定位：</b>《资产评估法》规定评估业务须遵守法律、行政法规和评估准则，违反须担责 → 准则具有<b data-page-node-id="twRsPMQHycJXkILEHLFAmB">基础法律地位</b>。</p>
+        <p class="body" data-page-node-id="ShQqHugaJEmLQWXwVBzi4b"><b data-page-node-id="Wvw3Gh2FjNqfQSgxknsOnw">基本作用（4 条）：</b></p>
+        <div class="chips" data-page-node-id="5e0K1kuk4E3NEALYN230hx">
+          <span class="chip b" data-page-node-id="HttE0976EBwY5uXBCETV6j">① 行为与技术规范</span>
+          <span class="chip b" data-page-node-id="et5uYnmeeGwhR4G9BFI4UM">② 行政监督与行业自律的重要依据</span>
+          <span class="chip b" data-page-node-id="eytx5XCPYhpn8sX3FALsPl">③ 社会监督评价质量的标尺</span>
+          <span class="chip b" data-page-node-id="74FY3dyEnnJXTIg3DIrOPD">④ 提升行业公信力的手段</span>
+        </div>
+
+        <h3 class="sub" id="s4-dev" data-page-node-id="LkssAhXd5kdFCLG8LsrTPN">二、准则的发展历程 —— 一条主线</h3>
+        <p class="lead" data-page-node-id="cMGZtoUC4AaYrRds48XXlD">自产生以来，自然资源部（原国土资源部）先后发布多项涉及<b data-page-node-id="p2yCpk6oqJSgkNqGTz7u4V">行业管理、评估委托、技术方法、参数选取</b>等内容的规定。关键节点：</p>
+        <table data-page-node-id="jBxUwEkX9HFeQPjdhWQKCY">
+          <thead data-page-node-id="5oEJTEzfU4DOFjfdiDQhwv"><tr data-page-node-id="ubyaylr90LTetvleBgcTno"><th style="width:110px" data-page-node-id="DZVlFH1mDbXcXlvUCGpYWd">年份</th><th data-page-node-id="mzUIyvmQCb1rdHM4COJ21U">里程碑事件</th><th style="width:150px" data-page-node-id="z67yXAeCNjB2AsdV5Go5nG">性质/意义</th></tr></thead>
+          <tbody data-page-node-id="jyAqabWBvEaGOAcQbyVA0F">
+            <tr data-page-node-id="BO8PbEylLL71YHupTFwIjO"><td data-page-node-id="01qj8u8EKtNnR9PNb1cEu7"><b data-page-node-id="qhC4M592kcZ9iylnxaE7XH">1995</b></td><td data-page-node-id="slt23CMYHm2GQuZalyWX5u">地质矿产部《地质勘查成果资产评估管理若干规定(试行)》</td><td data-page-node-id="0dElImr5VWOR1qHS4MIFyJ">明确地勘成果评估方法</td></tr>
+            <tr data-page-node-id="U1H6rcJ1bpCixWwvCmHxfC"><td data-page-node-id="0UhzDTVJjd253MWmqu54fH"><b data-page-node-id="a8vfDS7I6RYA6KTBw5J8K2">1999</b></td><td data-page-node-id="4uXvLWR0nXng7mOan8HTvu">《探矿权采矿权评估方法指南》</td><td data-page-node-id="MBPy8986EewsyHAMXkROMD">细化评估方法（方法+案例）</td></tr>
+            <tr data-page-node-id="sD38KmIt4L3Diao6yGVZFC"><td data-page-node-id="rZZBuBQHCOoI4jxWovlayg"><b data-page-node-id="QDbUyFUi0yJUFYq2rg1RDP">2001</b></td><td data-page-node-id="QBvWJr7PGcjGenOD8qcYF6">2001 年第 8 号公告 ·《矿业权评估指南》</td><td data-page-node-id="zjykRiz1fuWogt422uJt9F">执业技术指导 + 培训考试教材</td></tr>
+            <tr data-page-node-id="DgfqZUaghBFAHTn9rNyg6T"><td data-page-node-id="Tfi9BP1KEwyhBgPSxeBICJ"><b data-page-node-id="FuQAWyDWictkVK2tEhD3eg">2004</b></td><td data-page-node-id="E3ReqrrRjL7W67XDDCUNK7">2004 年第 14 号公告 · 修订《矿业权评估指南》</td><td data-page-node-id="ef1d29di9JciO5f6xb1VsR">分矿权性质/条件/流转方式提方法、参数</td></tr>
+            <tr data-page-node-id="GXJc9MrGdrLJkOhFnJSMXR"><td data-page-node-id="t7oyEitw5VTPkhKFZnkLOC"><b data-page-node-id="zjICLVYGBHljJmpFSjsd0F">2006</b></td><td data-page-node-id="nVim88yjQwUB1E37mH40mH">2006 年第 18 号公告 ·《收益途径评估方法修改方案》</td><td data-page-node-id="NwWaXrIFEG1QoSUuINlnBG">2004 版补充，统一探/采评估思路</td></tr>
+            <tr data-page-node-id="GIUtkxwn6Rbe6MubwlLP1V"><td data-page-node-id="mHmElwz2WeJQhBJ16YMHrK"><b data-page-node-id="52RWaeHCGH1NcU0z6zepNc">2007</b></td><td data-page-node-id="ycNjcfBMb6ChRw8ew3kNbX">启动《中国矿业权评估准则》编制；发布《评估师职业道德基本准则》</td><td data-page-node-id="RKTcqaVnNrpyMwUMyIHBcN">准则体系起点</td></tr>
+            <tr data-page-node-id="wmOa0n6rdufwVjzGvGe9r3"><td data-page-node-id="79ANZhlSD1sUTy0UBdfAzU"><b data-page-node-id="iVWyg2Mlh4EqtrwoOT24Ua">2008</b></td><td data-page-node-id="90WtOLaf00wh4hdXfmIHRL">协会制定并发布 10 项 CMVS 准则（基本准则、程序、业务约定书、报告、收益/成本/市场途径、价款、基准日、参数）</td><td data-page-node-id="AVU7cvloa5cyFHa2QOBUz1">由 2008 年第 6 号公告实施</td></tr>
+            <tr data-page-node-id="4WODRpJtqxNjGNKjBC77GN"><td data-page-node-id="afUlFMTVlEIQnjXS4yUZfn"><b data-page-node-id="jxw1d3DM0bUg9wxNqC2ki9">2010</b></td><td data-page-node-id="3AKQAK2lkpl3YdQHUnrSnP">第 5 号公告发布 8 项（工作底稿、档案、转让、储量、地勘文件、后续勘查、矿山设计、企业财务报告）</td><td data-page-node-id="8sEoyrUHQvkPy63gOkDZJ0">程序与运用类完善</td></tr>
+            <tr data-page-node-id="AGoXrq90WJqHHzLUCuRSkM"><td data-page-node-id="5pHlPoKB6qI5vyhSMWoXmS"><b data-page-node-id="2FE8TInj6ICUxDkOcx3FI4">2017</b></td><td data-page-node-id="uSH6F1LU9Ts42EgCZqVZ0G">第 3 号公告 ·《矿业权出让收益评估应用指南(试行)》</td><td data-page-node-id="YuOS50vWZft0B2bn0MUC6x">对接出让收益制度</td></tr>
+            <tr data-page-node-id="iA3zXuKZD36tLCo48ZMCxS"><td data-page-node-id="fBFkFB7sGgWHwAnsMt5cQC"><b data-page-node-id="aXaLvlBLOePAbLOeTmhV1C">2023</b></td><td data-page-node-id="3f8Ny7NtI8TLhO5dEwEqnA">《矿业权出让收益评估应用指南(2023)》</td><td data-page-node-id="RhYFKaR47tOYeXqJjmkA71">配合出让收益征收制度调整</td></tr>
+          </tbody>
+        </table>
+        <div class="box ok" data-page-node-id="GiGRwdROXGyHioEvaJyR0G"><div class="bt" data-page-node-id="2Hy7Fn9xYDlhwF7hxtXKwL">✅ 总账</div>经十余年努力，协会共发布 <b data-page-node-id="mOs2iLofXNKCSbCO8aKdC2">22 项准则</b>，形成较为完备的矿业权价值评估准则体系。</div>
+
+        <h3 class="sub" id="s4-struct" data-page-node-id="t8AAm9HK6R8ViO63n1CBOY">三、准则的基本内容 —— 四层次体系（必考简答）</h3>
+        <p class="lead" data-page-node-id="EHSOEGC2vCcdr8b6jsjimp">现行准则由<b data-page-node-id="KphF6QHLmWtYziOLFaYhyD">四个层次</b>组成：<b data-page-node-id="meGAD7xz6HcL1QpHzmNQb3">准则 → 技术规范 → 应用指南 → 指导意见</b>。由"管职业操守"到"管具体操作"逐层细化。</p>
+        <div class="layers" data-page-node-id="uF1bZs6EMwejAinEh7ST9Z">
+          <div class="layer" data-page-node-id="oA6yKzDXummAtx7McyXsUo"><div class="ll" data-page-node-id="HpIczHPNsGgWBnVBNmuTli"><div class="big" data-page-node-id="Cr698cKlNYME4YfBLFHisr">准则</div><div class="sm" data-page-node-id="r1ydKGdRkkQ2uiEYdsgzPn">2 部分</div></div>
+            <div class="lc" data-page-node-id="BPm332pUKP0aUcaCrdYv8C">含<b data-page-node-id="4n7Bl7uLFWponETzK4elf4">《评估师职业道德基本准则》</b>（道德准绳、行规+禁则、与委托人/其他评估师关系）和<b data-page-node-id="louME0kOUckZDousaANt9G">《矿业权评估技术基本准则》</b>（术语、适用范围、价值内涵、原则、胜任能力与责任、报告提交责任）。</div></div>
+          <div class="layer" data-page-node-id="1BAXsVFImTUE054SoZ9Txi"><div class="ll" data-page-node-id="7xZEjevZ6IQlpAObG3xS0s"><div class="big" data-page-node-id="qx3jDxGKcz6BwM8RHcFGpo">技术规范</div><div class="sm" data-page-node-id="yZALdQIfFpK3NWsU8O8S6Z">2 部分</div></div>
+            <div class="lc" data-page-node-id="rzYhTWmszz7eYkWpje2MZJ">① <b data-page-node-id="h4L50wQjTGsQhb8w66QM66">评估程序规范</b>（履行必要程序保证质量）；② <b data-page-node-id="FSwOy5QIaLCLMC6SSH6hat">评估方法规范</b>（对收益/成本/市场等途径的定义、模型、适用条件、选取原则、操作程序）。<br data-page-node-id="VaJ77x84X5G7qJ7NtXLOsW"><b data-page-node-id="HWplab9EskwhzRxCCbCeEd">记忆：程序 + 方法。</b></div></div>
+          <div class="layer" data-page-node-id="AV4EUCCiAd2BVvV2KUFbLR"><div class="ll" data-page-node-id="XpBsdzoDqtio6sAs4IRnZl"><div class="big" data-page-node-id="vY9WGTv05gmzFbXL2jTFjD">应用指南</div><div class="sm" data-page-node-id="f7asR7ME9RRkv5iMoXUhK2">按目的分</div></div>
+            <div class="lc" data-page-node-id="T3k7l9q1jn9bESsRyaWpFQ">针对不同<b data-page-node-id="Csq8xnibAbrxTsdr2b6Sdd">评估目的、资产类别</b>的特殊要求。适用：出让（价款/出让收益）、转让、抵押贷款、法律诉讼、上市融资与信披、非正常关闭补偿、企业改制等评估。</div></div>
+          <div class="layer" data-page-node-id="ZmeYogCVD6FqtddtX5GZwK"><div class="ll" data-page-node-id="ozmG08fkJ7P4NDYHaRPOIw"><div class="big" data-page-node-id="jJpLSPk94CJuit661m5z51">指导意见</div><div class="sm" data-page-node-id="tQCtapFI3Uy3OEi7Tnahu0">具体问题</div></div>
+            <div class="lc" data-page-node-id="p0Dsx9be11RDOtBfvwU5AZ">针对某些<b data-page-node-id="pwxLAkLBc9IO9bZfpO9Yxx">具体问题</b>的指导性文件：解释、运用说明、操作方法（行业一般做法）。如利用企业财务报告、参数确定、确定基准日、利用资源储量/地质勘查/后续勘查/矿山设计文件等。</div></div>
+        </div>
+
+        <h3 class="sub" id="s4-table" data-page-node-id="xFm4HP1lICIQMCtcN0Uvyq">附：已发布的 22 项准则速查表</h3>
+        <p class="lead" data-page-node-id="2v9b3GFsjkpQ3hxV7BQGSt">按发布年份 + 类别归类，便于回忆。CMVS 编号前缀含义：<b data-page-node-id="LABPREqqqKtaxbTnGHrCEG">1xxx 程序类 / 2xxx 方法·应用类 / 3xxx 指导意见类 / 00000·20000 基本·职业准则</b>。</p>
+        <table data-page-node-id="3pUybEZvxz4TwYUDzf8Xdc">
+          <thead data-page-node-id="NOVIX7VQb1KcJpyOV8hmMt"><tr data-page-node-id="EXRz7plVYwZvgKDA7zMSRB"><th style="width:70px" data-page-node-id="CBeWDvgxJQa8lPn1F7XKEb">#</th><th data-page-node-id="4805WKbvYxoMC3yYCDNkHX">准则名称</th><th style="width:130px" data-page-node-id="eIJY7KfMN0nQ9WD5DnvzSe">类别</th><th style="width:110px" data-page-node-id="PfOiIQe4QTVYJRFqFal7O7">发布</th></tr></thead>
+          <tbody data-page-node-id="5wxJxTerVBEwnDO4APYiT9">
+            <tr data-page-node-id="j0CJnElmt6fwkpQLt3EjIS"><td data-page-node-id="Mmt9UivDCD4TFHsHiElqXy">1</td><td data-page-node-id="lNYNLSKEWEj1qwzPRvfuvn">《固体矿产资源量类型的确定》(CMVS30510—2007)</td><td data-page-node-id="x9apN1QgpRoLLCIy7u72XR"><span class="tagpill tp-p" data-page-node-id="sM9Y6fRJcxTDQmUdUviqiQ">指导意见</span></td><td data-page-node-id="FIzzvpH3QIUKWblMHI2gNW">2007 第1号</td></tr>
+            <tr data-page-node-id="TDDWhDiMshrFQsYYsiJO03"><td data-page-node-id="1Xgt2Bvk9GftuXqFVTzxvq">2</td><td data-page-node-id="T5t73sCi1nVWydF8ArR4Vg">《评估师职业道德基本准则》(CMVS20000—2007)</td><td data-page-node-id="pDWWJAJYD0D78hffpQGPOu"><span class="tagpill tp-b" data-page-node-id="rsIdQbbnrvZEIPdShIgeXr">准则</span></td><td data-page-node-id="PRRY4rjETOvxJ47qM4IEpV">2007 第3号</td></tr>
+            <tr data-page-node-id="16gRvCK6Gd5wLeqD33KFeu"><td data-page-node-id="9UVNrO3h0SNB58pgoEgU6d">3</td><td data-page-node-id="nUVkDdM7rFdHtYDeGSwbbn">《矿业权评估技术基本准则》(CMVS00001—2008)</td><td data-page-node-id="QtK6hk4f7VJ1BO8ItXoOyK"><span class="tagpill tp-b" data-page-node-id="oNq8NG3QJo3AgDB0PC0XyW">准则</span></td><td rowspan="8" style="vertical-align:middle" data-page-node-id="dh8TDswDmbV8zi6Z7pXtpv">2008<br data-page-node-id="54i7ZkicgQXQIrZEsHaQjH">第6号公告<br data-page-node-id="M0YU4KBdiynyxNIcbvXLJY">2008.8.1</td></tr>
+            <tr data-page-node-id="ZtdvdgzXUtMYS5RDYEfPjh"><td data-page-node-id="rHYgXj7MTJjIDxylwrAvXM">4</td><td data-page-node-id="09XrOCwGlSOeQHcVQTHCeC">《矿业权评估程序规范》(CMVS11000—2008)</td><td data-page-node-id="ypuHMdcMeFKfinWDLd7zs8"><span class="tagpill tp-g" data-page-node-id="OnJdF2hwGesRfH4j0lAb1L">技术规范</span></td></tr>
+            <tr data-page-node-id="THVPNFGJIokQczCis1kxCS"><td data-page-node-id="ymaZ8u93buCjW6Jf5ZTSGS">5</td><td data-page-node-id="0hTrDkdm4IOxNR3fnLFjyH">《矿业权评估业务约定书规范》(CMVS11100—2008)</td><td data-page-node-id="lUUNk14F2wCCizhN72uhkQ"><span class="tagpill tp-g" data-page-node-id="jUV9VYtoLCT3ULCHI6adxH">技术规范</span></td></tr>
+            <tr data-page-node-id="N7DkarqYdtvZIFGPE1tmCg"><td data-page-node-id="qsvUhpDEKdW7wrjLjGVmg2">6</td><td data-page-node-id="DuZYvlIVUw85jAdJL5FMtW">《矿业权评估报告编制规范》(CMVS11400—2008)</td><td data-page-node-id="A9akCDR8uj3aoqI1GZA8qj"><span class="tagpill tp-g" data-page-node-id="IHKCl3E9zLCAzuN3ZJWE5K">技术规范</span></td></tr>
+            <tr data-page-node-id="SU6C0WIM3sfvwx2fBq2Ez8"><td data-page-node-id="pvdEaTemYCwIc1iequIk1I">7</td><td data-page-node-id="GELv5ybhDXVTVlv19KE3iB">《收益途径评估方法规范》(CMVS12100—2008)</td><td data-page-node-id="6XioEdK8cq9rHmK6kXt6tk"><span class="tagpill tp-g" data-page-node-id="B76v8Pjv9nycKLHWCPO1CD">技术规范</span></td></tr>
+            <tr data-page-node-id="GzIdcGir73hr7FtQyEZjNu"><td data-page-node-id="VifDjcBqmXikTPkVS6Vltf">8</td><td data-page-node-id="zj5TGu6nt16AteFlTjdhq0">《成本途径评估方法规范》(CMVS12200—2008)</td><td data-page-node-id="YVy7edXPPFW2839AVXm6h2"><span class="tagpill tp-g" data-page-node-id="zeB5EkPiI8eoGdvVcf9Or0">技术规范</span></td></tr>
+            <tr data-page-node-id="ObqWvmNx8ChS4vDaElUm0j"><td data-page-node-id="GRXS5bFX0R6voyLhzCSPCv">9</td><td data-page-node-id="ineLqT3DtJfqTBx8YJMYWn">《市场途径评估方法规范》(CMVS12300—2008)</td><td data-page-node-id="qakM73eeC3QWKntwrbUvCS"><span class="tagpill tp-g" data-page-node-id="R3E1kkIrpFZul6aBcgQDGA">技术规范</span></td></tr>
+            <tr data-page-node-id="CMZ8TAFc8Jsk5H1oBZ3gdI"><td data-page-node-id="Aq3BfEJjQWiLsAP04SDNEW">10</td><td data-page-node-id="C5YNhUyNnVKoBY4RIdBnbI">《矿业权价款评估应用指南》(CMVS20100—2008)</td><td data-page-node-id="np9lMvCJU13Y6tLtaK6zrk"><span class="tagpill tp-w" data-page-node-id="4qy7U9352CGWifebshCxZW">应用指南</span></td><td rowspan="3" style="vertical-align:middle" data-page-node-id="qEov3p0G7WsdTjzr0b8LwQ">2008<br data-page-node-id="VFHVCd3gfJ1B4SaDWW3cpd">第5号<br data-page-node-id="gD5eCFkP9RpEwlnJUfcrwk">8.29</td></tr>
+            <tr data-page-node-id="gqFdfEZKwzb7FfgeEZmAMA"><td data-page-node-id="moDcHboFutpcKTGyORCmIw">11</td><td data-page-node-id="JqE3ukensJYqBCmxIvv9mO">《确定评估基准日指导意见》(CMVS30200—2008)</td><td data-page-node-id="o5iERLYul7E5vhIH1ODcwg"><span class="tagpill tp-p" data-page-node-id="f0VouthDPCHzY0ysarqvcQ">指导意见</span></td></tr>
+            <tr data-page-node-id="M3HhEMtSDIYvMzC2GiYzFw"><td data-page-node-id="aDndVgCT2RP9S1g7g3GPH0">12</td><td data-page-node-id="nZ6cO921FrYWHhvqqsLjBl">《矿业权评估参数确定指导意见》(CMVS30800—2008)</td><td data-page-node-id="UFIjju4VrxkO6COJx2rR3l"><span class="tagpill tp-p" data-page-node-id="x8qKWMV7sBInMRnloSW2lF">指导意见</span></td></tr>
+            <tr data-page-node-id="TdBw5lBGvnzTDstZndT1Yk"><td data-page-node-id="CpgFCxjHs7eTiZej94ue4s">13</td><td data-page-node-id="zXiuSBOhcPEcWFSTdANorA">《矿业权评估项目工作底稿规范》(CMVS11200—2010)</td><td data-page-node-id="eP4pFJAGYdV3GPMAAY7Ohr"><span class="tagpill tp-g" data-page-node-id="dOsCnNUOkukKSqWdYCHRrX">技术规范</span></td><td rowspan="8" style="vertical-align:middle" data-page-node-id="3NzgaDjBtmrwpVXiH1XqGl">2010<br data-page-node-id="2uo0uldYuXAw6E8H5jCo6P">第5号<br data-page-node-id="2E78JTqr9sqMI92zmiqijr">11.22</td></tr>
+            <tr data-page-node-id="oUYYH8hTkZrJJMEMzEUvV7"><td data-page-node-id="fKOq6vY1bhDMnfF5OFB15s">14</td><td data-page-node-id="19sMYT75itLorPdJTkfsTP">《矿业权评估项目档案管理规范》(CMVS11300—2010)</td><td data-page-node-id="JKlE3utI0FgHrPSAMbbqFp"><span class="tagpill tp-g" data-page-node-id="IjualZApFlANTpbrFoBF6E">技术规范</span></td></tr>
+            <tr data-page-node-id="DdZ4K0TXr2zC15MHxZazZr"><td data-page-node-id="FIL2cv8ZlnQW1pwjGPii30">15</td><td data-page-node-id="XwtCknR3LvdA9n3jLKkBfE">《矿业权转让评估应用指南》(CMVS20200—2010)</td><td data-page-node-id="VUn2uvSZELOtpxlvHkG6Qv"><span class="tagpill tp-w" data-page-node-id="n5ysHSwhGGTsU529D8S8Ba">应用指南</span></td></tr>
+            <tr data-page-node-id="xrIDaLJCtukAuZGW6CmwIh"><td data-page-node-id="OQGA4rNn9iUbt3LfJ5TAOx">16</td><td data-page-node-id="swlm5JcDOdYJ4OeRBmlhOw">《矿业权评估利用矿产资源储量指导意见》(CMVS30300—2010)</td><td data-page-node-id="QAr3VZiDbc3YVL1B4Osa1k"><span class="tagpill tp-p" data-page-node-id="vJE3Sk9bAQ1WZzpsfYzgHk">指导意见</span></td></tr>
+            <tr data-page-node-id="0lKXlzwp4PHKKUu7WJ7sBC"><td data-page-node-id="5qaugKGMj4RleC1MGbGD6z">17</td><td data-page-node-id="uguSHPMZItRJ9we4Mdfeud">《矿业权评估利用地质勘查文件指导意见》(CMVS30400—2010)</td><td data-page-node-id="uWS3Y2zZyzqvHte2byYH6p"><span class="tagpill tp-p" data-page-node-id="0iCncs8nlHOCTuixYvWVrD">指导意见</span></td></tr>
+            <tr data-page-node-id="hEyYgedE8DJZGpy6GUrcnp"><td data-page-node-id="jeGxobjCbPRY9pe7KtBYfU">18</td><td data-page-node-id="YVEghxbkz3isnCa5xn2BoJ">《矿业权评估利用后续地质勘查设计文件指导意见》(CMVS30500—2010)</td><td data-page-node-id="rbqxKwkmcKTOqoTr6pimZL"><span class="tagpill tp-p" data-page-node-id="AUxhUFCiVHmbGTbW0523Xc">指导意见</span></td></tr>
+            <tr data-page-node-id="jqhhNhS6WCTiR5eJL335hy"><td data-page-node-id="v2zNK32HzQdlV1sgAiGXhc">19</td><td data-page-node-id="EWX206Onn3zj7SufBG0Djx">《矿业权评估利用矿山设计文件指导意见》(CMVS30700—2010)</td><td data-page-node-id="SSRBwFXm3BHdD1m3AVxirV"><span class="tagpill tp-p" data-page-node-id="GBs4nGtImM5lF5EvmIguQM">指导意见</span></td></tr>
+            <tr data-page-node-id="Td7d90sbuQ3QrlIpyQjAn1"><td data-page-node-id="n41bowHTRcjqYtFm2hpMmZ">20</td><td data-page-node-id="4yyKowYuMl4ZrpnBuz3QAz">《矿业权评估利用企业财务报告指导意见》(CMVS30900—2010)</td><td data-page-node-id="b4d8LnD4QTRS5PV70oNYSO"><span class="tagpill tp-p" data-page-node-id="EV3qeRsxaC13z6TSI1Jnno">指导意见</span></td></tr>
+            <tr data-page-node-id="VLKvj1m3PMzdZAJ2B9Ia3j"><td data-page-node-id="gUEMCKBXF8femHQxAlFLfy">21</td><td data-page-node-id="qMlVgjUbeVkQXgDh7yjLyO">《矿业权出让收益评估应用指南(试行)》</td><td data-page-node-id="I5QzShM5exSbi92KOO5leM"><span class="tagpill tp-w" data-page-node-id="jhssKTRiSw50UIFYUn7oCd">应用指南</span></td><td data-page-node-id="TUNy1MmNrzzcHZvL2g971U">2017 第3号<br data-page-node-id="lbyuBfHBpULsUwEv8r6Lsm">10.25</td></tr>
+            <tr data-page-node-id="JuKy7KtzIvZcaNlyIoREEC"><td data-page-node-id="YM0wud9zhBVyJlT0pLHYvD">22</td><td data-page-node-id="LE3N4AB2tVEDPcj9FruR6P">《矿业权出让收益评估应用指南(2023)》</td><td data-page-node-id="wdqFdUOVs1ScJumPKFZHWV"><span class="tagpill tp-w" data-page-node-id="afdYTkVuWC3wkFevQnBtBN">应用指南</span></td><td data-page-node-id="8CmETu9cTKDiLzZCNJA4AA">2023 第1号<br data-page-node-id="76Uq7PwB2lmCddRC91P4Mc">4.28</td></tr>
+          </tbody>
+        </table>
+        <div class="box info" data-page-node-id="UF7Esf2RCD6hKBF34ieO5v"><div class="bt" data-page-node-id="AJ69D46kILg8CvWL2KC35V">💡 归类速记</div>22 项中：<b data-page-node-id="LXhawzREKNJRriZyEIqvlx">准则 2 项</b> + <b data-page-node-id="4cGG07MA6EGppjZzyPSi5a">技术规范 8 项</b> + <b data-page-node-id="CYeV24UMkn0KxI2dBcUNmc">应用指南 4 项</b> + <b data-page-node-id="LFWqxLaXrA1HW1gTYxhr2Q">指导意见 8 项</b>。看到"xx 途径评估方法规范 / 程序 / 业务约定书 / 报告 / 工作底稿 / 档案"基本都属技术规范。</div>
+
+        <div class="quiz" data-page-node-id="LzGhGdxNFJhiyrAxfu6thG">
+          <div class="qh" data-page-node-id="RlVc0x2ZN7Ms0SLW86HH9l">✏️ 第四节考点自测</div>
+          <ol data-page-node-id="79IJOKVj3Wv1EHPHi9yYAd">
+            <li data-page-node-id="uoRAZP9j4VMOKpfFNC5cyO">矿业权价值评估基本准则 vs 执业/职业道德准则，分别由谁制定？
+              <span class="ans" data-page-node-id="3b1q4YFMSFrED88acA7bCV">✔ 基本准则——自然资源部；执业准则与职业道德准则——中国矿业权评估师协会。</span></li>
+            <li data-page-node-id="2QITX0whIQXVtgqy7zKKKT">现行准则的四个层次是什么？"技术规范"分哪两部分？
+              <span class="ans" data-page-node-id="O7IJDvjhAHFIVOadezgfnq">✔ 准则→技术规范→应用指南→指导意见；技术规范 = 程序规范 + 方法规范。</span></li>
+            <li data-page-node-id="PAc8vgs3YJRSneaP6TS7Xd">22 项准则按类别各有多少项？
+              <span class="ans" data-page-node-id="vWW0p9946XSCNj3qSWU9tW">✔ 准则 2 + 技术规范 8 + 应用指南 4 + 指导意见 8。</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <footer data-page-node-id="rxhCRF56WIAOxdAsk1lx7r">
+        第一章 概述 · 基于《矿业权价值评估（2023）》教材整理的学霸学习版 · 共 4 节<br data-page-node-id="WCpTg6ya1XSMHkyc9tPW0d">
+        提示：本页为学习辅助，考试请以教材原文与官方准则文本为准。
+      </footer>
+    </div>
+  </main>
+</div>
+
+<script>
+// 顶部阅读进度条
+const pbar=document.getElementById('pbar');
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+  pbar.style.width=p+'%';
+});
+</script>
+
+<a href="index.html" id="backtoindex" data-page-node-id="backtoindex2" style="position:fixed;right:18px;bottom:22px;z-index:9999;background:#1d5fd6;color:#fff;text-decoration:none;font-size:14px;font-weight:700;padding:10px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(29,95,214,.4);font-family:-apple-system,'PingFang SC',sans-serif;">← 返回目录</a>
+
+<script>
+/* ===== fold6-scroll: localStorage 滚动位置记忆 (折叠/展开重载恢复) ===== */
+(function(){
+  var key = 'fold6-scroll-' + location.pathname.split('/').pop() + location.search;
+  function save(){ try{ localStorage.setItem(key, String(window.scrollY || document.documentElement.scrollTop)); }catch(e){} }
+  function restore(){
+    try{
+      var y = parseInt(localStorage.getItem(key), 10);
+      if(isNaN(y) || y <= 0) return;
+      requestAnimationFrame(function(){
+        window.scrollTo(0, y);
+        setTimeout(function(){ window.scrollTo(0, y); }, 150);
+      });
+    }catch(e){}
+  }
+  if(location.hash) return; // 带锚点跳转时不恢复
+  window.addEventListener('beforeunload', save);
+  var t;
+  window.addEventListener('scroll', function(){ clearTimeout(t); t = setTimeout(save, 250); }, {passive:true});
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', restore);
+  else restore();
+})();
+/* ===== end fold6-scroll ===== */
+</script>
+</body>
+</html>
