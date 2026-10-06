@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="m0bIb0TStn2aja4YZCptwl">
+<head data-page-node-id="wrSP51JV9D3J7yqA3h4Wj1">
+<meta charset="UTF-8" data-page-node-id="NrRoYPogjJPO9CFCE3uoPe">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" data-page-node-id="hKgOb1LiI5umsd1aukcnY8">
+<title>第六章 矿业权价值评估案例分析 · 学霸版学习页</title>
+<style>
+:root{
+  --brand:#1d5fd6; --brand-soft:#e8f0fe; --ok:#1f9d57; --ok-soft:#e6f6ed;
+  --warn:#d9730d; --warn-soft:#fdf0e2; --key:#c02666; --key-soft:#fbe7f0;
+  --purple:#7c3aed; --purple-soft:#f1ebfd; --bg:#f5f7fa; --panel:#fff;
+  --ink:#1f2933; --muted:#5b6773; --line:#e4e9f0; --sidebar-w:300px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.75;font-size:15px;}
+#progress{position:fixed;top:0;left:0;height:4px;width:0;background:var(--brand);z-index:100;transition:width .1s;}
+.layout{display:flex;max-width:1280px;margin:0 auto;}
+#sidebar{width:var(--sidebar-w);flex:0 0 var(--sidebar-w);position:sticky;top:0;height:100vh;overflow-y:auto;
+  background:var(--panel);border-right:1px solid var(--line);padding:22px 14px;transition:margin .25s;}
+#sidebar.hidden{margin-left:calc(var(--sidebar-w) * -1);}
+#sidebar h2{font-size:15px;margin:0 0 4px;color:var(--brand);}
+#sidebar .sub{font-size:12px;color:var(--muted);margin-bottom:14px;}
+#sidebar a{display:block;padding:7px 10px;border-radius:8px;color:var(--ink);text-decoration:none;
+  font-size:13.5px;margin-bottom:2px;border-left:3px solid transparent;}
+#sidebar a:hover{background:var(--brand-soft);}
+#sidebar a.active{background:var(--brand-soft);color:var(--brand);font-weight:600;border-left-color:var(--brand);}
+#sidebar a.lv2{padding-left:24px;font-size:12.5px;color:var(--muted);}
+main{flex:1;min-width:0;padding:0 28px 60px;}
+.topbar{display:flex;align-items:center;gap:12px;padding:18px 0 0;}
+#toggle{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px;color:var(--muted);}
+.hero{background:linear-gradient(135deg,#1d5fd6,#3b7bff);color:#fff;border-radius:16px;padding:30px 32px;margin:14px 0 26px;}
+.hero h1{margin:0 0 8px;font-size:26px;}
+.hero p{margin:0;opacity:.92;font-size:14px;}
+.map{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:26px;}
+.map h3{margin:0 0 4px;font-size:16px;color:var(--brand);}
+.map .hint{font-size:12.5px;color:var(--muted);margin-bottom:16px;}
+.map .row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.map .node{border:1px solid var(--line);border-radius:10px;padding:14px 12px;background:#fbfcfe;}
+.map .node .n{font-size:12px;font-weight:700;color:var(--brand);margin-bottom:4px;}
+.map .node .t{font-size:13.5px;font-weight:600;margin-bottom:4px;}
+.map .node .d{font-size:12px;color:var(--muted);}
+section{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:24px;}
+section h2{margin:0 0 6px;font-size:20px;color:var(--brand);border-left:4px solid var(--brand);padding-left:12px;}
+section h2 .tag{font-size:12px;color:#fff;background:var(--brand);border-radius:20px;padding:2px 10px;margin-left:10px;vertical-align:middle;}
+section .lead{color:var(--muted);font-size:13.5px;margin-bottom:18px;padding-left:16px;}
+section h3{font-size:16px;margin:22px 0 10px;color:var(--ink);border-bottom:1px dashed var(--line);padding-bottom:6px;}
+section h4{font-size:14.5px;margin:14px 0 6px;color:var(--brand);}
+.card{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0;background:#fbfcfe;}
+.card.case{border-left:4px solid var(--purple);background:var(--purple-soft);}
+.case .cno{display:inline-block;background:var(--purple);color:#fff;font-size:12px;border-radius:6px;padding:2px 8px;margin-bottom:6px;}
+.case .ct{font-weight:700;font-size:14.5px;margin-bottom:6px;}
+.case .bg{font-size:13px;color:var(--muted);margin-bottom:6px;}
+.case .pro{font-size:13.5px;margin-bottom:6px;}
+.case .fix{font-size:13.5px;}
+.case .lbl{display:inline-block;font-size:11.5px;font-weight:700;border-radius:5px;padding:1px 7px;margin-right:6px;vertical-align:middle;}
+.lbl.bg{background:var(--brand-soft);color:var(--brand);}
+.lbl.pro{background:var(--warn-soft);color:var(--warn);}
+.lbl.fix{background:var(--ok-soft);color:var(--ok);}
+.case ul,.case ol{margin:6px 0;padding-left:20px;}
+.case li{margin:3px 0;font-size:13.5px;}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.def{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#fbfcfe;margin:8px 0;}
+.def .k{font-weight:700;color:var(--brand);font-size:13.5px;margin-bottom:4px;}
+.def .v{font-size:13.5px;}
+.warnbox{background:var(--warn-soft);border:1px solid #f3cfa0;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:13.5px;}
+.warnbox .wt{font-weight:700;color:var(--warn);margin-bottom:4px;font-size:13px;}
+.keybox{background:var(--key-soft);border:1px solid #f3b8d1;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:13.5px;}
+.keybox .wt{font-weight:700;color:var(--key);margin-bottom:4px;font-size:13px;}
+.okbox{background:var(--ok-soft);border:1px solid #b3e0c4;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:13.5px;}
+.okbox .wt{font-weight:700;color:var(--ok);margin-bottom:4px;font-size:13px;}
+ul.clean,ol.clean{margin:8px 0;padding-left:22px;}
+ul.clean li,ol.clean li{margin:4px 0;}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+th{background:var(--brand-soft);color:var(--brand);font-weight:600;}
+tr:nth-child(even) td{background:#fbfcfe;}
+.memo{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:26px;}
+.memo h3{margin:0 0 4px;font-size:16px;color:var(--key);}
+.memo .hint{font-size:12.5px;color:var(--muted);margin-bottom:16px;}
+.memo .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.memo .m{border:1px solid var(--line);border-radius:10px;padding:14px 12px;background:#fbfcfe;}
+.memo .m .no{font-size:11px;font-weight:700;color:var(--key);margin-bottom:4px;}
+.memo .m .t{font-size:13px;font-weight:600;margin-bottom:4px;}
+.memo .m .d{font-size:12px;color:var(--muted);}
+.quiz{background:var(--ok-soft);border:1px solid #b3e0c4;border-radius:12px;padding:18px 20px;margin-top:20px;}
+.quiz h4{margin:0 0 8px;color:var(--ok);font-size:15px;}
+.quiz .q{font-size:13.5px;margin:8px 0;}
+.quiz .a{font-size:13px;color:var(--muted);margin:4px 0 10px;padding-left:18px;border-left:2px solid var(--ok);}
+.quiz .a b{color:var(--ok);}
+footer{text-align:center;color:var(--muted);font-size:12.5px;padding:20px 0;}
+@media(max-width:980px){.map .row{grid-template-columns:1fr 1fr;}.memo .grid{grid-template-columns:1fr 1fr;}.cols{grid-template-columns:1fr;}}
+</style>
+
+/* ===== fold6-adapt: vivo X Fold6 折叠屏适配 (安全区/行宽/断点/防溢出) ===== */
+html{scroll-behavior:smooth}
+body{font-size:17px;line-height:1.8}
+.content,.inner,#main,main{max-width:38em;margin:0 auto}
+img,video,table,pre,iframe{max-width:100%;height:auto}
+table{display:block;overflow-x:auto}
+@media (min-width:600px){
+  body{font-size:19px}
+}
+@media (max-width:600px){
+  .content,.inner,#main,main{max-width:none}
+  .wrap{padding-left:20px!important;padding-right:20px!important}
+}
+img,video,svg,canvas{max-width:100%}
+/* ===== end fold6-adapt ===== */
+
+
+/* ===== fold6-center: 隐藏目录后内容居中 ===== */
+#sidebar.hidden{position:absolute;left:0;top:0;width:var(--sidebar-w);z-index:900;}
+#sidebar.hidden ~ main,
+#sidebar.hidden ~ #main,
+#sidebar.hidden ~ .content,
+#sidebar.hidden ~ .inner{max-width:none;margin:0;padding-left:20px;padding-right:20px;}
+#sidebar.hidden ~ main > *,
+#sidebar.hidden ~ #main > *,
+#sidebar.hidden ~ .content > *,
+#sidebar.hidden ~ .inner > *{max-width:38em;margin-left:auto;margin-right:auto;}
+/* ===== end fold6-center ===== */
+
+</head>
+<body data-page-node-id="e2XPeIeq648pJByWZn3D7n">
+<div id="progress" data-page-node-id="bIi4b0zXpJF21wZ1i47QVD"></div>
+<div class="layout" data-page-node-id="bySOVpwycEGW8xoCt7Yitu">
+<aside id="sidebar" data-page-node-id="xD14DMOTw0sV8W4E9bC8hW">
+  <h2 data-page-node-id="MxiUye1TwTeyAZEQuQQDaq">第六章 案例分析</h2>
+  <div class="sub" data-page-node-id="XZsfJIbzDkgRqO52benU6j">4 节 · 22 个案例</div>
+  <a href="#map" data-page-node-id="CGZpqZsSCwGRTb2R1XkQJG">🗺️ 学习地图</a>
+  <a href="#memo" data-page-node-id="8gLfTFU63V3fgHQuLgZPxe">📌 高频考点速记卡</a>
+  <a href="#s1" data-page-node-id="0RutdvlWPFA7b4bAxfyOZn">第一节 评估报告合规性</a>
+  <a class="lv2" href="#s1-1" data-page-node-id="UjtbJbYpJRHvA6itkzLIUy">一、概念与主要问题</a>
+  <a class="lv2" href="#s1-2" data-page-node-id="Y2Qop0fi3K15Qx7LfhSONN">二、七大问题案例</a>
+  <a href="#s2" data-page-node-id="GnalTecUzwcdvDJRKFQ6pi">第二节 评估依据的规范性</a>
+  <a class="lv2" href="#s2-1" data-page-node-id="F1SN8YLdZcdXq0e9VzQT7G">一、法律法规依据</a>
+  <a class="lv2" href="#s2-2" data-page-node-id="uman3179zsj3s7DGs0iMU3">二、经济行为/权属依据</a>
+  <a href="#s3" data-page-node-id="5yMuTKKR1iwrBMjiIUXzM1">第三节 评估方法选择的合理性</a>
+  <a href="#s4" data-page-node-id="nmsie7l6LsvOoLZkBtUFbd">第四节 评估参数的选取与确定</a>
+  <a class="lv2" href="#s4-1" data-page-node-id="KyQNrFCJCnTFHFC2cRRLsg">有关有效实物工作量</a>
+  <a class="lv2" href="#s4-2" data-page-node-id="3Rbyzvl8OTfOR8DCv8le7S">现行价格与重置成本</a>
+  <a class="lv2" href="#s4-3" data-page-node-id="cWi6aZVtmt98gi2uKcfgEx">效用系数</a>
+  <a class="lv2" href="#s4-4" data-page-node-id="oCapcaqCg2IhheN7Zr2jB9">储量·年限·产量收入</a>
+  <a class="lv2" href="#s4-5" data-page-node-id="gDEfSmrWG9Wm6roEHrhhJd">投资·资金·成本·资源税</a>
+</aside>
+<main data-page-node-id="eLPkAkBaW09V2SwOd993aQ">
+<div class="topbar" data-page-node-id="zUtqkGmcFDFacwtGajCvSj"><button id="toggle" onclick="toggleSidebar()" data-page-node-id="JvpGqdbHJE3QBeib4rrZTX">☰ 目录</button></div>
+<div class="hero" data-page-node-id="uCARosZRp28b5UsLCMoYG2">
+  <h1 data-page-node-id="o502YKJkDqSZBDblAn8tGi">第六章 矿业权价值评估案例分析</h1>
+  <p data-page-node-id="SGuTKBtRvRm29y1O0e80aR">本章节错误率最高、也最考验理解——通过 22 个真实案例，把"报告合规、依据规范、方法选择、参数确定"四大审查维度讲透。</p>
+</div>
+
+<div class="map" id="map" data-page-node-id="K5HxVHeqGBIn0DLmq0jxHD">
+  <h3 data-page-node-id="U4k1inUvGivAVk5SIEhNaf">🗺️ 学习地图</h3>
+  <div class="hint" data-page-node-id="A7RL2w5CLWTLEjdCIbnMHQ">本章按"合规性 → 依据 → 方法 → 参数"四层递进，每层都有典型案例，记住"问题 + 合理处理"的对照逻辑即可。</div>
+  <div class="row" data-page-node-id="iSZhEqu0fXWdxDvHZaxOTF">
+    <div class="node" data-page-node-id="nrZ7BoYxK9JnjhYlfScGB5"><div class="n" data-page-node-id="cjCDitITBRsb4eSvZPB3dv">第一节</div><div class="t" data-page-node-id="eo44JlJqOxG8EiPG2nDhZM">报告合规性</div><div class="d" data-page-node-id="xQwEAnqiDoLCIZbwYorcLZ">7 类常见问题：内容不完整/资质过期/基准日/对象范围/程序/表述/签字</div></div>
+    <div class="node" data-page-node-id="zyJnrZHW8bwOiig4Ebiq5O"><div class="n" data-page-node-id="ujZJkBKWPQE6o8gp52Xe3j">第二节</div><div class="t" data-page-node-id="8WP3Mv8yujvk3rk7rk0jvg">评估依据规范性</div><div class="d" data-page-node-id="wj9Cgwmckis4JM4ZDNh4NY">法律法规依据 + 经济行为·权属依据，重"充分性 + 准确性"</div></div>
+    <div class="node" data-page-node-id="shXBmF1FNQh1AYZV1c6El7"><div class="n" data-page-node-id="74DKOuP4142aFF5GHPKDnR">第三节</div><div class="t" data-page-node-id="Bqpwq1QAlgdnatFoBsUQPI">方法选择合理性</div><div class="d" data-page-node-id="RnyNunzWaxK6LIPSAFZ6XJ">两途径以上、勿误用途径、勿选适用范围冲突的方法</div></div>
+    <div class="node" data-page-node-id="e5PO8bsHukOpn3AvOLGS3S"><div class="n" data-page-node-id="2PrR8ypvKB6liPhN79uxT2">第四节</div><div class="t" data-page-node-id="3bJcOOxxLG9WDlw2raUCjE">参数选取与确定</div><div class="d" data-page-node-id="H8Mjcnt0VskDpmQwFuK7Rw">实物工作量/重置成本/效用系数/储量/年限/收入/投资/资金/成本/资源税</div></div>
+  </div>
+</div>
+
+<div class="memo" id="memo" data-page-node-id="le8I116VCye2cM0bVKx4UV">
+  <h3 data-page-node-id="qYKtfr75t8Q9aWPfUBRUDT">📌 高频考点速记卡</h3>
+  <div class="hint" data-page-node-id="XzdtgFLbkNLZaHoc45gmlJ">8 张卡片，覆盖本章最易失分的"坑"，考前优先过一遍。</div>
+  <div class="grid" data-page-node-id="QtiUdh4XG3RbK7qDo3yUWN">
+    <div class="m" data-page-node-id="TDiQUufJxDWcm3JNtcMyDh"><div class="no" data-page-node-id="u5zlVaqrEPbERkTlQpkYgL">CARD 01</div><div class="t" data-page-node-id="QIVmnF44D7AIRriBdzwrb2">法定业务签字</div><div class="d" data-page-node-id="RYtd3AsApAlU3pHNSJZkNY">至少 <b data-page-node-id="GS4nyLtKoRHtZpJ7TKOi7r">2 名矿业权评估师</b>承办并签名+盖章；非本人参与项目不得签字；允许他人冒名签字属违法。</div></div>
+    <div class="m" data-page-node-id="PNrKiW7lBTlaNLBKCy1mEF"><div class="no" data-page-node-id="amKf3JclUF2tEnjXseAJt4">CARD 02</div><div class="t" data-page-node-id="AEh3A41Pnm5zoP1C8SdPyD">评估基准日</div><div class="d" data-page-node-id="bq1SKrc2r7lQaxORNqkOmM">应与委托合同约定<b data-page-node-id="5fasDBwnWJ2so5czkkCqSc">一致</b>；确需调整要在报告评述沟通情况并由委托人出具证明；避免 2 月 31 日这类常识错误。</div></div>
+    <div class="m" data-page-node-id="CLTYGqPmXZEFOFQvPvxeai"><div class="no" data-page-node-id="oI83a1Q3BbC7jiNCEHAjYh">CARD 03</div><div class="t" data-page-node-id="jhrqQiJmCp48W5OqwSsXRE">评估对象与范围</div><div class="d" data-page-node-id="RDXdqZZgS6EwkEWO6LY1ec">对应<b data-page-node-id="UpJIiE2KtHkGplRJVwnH1V">唯一要素组合</b>；须披露评估/矿区/储量核实/储量估算/开采设计范围之间的关系，重叠包含关系宜图示。</div></div>
+    <div class="m" data-page-node-id="8dsbYFjEhltJY3pSrVezUU"><div class="no" data-page-node-id="0gkPtnAqmv2DQrAQkTffxo">CARD 04</div><div class="t" data-page-node-id="r2VGTz46Blgb4IO4jfPslH">方法选择铁律</div><div class="d" data-page-node-id="gZqJpyTO9D9izglv0qZ4mh">法定业务应选<b data-page-node-id="8VzilyDnP1LwL7hnrZ7hrx">两种以上不同途径</b>方法相互验证；不得同范围同时用 DCF 与收入权益法（适用范围冲突）。</div></div>
+    <div class="m" data-page-node-id="lPGe6YA4ZvQF4DWSs2VIym"><div class="no" data-page-node-id="H8BQeNeKLlg0d7GARfX2Tl">CARD 05</div><div class="t" data-page-node-id="mUmZNHRS6eXZ414VNp84g6">空白区陷阱</div><div class="d" data-page-node-id="1CPCIr1IVWVBjYx02xAuWa">采矿权深部探矿权，因上部采矿权已完成遥感/物探/化探，<b data-page-node-id="GWo9CBzFBPlbjClEYCOa9C">不能视为空白区</b>，应收集上部资料再选方法。</div></div>
+    <div class="m" data-page-node-id="5huHZX7jM034gubkov06NU"><div class="no" data-page-node-id="QIufAu3eqK5HHJK3xkVY9q">CARD 06</div><div class="t" data-page-node-id="WqoiDur4nclwCwyXLE0pn2">有关·有效工作量</div><div class="d" data-page-node-id="5GoHemY7GBJQEFH9pVBerr">有关=评估范围内与目标矿种有关；有效=符合当时规范。6 类不计：公益性/超范围/技术重复/报废不合规/缺原始资料/与矿种无关。</div></div>
+    <div class="m" data-page-node-id="TbGz1iNj04DkSEXci8Fbqj"><div class="no" data-page-node-id="gnVHNmfBMFsUhPwMExUGZQ">CARD 07</div><div class="t" data-page-node-id="hcwfZzaEitlCqD7C3sHzfH">重置成本</div><div class="d" data-page-node-id="r1163EklinGXK2XJEBbB3q">重置成本=重置直接成本+间接费用；预查/普查等综合勘查阶段间接费用可按重置直接成本 <b data-page-node-id="bJe05j61rhokiUKBqmyDqC">30%</b> 估算。</div></div>
+    <div class="m" data-page-node-id="iyfsCz1VLbxt3kZrBzgtUz"><div class="no" data-page-node-id="ToAg8pUptvBnjkL0ExtEF5">CARD 08</div><div class="t" data-page-node-id="ETPphynwzyGWh1WMVpF4hG">资源税减免</div><div class="d" data-page-node-id="YnaWPDvnwFWmhZ04feM9XI">伴生矿种分别核算可<b data-page-node-id="ddEvlaAC1aVeXIaegU4z4L">减征 30%</b>；矿山服务年限&gt;30 年、按 30 年计算的，最后 5 年不进行资源税减征。</div></div>
+  </div>
+</div>
+
+<section id="s1" data-page-node-id="olDNklEACgxpLLMA9xPCNE">
+  <h2 data-page-node-id="YCYCPlHeXrEpQkex19fxbu">第一节 评估报告的合规性 <span class="tag" data-page-node-id="1RaPZtbPSB3Ow91l0lksCG">7 个案例</span></h2>
+  <div class="lead" data-page-node-id="75TBCLB0RWHwiC8nRoKtT2">合规性 = 严格按矿业权价值评估准则要求的内容与格式编制，并按准则要求出具。报告是评估业务完成与否、质量优劣的证明。</div>
+
+  <div class="cols" data-page-node-id="swfnYOvIKVzizRkXcDM1ti">
+    <div class="def" data-page-node-id="9ysV6s0UsEd92GyzY2WBUJ"><div class="k" data-page-node-id="1v4ZjAoJt6bZqsWbkb4MYA">合规性定义</div><div class="v" data-page-node-id="0pnm8ww8M0eE8XkYQa2RiQ">严格按照矿业权价值评估准则要求的<b data-page-node-id="h0MN3NLAguSFMWVABO0ZgM">内容与格式</b>编制，并按准则要求<b data-page-node-id="3Ab6WjfjQWo4eiVyvRdAEI">出具</b>矿业权价值评估报告。</div></div>
+    <div class="def" data-page-node-id="cMSoJsRNV7kSEa0xN9ywNr"><div class="k" data-page-node-id="7N3u9BawkCTz4IYGp48PQX">合规审查对象</div><div class="v" data-page-node-id="FT3La2VBNFEIzGOoEShSXR">报告内容、格式、出具要件等要符合<b data-page-node-id="1Cd32F9O7wDhM4nbbgBmvZ">法律、行政法规、管理规定</b>和矿业权价值评估准则的规定。</div></div>
+  </div>
+
+  <h3 id="s1-1" data-page-node-id="9gcHX0CGlU6Yl85rcthPV6">一、合规性的主要问题（7 类）</h3>
+  <table data-page-node-id="3WEkQPB6c5Aic4ukyp6qNF">
+    <tr data-page-node-id="RwHJMiGaNdfV5Tc1dypdiF"><th data-page-node-id="h0xSIDr0pduSBAjo69B86r">#</th><th data-page-node-id="msD1G3BvELoPDYWHHBnzzZ">问题类型</th><th data-page-node-id="zPAKFGbcZRrE9G2916AU1G">典型表现</th></tr>
+    <tr data-page-node-id="q9voIRQuOQLZ926Z1UjH1T"><td data-page-node-id="wW9xnISCETO2pvJQk8Z29k">1</td><td data-page-node-id="6AwTvUnRHDEu8S7EPH5TIK">报告内容不完整</td><td data-page-node-id="dJFnR1uzUUMzvHJBajDqCp">历史沿革/评估史不全面、有偿处置不详细、地质工作概况与开发现状缺失、假设章节缺失、签字盖章缺失、未统一编码</td></tr>
+    <tr data-page-node-id="XJ0zvnlFpjV1ZKkyMfHX3t"><td data-page-node-id="tBi8eCsLhVaalyNkWU2DDt">2</td><td data-page-node-id="ASk1faxewQCBj94s005Smo">资质/资格证书不规范</td><td data-page-node-id="CvooyXpiSBbNBo7cEmTMaa">评估资格证书年检过期、营业执照过期、职业资格证书未签字、执业登记证书未年检或过期</td></tr>
+    <tr data-page-node-id="rXYBHHme087sduDw3sgysM"><td data-page-node-id="dSRitwTlOhuepM2l6vvjHn">3</td><td data-page-node-id="L57s1N9bbTAfxKS5t9v9Oa">基准日确定与披露不规范</td><td data-page-node-id="ZTjujxPCbVicXRYBA4j7x7">确定理由依据不充分、与委托合同约定不一致、日期表达错误</td></tr>
+    <tr data-page-node-id="Qp8NNE35HA4gVpi6ZC3T0p"><td data-page-node-id="u7ZXginwQ7WrL3LUb2KWiv">4</td><td data-page-node-id="dwrJ5qvFwZFNk9paAPYJ2C">评估对象与范围披露不规范</td><td data-page-node-id="6MkfyecQSz3JCynlET4AtO">与权属证明/储量估算范围/设计范围不一致，或未披露各范围关系</td></tr>
+    <tr data-page-node-id="Vb0z2EdUtyiRo9D3ap5Var"><td data-page-node-id="ukOMxQ1oecVhQmxJji7pqU">5</td><td data-page-node-id="C2MfcUVtqSOmigOge4YAjt">评估程序履行披露不规范</td><td data-page-node-id="KOMAyGiwMHfjFvgszyamfX">委托与报告日间隔长未说明、逾期未披露理由、过程与基准日/报告日矛盾、尽职调查与实际不符</td></tr>
+    <tr data-page-node-id="CYoNBZf2XA3ezo3AknJrq2"><td data-page-node-id="fUD84nb69xy47OdQgn8NJ0">6</td><td data-page-node-id="ZkzOljgUUmXY9KKaV19kG6">报告内容表述不规范</td><td data-page-node-id="BTcZB3DFoLIbq7dUjz1zvS">前后不一致、文表不一致、正文与附件附表不一致、用语有歧义</td></tr>
+    <tr data-page-node-id="JZfDXdK95tBUAEFxoN2xyJ"><td data-page-node-id="wM7lpqeLtnvEnvj3b8JAXR">7</td><td data-page-node-id="Q0RWAxE2Vf26E34Jkfaoz8">评估报告签字不合法</td><td data-page-node-id="u5Gzm3rd0oUwHor118rECq">签字评估师数量不足、非两名矿业权评估师、未承办项目者签字、允许他人冒名签字</td></tr>
+  </table>
+
+  <h3 id="s1-2" data-page-node-id="lXma0CtxtO9bgoD2lSkWrE">二、案例拆解（背景 → 问题 → 合理处理）</h3>
+
+  <div class="card case" data-page-node-id="2eeMHklw0ze8GH91DHVXAB">
+    <span class="cno" data-page-node-id="llF4aNNfHTU9Jb0pfgllkv">例 6-1</span><div class="ct" data-page-node-id="6wbrxwyCou6IN4SwY66080">评估史与有偿处置披露过于简单</div>
+    <div class="bg" data-page-node-id="TqAtsYP8PBnNKqomg8YdRK"><span class="lbl bg" data-page-node-id="CJs9dHNHchJoJvWHTsmiBS">背景</span>受托评估某采矿权，收集到申请资料、出让合同、价款评估报告、价款缴纳凭证等。</div>
+    <div class="pro" data-page-node-id="yJnlqXNWzlKGRgSRLSFldA"><span class="lbl pro" data-page-node-id="zRpGHn2Q2Fi9ErJvgypQbN">问题</span>评估史披露过于简单，主要内容缺失。</div>
+    <div class="fix" data-page-node-id="tmcwrzkw83BjJx3fL72grx"><span class="lbl fix" data-page-node-id="USsxY87qL8vRnqWQyBV2tr">合理处理</span>披露应包括：<ul data-page-node-id="xBZKIZu5rhsa3Q7PGJhzWM"><li data-page-node-id="huqVpxFtv6yi8tAOUl03r7"><b data-page-node-id="IfTmwM9Ke6qgymAaG3S7fS">以往评估基本情况</b>：评估机构、目的、基准日、方法、结论；</li><li data-page-node-id="EMHCZ4Ff3NwhgwaWNgc4XG"><b data-page-node-id="GXwgkobyWcsXQoVUXIyUZM">价款处置情况</b>：是否已缴、缴纳方式、缴纳时间。</li></ul></div>
+  </div>
+
+  <div class="card case" data-page-node-id="zYvAEcB2Qo8Gvb1Ga2qJDo">
+    <span class="cno" data-page-node-id="b5EcOluEQTfS0cj1iQHlfE">例 6-2</span><div class="ct" data-page-node-id="9Rk76tK1tUl8asiVUfhsCt">资质、资格证书过期 / 未签字</div>
+    <div class="bg" data-page-node-id="XT8ro3DFAfZn2VDRDSb6pd"><span class="lbl bg" data-page-node-id="lqleor4fdgRwbdBv4xWRD8">背景</span>机构资格证书年检有效期至 2022-03-31，评估师甲执业登记有效期至 2021-12-31，评估师乙执业登记有效期至 2022-12-31；基准日 2022-03-01、报告日 2022-04-20，乙的职业资格证书未签字。</div>
+    <div class="pro" data-page-node-id="AvcrqmlDm5jkFgDfR75krb"><span class="lbl pro" data-page-node-id="693HWpDBzn8LVpkDikdlr1">问题</span>机构资格证书与评估师甲执业登记证书在基准日、报告日时点<b data-page-node-id="iwXzWLIY7QEgt3j9Mwd1aG">已过年检有效期</b>；乙未在资格证书规定位置签字，均不符合出具要件。</div>
+    <div class="fix" data-page-node-id="JtRHAH2pBKwZNjLw8L4g9Y"><span class="lbl fix" data-page-node-id="kSHNxzgKI01SN1JBIN9C0S">合理处理</span>应附通过年检的资格证书和有效的执业登记证书；乙应在资格证书规定位置签字。机构与评估师均须在<b data-page-node-id="33NAVnveuAyDfUHfiwsr68">资质、资格有效期内</b>开展业务。</div>
+  </div>
+
+  <div class="card case" data-page-node-id="9orsw2vy7NgOBI4kc62eUw">
+    <span class="cno" data-page-node-id="rlkEZ15UEzWk6CGWQep8gb">例 6-3</span><div class="ct" data-page-node-id="ODGN2hgNHd8WDUHDIlsSye">评估基准日与合同不一致 + 日期错误</div>
+    <div class="bg" data-page-node-id="5YEEh7potkqg486FZHRWsm"><span class="lbl bg" data-page-node-id="oVZV9p20gSJqURRP2FQmV8">背景</span>委托合同约定基准日 2022-01-31，报告却披露为 2022-02-31，后又称最终确定为 2022-02-28。</div>
+    <div class="pro" data-page-node-id="ec84MoFKBidhUAXJaHdQYI"><span class="lbl pro" data-page-node-id="zZpEm3fIUuKrZIZUYaP8Hj">问题</span>① 披露基准日与委托合同不一致，应评述与委托人沟通调整的情况并由委托人出具证明；② 2 月为小月没有 31 日，且与基准日确定过程表述不一致。</div>
+    <div class="fix" data-page-node-id="ebC5iP6qYzyZbqEUSwqflu"><span class="lbl fix" data-page-node-id="y702cphcAVNRCAB9lQe5CQ">合理处理</span>基准日应与委托合同约定<b data-page-node-id="G1KWc1OaBWmP55ucYvVRwv">保持一致</b>；如实说明确定考虑的因素；基准日由委托人确定，评估师可凭专业经验建议；避免书写与常识错误。</div>
+  </div>
+
+  <div class="card case" data-page-node-id="yS4S0tvBnoqMFRDLZlLi45">
+    <span class="cno" data-page-node-id="wJNVBSX1GXstBWpCUFfGmr">例 6-4</span><div class="ct" data-page-node-id="8bsXHYipP5m0d5fyZ8F6Aa">评估对象与范围要素不一致、未披露范围关系</div>
+    <div class="bg" data-page-node-id="X4YdPRvBsKrFNxP7mEpcqp"><span class="lbl bg" data-page-node-id="rcSNxoBPqzbr4Hzgke9RDO">背景</span>金矿采矿许可证开采深度 650~200 米标高，储量核实报告估算范围含许可证内与外（深部延申至 650~-639 米），设计范围与储量估算范围一致；报告却披露开采深度为 650~-639 米。</div>
+    <div class="pro" data-page-node-id="nVaBgxqZqTqLYylCfnBd6A"><span class="lbl pro" data-page-node-id="5rRmrFGAzht6TmZNyX7hii">问题</span>① 开采深度要素与采矿许可证范围不一致；② 未披露评估范围、矿区范围、储量核实/估算范围、开采设计范围之间的关系。评估对象与范围对应于<b data-page-node-id="43QWok67WBBpZ5VioQQntP">唯一要素组合</b>，要素变则对象与结论变。</div>
+    <div class="fix" data-page-node-id="wbV3jlxC2M90wrPEzglJF9"><span class="lbl fix" data-page-node-id="DMumXRNPZ6N5KEZUECGtnF">合理处理</span>应披露评估对象与范围各要素及各范围间关系（重叠包含宜<b data-page-node-id="ZsYuKfDqUx5fF5PdLEjLXo">图示</b>）。本例评估范围应为采矿许可证范围，深部超标高储量不属评估范围，否则结论不合理。</div>
+  </div>
+
+  <div class="card case" data-page-node-id="6eeTvB48XFiXprvguVufu0">
+    <span class="cno" data-page-node-id="CpuYNvsTIxpOSt8GPr4jXU">例 6-5</span><div class="ct" data-page-node-id="HIY5kuBFcIu4g2pAZgBxbP">评估程序履行披露不完整、尽职调查与实际不符</div>
+    <div class="bg" data-page-node-id="r0GbvQQFMFQ18oM1lbPzva"><span class="lbl bg" data-page-node-id="T2Gy0fbMJ10HK8jo4ud9Op">背景</span>2020-03 受托，合同约定基准日 2020-03-31；5-15 出报告，公示后采矿权人异议，补充资料后 10-10 提交最终报告，但封面/摘要/正文报告出具日均写 2020-05-15。</div>
+    <div class="pro" data-page-node-id="bY9CFfW4mYrq9BNXiTUMCs"><span class="lbl pro" data-page-node-id="VqwDwh6QrCjmr1HkvHvCvQ">问题</span>① 报告出具日应为最终出具日 <b data-page-node-id="zMusslUzhjslv1R7zedeRB">2020-10-10</b>；② 未披露明确基本事项、签合同、编制计划，以及异议处理、补充资料、修改完善过程；③ 2020 年 3 月湖北疫情居家办公，不可能现场勘查，却披露现场勘查，<b data-page-node-id="KKNzZN9xWQlULZWuOUXOhI">与实际不符</b>。</div>
+    <div class="fix" data-page-node-id="6jzVSXGlUquHKsBMbxuAMQ"><span class="lbl fix" data-page-node-id="uf9bA4uvWsTGYLAMjoSeyy">合理处理</span>应按准则完整披露程序（明确事项→签约定书→编制计划→尽职调查→收集资料→评定估算→编制提交报告→底稿归档），可定详简但<b data-page-node-id="UXXwjlFD36FJOhXYX6WzYj">不得删减</b>；出具日为最终报告日期；未现场调查的应披露并说明理由、必要时说明对结论的影响，并取得主管部门同意。</div>
+  </div>
+
+  <div class="card case" data-page-node-id="n3uFc9S7541S8AJuSG00oW">
+    <span class="cno" data-page-node-id="C4R2bgP4MPPb1U5x33rFlO">例 6-6</span><div class="ct" data-page-node-id="QWdkL0IBk6JMJ2A4IlXmGg">内容表述前后不一致、文表不一致</div>
+    <div class="bg" data-page-node-id="5YicQPU9BXLFVCwH7HwpRA"><span class="lbl bg" data-page-node-id="sO9EtTakohbRGTE4s2Ep5V">背景</span>西藏某金矿评估：摘要披露价值 230.55 万元，正文表述 250.42 万元，计算表又显示 250.42 万元；成矿地质条件描述成"天山—兴安成矿域"。</div>
+    <div class="pro" data-page-node-id="EvrgM2THoPNMYuDPSZDoBt"><span class="lbl pro" data-page-node-id="jR58xS8SLUkIezPDoWEED3">问题</span>① 成矿地质条件描述错误；② 摘要与正文、计算表数据前后矛盾，暴露内部审核不规范、质控制度不健全。</div>
+    <div class="fix" data-page-node-id="Zt8wcNRGZjeJmAGO7jZ4mK"><span class="lbl fix" data-page-node-id="V2XRuAEmxd8jQTxuKej8Bh">合理处理</span>按《矿业权评估报告编制规范》做到全面、客观、准确、概括；<b data-page-node-id="d3sSnQZZvOb8CXqPxWEn9J">摘要、正文、附表、附件相关内容应完全一致</b>。</div>
+  </div>
+
+  <div class="card case" data-page-node-id="UmgbFCaqPRLqCEUFhnaZuN">
+    <span class="cno" data-page-node-id="qhfw5PfrNWEqv7lObZemiC">例 6-7</span><div class="ct" data-page-node-id="5gJAUxSK5XrRFiWaoTsWjx">签字不合法（数量不足 + 非承办者签字）</div>
+    <div class="bg" data-page-node-id="VA75PkuCEJzc5FHVqUdwaw"><span class="lbl bg" data-page-node-id="sdC5EvodR4EQT58F9HCvHB">背景</span>某国企采矿权转让评估（法定业务），报告签字一名为矿业权评估师、一名为土地估价师，且签字的评估师实际未承担该铜矿评估。</div>
+    <div class="pro" data-page-node-id="AUjok2uYNRcjVqsy5T0uvm"><span class="lbl pro" data-page-node-id="YpLhADdpK4NwISMxbZ6h4n">问题</span>法定业务应由至少<b data-page-node-id="7PelBTXDFlaDuZwUdmNbpp">两名矿业权评估师</b>承办并签名盖章，另一名为土地估价师不符；评估师只能在本人参与的报告上签字，非承办者签字属<b data-page-node-id="F9mWwK2pS4P0ZMgSNCrwKn">违法</b>。</div>
+    <div class="fix" data-page-node-id="fLFe68YZR7En0dATsFidil"><span class="lbl fix" data-page-node-id="sJFBBbXFHDICb2ptQypWmq">合理处理</span>法定业务指定至少两名矿业权评估师承办，报告由所承办评估师签名并加盖印章。违规者：警告、责令停止从业 6 个月~1 年（情节严重 1~5 年）、没收违法所得；机构可责令停业 1~6 个月、罚款 1~5 倍，情节严重吊销执照，构成犯罪追究刑责。</div>
+  </div>
+
+  <div class="quiz" data-page-node-id="iRgHA5DsLgzM5ASlRZuDU6">
+    <h4 data-page-node-id="SZGuGvCcU2FzGmVPp1qCCp">✅ 第一节 · 考点自测</h4>
+    <div class="q" data-page-node-id="apta2kYtJI7zu3vcKAgFd7">Q1：法定评估业务，报告应由谁签字？</div>
+    <div class="a" data-page-node-id="bnVe56NHrjG2A1Dre8fD0C"><b data-page-node-id="UuJXxW3oGFPOkGzfhDwQyO">由所承办的至少两名矿业权评估师签名并加盖印章</b>；非本人参与项目的评估师不得签字。</div>
+    <div class="q" data-page-node-id="c28BA825C14CbykZ6rnw3d">Q2：评估基准日与委托合同不一致时，报告应如何处理？</div>
+    <div class="a" data-page-node-id="6W39NNX1wbvzuSJhCCyOAn"><b data-page-node-id="Vzys0XVIFUpGBoaVY7mrdW">应在报告中评述与委托人沟通调整基准日的情况，并由委托人出具相关证明材料</b>。</div>
+    <div class="q" data-page-node-id="xgV8KVYo8xKFUEiygQEg52">Q3：评估对象与范围对应于什么？为什么范围关系宜图示？</div>
+    <div class="a" data-page-node-id="Ltiel9Pc6481px9K6rm3ge"><b data-page-node-id="FdCWdUuKQTJpmAzDtcIb1m">对应唯一要素组合</b>；要素变化导致对象与结论变化。重叠、包含关系用图示便于理解各范围相互关系。</div>
+  </div>
+</section>
+
+<section id="s2" data-page-node-id="Eeti1KxDDHvZtXfjEewBeR">
+  <h2 data-page-node-id="tpIQBDTBHEHxhgjYOogzL2">第二节 评估依据的规范性 <span class="tag" data-page-node-id="WzdV9xKoWxrDWBkVAukL85">2 个案例</span></h2>
+  <div class="lead" data-page-node-id="Ns8xD2Z1PRagHRCKgHGD7w">评估依据是支撑结论的"根"。依据不充分、不准确，结论就站不住。本节聚焦法律法规依据与经济行为·权属依据两类硬伤。</div>
+
+  <div class="cols" data-page-node-id="3B2HUmjUz7AVI1pnjY1PRB">
+    <div class="def" data-page-node-id="HlEEUnTMVaVhnoFZyxqKna"><div class="k" data-page-node-id="ZlYGVzbhRQfrWmbyMwczkw">评估依据四大类</div><div class="v" data-page-node-id="Fu3pWQYLf8ZmApdLsLdC31">① 法律法规依据 ② 经济行为依据 ③ 矿业权权属依据 ④ 取价依据</div></div>
+    <div class="def" data-page-node-id="uhpGi351e9sG1TMJGqM9nN"><div class="k" data-page-node-id="pJO6GL2uxK04gEgZelQOAo">两个基本要求</div><div class="v" data-page-node-id="9dNpEdQYlkv1w1LtBKaT3D"><b data-page-node-id="IzG0bHo1ljcC8w0efTT87F">充分性</b>（该有的都有，覆盖完整）+ <b data-page-node-id="8MgeBAQCitFLpVOD0j94cR">准确性</b>（版本、文号、名称书写正确）</div></div>
+  </div>
+
+  <h3 id="s2-1" data-page-node-id="YgzlqXrS88OLB6g3Ebe7HT">一、法律法规依据（例 6-8）</h3>
+  <div class="card case" data-page-node-id="2N6Q3coaJYldniVHjJORBL">
+    <span class="cno" data-page-node-id="uPJ8LjWWe1G6VA7BzQR5FU">例 6-8</span><div class="ct" data-page-node-id="SivDSigHC8G8YbvZUGYxss">法律法规依据列示的六类硬伤</div>
+    <div class="bg" data-page-node-id="RxlV3J4qoxPmO3OWhIcNdB"><span class="lbl bg" data-page-node-id="5W9egHgLuGPNXjkYIKYQ7u">背景</span>报告"评估依据"部分列示了一批法律法规与准则。</div>
+    <div class="pro" data-page-node-id="eK7QKfrMBGZh6UQWqY8E0P"><span class="lbl pro" data-page-node-id="zgMHKjSBXlzDjchJcpolLh">问题</span><ul data-page-node-id="qwyySmMmSYcWXi8aBucVJF">
+      <li data-page-node-id="O9ag4H5zvS9DqvUY5YpOlg">缺失 <b data-page-node-id="4GRCTCMwDQ1qyiMBcHCh1k">《资产评估法》</b> 这一最上位法依据</li>
+      <li data-page-node-id="k8VKVayyMt517reTOIDDYZ">列示了与本次评估业务<b data-page-node-id="QhKQO2Tre7XAuGlvObc5PH">无关</b>的法律法规</li>
+      <li data-page-node-id="LFPHkrVvoBO82PoR8KkCJF">规范<b data-page-node-id="1XpGjJk4Q6OME3rIw9wn5E">版本过旧</b>（引用已废止版本）</li>
+      <li data-page-node-id="ySqOzgiF9oLC24bq2BP8VP">误用<b data-page-node-id="C2c08RaCmc14XImGYUssxf">尚未发布</b>的准则 / 规范</li>
+      <li data-page-node-id="0T2rM3WLNePuyI6mGx4j6H">文号书写错误，如 <b data-page-node-id="DR5zxuZ9HQwgrqX5yBLMKn">国土资发〔2008〕174 号</b></li>
+      <li data-page-node-id="JqAcDj7QuWt1CBFYlV0vxz">误列 <b data-page-node-id="RRmB9SDEUP5RiTZg4LnzHf">《矿业权出让收益评估应用指南(试行)》</b> 作正式依据</li>
+    </ul></div>
+    <div class="fix" data-page-node-id="TAPhvmBqTSXan2BVFN5xBg"><span class="lbl fix" data-page-node-id="BJOofpQBtrD6e2rUA1aoVu">合理处理</span>补齐《资产评估法》及现行有效法规；删除无关法规；全部替换为<b data-page-node-id="Cxd4Jgz6oV6kgqhXEvMZtP">基准日现行有效</b>版本；仅引用已正式发布实施的准则；逐条核对法规名称与发文文号。</div>
+  </div>
+
+  <h3 id="s2-2" data-page-node-id="AoCDJDURHHH9gBvPsxI0FD">二、经济行为与权属依据（例 6-9）</h3>
+  <div class="card case" data-page-node-id="x6Sr9nYnUnREMBrLoo7h4i">
+    <span class="cno" data-page-node-id="7UDCLRWNWFMr8KhwWVjYnn">例 6-9</span><div class="ct" data-page-node-id="fImzWoxjYq0PipYNO8sR8M">经济行为依据、矿业权权属依据缺失</div>
+    <div class="bg" data-page-node-id="vB6msQ13SDd9LRRUB9OAXG"><span class="lbl bg" data-page-node-id="iRlJkrfF2VYVCZzLTJz7C3">背景</span>报告在经济行为依据、矿业权权属依据部分存在漏项。</div>
+    <div class="pro" data-page-node-id="z4eIqZzdrFo05foGPeFOJu"><span class="lbl pro" data-page-node-id="oFDhQr1QzcN8tjTeYSI4wm">问题</span><ul data-page-node-id="1YX7y3w3cAZECGbLVgHBiJ">
+      <li data-page-node-id="tmAbAy9iT3FPFR8w66IFvu">缺失 <b data-page-node-id="vFuQkQMySWACprSI5RR9gi">划定矿区范围</b> 相关文件</li>
+      <li data-page-node-id="BkoEhvpmJtVPz4DfIYUz7A">缺失 <b data-page-node-id="PEIoXxMtGZU5uFqplM7Uhj">评审意见书及备案证明</b></li>
+      <li data-page-node-id="JV3CinCx7RcKZyMuRkO2c6"><b data-page-node-id="rOQUtcplKOzMXhNaZHDcFp">开发利用方案</b> 列示不完整（未载明关键要素）</li>
+    </ul></div>
+    <div class="fix" data-page-node-id="Ad8nEnZ17jO9VorlaDcNTw"><span class="lbl fix" data-page-node-id="l7sSXAupQpk0S25XxB3n4K">合理处理</span>补充划定矿区范围批复文件；补充资源储量评审意见书及备案证明；完整列示开发利用方案（名称、编制单位、批复情况）。</div>
+  </div>
+
+  <div class="quiz" data-page-node-id="wgyQyXiZhFbKtKlc6rVyU5">
+    <h4 data-page-node-id="h4dXNhPryJnNfAwe5zAE4V">✅ 第二节 · 考点自测</h4>
+    <div class="q" data-page-node-id="yZY3B7r30EVXdZD1uaiNdZ">Q1：评估依据包含哪四大类？两个基本要求是什么？</div>
+    <div class="a" data-page-node-id="kvdbKbv4DAER0E4BPtBoXS">四大类：<b data-page-node-id="nLflEQOSnhCrglxu4xN2tE">法律法规依据、经济行为依据、矿业权权属依据、取价依据</b>。要求：<b data-page-node-id="PxDiI6KUc1V1vcEeVfQbMR">充分性 + 准确性</b>。</div>
+    <div class="q" data-page-node-id="n3oUPRSxbOAqz780eirIDs">Q2：例 6-8 中"误用未发布准则""版本过旧"分别怎么改？</div>
+    <div class="a" data-page-node-id="dVFRrlale5oiLFIuerTxK4">未发布准则 → 仅引用<b data-page-node-id="vtaZXVHLthFarf0Mq0f1c5">已正式发布实施</b>的准则；版本过旧 → 替换为<b data-page-node-id="j5eQBH4DKKnA3jYo6iK1L4">基准日现行有效</b>版本。</div>
+  </div>
+</section>
+
+<section id="s3" data-page-node-id="Nzn4hL67SoxpjoU0YSx4c2">
+  <h2 data-page-node-id="PWtPDsw1UGevggkyacqqX7">第三节 评估方法选择的合理性 <span class="tag" data-page-node-id="oDOb26OcITOJf1vPgg3Iun">2 个案例</span></h2>
+  <div class="lead" data-page-node-id="zU2ZLKrIxpY9yV7vVcn5fw">方法选错，参数再对也是白搭。铁律：应根据评估目的、对象、资料收集情况选择<b data-page-node-id="uUlq6PzEnXMDzVHjMfGLUi">两种以上不同途径</b>的方法，相互验证。</div>
+
+  <div class="warnbox" data-page-node-id="THVuTLN8RZgvM0TeUZcQBC">
+    <div class="wt" data-page-node-id="ji2nJovsAcyiCnWVwxuREQ">⚠️ 方法选择铁律</div>
+    ① 应选 <b data-page-node-id="jR4I2Q4jix2bdNq0FhBiIn">两种以上不同途径</b>（收益 / 成本 / 市场途径）的方法；② 同一矿区范围同时采用 <b data-page-node-id="qtCOImlXwuKYbQgRDHdqYE">DCF（贴现现金流法）+ 收入权益法</b> 属<b data-page-node-id="xHsBa2TD3AcrbizJ0OiefK">适用范围冲突</b>，不得并用；③ 方法须与矿种、勘查阶段、资料条件匹配。
+  </div>
+
+  <div class="card case" data-page-node-id="nPAdLsaL8f53qTRkAI19kD">
+    <span class="cno" data-page-node-id="DtyIGqgUsQciDe9GwAZy1a">例 6-10</span><div class="ct" data-page-node-id="9qeWS7TWWjRWX3noHYQvH6">深部探矿权误判"空白区"陷阱</div>
+    <div class="bg" data-page-node-id="44TYRIwdYDW5ePAz3YMnZA"><span class="lbl bg" data-page-node-id="UF9bytS6DLwfwGIAMedzXj">背景</span>采矿权深部探矿权，上部采矿权区域此前已完成遥感、物探、化探等勘查工作。</div>
+    <div class="pro" data-page-node-id="3ZHD0TcFWrjXAfdKWfAwK4"><span class="lbl pro" data-page-node-id="fa9Z9mTf3nB4M4CCJAaBAO">问题</span>将深部探矿权直接按<b data-page-node-id="6uDDngvupJbABWnkS9E38u">空白区</b>处理，忽略上部已设置的采矿权，未收集上部采矿权相关资料，导致深部资源赋存判断失真。</div>
+    <div class="fix" data-page-node-id="ABzDxu3Eq3c9xBmYwkZCwi"><span class="lbl fix" data-page-node-id="J755TLQBYQbB13bDDqBKcI">合理处理</span>应采用<b data-page-node-id="tV6djgTg0wzupE8oCpcKuo">单位面积倍数法</b>，并<b data-page-node-id="3Qr762OqToUKEbGtr8YhFW">收集上部采矿权相关资料</b>作为深部推断参考，不能简单视为空白区。</div>
+  </div>
+
+  <div class="card case" data-page-node-id="CnbV0RgDTLQHj8wE1JHA7q">
+    <span class="cno" data-page-node-id="FeyT4yLBmyhBER9fxOo9ho">例 6-11</span><div class="ct" data-page-node-id="WmizCQifFkKn84rxESLU2p">普查探矿权潜在资源误用收益途径</div>
+    <div class="bg" data-page-node-id="Y9Du49lC5tK0baKeOEAn9o"><span class="lbl bg" data-page-node-id="46mWiH1Z2hPrulAZFqPPAE">背景</span>普查阶段探矿权，资源为潜在资源量，可靠程度低，缺乏可靠基础资料。</div>
+    <div class="pro" data-page-node-id="6TFLNQaxTdpbORQEfA4OhM"><span class="lbl pro" data-page-node-id="wm0cpztAje4SHsBfSjZBJM">问题</span>对普查探矿权的<b data-page-node-id="9zLKrHFL9LLlnpAjJinEUV">潜在资源量</b>，误用收益途径的 <b data-page-node-id="2Hbr6RbEySnm3OPgC6M3lu">DCF 风险系数调整法</b>；普查阶段资料条件不足以支撑收益途径。</div>
+    <div class="fix" data-page-node-id="LuoLjgmMIY5AywavO9cb9q"><span class="lbl fix" data-page-node-id="6Ddnb55KZjFMfGyO31ztlx">合理处理</span>普查探矿权潜在资源评估应选<b data-page-node-id="iNDge9tuMiUQt3FkdYG5SM">成本途径</b>（如勘查投入成本法），不采用收益途径。</div>
+  </div>
+
+  <div class="quiz" data-page-node-id="4Ah3MASWTKxBrpiDxARx0i">
+    <h4 data-page-node-id="RO8DXXK4MtSspn7l1k6WpN">✅ 第三节 · 考点自测</h4>
+    <div class="q" data-page-node-id="ZGBUvqwBviZNeuG4cZVNlC">Q1：方法选择的"铁律"是什么？为什么 DCF 与收入权益法不能在同一范围并用？</div>
+    <div class="a" data-page-node-id="RCFlXKEs9GTAmOXds1EAJR">应选<b data-page-node-id="8XthcS0pCMKtJYFCQhYics">两种以上不同途径</b>方法；DCF 与收入权益法同属收益途径且<b data-page-node-id="Wacd1jRBsmIg5y3TPcy53a">适用范围冲突</b>，同时用会重复计算。</div>
+    <div class="q" data-page-node-id="91gObxoA6RADdq2HVymAZf">Q2：例 6-10、例 6-11 的方法纠错分别是什么？</div>
+    <div class="a" data-page-node-id="GZcrmtH6c0xzV3AZqRdmtt">例 6-10：深部探矿权不能视为空白区，应<b data-page-node-id="7pETobEmmQ2EwgwnGnxRCV">收集上部采矿权资料</b>，用单位面积倍数法；例 6-11：普查潜在资源应选<b data-page-node-id="jEMvVGkh5yg8rOSZXQJ2LA">成本途径</b>，不滥用 DCF。</div>
+  </div>
+</section>
+
+<section id="s4" data-page-node-id="wlCU5yp1TGBNKTDYVUmGj0">
+  <h2 data-page-node-id="iyVuGKlhpogAama61LYoDW">第四节 评估参数的选取与确定 <span class="tag" data-page-node-id="xmdnSuU6ESvFneSgcYe755">11 个案例</span></h2>
+  <div class="lead" data-page-node-id="EUd0sIg0ueAORV2Why89YI">参数是方法落地的"砖"。本节按参数类别拆解 11 个案例，覆盖实物工作量、重置成本、效用系数、储量、年限、产量收入、投资、资金、成本、税费。</div>
+
+  <h3 id="s4-1" data-page-node-id="XXSEaHIuIn3BTydDnXDsiy">一、有关有效实物工作量（例 6-12）</h3>
+  <div class="card case" data-page-node-id="QBQRFCHM5KL0AECwBDDOg6">
+    <span class="cno" data-page-node-id="hYAzI1IyAYtv825tM785fd">例 6-12</span><div class="ct" data-page-node-id="sKiNNdNWFd9WrICJDN4ZzR">"有关有效"工作量的六类剔除</div>
+    <div class="bg" data-page-node-id="PMlvoTlsWJnXUedQJfEX5i"><span class="lbl bg" data-page-node-id="NrIkEEAyLwlwFcUZI8zmKe">背景</span>成本途径下需先界定计入评估的实物工作量，再核算其重置成本。</div>
+    <div class="pro" data-page-node-id="mL0hFEegayPDMcP5RnnwqZ"><span class="lbl pro" data-page-node-id="eE4KZKHRrROAbYJW9KECB1">问题</span>将本不应计入的工作量一并纳入，虚增勘查投入。须剔除以下<b data-page-node-id="Hs3viuOnUNJUZY9eMOFcmM">六类</b>：<ul data-page-node-id="wCe9ScUtlEdie4T3GbWhkV">
+      <li data-page-node-id="OQJtjtzh67akVAnUOGCGOR">① <b data-page-node-id="Vf1Rpe6iU16kKdVbho4EJh">公益性</b>勘查工作量（国家投入，非企业自有）</li>
+      <li data-page-node-id="XDryfZ4lO8NUC77G3aeNcd">② <b data-page-node-id="jX90BkNLTsjgToOXm8sLBc">超出矿区范围</b> 的工作量</li>
+      <li data-page-node-id="0ENFN4V3teqHXaLM7UaxpD">③ <b data-page-node-id="8mFl9dEpRDi2UbIOrMbjg0">技术重复</b> 工作量</li>
+      <li data-page-node-id="zZ9ZUd9R7oP9MFxm0E2csB">④ <b data-page-node-id="iitW0MACJ8frH5QB5ibYFp">报废</b> 工作量</li>
+      <li data-page-node-id="ZePlzFaLKgJEFVFEkkTVKS">⑤ <b data-page-node-id="hBRYnffVCVozA5q3Z8ZLhq">缺乏原始资料</b> 无法核实的工作量</li>
+      <li data-page-node-id="fe0aY9W0LUvNd8R0KB5pBI">⑥ 与评估 <b data-page-node-id="VcJIn8vgmWoGhL4EF1LQml">矿种无关</b> 的工作量</li>
+    </ul></div>
+    <div class="fix" data-page-node-id="2glPZPZqWc6tDGgLUqAGfY"><span class="lbl fix" data-page-node-id="7G6u0aEzNBqOnj8WGqa4sp">合理处理</span>仅保留"评估范围内、与目标矿种有关、符合当时勘查规范"的工作量，逐类核对剔除上述六类。</div>
+  </div>
+
+  <h3 id="s4-2" data-page-node-id="ogch8imJRgsjW3tR5bGutw">二、现行价格与重置成本（例 6-13）</h3>
+  <div class="card case" data-page-node-id="bo6icLCjuz2o9X0eRtIgXH">
+    <span class="cno" data-page-node-id="ByLUe43NIqxXA6sE6EpTtS">例 6-13</span><div class="ct" data-page-node-id="QCdezHnJrYqiVhck1e2fdW">现行价格下的重置成本</div>
+    <div class="bg" data-page-node-id="VOz2v0XHbNpRskLfMXdUEf"><span class="lbl bg" data-page-node-id="XdE7AQiv9TMZhlR2JohIY1">背景</span>重置成本 = 重置直接成本 + 间接费用，须以<b data-page-node-id="hGTKudPoiNlIGd7y2auzpW">现行价格</b>为基础。</div>
+    <div class="pro" data-page-node-id="rphYTqB23DeNDUdmDgAPpm"><span class="lbl pro" data-page-node-id="if1AL9wH4QmYG0wbSOowKv">问题</span>直接套用历史价格、未做各项调整，导致重置成本失真。要点：<ul data-page-node-id="Cxc877cUgV0NaPjiwIdeBx">
+      <li data-page-node-id="1oQEx38jFRSyvrxHKbcyoW">需做 <b data-page-node-id="KHYHkqCJVBLYFjd8HQLe6A">地区调整系数</b>、<b data-page-node-id="hDhAZb1gFRWgE2496dwZWf">价格调整系数</b></li>
+      <li data-page-node-id="59AnHpTlIVPpJE2na513qj">孔斜角调整：斜孔 85°→+10%、80°→+20%、75°→+30%</li>
+      <li data-page-node-id="MzlGnEPO72CZvFcK5jvkUW"><b data-page-node-id="57larZj5aiXH5FVF46CRvM">年度工作量调整</b>（按年度分摊）</li>
+      <li data-page-node-id="q3UHIUsHoXbl3GpqhfcwyE"><b data-page-node-id="TRhGWSMhJWplW1m563yCxD">间接费用</b> 按重置直接成本的 <b data-page-node-id="YsNFCjBrYIHAGhZFoXMHhu">30%</b> 计（预查 / 普查等综合勘查阶段）</li>
+    </ul></div>
+    <div class="fix" data-page-node-id="piu46Tj2lotillGyz6tUqu"><span class="lbl fix" data-page-node-id="V2CxzbQAClnrFehUlxgvFV">合理处理</span>地区调整系数取 <b data-page-node-id="tn8q2kqX7xsBvnHzW0oAtC">1.2</b>，结合价格调整、孔斜角、年度分摊逐项核算重置直接成本，再按直接成本 30% 另计间接费用。</div>
+  </div>
+
+  <h3 id="s4-3" data-page-node-id="S4JAOuv4cCXlNhc83B9F0j">三、效用系数（例 6-14）</h3>
+  <div class="card case" data-page-node-id="Co6IKHvTbYwNpEc1TYBU0y">
+    <span class="cno" data-page-node-id="sz8z9nJ2oOZzLLjKPeQVn3">例 6-14</span><div class="ct" data-page-node-id="rYSifD3vNF5Royld0Q03bF">效用系数 F = f × φ</div>
+    <div class="bg" data-page-node-id="PMsVLGpJRHikUGKdnPXfWG"><span class="lbl bg" data-page-node-id="Rr12tIhJCQttij1EdsYGiM">背景</span>效用系数反映工作量的质量与布置合理程度。</div>
+    <div class="pro" data-page-node-id="Ka0EGfAqpyeP4t63aAPRyI"><span class="lbl pro" data-page-node-id="BdMZYBxwNYM2MTEFHnqsWz">问题</span>构成：<ul data-page-node-id="asHwJFbEgwCKpLdVGyEIFT">
+      <li data-page-node-id="XnbtBI32VMrj0jIkLBgEVd"><b data-page-node-id="62dgBTv1r515bgIsQUgFmt">f 质量系数</b>：0.01 ~ 3.00</li>
+      <li data-page-node-id="n6ZgPKixSpwk8K6FiKNILU"><b data-page-node-id="HQOMJkKFgDCd9BjVx7oC9X">φ 布置合理性系数</b>：0.01 ~ 2.00</li>
+      <li data-page-node-id="WSLd6H6SKbEhFRtaQUHpwa">两者相乘得效用系数 <b data-page-node-id="BhXBZ7ijIxwBm4XenuUxGD">F</b></li>
+    </ul></div>
+    <div class="fix" data-page-node-id="LmArZCojWQnTKkTN2bXmRC"><span class="lbl fix" data-page-node-id="RAPpNIqk5EJkRoWo8ywEtA">合理处理</span>分别评定 f 与 φ 后相乘，本例 <b data-page-node-id="rUt4l78HO9UYWtDOZ5UDsU">F = f × φ = 1.29</b>，体现工作量质量与布置的综合效用。</div>
+  </div>
+
+  <h3 id="s4-4" data-page-node-id="NFOnwYzs8ovKpOqaib6kup">四、储量·年限·产量收入（例 6-15 ~ 例 6-18）</h3>
+  <div class="card case" data-page-node-id="pyMEC1hT7pCmyzkue9GH8z">
+    <span class="cno" data-page-node-id="TAZwyl77gd6piH58xcPZPr">例 6-15</span><div class="ct" data-page-node-id="cwq7InGdGQ2P5B5RpB5EyM">参与评估的保有资源储量</div>
+    <div class="bg" data-page-node-id="LbdKaxrqzpv2xhPmDqgERv"><span class="lbl bg" data-page-node-id="lqQsfK4ecFZuPMMhcSZDHv">背景</span>参与评估的保有资源储量需扣除已动用 / 非本次评估范围部分。</div>
+    <div class="pro" data-page-node-id="BhvM3REqVcKagHP3GiJd5A"><span class="lbl pro" data-page-node-id="VcQvdZetnbJBHmNraTwY6A">问题</span>未扣除非评估范围储量，直接全额参与计算。</div>
+    <div class="fix" data-page-node-id="a1CMIkXeZYthWJLoS0k7VN"><span class="lbl fix" data-page-node-id="LHP7x2NlRPOXV1ukxVsY5u">合理处理</span><b data-page-node-id="d4wH5SfK1IWws2emqDHqFX">3826 − 126 = 3700（万吨）</b>，只取真正可参与评估的保有储量。</div>
+  </div>
+  <div class="card case" data-page-node-id="vsW6sMXPMQ4SXqDZPs5P30">
+    <span class="cno" data-page-node-id="6ZNkGvmivqZMBqzAfdExNG">例 6-16</span><div class="ct" data-page-node-id="NtCitEBD9A3UtbmWj91CF5">评估利用的可采储量</div>
+    <div class="bg" data-page-node-id="4DJTSY2NZsQaneGAgQBpPT"><span class="lbl bg" data-page-node-id="hQjses2KCnQmfGm9913T7a">背景</span>可采储量 =（保有储量 − 损失量）× 开采回采率，需剔除不可采部分并乘回采率。</div>
+    <div class="pro" data-page-node-id="M5Jo8nmh6vj2Lf6y8GR1tX"><span class="lbl pro" data-page-node-id="30U1kofyZDWhj6k63O0EbL">问题</span>未扣除损失量或未乘回采率，高估可采储量。</div>
+    <div class="fix" data-page-node-id="lwFOq4hsTBe4lDtATwJRdB"><span class="lbl fix" data-page-node-id="cJ0KAX2OO6qKowMecIv06n">合理处理</span><b data-page-node-id="aTmK2sNX0VzICIVW9LcHJJ">(350 − 30) × 98% = 313.60（万吨）</b>，体现扣除与回采率双重折减。</div>
+  </div>
+  <div class="card case" data-page-node-id="eZi6TIMqloQdOPVDrHKVdo">
+    <span class="cno" data-page-node-id="KGPHgonhtDvvkD8IqwBKyA">例 6-17</span><div class="ct" data-page-node-id="3PF7SVpY0YvvaEUcleoaew">评估计算年限</div>
+    <div class="bg" data-page-node-id="PFdMMeZooifL4QDdLU8TUG"><span class="lbl bg" data-page-node-id="Kt2j6xETz8wCyPbsMYep8T">背景</span>计算年限 = 后续勘查年限 + 建设年限 + 服务年限。</div>
+    <div class="pro" data-page-node-id="exd9GfvRhSVu7JzQT70fwc"><span class="lbl pro" data-page-node-id="bq7zh1DizJ7o2Lchtrzw56">问题</span>漏算后续勘查或建设年限，使计算年限偏短。</div>
+    <div class="fix" data-page-node-id="DLigwYBGLOStOYgBYruDoc"><span class="lbl fix" data-page-node-id="yAAjEAC2x1LBg20wZKjEGe">合理处理</span><b data-page-node-id="yqM7zVADOJsefn5YtP6HOY">2 + 2.5 + 28.8 = 33.3（年）</b>，三段相加得完整计算年限。</div>
+  </div>
+  <div class="card case" data-page-node-id="hG2CrFD84WKhmtUSK9Xlp2">
+    <span class="cno" data-page-node-id="lzyxPTTAqMYJ1zHu6yzB7b">例 6-18</span><div class="ct" data-page-node-id="DeWgJigSuW9BUDPH1ohKfg">产品产量与销售收入（铅锌矿）</div>
+    <div class="bg" data-page-node-id="lG7KqO82OVqeuN42VkfjzF"><span class="lbl bg" data-page-node-id="lgwISMcKJpoH5yLtU23DGE">背景</span>按设计产能与精矿含率、市场价格测算年产量及销售收入。</div>
+    <div class="pro" data-page-node-id="0C1iQnTDNkQEJg5FKwwgdG"><span class="lbl pro" data-page-node-id="a2cua4im4yMWHU4giqa2iE">问题</span>产量、含率、价格口径不一致，导致收入测算失真。</div>
+    <div class="fix" data-page-node-id="5ACvlv7oV63Fqw6wIO4J5U"><span class="lbl fix" data-page-node-id="8khRt7pIIpGDqlqytlZkSv">合理处理</span>测算得销售收入 <b data-page-node-id="MmDqLEnrlpzXuEcBzELE9E">75004.22（万元）</b>，产量与价格口径一致、含率取值合理。</div>
+  </div>
+
+  <h3 id="s4-5" data-page-node-id="ppVGwlybAGdqOqy1NmnKXe">五、投资·资金·成本·资源税（例 6-19 ~ 例 6-22）</h3>
+  <div class="card case" data-page-node-id="M6eUtclSi42USZajNgVUxB">
+    <span class="cno" data-page-node-id="od3BrzLtJromOE1NIlbekb">例 6-19</span><div class="ct" data-page-node-id="RGNVqrcyAWCneWB5tEuiqK">固定资产投资额</div>
+    <div class="bg" data-page-node-id="ZaFzWi8g6GlhHTsMKjKFSK"><span class="lbl bg" data-page-node-id="11VSF4nAazrhuFGdvgaB8p">背景</span>需区分<b data-page-node-id="FlVLEypL9GMTWvBzKz7dFh">原有投资</b>与<b data-page-node-id="IjnvROPyZwxpxpDr0TmpCN">新增投资</b>，并剔除非直接固定资产部分。</div>
+    <div class="pro" data-page-node-id="RHSqzcjbaKzkHrUPRlKrAF"><span class="lbl pro" data-page-node-id="G2wbzVECd5FFkg0W1TD7XR">问题</span>把预备费、征地费、建设期利息等计入固定资产投资额，虚增投资。</div>
+    <div class="fix" data-page-node-id="C5AyuiKA9lwlaKIygdEDSK"><span class="lbl fix" data-page-node-id="pXBWNs3oPnKDoj3wEuUIjV">合理处理</span>原有 <b data-page-node-id="m64nCxDTFF4WMqk40YOERB">42000 万</b>、新增 <b data-page-node-id="j3UtDx9ppVoARumHFFZtlB">5450 万</b>，剔除预备费、征地费、利息后取固定资产投资额。</div>
+  </div>
+  <div class="card case" data-page-node-id="BEoCBqDo2ZLHwgcAKKOqvH">
+    <span class="cno" data-page-node-id="M1AL9bT5EFc6sLXTnkh7Cw">例 6-20</span><div class="ct" data-page-node-id="cs1eVCUAOpYTgzSH8eos9U">流动资金（扩大指标估算法）</div>
+    <div class="bg" data-page-node-id="boUbFz4TR0vi4hdFn4Vdms"><span class="lbl bg" data-page-node-id="S1UqXgfJAL4FN2FWEaapzF">背景</span>用<b data-page-node-id="4ZQqwQW0QtszhQHLt8p2Bi">扩大指标估算法</b>，按营业收入 / 经营成本的一定比例测算流动资金。</div>
+    <div class="pro" data-page-node-id="dVNnwOZiUuNMbZRtE2W2Bu"><span class="lbl pro" data-page-node-id="In1UchGASdFiagnjbkTKGc">问题</span>选用方法或指标不当，流动资金测算偏离行业水平。</div>
+    <div class="fix" data-page-node-id="9axwfZW3qNiIXblFGPuuqB"><span class="lbl fix" data-page-node-id="VNnfuxujhOTqH2yzO2xYrQ">合理处理</span>测算流动资金 <b data-page-node-id="aIhpWm2ebzR8TOGjFlvpOY">4262.89 万元</b>，指标取值与行业惯例一致。</div>
+  </div>
+  <div class="card case" data-page-node-id="t1bT2AptiB4lVpJIQI8wW3">
+    <span class="cno" data-page-node-id="7sTQYqKwem9c4qHgEtfA2O">例 6-21</span><div class="ct" data-page-node-id="q9mZ3odgnWamAb7kPmOD1i">成本费用</div>
+    <div class="bg" data-page-node-id="a0ybbSQxFwH5QpTJGXX914"><span class="lbl bg" data-page-node-id="cyMxYFWnkK15WSOkShduLQ">背景</span>需区分<b data-page-node-id="WOuZSonZRU7pu2OQjezQy3">总成本</b>（含折旧、摊销、利息等）与<b data-page-node-id="a0lfmIP7EgVbee6gU01TRI">经营成本</b>（不含上述固定项）。</div>
+    <div class="pro" data-page-node-id="Zt72pBOwAs4S2CDjafG20W"><span class="lbl pro" data-page-node-id="qMsgiysUQmkqQtcGg5rS6V">问题</span>总成本与经营成本口径混淆。</div>
+    <div class="fix" data-page-node-id="hj9CR1nr4ohQAoc9cZhDU0"><span class="lbl fix" data-page-node-id="1mOfqAaDaapLDfzlC7IKrO">合理处理</span>总成本 <b data-page-node-id="6D0a4KUjtT6vBtsH5FwxKe">135.24 元/吨</b>、经营成本 <b data-page-node-id="OdOqqUeCc7zaTgk6Ky1VbB">120.48 元/吨</b>，口径区分正确。</div>
+  </div>
+  <div class="card case" data-page-node-id="vrveu2kn29BC4XQxzu2Zq0">
+    <span class="cno" data-page-node-id="iKRT4CrpGZsI4Nww0HKD6q">例 6-22</span><div class="ct" data-page-node-id="6HpunBdhkd7HezcpItCpKR">资源税（含减免）</div>
+    <div class="bg" data-page-node-id="gCkxZoM5UFVUYO1MJ9niH0"><span class="lbl bg" data-page-node-id="SROLhqSifMdNWnwBV2rLoz">背景</span>不同矿种适用不同税率；符合减免条件的可<b data-page-node-id="vD4yInNoh191bJMFStRTfA">减征</b>。</div>
+    <div class="pro" data-page-node-id="xN4WZsQKdxOBa8zh2YHgqw"><span class="lbl pro" data-page-node-id="v8vhsEPIpYJoQIlToMbDjj">问题</span>税率取错或未执行减免，导致资源税测算有误。</div>
+    <div class="fix" data-page-node-id="5LxDUtG9yieYBxMWVnNpqn"><span class="lbl fix" data-page-node-id="WC7kUnHIggT6zMu13Uu9bj">合理处理</span>铅锌 <b data-page-node-id="7t50FuYsWOh6QBVXu2NeJQ">5%</b>、银 <b data-page-node-id="9nEIiBbfkDkFBKLp1IrPhY">3.5%</b>（并<b data-page-node-id="GLn7tycvznEH4ayS93hCwP">减征 30%</b>），测算资源税 <b data-page-node-id="DQUpzgXCzttAkxrTZMtKIH">635.40 万元</b>，税率与减免均按现行规定。</div>
+  </div>
+
+  <div class="quiz" data-page-node-id="jCsN8OwCVMY7rFBcjEpFzB">
+    <h4 data-page-node-id="EGMUYYPlzAG9mtLHxYAsMZ">✅ 第四节 · 考点自测</h4>
+    <div class="q" data-page-node-id="Jc04kqp2EA7j85ghfEIQXq">Q1："有关有效"工作量须剔除哪六类？重置成本如何调整？</div>
+    <div class="a" data-page-node-id="7OLFPkNnzRzmXlQOjE45Ns">剔除：公益性、超范围、技术重复、报废、缺原始资料、与矿种无关。重置成本按<b data-page-node-id="CElcEuAr7mj2DjbCTymLSW">现行价格</b>计，叠加地区 / 价格 / 孔斜角 / 年度调整，间接费用按直接成本 30%。</div>
+    <div class="q" data-page-node-id="TLoYbiXT9rgvd2o6ZnuhAb">Q2：效用系数 F 怎么算？本例取值？</div>
+    <div class="a" data-page-node-id="PtePRSDxdcRFqJnWmWEbsE"><b data-page-node-id="KfOsKj0Kl3thBUG1GLonQw">F = f（质量系数 0.01~3.00）× φ（布置合理性 0.01~2.00）</b>，本例 <b data-page-node-id="TGpe4TDO572XTsLY5RMHZO">F = 1.29</b>。</div>
+    <div class="q" data-page-node-id="SSOfSbk7qymi2OA36FI49C">Q3：可采储量、计算年限、资源税分别怎么算？</div>
+    <div class="a" data-page-node-id="f9n3tFq3BmPy6dxmcaRacp">可采储量 (350−30)×98%<b data-page-node-id="u3Bb4XWD5eqeZxRiifjUrr">=313.60 万吨</b>；计算年限 2+2.5+28.8<b data-page-node-id="wU0LKd5oqltZcFz7EE5oAV">=33.3 年</b>；资源税铅锌 5%、银 3.5% 减征 30%<b data-page-node-id="e0f1xVlhZZBa92AdrHOoJJ">=635.40 万元</b>。</div>
+  </div>
+</section>
+</main>
+</div>
+<footer data-page-node-id="KyRM07sWF12RqEk810SlMC">矿业权价值评估(2023) · 第六章 矿业权价值评估案例分析 · 学霸版学习页 · 生成于 2026-09-07</footer>
+<script>
+window.addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.getElementById('progress').style.width=p+'%';});
+var links=[].slice.call(document.querySelectorAll('#sidebar a'));
+var secs=[].slice.call(document.querySelectorAll('section[id],#map,#memo'));
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var id='#'+e.target.id;links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')===id);});}});},{rootMargin:'-20% 0px -70% 0px'});
+secs.forEach(function(s){obs.observe(s);});
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('hidden');}
+</script>
+
+<a href="index.html" id="backtoindex" data-page-node-id="backtoindex2" style="position:fixed;right:18px;bottom:22px;z-index:9999;background:#1d5fd6;color:#fff;text-decoration:none;font-size:14px;font-weight:700;padding:10px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(29,95,214,.4);font-family:-apple-system,'PingFang SC',sans-serif;">← 返回目录</a>
+
+<script>
+/* ===== fold6-scroll: localStorage 滚动位置记忆 (折叠/展开重载恢复) ===== */
+(function(){
+  var key = 'fold6-scroll-' + location.pathname.split('/').pop() + location.search;
+  function save(){ try{ localStorage.setItem(key, String(window.scrollY || document.documentElement.scrollTop)); }catch(e){} }
+  function restore(){
+    try{
+      var y = parseInt(localStorage.getItem(key), 10);
+      if(isNaN(y) || y <= 0) return;
+      requestAnimationFrame(function(){
+        window.scrollTo(0, y);
+        setTimeout(function(){ window.scrollTo(0, y); }, 150);
+      });
+    }catch(e){}
+  }
+  if(location.hash) return; // 带锚点跳转时不恢复
+  window.addEventListener('beforeunload', save);
+  var t;
+  window.addEventListener('scroll', function(){ clearTimeout(t); t = setTimeout(save, 250); }, {passive:true});
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', restore);
+  else restore();
+})();
+/* ===== end fold6-scroll ===== */
+</script>
+</body>
+</html>
