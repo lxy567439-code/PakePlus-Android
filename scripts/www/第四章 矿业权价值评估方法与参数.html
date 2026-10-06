@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="G5pm9dmnuUMEOmg1dPo5bQ">
+<head data-page-node-id="yxzXXrCScqw8yZWd9vm4TD">
+<meta charset="UTF-8" data-page-node-id="mDcAp0jRTpMdOARCDmNpMN">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" data-page-node-id="Wwpg5ZRxkLS4JycgRgShDy">
+<title>第四章 矿业权价值评估方法与参数 · 学霸版学习页</title>
+<style>
+:root{--brand:#1d5fd6;--ok:#1f9d57;--warn:#d9730d;--key:#c02666;--purple:#7c3aed;--sidebar-w:300px;--bg:#f5f7fa;--panel:#fff;--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--brand-soft:#eaf1fe;--ok-soft:#e6f6ee;--warn-soft:#fdf2e3;--key-soft:#fdeaf1;--purple-soft:#f1eafe}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+#progress{position:fixed;top:0;left:0;height:4px;background:var(--brand);z-index:999;width:0;transition:width .15s}
+#sidebar{position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;overflow-y:auto;background:var(--panel);border-right:1px solid var(--line);padding:18px 14px;z-index:100;transition:transform .25s}
+#sidebar.hidden{transform:translateX(-100%)}
+#sidebar h3{font-size:14px;color:var(--brand);margin-bottom:12px;padding-left:6px}
+#sidebar a{display:block;padding:7px 10px;font-size:13px;color:var(--ink);text-decoration:none;border-radius:6px;margin-bottom:2px}
+#sidebar a:hover{background:var(--brand-soft)}
+#sidebar a.active{background:var(--brand);color:#fff}
+#sidebar a.sub{padding-left:24px;font-size:12.5px;color:var(--muted)}
+#main{margin-left:var(--sidebar-w);padding:32px 40px 80px;max-width:960px}
+.toggle-btn{position:fixed;top:12px;left:12px;z-index:110;background:var(--brand);color:#fff;border:none;border-radius:6px;padding:6px 12px;cursor:pointer;font-size:13px}
+.hero{background:linear-gradient(135deg,var(--brand),var(--purple));color:#fff;padding:36px 32px;border-radius:14px;margin-bottom:28px}
+.hero h1{font-size:26px;margin-bottom:8px}
+.hero p{opacity:.9;font-size:14px}
+.map{background:var(--panel);border-radius:12px;padding:24px;margin-bottom:28px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.map h2{font-size:18px;color:var(--brand);margin-bottom:16px}
+.map-nodes{display:flex;flex-wrap:wrap;gap:10px}
+.map-node{flex:1 1 130px;background:var(--brand-soft);border-radius:10px;padding:14px 12px;text-align:center;font-size:13px;font-weight:600;color:var(--brand);position:relative}
+.map-node small{display:block;font-weight:400;color:var(--muted);margin-top:4px;font-size:11.5px}
+.map-node::after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:16px}
+.map-node:last-child::after{display:none}
+.memo{background:var(--panel);border-radius:12px;padding:24px;margin-bottom:28px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.memo h2{font-size:18px;color:var(--key);margin-bottom:16px}
+.memo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.memo-card{background:var(--key-soft);border-radius:10px;padding:14px;border-left:4px solid var(--key)}
+.memo-card h4{font-size:13px;color:var(--key);margin-bottom:6px}
+.memo-card p{font-size:12.5px;color:var(--ink)}
+section{background:var(--panel);border-radius:12px;padding:28px;margin-bottom:24px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+section h2{font-size:20px;color:var(--brand);margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid var(--brand-soft)}
+section h3{font-size:16px;color:var(--ink);margin:20px 0 10px;padding-left:12px;border-left:4px solid var(--brand)}
+section h4{font-size:14px;color:var(--muted);margin:14px 0 8px}
+p{margin-bottom:10px;font-size:14.5px}
+ul,ol{padding-left:24px;margin-bottom:12px;font-size:14.5px}
+li{margin-bottom:5px}
+.formula{background:var(--brand-soft);border-radius:8px;padding:14px 18px;margin:12px 0;font-family:"Courier New",monospace;font-size:14px;text-align:center;color:var(--brand);font-weight:600}
+.warn-box{background:var(--warn-soft);border-left:4px solid var(--warn);border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0;font-size:13.5px}
+.key-box{background:var(--key-soft);border-left:4px solid var(--key);border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0;font-size:13.5px}
+.ok-box{background:var(--ok-soft);border-left:4px solid var(--ok);border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0;font-size:13.5px}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px}
+th{background:var(--brand-soft);color:var(--brand);padding:10px 12px;text-align:left;font-weight:600}
+td{padding:9px 12px;border-bottom:1px solid var(--line)}
+tr:hover td{background:#f9fafb}
+.quiz{background:#f8faff;border:1px dashed var(--brand);border-radius:10px;padding:18px;margin-top:20px}
+.quiz h3{color:var(--brand);border:none;padding:0;margin-bottom:10px}
+.quiz-item{margin-bottom:10px;font-size:13.5px;padding-left:8px}
+.quiz-answer{display:none;background:var(--ok-soft);border-radius:6px;padding:8px 12px;margin-top:6px;font-size:13px}
+.quiz-answer.show{display:block}
+.quiz-btn{background:var(--brand);color:#fff;border:none;border-radius:5px;padding:5px 14px;cursor:pointer;font-size:12px;margin-top:8px}
+footer{text-align:center;padding:30px;font-size:12.5px;color:var(--muted)}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11.5px;font-weight:600;margin-right:6px}
+.tag-method{background:var(--brand-soft);color:var(--brand)}
+.tag-param{background:var(--ok-soft);color:var(--ok)}
+.tag-warn{background:var(--warn-soft);color:var(--warn)}
+</style>
+
+/* ===== fold6-adapt: vivo X Fold6 折叠屏适配 (安全区/行宽/断点/防溢出) ===== */
+html{scroll-behavior:smooth}
+body{font-size:17px;line-height:1.8}
+.content,.inner,#main,main{max-width:38em;margin:0 auto}
+img,video,table,pre,iframe{max-width:100%;height:auto}
+table{display:block;overflow-x:auto}
+@media (min-width:600px){
+  body{font-size:19px}
+}
+@media (max-width:600px){
+  .content,.inner,#main,main{max-width:none}
+  .wrap{padding-left:20px!important;padding-right:20px!important}
+}
+img,video,svg,canvas{max-width:100%}
+/* ===== end fold6-adapt ===== */
+
+
+/* ===== fold6-center: 隐藏目录后内容居中 ===== */
+#sidebar.hidden{position:absolute;left:0;top:0;width:var(--sidebar-w);z-index:900;}
+#sidebar.hidden ~ main,
+#sidebar.hidden ~ #main,
+#sidebar.hidden ~ .content,
+#sidebar.hidden ~ .inner{max-width:none;margin:0;padding-left:20px;padding-right:20px;}
+#sidebar.hidden ~ main > *,
+#sidebar.hidden ~ #main > *,
+#sidebar.hidden ~ .content > *,
+#sidebar.hidden ~ .inner > *{max-width:38em;margin-left:auto;margin-right:auto;}
+/* ===== end fold6-center ===== */
+
+</head>
+<body data-page-node-id="dXEYNe26lo96P6FLLbSdRm">
+<div id="progress" data-page-node-id="kbrxEHnmj4eh0lEAZ19chV"></div>
+<button class="toggle-btn" onclick="toggleSidebar()" data-page-node-id="MKhIg4ACCxD3f15MhyrIjY">☰ 目录</button>
+<nav id="sidebar" data-page-node-id="jC3jq8bTtk7wmkoRueXMdo">
+<h3 data-page-node-id="0C07vKfiOh6Z7YVp23SXMJ">📚 第四章 目录</h3>
+<a href="#map" data-page-node-id="wVxFaOudMMqN4IW1E6fMM8">学习地图</a>
+<a href="#memo" data-page-node-id="0VBz462QnZ9u7tEVzhCWVe">高频考点速记卡</a>
+<a href="#s1" data-page-node-id="Y6dm0tbex0BviUcmxFwxIl">第一节 收益途径评估方法</a>
+<a class="sub" href="#s1-1" data-page-node-id="qdgCUa8zZeeIMedpWmcJOB">1.1 折现现金流量法(DCF)</a>
+<a class="sub" href="#s1-2" data-page-node-id="IQZho0ysPSvUzIADpG7Czr">1.2 收入权益法</a>
+<a class="sub" href="#s1-3" data-page-node-id="5DjntLCGmdM0f3srNdUgmd">1.3 折现现金流量风险系数调整法</a>
+<a class="sub" href="#s1-4" data-page-node-id="wCyc0Psod5WP0nSTMEKdfx">1.4 折现剩余现金流量法(DRCF)</a>
+<a class="sub" href="#s1-5" data-page-node-id="Ys2BCHPlPjseCnnPIk6rjk">1.5 剩余利润法</a>
+<a href="#s2" data-page-node-id="bLkor2sEl6qeZCdHqmss4G">第二节 收益途径评估参数</a>
+<a class="sub" href="#s2-1" data-page-node-id="4MUFQc2ndZxwExLL8E2t3U">2.1 税费参数</a>
+<a class="sub" href="#s2-2" data-page-node-id="xEfMdg3JOjLBCbowMwak59">2.2 矿产品销售价格</a>
+<a class="sub" href="#s2-3" data-page-node-id="3gqOK9UU1RBKm3j2tRob12">2.3 技术经济参数</a>
+<a class="sub" href="#s2-4" data-page-node-id="zw1Chh5wLUf5f7aiHonnRD">2.4 折现率</a>
+<a href="#s3" data-page-node-id="MwZcoL9Zw10KyKP04KyXzM">第三节 成本途径评估方法</a>
+<a class="sub" href="#s3-1" data-page-node-id="Gb2hPVpQ4oTc09LFSV38yg">3.1 勘查成本效用法</a>
+<a class="sub" href="#s3-2" data-page-node-id="23XfKV4mkPl7q1UV7w3bYo">3.2 地质要素评序法</a>
+<a href="#s4" data-page-node-id="U3AD4xAyVB4uXMl1A4gMGM">第四节 市场途径评估方法</a>
+<a class="sub" href="#s4-1" data-page-node-id="8tjwYo2sNqHhZzXD4mNIDC">4.1 可比销售法</a>
+<a class="sub" href="#s4-2" data-page-node-id="phPYGSnkIGrQTwlZhP7N5U">4.2 单位面积探矿权价值评判法</a>
+<a class="sub" href="#s4-3" data-page-node-id="Tug0M6B2xkwZ4ddOP7MhNp">4.3 资源品级探矿权价值估算法</a>
+<a href="#s5" data-page-node-id="l7A6VCTW5UWYokWUqLlKs1">第五节 矿产资源储量处理</a>
+<a href="#s6" data-page-node-id="CI4zpP3409gFoRZ3GvY5br">第六节 专业报告的利用</a>
+</nav>
+<div id="main" data-page-node-id="1EF1fEF4V3W3tnrcAjxD8S">
+
+<div class="hero" data-page-node-id="vKKNcJV7FD37RKF10Ebsgz">
+<h1 data-page-node-id="6G3EkxnehAzMJJ0yVZeCtR">第四章 矿业权价值评估方法与参数</h1>
+<p data-page-node-id="sqckDkXZcZi3azVu6IUL7C">本章是全书核心，覆盖三大途径（收益/成本/市场）的全部评估方法、关键参数确定规则，以及储量处理与专业报告利用。掌握本章 = 掌握矿业权评估的"工具箱"。</p>
+</div>
+
+<div class="map" id="map" data-page-node-id="87XaKJhOrQPvssE1Rd0rRv">
+<h2 data-page-node-id="JKytVyMEaGaCWw45FM3otD">🗺️ 学习地图</h2>
+<div class="map-nodes" data-page-node-id="4RJKcwqqGp6hMEtLSSOduD">
+<div class="map-node" data-page-node-id="fOzrK4NvoOE6VDaMLHsILy">收益途径<small data-page-node-id="jLJryp2wWHB4JT9lhhSZJg">5种方法·3大参数</small></div>
+<div class="map-node" data-page-node-id="IbxG6XbBOjHtaeVf6Dfpit">收益参数<small data-page-node-id="RNjZIK2frfLqbsqLT5wV7z">税费/价格/技术经济/折现率</small></div>
+<div class="map-node" data-page-node-id="WoDhaNCMgCUpkp2DY7Wbi3">成本途径<small data-page-node-id="9yWHQfXakjcRgLsHv6eVUG">2法·多用于探矿权</small></div>
+<div class="map-node" data-page-node-id="ggoMHt14MzuNFwB8kfHP7m">市场途径<small data-page-node-id="oACmTmAj7T5tv7ppQf1k6y">3法·可比案例</small></div>
+<div class="map-node" data-page-node-id="Ds601Ydsp4IXkQ1grpy159">储量处理<small data-page-node-id="jpalec0kjpoceZ2vXELFW7">保有→评估利用→可采</small></div>
+<div class="map-node" data-page-node-id="VF95Z8OKJMozUY5LRBLmaF">专业报告利用<small data-page-node-id="OCprUKRcwdJqvk3AZ93nhB">勘查/设计/财务报告</small></div>
+</div>
+</div>
+
+<div class="memo" id="memo" data-page-node-id="DZ76WokNqg5Jd9k0N7AFcN">
+<h2 data-page-node-id="NxgJHNOe2U8ftIfumI2xib">🔑 高频考点速记卡</h2>
+<div class="memo-grid" data-page-node-id="KLctFWKo8N3SJzbFJPHwQL">
+<div class="memo-card" data-page-node-id="K0QljmbEfBKupIHAoAz83u"><h4 data-page-node-id="5uur7ejqFy9qxVbidwwayH">收益途径三参数</h4><p data-page-node-id="Tq5DrhyOe29xuMUKpjoiLQ">预期收益、预期收益年限、折现率</p></div>
+<div class="memo-card" data-page-node-id="00QcXHl3AOs3pZd0r7UClm"><h4 data-page-node-id="2TbFmoHK8FBJd4I0YdX9du">DCF核心公式</h4><p data-page-node-id="YSzbcFxVeLopbsVHuYtADK">P = Σ[(CI<sub data-page-node-id="rVwVa1xqC9FEl547UuqCgC">t</sub> - CO<sub data-page-node-id="gM1CRXlzzznWbX0mSiDZ0e">t</sub>) / (1+i)<sup data-page-node-id="yZIjDJ790TZFwo052kG0fF">t</sup>]</p></div>
+<div class="memo-card" data-page-node-id="J9iuU7rMpH7eJbcu7Zbu2L"><h4 data-page-node-id="PeK5C104SOEbKnH3JmSncO">企业所得税率</h4><p data-page-node-id="se7z4vxcUuVPE5xCpNQzbD">25%（法定标准税率）</p></div>
+<div class="memo-card" data-page-node-id="tYUBZvirFxl3WsKH98kmpl"><h4 data-page-node-id="mQ8D4U6RDsVmosrvVpReaj">折现率构成</h4><p data-page-node-id="4LTqzY3dIfmE5hWjiiewKD">折现率 = 无风险报酬率 + 风险报酬率</p></div>
+<div class="memo-card" data-page-node-id="DzgkXalLNqnjTIjkRN7Osx"><h4 data-page-node-id="6UABHRa6I4FYSsuEfR1cZf">成本途径两法</h4><p data-page-node-id="rsunWOBcH5Nq27V9BuABFI">勘查成本效用法 P=C×F；地质要素评序法 P=Pc×α</p></div>
+<div class="memo-card" data-page-node-id="gdq5e7lL7v5O7hCWCJhh1j"><h4 data-page-node-id="H5u8K2GNice3e0CeHac4Zn">风险系数调整法</h4><p data-page-node-id="CelBsFc9I1ZGCIYTqjG6JY">P = P₀ × (1 - R)，R为风险系数</p></div>
+<div class="memo-card" data-page-node-id="CfUBZupO5avON0VqPZDwpk"><h4 data-page-node-id="K8q87Qml9EhBI3GW6I9JIu">市场途径三法</h4><p data-page-node-id="UZc2TYlHMlgiKE81IkMVrp">可比销售法 / 单位面积法 / 资源品级法</p></div>
+<div class="memo-card" data-page-node-id="EuYMrHvGrTNgy147rRngno"><h4 data-page-node-id="Mii6pdKsDdl00oVE5eHmj5">储量折算链</h4><p data-page-node-id="K3nzb6K2EenfRtFlBAZpWH">保有储量 → ×可信度系数 → 评估利用储量 → -设计损失 → ×回采率 → 可采储量</p></div>
+</div>
+</div>
+
+<!-- 第一节 收益途径评估方法 -->
+<section id="s1" data-page-node-id="3zqEJTeJvbTQ48UpO16OqB">
+<h2 data-page-node-id="YqEGDDHEYB2xf8XI1KV1rV">第一节 收益途径评估方法</h2>
+<p data-page-node-id="0vjPFkgUUCOhX52wn6jwXr"><strong data-page-node-id="sWGOTtSymcqehsnQa0AurZ">核心原理：</strong>收益途径基于<strong data-page-node-id="P1WSeekVtbfryPOwl1RJ6Z">预期收益原则</strong>和<strong data-page-node-id="E0mZ4WXgxWhFS37LErFU4Q">效用原则</strong>，将矿业权未来各期预期净收益折现到评估基准日，加总得到矿业权价值。三大核心参数：<span class="tag tag-param" data-page-node-id="1kgYzSueqBDua5xfXo0OuX">预期收益</span><span class="tag tag-param" data-page-node-id="v3enrB9sIqoYFuZ4FPp5oi">预期收益年限</span><span class="tag tag-param" data-page-node-id="tlLd8PzZEOFAn9lmRVyXjF">折现率</span></p>
+
+<h3 id="s1-1" data-page-node-id="GQ7hEwJq1GMV5BhvZ2bj3o">1.1 折现现金流量法 (DCF)</h3>
+<p data-page-node-id="wIJ1z2UU1cdFAYCKYM4XFA"><strong data-page-node-id="a3RKeGbQbv50uzKfHNdpf7">核心思想：</strong>预测矿业权未来各年的净现金流，用折现率折算到评估基准日加总。</p>
+<div class="formula" data-page-node-id="p2JxoIDkppqluzMP5tVOoj">P = Σ<sub data-page-node-id="WVhK4WmW4K5pgx6zKDByo4">t=1</sub><sup data-page-node-id="U2JPKdC7VopdeK1G52RERq">n</sup> [ (CI<sub data-page-node-id="fZktfZ6qbuBAdBnBHHyOCR">t</sub> - CO<sub data-page-node-id="R42Haq5tH6LqCpB1QhmOU8">t</sub>) / (1 + i)<sup data-page-node-id="5DilI4QbzCR8EJpIdwhpK2">t</sup> ]</div>
+<p data-page-node-id="4QzkGppcZEd0XmCimXzHcV">其中：CI = 营业收入，CO = 营业总成本（含税费），i = 折现率，n = 收益年限</p>
+<table data-page-node-id="szuAA9BNacPWzD1RgOTIrE">
+<tr data-page-node-id="ClrleVM8XcWHzMaPgiAX4k"><th data-page-node-id="5bXT2Jssoo6nKXQkDDK1hr">要素</th><th data-page-node-id="a2PFPx0nDJ1uJEqeAKmXza">说明</th></tr>
+<tr data-page-node-id="XS7MOMiFbOX49nbfr8lcjC"><td data-page-node-id="okC1Ri7dNZBbfMYs3kj5vc">适用对象</td><td data-page-node-id="MusfoA5kP3fapHA9F3aqMj">采矿权（生产矿山为主），也可用于探矿权（需预测后续勘查投资）</td></tr>
+<tr data-page-node-id="7ytUGGfDhR3Bs1IaduTHDi"><td data-page-node-id="BDC2FZXLWRyj9YUDk1d56c">前提条件</td><td data-page-node-id="6jLoPMrNn1IpE9rAdTMFlF">有充分的历史经营数据或可靠的可行性研究/矿山设计文件</td></tr>
+<tr data-page-node-id="imtTFVGqubjtYXFVRBGxJh"><td data-page-node-id="1Hw2qsmeYiorhwhUNax1FU">关键参数</td><td data-page-node-id="pzs7rOGCkdItiAcW0GB1Up">销售收入、经营成本、税费、折现率、收益年限</td></tr>
+<tr data-page-node-id="BzJkYhMRyFIn4jYeTCYjyo"><td data-page-node-id="HKGbxvG2bEYwrgWhkNnaPf">优点</td><td data-page-node-id="fHRU0NxddGGb9oHXY0MLKB">逻辑严谨、参数可追溯、适合大型矿山</td></tr>
+<tr data-page-node-id="EcdHDSzMtRSJtqAQYeWh3n"><td data-page-node-id="kxhyD4w2ywNR4K0EhAg2lE">局限</td><td data-page-node-id="wWorw2Twoi649GNJmaCPv8">参数多、预测主观性大、对数据质量要求高</td></tr>
+</table>
+
+<h3 id="s1-2" data-page-node-id="2x9KM2E0a6sisF9Cic9PpO">1.2 收入权益法</h3>
+<p data-page-node-id="Bb5bGl66OlztSFtsSxQjCE"><strong data-page-node-id="D6sKptYkcx21EOBDfu8Rgl">核心思想：</strong>以销售收入为基础，乘以权益系数（反映矿业权人在收益中的份额），再折现。</p>
+<div class="formula" data-page-node-id="DxXlkAhDvk0HA3BoIZT0BR">P = Σ<sub data-page-node-id="pr9VoG8ywlR7VDc77HRA50">t=1</sub><sup data-page-node-id="2KIKF2Ha7is5CUdOdAbTo9">n</sup> [ S<sub data-page-node-id="ULutU3B0vu8GoE0H10yGeb">t</sub> × K / (1 + i)<sup data-page-node-id="UlYZBGTLv0wRiEA2mYyyqn">t</sup> ]</div>
+<p data-page-node-id="QmCpAj2vBj6sytcZJuEiXE">其中：S<sub data-page-node-id="AOUEzAe6m0xtv644qh4H3h">t</sub> = 第t年销售收入，K = 权益系数（0&lt;K&lt;1），i = 折现率</p>
+<div class="warn-box" data-page-node-id="OByGaPlRQXi1UGiEsNNDFf">⚠️ <strong data-page-node-id="21zluZpcD4bOM6r0rq8chC">易混点：</strong>收入权益法 ≠ 折现现金流量法。收入权益法不逐项预测成本，而是用"权益系数"打包处理所有成本；DCF则逐项预测收支。权益系数通常由经验或行业数据确定。</div>
+<table data-page-node-id="mc0xgmjLDNLhJO1279sxD3">
+<tr data-page-node-id="w6TVm38L5CPV6QLVaonw3O"><th data-page-node-id="iAx2YlSuIcVigEMsPsorGg">对比项</th><th data-page-node-id="Z63VJVddc3YwuLTq8qPtcW">DCF</th><th data-page-node-id="4rkrT0jFCdJicK9HSpXc1g">收入权益法</th></tr>
+<tr data-page-node-id="QapUicUOtzK1sqlV1DGCQ0"><td data-page-node-id="5SZVdRbxRbdwEKt0BO6WKq">收益基础</td><td data-page-node-id="4QCjjBBxhhG0Aib9XkufjN">净现金流（收入-成本）</td><td data-page-node-id="KVtwwZ7H7sfIWFFO8L3SOD">销售收入 × 权益系数</td></tr>
+<tr data-page-node-id="oTjL60gnB2d13wcQDUZdPo"><td data-page-node-id="OGeJhLPKYtx8sPehykV4Xt">参数数量</td><td data-page-node-id="xxhPWfAGgU83hECf8N8PeW">多（逐项预测）</td><td data-page-node-id="Y9Yx3fC6L09BsqwbDC2SyK">少（只需收入+权益系数）</td></tr>
+<tr data-page-node-id="j7iffEGzkGXxUUmsRmT0eI"><td data-page-node-id="E2t8wzLq28F65rZsDeEELz">适用场景</td><td data-page-node-id="kSNRzpXjFPaBKFjnGrMUnw">数据完整的大型矿山</td><td data-page-node-id="hFU4RRimCP9ioc3mblUPyp">数据有限、快速评估</td></tr>
+</table>
+
+<h3 id="s1-3" data-page-node-id="FIYgOCf6Wp70rKlo8lTBgG">1.3 折现现金流量风险系数调整法</h3>
+<p data-page-node-id="YoLiaIbvXN36KOV4OipufY"><strong data-page-node-id="qMzkAjYYK9UmECbeKCsEH7">核心思想：</strong>先用DCF算出基准价值 P₀，再乘以风险调整系数 (1-R)，得到考虑风险后的矿业权价值。</p>
+<div class="formula" data-page-node-id="gdSsmvskLPrGMfBf7emDJg">P = P₀ × (1 - R)</div>
+<p data-page-node-id="5atDKPI2ed9BiG0qQHRek2">其中：P₀ = 折现现金流量法计算值，R = 风险系数（0≤R&lt;1）</p>
+<div class="key-box" data-page-node-id="P44LuTpSD1LxCeEvMgOcUS">🔑 <strong data-page-node-id="J2udQCKWwhGH7i2FCDwKfU">关键规则：</strong>使用此方法计算可采储量时，各种资源量应在项目经济合理性分析后<strong data-page-node-id="hhMneu5QxwjhTBbbHbeidd">全部参与评估计算</strong>，<strong data-page-node-id="AfkTIcD2VA2HUjpIC9TBG2">不使用可信度系数</strong>进行折算（这是与DCF的重要区别！）</div>
+<div class="warn-box" data-page-node-id="FiYl8qxvYozJDVT353Y74G">⚠️ <strong data-page-node-id="OlcDBrSnSGiCnc6NCQaZXM">适用范围：</strong>主要用于探矿权价值评估，或采矿权中地质条件复杂、不确定性大的情形。风险系数R的确定需综合地质风险、技术风险、市场风险等。</div>
+
+<h3 id="s1-4" data-page-node-id="RSuS03IZDQwyUUCD6Ji9lh">1.4 折现剩余现金流量法 (DRCF)</h3>
+<p data-page-node-id="mXtdk2noQsRHFyL6iHMD6k"><strong data-page-node-id="6Tx9smn5ngrV4CTbuHw3oO">核心思想：</strong>在DCF基础上，进一步分离出"剩余现金流量"（即扣除全部显性成本后的超额收益），再折现。适用于需要更精细区分各类成本/收益层次的评估场景。</p>
+<div class="formula" data-page-node-id="gbfI3TDnteTDBKLhaZd6VE">P = Σ [ (销售收入 - 经营成本 - 税金 - 所得税) / (1+i)<sup data-page-node-id="IK12GR38Of0wFgYyaEsl1B">t</sup> ]</div>
+<p data-page-node-id="fPF5CYDLa4AHk5nMqtHm33"><strong data-page-node-id="wJrkfHh9OVVvi7bKlOy86Q">与DCF区别：</strong>DRCF更强调"剩余"概念，通常用于矿业权出让收益评估等特定场景，计算口径与准则要求一致。</p>
+
+<h3 id="s1-5" data-page-node-id="BICdcYRJi2CSIfmJhNn1Dw">1.5 剩余利润法</h3>
+<p data-page-node-id="QepzYefGwH67eyEUVwQ8uH"><strong data-page-node-id="NvrlH7JIXZgtk2WdQLFq9S">核心思想：</strong>矿业权价值 = 矿山正常经营利润 - 企业正常投资应得的合理回报，剩余部分即为矿业权（资源）贡献的利润，折现后即为矿业权价值。</p>
+<div class="formula" data-page-node-id="DZvUkg3VGXJIb3oPLKf5Fv">P = Σ [ (年利润 - 正常投资×投资收益率) / (1+i)<sup data-page-node-id="R87mZBxo7vMY0A0XW1Wo7j">t</sup> ]</div>
+<div class="warn-box" data-page-node-id="BmCGD4hbtufYAm9CnnLlM3">⚠️ <strong data-page-node-id="QA1wxoWBnuA3lTyAokaYfE">使用限制：</strong>剩余利润法对"正常投资"和"投资收益率"的确定非常敏感，实务中应用较少，多见于理论分析。</div>
+
+<div class="quiz" data-page-node-id="wwv4DPC5UiZQ56jRK3ESlg">
+<h3 data-page-node-id="tpatggGBaEG1TUgkFv1xS9">📝 考点自测 · 第一节</h3>
+<div class="quiz-item" data-page-node-id="yHB4kaqaopZotGvel4kR8T">Q1：收益途径的三大核心参数是什么？</div>
+<div class="quiz-item" data-page-node-id="oj86W8BW14mVEjuNdnn9y4">Q2：收入权益法中的"权益系数"K的取值范围？它代表什么含义？</div>
+<div class="quiz-item" data-page-node-id="hCvWFYCLce8nxvPJ3Bn25N">Q3：折现现金流量风险系数调整法在计算可采储量时，是否使用可信度系数？</div>
+<div class="quiz-item" data-page-node-id="0CGZnDh2Opz7i1LYEEoudf">Q4：DRCF与DCF的核心区别是什么？</div>
+<button class="quiz-btn" onclick="this.parentElement.querySelectorAll('.quiz-answer').forEach(a= data-page-node-id="5KqgDCOCNg78LGOBD7u8sm">a.classList.toggle('show'))">显示/隐藏答案</button>
+<div class="quiz-answer" data-page-node-id="g3ES791YdDBYIwv46KPhZt">A1：预期收益、预期收益年限、折现率</div>
+<div class="quiz-answer" data-page-node-id="bQ3pw11YAL2673qB1EHoUG">A2：0&lt;K&lt;1，代表矿业权人在矿产品销售收益中应得的份额（打包了所有成本）</div>
+<div class="quiz-answer" data-page-node-id="6uBY9IvBCpzfR8bR9rfHod">A3：不使用。风险系数调整法下，各种资源量全部参与计算，不乘可信度系数</div>
+<div class="quiz-answer" data-page-node-id="gGAX5fYEY3BH5WbcTfAbi7">A4：DRCF强调"剩余现金流量"概念，计算口径更精细，常用于出让收益评估；DCF是通用的净现金流折现</div>
+</div>
+</section>
+
+<!-- 第二节 收益途径评估参数 -->
+<section id="s2" data-page-node-id="DG0HiM4gJgGTbDP0IpByHN">
+<h2 data-page-node-id="0xd2gnFLFmvhP6ejkuA4yd">第二节 收益途径评估参数</h2>
+<p data-page-node-id="WtCCpa8l85RFc7teYHB8tJ">收益途径评估需要确定四大类参数：<span class="tag tag-param" data-page-node-id="WdmPNC5ImmchidR2OLwODD">税费参数</span><span class="tag tag-param" data-page-node-id="VgNVxWz23BGuR06Qfkyh3w">矿产品销售价格</span><span class="tag tag-param" data-page-node-id="g3eYlvDVaWzG0iZfTJCzK6">技术经济参数</span><span class="tag tag-param" data-page-node-id="ksql0sogYteNKVnolENPC4">折现率</span></p>
+
+<h3 id="s2-1" data-page-node-id="qFKZUplkEIqWc4XG7cYoJA">2.1 税费参数</h3>
+<table data-page-node-id="DW6ZOOjwQxrUhfWNC3GXlf">
+<tr data-page-node-id="KaIKXQAOApmiMXSCyIbfb6"><th data-page-node-id="SW2vTs1UeUM24UET7bsrlD">税费种类</th><th data-page-node-id="hbSqYnI3vSDGkbCF3LDRKc">关键要点</th></tr>
+<tr data-page-node-id="qzrpPFpSTkFfCew8a5JcfD"><td data-page-node-id="LA0rCK3a64M7QCjr06aHkW"><strong data-page-node-id="7Mk49RpoAFi3ODbqyUPQvy">增值税</strong></td><td data-page-node-id="moWqdwhLZInJcjLKjqI6U2">一般计税13%（部分矿产品9%），可抵扣进项税；评估中通常用不含税价格</td></tr>
+<tr data-page-node-id="rULNzHn6kmHx732ge4RIXl"><td data-page-node-id="tnhDqdiwLG59N6Ye1Vyjmg"><strong data-page-node-id="xlWaBOQKyANOlaa27hZOFI">城市维护建设税</strong></td><td data-page-node-id="qvAd8d3rei4GIgthqyxRDh">以实缴增值税为基数，税率7%（市区）/5%（县城）/1%（其他）</td></tr>
+<tr data-page-node-id="fF8n82m7POFyBrFwS7jNhK"><td data-page-node-id="cR2b0asWJBvclqMVZG3eWk"><strong data-page-node-id="Zglst1vraYBKhSIhEznizg">教育费附加</strong></td><td data-page-node-id="JEts9319Ft3N8yff08szFz">以实缴增值税为基数，税率3%</td></tr>
+<tr data-page-node-id="xCtKfpJSKwY7VYrfe29tHS"><td data-page-node-id="LA2DnGa3crEyt9NzQZGQQs"><strong data-page-node-id="mw2KR9k6snQGol2MsCW45N">地方教育附加</strong></td><td data-page-node-id="SbU405fWIHiA2qu1U7oAWQ">以实缴增值税为基数，税率2%</td></tr>
+<tr data-page-node-id="HDYIMTEFMVE2CqcoHDaJGO"><td data-page-node-id="bFpr7Cxi63WwasmSK7w2mh"><strong data-page-node-id="ROI90cVkJ1C5EKohHDTIQZ">企业所得税</strong></td><td data-page-node-id="IW7nzROnnspyCGElBKs9SJ"><strong data-page-node-id="CeSAOMgcZDrcc3cMgI1KR5">法定税率25%</strong>（小型微利企业等优惠另计）</td></tr>
+<tr data-page-node-id="XqqqhYfmEFrXDbnD6CXVZf"><td data-page-node-id="EenkxVCCXqMwrFdCl0xSGK"><strong data-page-node-id="6V7iq6KfUq1tLIy66PjQ9T">资源税</strong></td><td data-page-node-id="qkMGJlN4XuTqUHbJ63GPor">从价计征为主，税率因矿种和地区而异（1%-20%不等）</td></tr>
+<tr data-page-node-id="VSCb2JAhyN3U4DY7GVEgsY"><td data-page-node-id="wPdvz0eOigKrhkhe9zuENG"><strong data-page-node-id="VfJOWMa0H6W6fuzsAWWROQ">行政事业性收费/政府性基金</strong></td><td data-page-node-id="OknsVcsKDAOgNe4QOezZ5I">如矿山地质环境恢复治理基金、土地复垦费等，按当地规定</td></tr>
+</table>
+<div class="key-box" data-page-node-id="LIxOnuuTyroikGvWE52yEl">🔑 <strong data-page-node-id="ACIidpdPLleP6NAaazR238">高频考点：</strong>① 企业所得税率 25%；② 城建税+教育费附加+地方教育附加 = 实缴增值税 × (7%+3%+2%) = 12%（市区）；③ 评估中矿产品价格通常采用<strong data-page-node-id="QJSSpeoZOgN4uDFqtgwuEz">不含增值税</strong>价格。</div>
+
+<h3 id="s2-2" data-page-node-id="pGT1gxCYTgdr8xx275taMj">2.2 矿产品销售价格</h3>
+<h4 data-page-node-id="opLuur8hRkCzJC3UZnKyVO">信息来源</h4>
+<ul data-page-node-id="FdSGYypYTjSOxyvPKkuMFj">
+<li data-page-node-id="F8Dehxh9EoxU6srLgsUKPV">评估对象所在地的市场价格（优先）</li>
+<li data-page-node-id="HGRGhwMkeue91YR8CITTDm">国家/行业主管部门发布的指导价</li>
+<li data-page-node-id="T8OuoxnUkvvgn8p9NaCZPz">矿产品交易市场公开报价</li>
+<li data-page-node-id="wnJ4YDpRRu6sBHcr3eKjWC">企业历史销售价格（需剔除异常）</li>
+<li data-page-node-id="4RPQmJlK98gCnB1Ylpy32R">同类矿山销售价格对比</li>
+</ul>
+<h4 data-page-node-id="CgQif7Su9BPXvKGun0JB95">确定原则</h4>
+<ul data-page-node-id="UDTWz05QzVPz6zHjMqvHcr">
+<li data-page-node-id="7z1WlQp2kJ7XBcAlNAzMfO"><strong data-page-node-id="AT9Lyq45WCyaIhWeiR8ur0">价格时点一致性：</strong>销售价格应与评估基准日价格水平一致</li>
+<li data-page-node-id="79Trzans2nca86wb8hQreL"><strong data-page-node-id="i2XVmb68YfkOCVCYqSidsx">不含税原则：</strong>一般采用不含增值税的销售价格</li>
+<li data-page-node-id="JUg8btwPSGOFI1OBH5XN44"><strong data-page-node-id="TAWEr5zsq3M7uWM1Ba6Idp">合理性检验：</strong>价格应处于合理区间，排除异常偏高/偏低</li>
+<li data-page-node-id="d6kNWhNBY6OFe9Rl5nob0n"><strong data-page-node-id="2nk2JuWWtpp7z8Y3DUcuew">产品方案匹配：</strong>价格应与确定的产品方案（品级、规格）对应</li>
+</ul>
+<h4 data-page-node-id="1nFbu5BhD3TS8LxmTFMMAv">考虑因素</h4>
+<ul data-page-node-id="yR1Y1qZy7v0NRf7NpvbzQo">
+<li data-page-node-id="OEzyZcUwnTuYrKVUbt1YQw">矿产品供需关系、行业周期</li>
+<li data-page-node-id="COBH5oy591jO4Uz1Uiez5p">运输距离与物流成本（坑口价 vs 到厂价）</li>
+<li data-page-node-id="wlzCamNPwUEpNea8983spc">品位/质量差异（高品位溢价、低品位折价）</li>
+<li data-page-node-id="heaAnN17Gj6O904wmq5rbA">市场半径与销售半径</li>
+<li data-page-node-id="y7TeSsBnvSdn27XjXK3D2V">长期趋势（是否考虑价格衰减）</li>
+</ul>
+<div class="warn-box" data-page-node-id="PZBL06Qgi4e4bZxvyYn4EQ">⚠️ <strong data-page-node-id="R1melJsQDnUPiZCYaphjbP">易错提醒：</strong>表4-1规定了历史实际价格取值时段——评估基准日前<strong data-page-node-id="v6AL7zs2n4T5hDYVu1f2H4">3年内</strong>的平均价格或评估基准日当期价格，取合理者。不能随意取历史最高价或最低价。</div>
+
+<h3 id="s2-3" data-page-node-id="li8xT8z7dN9rxn2nCow4Vv">2.3 技术经济参数</h3>
+<p data-page-node-id="qq7LMAcrfda9fsIfTqda6C">技术经济参数是收益途径评估中数量最多、最复杂的一类：</p>
+<table data-page-node-id="iPTPvqnB5HMAkEwHMyx0yi">
+<tr data-page-node-id="6tuWGOHYy6C1qLL6xqibYn"><th data-page-node-id="Y629SIP3OvGx0xoc5bWjrT">参数</th><th data-page-node-id="pJh7rjmIqs0XYWzkrP3xbX">确定依据</th><th data-page-node-id="DPECRCkcHCio1wwTYFdUJA">注意事项</th></tr>
+<tr data-page-node-id="OJuzVNbcRT0SeEOBfMFoEN"><td data-page-node-id="CAOWdwI0EyPiDnfCxF57kO"><strong data-page-node-id="UhYPmfODc2ycST0wQ5ZM0C">生产能力</strong></td><td data-page-node-id="vrM7RFxLppxBf9NHa1MgPG">采矿许可证核定规模、矿山设计、实际产量</td><td data-page-node-id="7xDyLsqrZL8EcHG4ATyXE4">三者不一致时按"就低不就高"或评估目的确定</td></tr>
+<tr data-page-node-id="oChJBsG2E4rJ0Ew1fUjBTz"><td data-page-node-id="vbbgpmQBtXYhD76xVMREE7"><strong data-page-node-id="yP3c3sNcZQoTI5aZ4ip3zK">服务年限</strong></td><td data-page-node-id="NXTCURUz3Eh41RYRoPTTBH">可采储量 ÷ 年生产能力</td><td data-page-node-id="klIBKhiV6JELWEgKuzhfQY">注意是否含建设期、达产期</td></tr>
+<tr data-page-node-id="pyDjgWvQS1ZVtJXgN5aDO1"><td data-page-node-id="DvIr3d4k6O2JDp66y5EjhM"><strong data-page-node-id="tHllPlLmVk1D7rL0fFM9TZ">资源储量</strong></td><td data-page-node-id="Hi37MZe50sQwca4eiADzFC">储量报告（见第五节）</td><td data-page-node-id="a8Pz90MpTBLVODcy7fTRAx">需经可信度系数折算</td></tr>
+<tr data-page-node-id="ATn5gVFSs74mJg3CkJc6F9"><td data-page-node-id="4CUgMkXryOq7SyPGCIrxwf"><strong data-page-node-id="weaHpNwTc8RmkmvcBDkSOM">固定资产投资</strong></td><td data-page-node-id="Co1xxFTTcVrBy5ZlAGwomQ">矿山设计文件、可行性报告</td><td data-page-node-id="k93DMAAvGxqaou0n3RJ6ix">注意价格水平调整、口径一致性</td></tr>
+<tr data-page-node-id="JzX8vXtcHYSy6u1aexKEZF"><td data-page-node-id="5fjpaDbaOLZWt7LCgGUXkC"><strong data-page-node-id="MUzj7TGVCf9mEaXjBNLWHd">土地/用地</strong></td><td data-page-node-id="gB6Ks7Dx3xDhBkcDb0q934">用地性质、取得方式</td><td data-page-node-id="lADGImF8XdRz2ASmv98GAh">出让/租赁/自有，影响成本结构</td></tr>
+<tr data-page-node-id="z8xLbz403sLPn92v0qlQlD"><td data-page-node-id="GMyQTafOKdFsvl5D8wg4if"><strong data-page-node-id="wC5Fbp2jN9ShJPmizd2D47">经营成本</strong></td><td data-page-node-id="zCRUwa11ljdnP52ugIhbe1">矿山设计、生产报表、行业定额</td><td data-page-node-id="hD1Hz2BB9BMrAg4WhkGxsd">区分可变成本与固定成本</td></tr>
+<tr data-page-node-id="qUzQGfm85AFVxYZeRDDEHF"><td data-page-node-id="gi90H2ok21B6ZNB8KFjqD1"><strong data-page-node-id="rst5CSBROeMImzLzn5JMIj">销售收入</strong></td><td data-page-node-id="VPzFZNjWbAw7hE97k2Uhp3">价格 × 产量 × (1-损耗率)</td><td data-page-node-id="I3ATKGXfRzSCKbbruLGaj6">与价格参数联动</td></tr>
+<tr data-page-node-id="VIhKH3KLAlo1vohjOXLC3u"><td data-page-node-id="qZtHlOe1xUD5LqIvxyBmh2"><strong data-page-node-id="7HXqEMDXpeoBEyfx1i9tsC">技术指标</strong></td><td data-page-node-id="YZNubWce9UThsPNzLWJPFy">采矿回采率、采矿损失率、矿石贫化率、选矿回收率</td><td data-page-node-id="qHfI6WcQAMosb2nXdYuKQ5">来源：设计文件 > 生产实际 > 行业定额</td></tr>
+<tr data-page-node-id="8AQbsAhTh9cpYFlNZUUKNO"><td data-page-node-id="zrykGdFgOHwEildEUPs5Mf"><strong data-page-node-id="PJPU8Y1lbQDdFtrWejASXF">权益系数</strong></td><td data-page-node-id="g5itJCTic6IO2F9i0jlJQ8">行业经验、类似案例</td><td data-page-node-id="Bf2FOlCXAl5B4YXEMY3eOx">收入权益法专用</td></tr>
+<tr data-page-node-id="08rjnMDDclhmfb0tqVbgDF"><td data-page-node-id="OsEpGdOvRs80RaHyfrDymr"><strong data-page-node-id="opCdxnmprFPeQslS7lwoPY">风险系数</strong></td><td data-page-node-id="ZeriBLupZ2npFDFv24fpkg">地质/技术/市场风险综合判断</td><td data-page-node-id="60GPJqBhxJkcSijDQ1htKw">风险系数调整法专用</td></tr>
+<tr data-page-node-id="46nhPgRJaIuBkCG6Fift0Y"><td data-page-node-id="FrfrRgtUtJwlXtlUVn2Hib"><strong data-page-node-id="BL77ALjIFAoDPOyJM9EoUK">投资收益率</strong></td><td data-page-node-id="pv3K470TD5aV3qyKH8mDmL">行业平均、资本成本</td><td data-page-node-id="NQp2Rvd5tGEBpIvBd8ZTng">剩余利润法专用</td></tr>
+</table>
+
+<h3 id="s2-4" data-page-node-id="37UH6ug0n2KzXAF5qQVLlG">2.4 折现率</h3>
+<div class="formula" data-page-node-id="aew8jEQI1bJxOFPNEWJul9">折现率 = 无风险报酬率 + 风险报酬率</div>
+<p data-page-node-id="PujP1DshwrZaJDsGARCX1P"><strong data-page-node-id="F7InvLDSK3PB63xEacxmiT">无风险报酬率：</strong>通常取评估基准日前5年期国债到期收益率（或相近期限）。</p>
+<p data-page-node-id="rt4vW1yE3bW1PBOAU6ffjS"><strong data-page-node-id="uvfSR5wLwE49V8twk4Lpa1">风险报酬率：</strong>采用<strong data-page-node-id="h6W3pAvw4C9J1FGeXDYP8d">风险累加法</strong>，将各类风险逐一量化后加总：</p>
+<table data-page-node-id="lYHPyQAnh0gg3Bbu9wRY8D">
+<tr data-page-node-id="W41ZuNSCRdfdUTFGamyHRQ"><th data-page-node-id="3zzHcpBFhDWEBR4M0Y50Qj">风险因素</th><th data-page-node-id="fZV7iuroUjus0dHontsdgW">参考取值范围</th><th data-page-node-id="Dn76fOIGvGefyhXM5aprQb">说明</th></tr>
+<tr data-page-node-id="avdSMkK3Uf2lZ4iTgWMkXX"><td data-page-node-id="vuje6SNZ9KSD0mSGKO6psd">地质风险</td><td data-page-node-id="V44EEr9aIGzWJVhEMkewf8">0.5% ~ 2.0%</td><td data-page-node-id="NKGkpimRSRzL7gf90LlMPA">勘查程度、矿体稳定性</td></tr>
+<tr data-page-node-id="WPKcg8mEqajUT4FPH9o4dB"><td data-page-node-id="Bem9BajDXT1fnZA5ccx7IW">技术风险</td><td data-page-node-id="ebd5JHDGvChzXHCnbupEPO">0.5% ~ 2.0%</td><td data-page-node-id="cwzYiEFG0s9Q41BlotrxKv">开采难度、选冶技术成熟度</td></tr>
+<tr data-page-node-id="Q05F7Vb2cHVlrtnTlz5Xfx"><td data-page-node-id="ZphsuYroeCGgWxVEdbzLYW">市场风险</td><td data-page-node-id="DxLIrxcwcxcyTKPkkjpnK2">0.5% ~ 2.0%</td><td data-page-node-id="EaV5gMOaHcBT6lxLLRLcoi">价格波动、供需变化</td></tr>
+<tr data-page-node-id="Ay3Hk3hjrlEmvFmafymsbH"><td data-page-node-id="cqIZPMXMmbuaADgNE17fKq">管理风险</td><td data-page-node-id="54649oJrLqaIjCydqjgAir">0.5% ~ 1.5%</td><td data-page-node-id="GOFXZQNnFpOUUholweP8Om">企业管理水平、安全生产</td></tr>
+<tr data-page-node-id="bY45dsB1A951JPMFYG7I5b"><td data-page-node-id="YgmSnQBudASXIk1W9S5HBo">政策风险</td><td data-page-node-id="F56ovQAsPaq10Mn3dYK8MI">0.5% ~ 2.0%</td><td data-page-node-id="H5LGMt87KqAfyG35xMLTTn">环保政策、矿业权政策变化</td></tr>
+</table>
+<div class="key-box" data-page-node-id="gJ1fTyNJ1JqMRVfHwpZbQh">🔑 <strong data-page-node-id="xeK9eYKpDt4u5qWjOAQHHu">高频考点：</strong>① 折现率 = 无风险 + 风险（累加）；② 无风险取5年期国债收益率；③ 风险累加法各分项之和通常为 2%~6% 区间，总折现率一般 5%~12%；④ 不同矿种、不同勘查程度，风险报酬率不同。</div>
+<div class="warn-box" data-page-node-id="odA84NChlzGttYh0BXjpvu">⚠️ <strong data-page-node-id="9kZT3SUCZJpZQHRl5Nwiek">易错提醒：</strong>折现率不能简单取"行业平均"，必须根据具体评估对象的实际风险逐一累加。同一矿山不同时期（勘查期 vs 生产期）风险不同，折现率可能不同。</div>
+
+<div class="quiz" data-page-node-id="RmhYIjNCjKau9zpZk9U1iE">
+<h3 data-page-node-id="AvCvO0o3jDUKnLAencbJGP">📝 考点自测 · 第二节</h3>
+<div class="quiz-item" data-page-node-id="wjgh52PPDhrj21ntRU5s7B">Q1：企业所得税的法定税率是多少？</div>
+<div class="quiz-item" data-page-node-id="wuahaAVh5ZTlFG89pJKyrA">Q2：折现率的计算公式？无风险报酬率通常取什么？</div>
+<div class="quiz-item" data-page-node-id="SqwCPisoiHrjPemeyZW7DZ">Q3：矿产品销售价格确定时，一般采用含税价还是不含税价？</div>
+<div class="quiz-item" data-page-node-id="bxboKzHAqehSN0Ihsmoxen">Q4：风险累加法中，风险报酬率一般包含哪几类风险？</div>
+<button class="quiz-btn" onclick="this.parentElement.querySelectorAll('.quiz-answer').forEach(a= data-page-node-id="de4Vkd4CVzgcZNu0FW4VYC">a.classList.toggle('show'))">显示/隐藏答案</button>
+<div class="quiz-answer" data-page-node-id="EnZJmpl3J8WLkch0lHY9H6">A1：25%</div>
+<div class="quiz-answer" data-page-node-id="O3onqjuTlGvpAlfE18PxQP">A2：折现率 = 无风险报酬率 + 风险报酬率；无风险取5年期国债到期收益率</div>
+<div class="quiz-answer" data-page-node-id="iSrJUm7S0TOvgT8FEALJof">A3：不含增值税价格</div>
+<div class="quiz-answer" data-page-node-id="TohgXKBZUfLkTW551eqyaT">A4：地质风险、技术风险、市场风险、管理风险、政策风险（5类）</div>
+</div>
+</section>
+
+<!-- 第三节 成本途径评估方法 -->
+<section id="s3" data-page-node-id="6fVuR6Ke6oLm9nwGVi9pkE">
+<h2 data-page-node-id="ket7FltGgQtdIEwH4iRVdA">第三节 成本途径评估方法</h2>
+<p data-page-node-id="HkVXlHUxtJJUU8KRTv931c"><strong data-page-node-id="IGrAjVb1jj5fbRREXWfNhw">核心原理：</strong>成本途径从"重置"角度出发，以取得同等条件的矿业权所需支出的合理成本为基础确定价值。<span class="tag tag-warn" data-page-node-id="FH6IuxsOqSJBI0RH8kxX52">多用于探矿权评估</span></p>
+
+<h3 id="s3-1" data-page-node-id="3gpL7jD0i2Xy63rFfiCUk3">3.1 勘查成本效用法</h3>
+<div class="formula" data-page-node-id="EG2uCqRCQmTDTQAxPz4PAq">P = C × F = [Σ(U<sub data-page-node-id="6luwOqamSGAGazurAasEQr">i</sub> × P<sub data-page-node-id="wNIYRQIZodubjdh2mot4vU">i</sub> × (1+ε))] × F</div>
+<p data-page-node-id="JrRjgtThswJYZRG4hpC4Ck">其中：</p>
+<ul data-page-node-id="zgWH3uHp8u4X0Yn34vTyv0">
+<li data-page-node-id="MO2kSgpySZWhtFMr8gfhSE">C = 勘查成本（有效勘查投资）</li>
+<li data-page-node-id="xy83jJqHd4M9pzGh5Bf5cw">U<sub data-page-node-id="iEt9l1x5dZEkx68NMGdtFC">i</sub> = 第i种勘查工作量（如钻孔米数、坑道米数、测量面积等）</li>
+<li data-page-node-id="3SYigmyJFH5vy6jhGhdGMN">P<sub data-page-node-id="MlQYxZNEb1dFNKn2tbdyfI">i</sub> = 第i种工作量的现行单价</li>
+<li data-page-node-id="FtOUkjUzEvCHK4MMAEDpHM">ε = 调整系数（地质风险/勘查程度调整）</li>
+<li data-page-node-id="nQAWZgfjOdIzdDnAj8IZld">F = 成本效果系数（反映勘查成果的经济效果）</li>
+</ul>
+<table data-page-node-id="IMAD4I2ydQLeLZ8zNolqE9">
+<tr data-page-node-id="JIRffiihRCrf7Po1AF9oWt"><th data-page-node-id="2OWXRAwHXJmdPqG9YpzlQt">要素</th><th data-page-node-id="A5o8QB45kOVo9mJgv3ju8r">说明</th></tr>
+<tr data-page-node-id="23gMvdLcAgnyFiFxE3OtXD"><td data-page-node-id="QLTYPhwMH0m5eNI2R2kt64">适用对象</td><td data-page-node-id="AWYLopyw0IwNJTh5Tf2pA4">探矿权（勘查阶段，尚无可靠收益预测）</td></tr>
+<tr data-page-node-id="ZWkrY0bxTuKl0IF1EedAuv"><td data-page-node-id="v0Nwnh4PbP3ZEX15H3fRda">核心逻辑</td><td data-page-node-id="CUQxCqIvbJDGcFdaCDlq1Z">已投入的有效勘查投资 × 效果系数 = 探矿权价值</td></tr>
+<tr data-page-node-id="cLOCdY4Mdc1pYtEALQxLZy"><td data-page-node-id="hXPJfuCx8WVjSaIjvHSRFW">关键参数</td><td data-page-node-id="M3fHSu8W3j2LFIm3XGoQ7F">勘查工作量、现行单价、调整系数ε、成本效果系数F</td></tr>
+<tr data-page-node-id="zRJreBY0I4vu0AAEYFGdwg"><td data-page-node-id="jDOMDyblHEyG4hESlvSG7P">优点</td><td data-page-node-id="SmEH8vhVONIRF6w4S1gAX0">参数客观（基于实际投入），适合早期勘查项目</td></tr>
+<tr data-page-node-id="8jW8F7GVPHGR1XmstLHrg0"><td data-page-node-id="Tj9nhyiyK1v3KGJ3IgwgMy">局限</td><td data-page-node-id="EUh5jLBl4iG1lbFsxjKCW5">不能反映资源潜力/前景价值；F的确定较主观</td></tr>
+</table>
+<div class="key-box" data-page-node-id="oYAJYE7WJFaI88M7HmaBh9">🔑 <strong data-page-node-id="XQutll5emXcOH51pCQsMqg">核心考点：</strong>① 只计"有效"勘查投资（无效的、与勘查无关的支出不计入）；② 单价用<strong data-page-node-id="eQ4c131UNtPsjRYuaAHlr7">现行价格</strong>（不是历史价格）；③ F（成本效果系数）是核心调整项，反映勘查发现资源的可能性。</div>
+
+<h3 id="s3-2" data-page-node-id="wmDg8ZQwtbyt3mA5lxTBwR">3.2 地质要素评序法</h3>
+<div class="formula" data-page-node-id="bcbET30LK4DfIJWZ2p9LKG">P = P<sub data-page-node-id="weF8GERyWFNPvCbBps8uD7">c</sub> × α</div>
+<p data-page-node-id="ZuqYWni5xTXPVeTmRPYDLt">其中：P<sub data-page-node-id="GpVjsf4XtLrscaL9E8y1cN">c</sub> = 可比探矿权价值（基准价），α = 地质要素调整系数（综合评序结果）</p>
+<table data-page-node-id="yTFb4Fv9iITRpBRN8EkUg1">
+<tr data-page-node-id="bGF8OHukiCVdWqn6jVdBiH"><th data-page-node-id="mNHUh9ah7buLb9j9blPsq0">要素</th><th data-page-node-id="0Dd5fD0FIRZSsD1fYLXxJ8">说明</th></tr>
+<tr data-page-node-id="LNUY2FOo5KtsjHynVa7rS2"><td data-page-node-id="BR0EpX4rdAbE2mvAZOPpCT">适用对象</td><td data-page-node-id="fyc2DgbkHvk6QKoJ9FYnWA">探矿权（有可比案例）</td></tr>
+<tr data-page-node-id="csKbmUfeCDL2QV376lwP0K"><td data-page-node-id="avNG2ZmW6FH3D3ynTZfvS6">核心逻辑</td><td data-page-node-id="Vd3OztNSVCzGwPsL5asCt8">找可比探矿权交易案例 → 按地质要素逐项评分 → 调整得到目标探矿权价值</td></tr>
+<tr data-page-node-id="LBg97HpF0KtaPKj3lDdzjr"><td data-page-node-id="3XoGi6fD5qDQh5VkKJRfIn">关键参数</td><td data-page-node-id="ElKljRzklFAxNIIbEfifMA">可比案例价格Pc、地质要素权重与评分、调整系数α</td></tr>
+<tr data-page-node-id="LaWUCVDtmWQW7Z1JjEfC2u"><td data-page-node-id="ddGcJ7ISrcymYC8tew1xbk">地质要素</td><td data-page-node-id="hAjqqGY3LSP6kQKAS0WbyU">矿种、矿床类型、地质条件、勘查程度、资源潜力、区域成矿前景等</td></tr>
+</table>
+<div class="warn-box" data-page-node-id="Ke3140HYZBAJ8tuPqYqvFh">⚠️ <strong data-page-node-id="PAFc0ZOFpzfeQifAHmuxmX">使用注意：</strong>可比案例的选择要求较高（同区域、同矿种、相近勘查程度），实务中可比案例往往不足，使用受限。</div>
+
+<div class="quiz" data-page-node-id="zeyjnXgF2YOyNQ7D17dShM">
+<h3 data-page-node-id="IMeuRNLGMlCVvrSr4RwANb">📝 考点自测 · 第三节</h3>
+<div class="quiz-item" data-page-node-id="m0pMdLGjE66BFZKsfRkCA5">Q1：成本途径主要适用于哪种矿业权（探矿权/采矿权）？</div>
+<div class="quiz-item" data-page-node-id="Qg0VrPKz0SzdpaFiHiHjE5">Q2：勘查成本效用法公式中，F代表什么？ε代表什么？</div>
+<div class="quiz-item" data-page-node-id="ryey67R5IEbKDlGV8yk7vU">Q3：地质要素评序法中，Pc是什么？α如何确定？</div>
+<button class="quiz-btn" onclick="this.parentElement.querySelectorAll('.quiz-answer').forEach(a= data-page-node-id="hJNvYBtUkjWr5h9pNqGfqX">a.classList.toggle('show'))">显示/隐藏答案</button>
+<div class="quiz-answer" data-page-node-id="m4YACXvdGrgsP7jOVmvX5h">A1：探矿权（勘查阶段，无可靠收益预测时）</div>
+<div class="quiz-answer" data-page-node-id="NvkqxkhMzXOTmERBjIGANw">A2：F = 成本效果系数（反映勘查成果经济效果）；ε = 调整系数（地质风险/勘查程度调整）</div>
+<div class="quiz-answer" data-page-node-id="R9rD55ptoWkJEwPg2SUtoy">A3：Pc = 可比探矿权交易价值（基准价）；α = 地质要素综合评序后的调整系数（加权评分法确定）</div>
+</div>
+</section>
+
+<!-- 第四节 市场途径评估方法 -->
+<section id="s4" data-page-node-id="KAZF9MxjUrg6kfyPrgPqTO">
+<h2 data-page-node-id="St47AkVrpEB5GXC5Z01Wi2">第四节 市场途径评估方法</h2>
+<p data-page-node-id="bKLEBpQRl1hINTU6TRc7Ob"><strong data-page-node-id="c0POsE1tJFvwmFRbMwSSs9">核心原理：</strong>市场途径基于<strong data-page-node-id="OIyMOgcKgK4AJsnefGQnw5">替代原则</strong>，通过参照市场上类似矿业权的交易价格，经适当调整后确定评估对象价值。<span class="tag tag-warn" data-page-node-id="wcJcv2Bg1d65A9KhZZMjnM">需要可比交易案例</span></p>
+
+<h3 id="s4-1" data-page-node-id="Z5qO3CiGALI2r69WHuM66g">4.1 可比销售法</h3>
+<p data-page-node-id="zZiB9IsmEWMqsbrlhHLtJy"><strong data-page-node-id="4HSjs8QsyjknFDvNDv6laC">核心思想：</strong>选取近期同类矿业权交易案例，对影响价值的关键因素逐项调整，得到评估对象价值。</p>
+<h4 data-page-node-id="7upSAYr5EyDIZswoC2fg6B">调整系数（逐项）</h4>
+<table data-page-node-id="vAufIKHF7UjF3cEScf74Lk">
+<tr data-page-node-id="jVEn1PkxfBIF3DhONaz9Ib"><th data-page-node-id="WL2bMLuhWjJCeQmJuSkGFz">调整因素</th><th data-page-node-id="kmn6xfnin8UPE3xCAZH4eu">说明</th></tr>
+<tr data-page-node-id="WAoNtPWmqlPYnOFjkNJs8G"><td data-page-node-id="25anVEnQdYDnkEWlbwaqdM">可采储量调整</td><td data-page-node-id="gUYoBtygiqVNB75ESQyMSL">按评估对象与可比案例的可采储量差异调整</td></tr>
+<tr data-page-node-id="f4F7H4Gvo3oA1PWcfgfBCs"><td data-page-node-id="3XWyIVP0aAH8nn6eswETWE">品位/质量调整</td><td data-page-node-id="X5s2mDgaPQPX3aV0YNhAcN">按平均品位、有用组分含量差异调整</td></tr>
+<tr data-page-node-id="p7KfyFfO685YbHRnUPctXA"><td data-page-node-id="ehyrG3WHY7sXlZK7oie3Ew">生产规模调整</td><td data-page-node-id="EM4ENCZs33koIcO4mzGHEK">按核定生产能力差异调整</td></tr>
+<tr data-page-node-id="HqV64xPQx2qZepyTQ5aF2Z"><td data-page-node-id="IZ9F8HPsOZITzNEvkH3uz9">价格调整</td><td data-page-node-id="3m5p2mL1ybEaChE1MxiG67">按交易时点矿产品价格差异调整</td></tr>
+<tr data-page-node-id="ux7rvBruvDHzPfZctwNArx"><td data-page-node-id="oUGJJbS0DJXDc5VGNOVXb7">赋存条件调整</td><td data-page-node-id="N3zHmp5riSCSMk9P9qJWkM">按开采难度、水文地质等条件差异调整</td></tr>
+<tr data-page-node-id="vqDmpMPXJriMFabEpWrq3w"><td data-page-node-id="X8Lt9yGishPh04evdEbBUV">区位/交通调整</td><td data-page-node-id="bKwsBisxvpS0bE8lEbuSNE">按地理位置、运输条件差异调整</td></tr>
+<tr data-page-node-id="52pmPUuYp5Cc1s6MwWkcBD"><td data-page-node-id="umreWBD2QwNxmmvwlyLHVc">其他</td><td data-page-node-id="CY8BiRzoxajZbN12hrsfdX">权属完整性、剩余服务年限等</td></tr>
+</table>
+<div class="formula" data-page-node-id="ET1xL5gFZD3FnJ3qtnPJDQ">P = P<sub data-page-node-id="H8Rb4KuKaYH9WCGkDHuDPM">可比</sub> × 储量系数 × 品位系数 × 规模系数 × 价格系数 × 赋存系数 × 区位系数 × …</div>
+<div class="key-box" data-page-node-id="DUKhDJd87JEV0rmoZoUnWv">🔑 <strong data-page-node-id="pGGvHpS6YI6X7ZhzPN56Fq">核心考点：</strong>① 可比案例要求"近期、同类、同区域优先"；② 调整因素越多，主观性越大，需逐项说明理由；③ 一般要求至少2~3个可比案例交叉验证。</div>
+
+<h3 id="s4-2" data-page-node-id="JMWcHMdpOA5yeiNIvQiWzd">4.2 单位面积探矿权价值评判法</h3>
+<p data-page-node-id="QgPEOYHkQRbIt6tKKLLleT"><strong data-page-node-id="iaL6BN6HuWIvtnmqZsAviT">核心思想：</strong>以每单位面积（km²）探矿权交易价格为基准，结合勘查程度、资源前景等因素，评判评估对象探矿权价值。</p>
+<div class="formula" data-page-node-id="CGz3KGIuXOLFk7VbL7Z2uL">P = 单位面积价值（元/km²）× 勘查区面积 × 调整系数</div>
+<table data-page-node-id="P62hylN92rRciXnEHHZXvW">
+<tr data-page-node-id="2Z5ObE7IJN6lHo71AeqyOZ"><th data-page-node-id="jfPYgMHW1fnqc3p0BD3vvV">要素</th><th data-page-node-id="nIKlwzlGQ7Wr0OGSbgdW80">说明</th></tr>
+<tr data-page-node-id="wWahJZOQSI1bSuZWVVK1vD"><td data-page-node-id="nGZYKC19AWp7frKKYtQQZA">适用对象</td><td data-page-node-id="3P4dzp1vtkYPChTEhRtVKe">探矿权（区域成矿背景好、可比单位面积价格可得）</td></tr>
+<tr data-page-node-id="9rIZoEQu8XDrhH8JcKgAzA"><td data-page-node-id="ovQCYeWZtInrnKt5gWTz7P">关键参数</td><td data-page-node-id="DyA39khto4W3jy71gvMV8h">单位面积基准价、勘查区面积、调整系数</td></tr>
+<tr data-page-node-id="kYPtcNbb30afUAAVnusoXW"><td data-page-node-id="8TLq9pyFFHWad3Z9djAyby">局限</td><td data-page-node-id="1OsWf3yhG7zoVJsjnpHZyA">忽略矿体具体特征，精度较低，适合初步/粗略评估</td></tr>
+</table>
+
+<h3 id="s4-3" data-page-node-id="sAdleaJq46GnYLAZ5E1OlM">4.3 资源品级探矿权价值估算法</h3>
+<p data-page-node-id="24c5XHP4Ddqf8LMM699TVf"><strong data-page-node-id="oxgd8C2YTCHnBO82XssU45">核心思想：</strong>将探矿权按资源前景/勘查程度分为若干"品级"，每个品级对应一个价值区间，评估对象归入相应品级后确定价值。</p>
+<table data-page-node-id="7sRdehX6L9kUDRLiIHOt3B">
+<tr data-page-node-id="45umUGwVX0lHcRqsxmlF70"><th data-page-node-id="gdTuZQuwPAuPixBJZ6t6DW">要素</th><th data-page-node-id="SMPV5Yw7wdNKA9wxHaLt7H">说明</th></tr>
+<tr data-page-node-id="qr1u099daGqfPstSO3NPRh"><td data-page-node-id="gu5fswDljITWuUPvJoxrIl">适用对象</td><td data-page-node-id="uYKMleETjiOAUQE6QlRym8">探矿权（有明确品级标准体系时）</td></tr>
+<tr data-page-node-id="2lRcU3v9TMB2G3x5oelta7"><td data-page-node-id="GJHImLCtkpVFHpVqblJbux">品级划分依据</td><td data-page-node-id="lGdINormGAyCj9so9Xjqmu">区域成矿条件、已有发现、勘查程度、资源潜力</td></tr>
+<tr data-page-node-id="KAU6l4rX1zTZeb1IyQFmEn"><td data-page-node-id="WXP1bGgfJIAemORDIo9GaS">关键参数</td><td data-page-node-id="3zxsTAGJ8CEnM5SPo64yCL">品级标准、各品级价值区间、评估对象归级</td></tr>
+<tr data-page-node-id="sKeP9dKfTuEptRoalxSv5Q"><td data-page-node-id="HJX69ptBVLrJ7sIOw0SBzG">局限</td><td data-page-node-id="6ZQRjfBCxchood2DcmM3yd">品级划分和对应价值区间需行业共识或主管部门发布</td></tr>
+</table>
+
+<div class="warn-box" data-page-node-id="0B90FvgEufzTbhUiQczGgW">⚠️ <strong data-page-node-id="pkpUZUhT5S7CN5k6RIRPDQ">市场途径共同局限：</strong>矿业权交易案例相对稀缺（尤其国内），可比性判断主观性强。实务中市场途径多作为辅助验证，而非主要方法。</div>
+
+<div class="quiz" data-page-node-id="i7gB1scK1KkRS1MgQLew1c">
+<h3 data-page-node-id="N2pNGkpLqHYjg81m5FMzCp">📝 考点自测 · 第四节</h3>
+<div class="quiz-item" data-page-node-id="3sGoibLAjXHxvnR2aIDZjA">Q1：市场途径的核心理论基础是什么原则？</div>
+<div class="quiz-item" data-page-node-id="iLFyAeTo5oBafaW0aAe6uw">Q2：可比销售法中，通常至少需要几个可比案例？</div>
+<div class="quiz-item" data-page-node-id="QiFuB5EHdDp39Xn080FgCc">Q3：单位面积探矿权价值评判法的主要局限是什么？</div>
+<button class="quiz-btn" onclick="this.parentElement.querySelectorAll('.quiz-answer').forEach(a= data-page-node-id="CY4zqERg2EPqiDB3afw8lU">a.classList.toggle('show'))">显示/隐藏答案</button>
+<div class="quiz-answer" data-page-node-id="9CWLASfCykyWrXUP0lMRPF">A1：替代原则（相同/类似资产价格应趋同）</div>
+<div class="quiz-answer" data-page-node-id="IdAZuuTyDWuNhKDBgw9Zws">A2：至少2~3个可比案例，用于交叉验证</div>
+<div class="quiz-answer" data-page-node-id="UUYB1jQQ5hgDBUHaS2olxy">A3：忽略矿体具体特征（品位、赋存条件等），精度较低，只适合粗略评估</div>
+</div>
+</section>
+
+<!-- 第五节 矿产资源储量处理 -->
+<section id="s5" data-page-node-id="ehOyXYzQXRywDLPctCYWFx">
+<h2 data-page-node-id="vU9GsJUhv52m0W34BIIWR0">第五节 矿业权价值评估中矿产资源储量处理</h2>
+<p data-page-node-id="icJjDzsdhYlP1CVSIHwOcc">矿产资源储量既是评估对象的<strong data-page-node-id="lgilaBd0Qcu5Ag9a0PyEE0">范围要素</strong>，也是重要的<strong data-page-node-id="eM7uNGs4DUaExhVuGV5wdM">评估参数</strong>。本节核心：如何从"保有资源储量"一步步折算到"评估利用可采储量"。</p>
+
+<h3 data-page-node-id="PAHpMfst4aEfmrhQEPEV0q">5.1 储量分类体系</h3>
+<table data-page-node-id="D9V6tQWGuEY0N6NVGEKHwG">
+<tr data-page-node-id="RB1CBCOyNuXFBpGoz1eRz1"><th data-page-node-id="6LfuUfur5EbBz3IwtzJXGD">类别</th><th data-page-node-id="2X7CjRYY2j3JdDUQXpEdPO">分类标准</th><th data-page-node-id="xE8pk4FTSWfHo2mEFb69LZ">要点</th></tr>
+<tr data-page-node-id="vPDXvkxUiCwI0UrTxNvQR1"><td data-page-node-id="jhaExJ2DbPlRTvFyH9LwHJ"><strong data-page-node-id="narr7dgI82zPe5jv2wGslv">固体矿产</strong></td><td data-page-node-id="cKNwEgStUoZEcfOR2oNJOS">GB/T 17766—2020</td><td data-page-node-id="WOlwEYfLIL2gSPS7bqoG2O">查明（探明/控制/推断资源量 + 证实/可信储量）+ 潜在资源；能利用 + 尚难利用</td></tr>
+<tr data-page-node-id="p6iHAgM2BbWm5ahki5g1ga"><td data-page-node-id="aRYJY52c0CHGrli3VgB30a"><strong data-page-node-id="5Sa4Vzn8RuSUFrW7GCaUvn">油气矿产</strong></td><td data-page-node-id="32GHT0tX8TTBQnABE2DKXs">GB/T 19492—2020</td><td data-page-node-id="yxuCAFeg2FVOwxiQ8V5AkH">地质储量（探明/控制/预测）→ 技术可采储量 → 经济可采储量</td></tr>
+<tr data-page-node-id="tNLBAo3kIa04KvjEGtIJws"><td data-page-node-id="mpgofS99vgPRiFdWmLm28n"><strong data-page-node-id="MktRT8yZ2SPE8JVD3caVLe">地热/矿泉水</strong></td><td data-page-node-id="13AFK8o6F7jGCbnVb0kOHr">GB/T 15218—2021</td><td data-page-node-id="kPmBUguqAQOjZ4g7WQAnFB">储存量、补给量、可采量；允许开采量分A/B/C/D/E五级精度</td></tr>
+</table>
+
+<h3 data-page-node-id="0XvlR3DuHFOVWut2sHByto">5.2 储量折算链（核心公式）</h3>
+<div class="formula" data-page-node-id="9n0vIi0K4ylOtTrVyN4gE7">保有资源储量 → ×可信度系数 → 评估利用资源储量 → −设计损失 → ×回采率 → 评估利用可采储量</div>
+<h4 data-page-node-id="1xB6iA9rJdR6E0J4G7SQQR">第一步：参与评估的保有资源储量</h4>
+<div class="formula" data-page-node-id="569DAdrr0xSVPLqPj0EBMw">参与评估的保有储量 = 储量核实基准日保有储量 − 期间动用储量 + 期间净增储量</div>
+<p data-page-node-id="PMDNV5DdDt7M3o7lkXgFv4">（评估基准日在储量核实基准日之后时）</p>
+<h4 data-page-node-id="ljtZwvLeOwgCEDisyMWkce">第二步：动用资源储量</h4>
+<div class="formula" data-page-node-id="MQg1ngjoNRy2TJaZdJycBW">动用储量 = 采出矿石量 × (1 − 矿石贫化率) ÷ 采矿回采率 + 采矿损失量</div>
+<h4 data-page-node-id="GrR8yrBhUGidzxDHpnvLAE">第三步：评估利用资源储量</h4>
+<div class="formula" data-page-node-id="ZYlDQMV2d7jRXHJ7Voi2hK">评估利用资源储量 = 参与评估的储量 + 资源量 × 可信度系数</div>
+<ul data-page-node-id="FuavFHs14yPo6GufTvSEpS">
+<li data-page-node-id="3IPNV8JE6BxSLHCSV0pTLo">储量（证实/可信）→ 直接使用，可信度系数 = 1.0</li>
+<li data-page-node-id="ED0TttUoXlLYxUrAs9vIV8">探明/控制资源量 → 可信度系数 = 1.0（技术经济可行时）</li>
+<li data-page-node-id="qvaPSIpg0yuzRGxruGpPYI">推断资源量 → 可信度系数 0.5~0.8（参考设计规范）</li>
+<li data-page-node-id="fQPebHxSdEnmYGTXTVWtSK"><strong data-page-node-id="rNuZMekrBvvLaMSpVq9xc5">风险系数调整法下：不乘可信度系数</strong>，各种资源量全部参与</li>
+</ul>
+<h4 data-page-node-id="JdnEkPPCHcEUT29imztBsq">第四步：评估利用可采储量</h4>
+<div class="formula" data-page-node-id="VTtZkgFTIGufTxVFMAer0U">可采储量 = (评估利用资源储量 − 设计损失量) × 采矿回采率</div>
+<p data-page-node-id="hSmHLh8s6HqTa601BuMYWU">其中：采矿损失量 = (评估利用资源储量 − 设计损失量) × 采矿损失率</p>
+
+<h3 data-page-node-id="aTTHAGohGuwBMI8rEj44Bi">5.3 关键定义速查</h3>
+<table data-page-node-id="TDBCZOfMwjr3jEsSbunyDG">
+<tr data-page-node-id="f3RGBeLSnKW0e1mldkQLCk"><th data-page-node-id="lFSYxQHeEDXSyWXpbzLXQJ">术语</th><th data-page-node-id="2Zc9iexcJcvnhNmjK6b6ge">定义</th></tr>
+<tr data-page-node-id="2SdEGob2UoCLGyL4dgBQfA"><td data-page-node-id="JEAOBUHBmenIMBdiZVumCZ">矿产资源储量报告</td><td data-page-node-id="VPjZHiBVM2l8zyIpFGSnnK">勘查报告、储量核实报告、检测报告、资源评价报告、生产勘探报告等</td></tr>
+<tr data-page-node-id="N4a3yMRXqrldp8mgI1pPUC"><td data-page-node-id="sVwjC9AqzeuXKv9ofyzEDA">参与评估的保有资源储量</td><td data-page-node-id="ioFt475CwjIaFIEQfI9RDW">评估对象范围内、评估计算时点（通常=评估基准日）的保有储量</td></tr>
+<tr data-page-node-id="HBbVdBXC7OiNcR9NPfCN8H"><td data-page-node-id="WM4Zi3Alu6xlNmnwFYAdtm">可信度系数</td><td data-page-node-id="3n6FZRQ4izjVYLrU84zXZu">将资源量折算为评估利用资源储量的系数（考虑不确定性）</td></tr>
+<tr data-page-node-id="4BPiF2j2pL4n8b0mcOlQ66"><td data-page-node-id="Z6C7GRSev2zjOq2JxLYr5f">评估利用资源储量</td><td data-page-node-id="S4xGdcYTmRCkoJzaoCDHKc">以参与评估的保有储量为基础，按判断原则估算的储量</td></tr>
+<tr data-page-node-id="vR2zCJHe0xVB6lFxDv5yez"><td data-page-node-id="7ClzOt8EZI3ojO30OcGtHM">评估利用可采储量</td><td data-page-node-id="W503KM2qMB4hvw9ARFI428">评估利用资源储量 − 设计损失 − 采矿损失 = 可采出的储量</td></tr>
+</table>
+
+<h3 data-page-node-id="ImZehFNjiSDpwe8RHa3dyS">5.4 确定原则</h3>
+<ul data-page-node-id="ZTAzyvVDBiCW74uWPHO5uq">
+<li data-page-node-id="5AWp4LzfbaPdv2kcv1dryX"><strong data-page-node-id="0dVyXhyI16WzQl0sQbVKTA">储量</strong>可直接作为评估利用资源储量（系数=1.0）</li>
+<li data-page-node-id="YfcTVxLpzgp0RZDoLgMeYO"><strong data-page-node-id="7fFKDxsO3CC7iuE48fShpe">探明/控制资源量</strong>：技术经济可行时，系数=1.0</li>
+<li data-page-node-id="awOkvFdDO1WVaHGFmBuQvc"><strong data-page-node-id="s8MC1iOUQNwTot5z0sOcJA">推断资源量</strong>：参考设计规范，系数0.5~0.8；设计未利用或规范未规定的，0.5~0.8</li>
+<li data-page-node-id="iUa2IkJMCGlnKvq50Ahq5E"><strong data-page-node-id="WkZcM3NaNCoQcCtDOHS4Ku">尚难利用/低品位矿</strong>：原则上不参与；设计利用或经济分析认为可利用的，可参与</li>
+<li data-page-node-id="F5DDlj34tUr6cPqRNGMy6M"><strong data-page-node-id="EEDsRMirN6oBQxeP3eBMTm">潜在矿产资源</strong>：原则上不参与计算</li>
+<li data-page-node-id="T3izYaSl96ydQQQ6xkTKEF"><strong data-page-node-id="JZ9fYMIUei0ONiCPPCKk1f">出让收益评估</strong>：自然资源行政主管部门有规定的从其规定</li>
+</ul>
+<div class="key-box" data-page-node-id="PlHuk153JlpWEIxVn1kDmM">🔑 <strong data-page-node-id="TkTLWRSB5Xdz5tfQPFLWJF">高频考点：</strong>① 金属矿产需同时按矿石量和金属量折算，同类型折算前后品位不变；② 设计损失和开采损失是"技术方案安排"，不是对储量的调整，也不是国有资源损失；③ 可后期回收的矿柱不归为永久矿柱（不算设计损失）；④ 永久矿柱 ≠ 压覆矿产资源，不能混同。</div>
+
+<div class="quiz" data-page-node-id="GooH82VjyA3prCYS1VkADJ">
+<h3 data-page-node-id="4ajmc6mK3jEXBvQiZr7JfH">📝 考点自测 · 第五节</h3>
+<div class="quiz-item" data-page-node-id="AYKE4qCofX1GkfIDNtbeYJ">Q1：推断资源量的可信度系数一般取多少？</div>
+<div class="quiz-item" data-page-node-id="ZB5mu0RWMhJpGa2XifuPFs">Q2：折现现金流量风险系数调整法下，是否使用可信度系数？</div>
+<div class="quiz-item" data-page-node-id="jwdiInRQiQxvrnpcIaOwtl">Q3：评估利用可采储量的计算公式？</div>
+<div class="quiz-item" data-page-node-id="Z8KrFAmd1eMgnY3HFPRVs5">Q4：设计损失和开采损失是否等于"国有矿产资源损失"？</div>
+<button class="quiz-btn" onclick="this.parentElement.querySelectorAll('.quiz-answer').forEach(a= data-page-node-id="5b343uS1NQWBXbbVA7dkKz">a.classList.toggle('show'))">显示/隐藏答案</button>
+<div class="quiz-answer" data-page-node-id="ghLhenqcj2mRwF2QD2o6hT">A1：0.5 ~ 0.8（参考矿山设计文件或设计规范）</div>
+<div class="quiz-answer" data-page-node-id="bFwG6iQSCy0iuArmhGvkFy">A2：不使用。风险系数调整法下各种资源量全部参与计算，不乘可信度系数</div>
+<div class="quiz-answer" data-page-node-id="2ZkJqSMikfYuEOtJqoT3Id">A3：可采储量 = (评估利用资源储量 − 设计损失量) × 采矿回采率</div>
+<div class="quiz-answer" data-page-node-id="YDRT42a7CLUpqukb5diJPc">A4：不是。设计损失和开采损失是技术方案安排，不是对储量的调整，也不等于国有资源损失</div>
+</div>
+</section>
+
+<!-- 第六节 专业报告的利用 -->
+<section id="s6" data-page-node-id="tg1KL1jCDygeBRTxVCFjS2">
+<h2 data-page-node-id="OXCQf6B3BuXwxEa6yRs8z6">第六节 矿业权价值评估中专业报告的利用</h2>
+<p data-page-node-id="ZJbNHCpKl29KziEOMDpRPM">评估中常需利用三类专业报告：<span class="tag tag-method" data-page-node-id="PYNPkKx4xGAr2NT07ClmTV">后续地质勘查设计文件</span><span class="tag tag-method" data-page-node-id="BXCnxAA3hy5nzjZAZLznHR">矿山设计文件</span><span class="tag tag-method" data-page-node-id="YydzPsE6qxNOwWQl0SzJ4w">企业财务会计报告</span></p>
+
+<h3 data-page-node-id="lx5FcznuLRZVwRfwhnczZq">6.1 后续地质勘查设计文件的利用</h3>
+<p data-page-node-id="O84GSS7Fj6KH0CaAZbBhfI"><strong data-page-node-id="3LEmCMABRioRtcOdLAfIQU">定义：</strong>评估基准日后尚需进一步进行详查/勘探或补充勘查工作而编制的地质勘查设计文件。</p>
+<h4 data-page-node-id="rQXWGHqNml6QheED0tNE3P">利用要点（9条）</h4>
+<ol data-page-node-id="hEsEIwHS83C11uBPOlphCc">
+<li data-page-node-id="xAezvIDuo3klEgPjbIsk6o">须符合《固体矿产地质勘查规范总则》及分矿种规范要求</li>
+<li data-page-node-id="3YZoxXQNDRPjC56ZErDlvn">分析勘查技术方法手段和工作量布置的合理性</li>
+<li data-page-node-id="IX0NDoG6ApIV165kcu3Qu2">以各种地质勘查工作满足矿山开采设计基本要求的程度为宜</li>
+<li data-page-node-id="CYYuV3U0OChPN17S5aDbJu"><strong data-page-node-id="weZlmfzjU8emUHrUL7YAvF">直接勘查费用：按现行价格核实利用</strong>（合同编制的可直接利用）</li>
+<li data-page-node-id="AxMhG2K2wHAtcflLxwBSX6">间接勘查费用：参照单项现行价格，或按占直接费用比例确定</li>
+<li data-page-node-id="GA6EYMVE9zUYJohGfwEPIO"><strong data-page-node-id="H5Q0nq2GTuS5gUHChsRPRg">不计入：</strong>进一步验证异常、寻找新矿体、以增加储量为目的的勘查工作量</li>
+<li data-page-node-id="OE1ZZAnjrxtmY6Li6Y9BZ8">后续勘查期应合理（参考劳动定额和一般施工进度），明显不合理时重新确定</li>
+<li data-page-node-id="Ts5ChCHKF9QaHZRdLplp4R">评估报告中应清晰陈述利用的勘查工作量、现行价格和勘查期</li>
+<li data-page-node-id="bHoQukJD8S2JkJBAcvbPqk">应对利用文件的可靠性、适用性作出适当说明</li>
+</ol>
+
+<h3 data-page-node-id="4knTf4DNo4jt7RkGB6Ht4M">6.2 矿山设计文件的利用</h3>
+<h4 data-page-node-id="rZyGidWWxoGGvbHrSGDhpU">文件类型及精度要求</h4>
+<table data-page-node-id="dJzp2afvlsNKyDKF1RtXb8">
+<tr data-page-node-id="8cRMRffCMMkhHSBBJHUAQb"><th data-page-node-id="ujfc04I1MeqAyKFdOs2ry9">文件类型</th><th data-page-node-id="GwIJDrWKwWYPZrFZ3XUnHN">投资/成本估算误差</th><th data-page-node-id="AJFDf42e1zoruCI9LeLgAE">说明</th></tr>
+<tr data-page-node-id="o7qoeSVQDHmlALqaT8c8HN"><td data-page-node-id="y3FYH0wSvzKl9VZWIHUFzf">初步可行性研究报告</td><td data-page-node-id="mhxFrcukOUim8Bj9LdkkTW">≤ 20%</td><td data-page-node-id="nWoRHD7gK9YX3vkuZbl7eq">机会研究与可行性研究之间的中间阶段</td></tr>
+<tr data-page-node-id="Tz0xNlPRQ4H6HA2l4svUVk"><td data-page-node-id="ralRBvOY8GrClPz720ltGy">可行性研究报告</td><td data-page-node-id="WtcAeC3YVheaZ3EZe8qwOU">≤ 10%</td><td data-page-node-id="jBGcXbdXxeUDSSEPEKjSkB">投资决策基础，编制项目设计的基础</td></tr>
+<tr data-page-node-id="DQhukGdWH2l0idWtJQUKJi"><td data-page-node-id="YOQh5KWAws6eaBL8pySr8U">初步设计</td><td data-page-node-id="eIyyGf442C9Nte0fUItYcS">—</td><td data-page-node-id="NqNJqBdmbyyVugLZPKkHDO">施工图设计和施工组织设计的基础</td></tr>
+<tr data-page-node-id="uc50IcDCcHKQFIT3vCR78z"><td data-page-node-id="HJujt2F8Nr9TyvW3HdF8ge">矿产资源开发利用方案</td><td data-page-node-id="EXfLBLNWM4kzG4YLi5zisE">—</td><td data-page-node-id="pLT4KBJQliNhE7hIgMZ12Z">按"安全、高效、科学、经济、充分利用资源"原则编制</td></tr>
+</table>
+<h4 data-page-node-id="BTy5APs3CN8qv5BNRoIsAK">利用注意事项（核心12条）</h4>
+<ol data-page-node-id="yGRQaKW8cUgNZl6k0NKcla">
+<li data-page-node-id="PcZ2Xn6KRX4RXubbieAEvz">编制单位资质要求从其规定；有审查意见的同时利用</li>
+<li data-page-node-id="Z06xKBxOkSvTFiDIeTBCBj">正常生产矿山以<strong data-page-node-id="jt4t6Eslm62MHZP2REu1hw">生产实际</strong>为依据，设计文件仅作参考</li>
+<li data-page-node-id="QrLd39QW9ejwbzDhbOAfez">关注设计文件中披露的影响评估结论的问题与建议</li>
+<li data-page-node-id="TC5FmHp8O2YJiZut3SB113">通常利用<strong data-page-node-id="gnKu9VmjzzhTp9vMiFekzC">距评估基准日最近</strong>的设计文件；重大变化时要求重新提供</li>
+<li data-page-node-id="DITXXpDkBaQD9tnDU3OiFV"><strong data-page-node-id="Wn6wPXEudrFCtQ54VctfIR">资源储量：</strong>核对设计依据储量与评估对象范围是否一致；不一致时不能直接利用</li>
+<li data-page-node-id="Ea7PdDeFUhCqkMAr9mZTZN"><strong data-page-node-id="rQA09MfeDDElR9KVrZzgST">开发方案：</strong>核查开采方案与赋存条件匹配性、选冶工艺与矿石质量匹配性、产品方案与工艺匹配性</li>
+<li data-page-node-id="Obx5jdO8GXAzdZfgJOPjFU"><strong data-page-node-id="OM2EiYHBfeDd1QpBF8G4Rz">技术指标：</strong>了解确定依据，分析与开采方式/矿石质量/工艺的匹配性；设计指标 vs 生产实际指标有差异</li>
+<li data-page-node-id="8EKDGeDBgzflkldABZIaLM"><strong data-page-node-id="LRiO72HxYDYL4gT2WstAis">生产能力：</strong>核查设计能力、许可证规模、核定能力、实际能力的一致性；不一致时合理确定</li>
+<li data-page-node-id="HHgS9WTl9L38IIXpursOsk"><strong data-page-node-id="BSwqTU5qgliD9vK66KuuE7">建设期/达产期/生产负荷：</strong>一般可直接利用，不一致时说明理由</li>
+<li data-page-node-id="ij0zoLE3zFuZSRA5H4ZARO"><strong data-page-node-id="3T9vQA1Lhkf2P5ZzHpLCaU">固定资产投资：</strong>能力不一致时不直接利用；价格水平差异大时调整；口径差异需调整；改扩建造山需分析是否含原有资产</li>
+<li data-page-node-id="JyEC32loSX1XHWFEYwRPlM"><strong data-page-node-id="9uTOJoDE9Uva48eTnSvrJa">成本费用：</strong>口径不一致时不直接利用；关注材料燃料动力费是否含进项增值税（通常按不含税）；价格水平差异大时调整；税费种类标准变化时按现行政策调整</li>
+<li data-page-node-id="UK2tu8MBvAuJNYclKK7TDw"><strong data-page-node-id="2yfbDc6vNLSt4N1w6bCQya">报告披露：</strong>披露利用的设计文件主要内容，说明可靠性和适用性</li>
+</ol>
+<div class="key-box" data-page-node-id="5DwqEKN6XpdmSOKAr3KKJh">🔑 <strong data-page-node-id="riWxfMnkCmeQZ5YHgYHhe2">高频考点：</strong>① 可研投资误差≤10%，初可研≤20%；② 正常生产矿山以生产实际为主，设计文件仅参考；③ 设计文件编制日期早于储量报告编制日期且对开发方案有重大影响时，不能直接利用；④ 可后期回采的临时矿柱未设计利用的，考虑是否利用并说明理由。</div>
+
+<h3 data-page-node-id="IZx2EFgXMgcXh8cGixgm0Y">6.3 企业财务会计报告的利用</h3>
+<h4 data-page-node-id="MAYoNHHUKE2QC4Qw5fNJem">文件构成</h4>
+<p data-page-node-id="k1KCsHHzUb5dlaWlKOXl7Q">会计报表（资产负债表、利润表、现金流量表、所有者权益变动表）+ 附注 + 其他披露资料</p>
+<h4 data-page-node-id="ncJBnMJCezH31DI1gGx4Rq">利用条件与范围（9条核心）</h4>
+<ol data-page-node-id="v32CyFaPh3C7sMYQHMjuNt">
+<li data-page-node-id="U7JW7MevDfHtXo1lMlvshL">建议用<strong data-page-node-id="BKqFdVjpWP6ywWEZqxZ08z">经注册会计师审计</strong>的报告</li>
+<li data-page-node-id="Xow7LwSGeUaklc0VYz5hOO">利用与评估基准日一致的年末（或阶段）报表；不同时需了解日后调整/非调整事项</li>
+<li data-page-node-id="S6OAWiZvp2Ass0OkiJjt82">关注合并报表、分部报告与矿山企业的对应性</li>
+<li data-page-node-id="t4LGb2hw3j6B4sYZdDRY2n">系统分析附注中的重要会计估计、资产负债表日后事项</li>
+<li data-page-node-id="ahhFVv5G53Ny1DCWEYhIrg">固定资产等账面价值 = 原始发生额 − 折旧/摊销 − 减值准备</li>
+<li data-page-node-id="502jlFkvGbhI0aOX9yX8WS">关注非正常因素（季节、周期、非正常停工、超规模开采、关联交易、偶然性收支），分析调整后确定参数</li>
+<li data-page-node-id="8V1XiI9hJjRdkhm06yuc3T">能确认未来信息时，不再利用以往报告对应信息；关注税费种类与基准日政策一致性</li>
+<li data-page-node-id="4lLEQjpKoCWQzrgoCmRIXE">确定固定资产/无形资产投资额时，分析是否含增值税，按准则确定</li>
+<li data-page-node-id="NTJWH0PHyi4axPsu47jonl">关联交易/不公平交易可能影响成本、价格、收入等，需收集关联信息并分析影响</li>
+</ol>
+<div class="warn-box" data-page-node-id="tn6xCO7OGiqlQoAc2HovcC">⚠️ <strong data-page-node-id="HGPfoCb3sxMHC87a8Ie7Ro">易错提醒：</strong>① 会计报表中的固定资产、在建工程、工程物资、无形资产等账面价值是扣除折旧/摊销/减值后的，不能直接用作评估用投资额；② 材料燃料动力费设计指标通常含进项增值税，评估时一般按不含税口径；③ 能确认未来信息（如已签合同价格）时，优先用未来信息而非历史报表。</div>
+
+<div class="quiz" data-page-node-id="5Ma4YjJrCdT7e6B4PpA2KN">
+<h3 data-page-node-id="HbPp5RvZGQYHRHCro4LBGi">📝 考点自测 · 第六节</h3>
+<div class="quiz-item" data-page-node-id="pq8yNuXkrWXWnY5apW6Kvs">Q1：可行性研究报告和初步可行性研究报告的投资估算误差分别不超过多少？</div>
+<div class="quiz-item" data-page-node-id="CQACcET4TGUkxC6sVptvGx">Q2：正常生产矿山评估时，矿山设计文件的作用是什么？</div>
+<div class="quiz-item" data-page-node-id="y9830hq6Vv0H2MOoI7uEzd">Q3：利用企业财务会计报告确定固定资产投资时，需要注意什么关于增值税的问题？</div>
+<div class="quiz-item" data-page-node-id="BqZtTtqw4G2Ba7zVo1Xvip">Q4：后续地质勘查设计文件中，哪些费用不应计入？</div>
+<button class="quiz-btn" onclick="this.parentElement.querySelectorAll('.quiz-answer').forEach(a= data-page-node-id="HRdDEfrdNWhQLoCs71kzmB">a.classList.toggle('show'))">显示/隐藏答案</button>
+<div class="quiz-answer" data-page-node-id="LTLfw4yo5NQzt9cIBWlWRX">A1：可研≤10%，初可研≤20%</div>
+<div class="quiz-answer" data-page-node-id="SPCX4eyurIFCeCJHVlZGDb">A2：仅作为参考，应以矿山生产实际为依据</div>
+<div class="quiz-answer" data-page-node-id="CM0S6JKDK5sUt1L6ct0S4H">A3：需分析判断是否含增值税，按矿业权价值评估准则的相关规范确定（通常按不含税口径）</div>
+<div class="quiz-answer" data-page-node-id="cGmMeFLpi9kHvKpi6Wy3NB">A4：进一步验证异常、寻找发现新矿体、以增加资源储量为目的的在原有矿体上进一步施工的勘查工作量费用不计入</div>
+</div>
+</section>
+
+</div>
+</main>
+<footer data-page-node-id="RNsXfn6xOZNkmvQwEK3ofp">第四章 矿业权价值评估方法与参数 · 学霸版学习页 ｜ 源：《矿业权价值评估(2023)》｜ 仅供学习使用</footer>
+<script>
+const bar=document.getElementById('progress');
+function upd(){const h=document.documentElement;const p=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=(p*100)+'%';
+  const links=[...document.querySelectorAll('#sidebar a')];let cur='';
+  document.querySelectorAll('section[id],div.map[id],div[id="map"],div[id="memo"]').forEach(s=>{if(s.getBoundingClientRect().top<=120)cur=s.id;});
+  links.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});}
+window.addEventListener('scroll',upd,{passive:true});upd();
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('hidden');}
+</script>
+
+<a href="index.html" id="backtoindex" data-page-node-id="backtoindex2" style="position:fixed;right:18px;bottom:22px;z-index:9999;background:#1d5fd6;color:#fff;text-decoration:none;font-size:14px;font-weight:700;padding:10px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(29,95,214,.4);font-family:-apple-system,'PingFang SC',sans-serif;">← 返回目录</a>
+
+<script>
+/* ===== fold6-scroll: localStorage 滚动位置记忆 (折叠/展开重载恢复) ===== */
+(function(){
+  var key = 'fold6-scroll-' + location.pathname.split('/').pop() + location.search;
+  function save(){ try{ localStorage.setItem(key, String(window.scrollY || document.documentElement.scrollTop)); }catch(e){} }
+  function restore(){
+    try{
+      var y = parseInt(localStorage.getItem(key), 10);
+      if(isNaN(y) || y <= 0) return;
+      requestAnimationFrame(function(){
+        window.scrollTo(0, y);
+        setTimeout(function(){ window.scrollTo(0, y); }, 150);
+      });
+    }catch(e){}
+  }
+  if(location.hash) return; // 带锚点跳转时不恢复
+  window.addEventListener('beforeunload', save);
+  var t;
+  window.addEventListener('scroll', function(){ clearTimeout(t); t = setTimeout(save, 250); }, {passive:true});
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', restore);
+  else restore();
+})();
+/* ===== end fold6-scroll ===== */
+</script>
+</body>
+</html>
