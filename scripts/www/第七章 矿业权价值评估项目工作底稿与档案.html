@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="MRKMFm3MVAVrL312Fvxilz">
+<head data-page-node-id="A6HmJecKThq3R0uNqdN09F">
+<meta charset="UTF-8" data-page-node-id="Fujrqd0FKES8WWmhwYIbod">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" data-page-node-id="tpbccXE7hQ8uVTeaamKv4v">
+<title>第七章 矿业权价值评估项目工作底稿与档案 · 学霸版学习页</title>
+<style>
+:root{
+  --brand:#1d5fd6; --brand-soft:#e8f0fe; --ok:#1f9d57; --ok-soft:#e6f6ed;
+  --warn:#d9730d; --warn-soft:#fdf0e2; --key:#c02666; --key-soft:#fbe7f0;
+  --purple:#7c3aed; --purple-soft:#f1ebfd; --bg:#f5f7fa; --panel:#fff;
+  --ink:#1f2933; --muted:#5b6773; --line:#e4e9f0; --sidebar-w:300px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.75;font-size:15px;}
+#progress{position:fixed;top:0;left:0;height:4px;width:0;background:var(--brand);z-index:100;transition:width .1s;}
+.layout{display:flex;max-width:1280px;margin:0 auto;}
+#sidebar{width:var(--sidebar-w);flex:0 0 var(--sidebar-w);position:sticky;top:0;height:100vh;overflow-y:auto;
+  background:var(--panel);border-right:1px solid var(--line);padding:22px 14px;transition:margin .25s;}
+#sidebar.hidden{margin-left:calc(var(--sidebar-w) * -1);}
+#sidebar h2{font-size:15px;margin:0 0 4px;color:var(--brand);}
+#sidebar .sub{font-size:12px;color:var(--muted);margin-bottom:14px;}
+#sidebar a{display:block;padding:7px 10px;border-radius:8px;color:var(--ink);text-decoration:none;
+  font-size:13.5px;margin-bottom:2px;border-left:3px solid transparent;}
+#sidebar a:hover{background:var(--brand-soft);}
+#sidebar a.active{background:var(--brand-soft);color:var(--brand);font-weight:600;border-left-color:var(--brand);}
+#sidebar a.lv2{padding-left:24px;font-size:12.5px;color:var(--muted);}
+main{flex:1;min-width:0;padding:0 28px 60px;}
+.topbar{display:flex;align-items:center;gap:12px;padding:18px 0 0;}
+#toggle{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;cursor:pointer;font-size:13px;color:var(--muted);}
+.hero{background:linear-gradient(135deg,#1d5fd6,#3b7bff);color:#fff;border-radius:16px;padding:30px 32px;margin:14px 0 26px;}
+.hero h1{margin:0 0 8px;font-size:26px;}
+.hero p{margin:0;opacity:.92;font-size:14px;}
+.map{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:26px;}
+.map h3{margin:0 0 4px;font-size:16px;color:var(--brand);}
+.map .hint{font-size:12.5px;color:var(--muted);margin-bottom:16px;}
+.map .row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.map .node{border:1px solid var(--line);border-radius:10px;padding:14px 12px;background:#fbfcfe;}
+.map .node .n{font-size:12px;font-weight:700;color:var(--brand);margin-bottom:4px;}
+.map .node .t{font-size:13.5px;font-weight:600;margin-bottom:4px;}
+.map .node .d{font-size:12px;color:var(--muted);}
+section{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px 26px;margin-bottom:24px;}
+section h2{margin:0 0 6px;font-size:20px;color:var(--brand);border-left:4px solid var(--brand);padding-left:12px;}
+section h2 .tag{font-size:12px;color:#fff;background:var(--brand);border-radius:20px;padding:2px 10px;margin-left:10px;vertical-align:middle;}
+section .lead{color:var(--muted);font-size:13.5px;margin-bottom:18px;padding-left:16px;}
+section h3{font-size:16px;margin:22px 0 10px;color:var(--ink);border-bottom:1px dashed var(--line);padding-bottom:6px;}
+section h4{font-size:14.5px;margin:14px 0 6px;color:var(--brand);}
+.card{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0;background:#fbfcfe;}
+.card.case{border-left:4px solid var(--purple);background:var(--purple-soft);}
+.case .cno{display:inline-block;background:var(--purple);color:#fff;font-size:12px;border-radius:6px;padding:2px 8px;margin-bottom:6px;}
+.case .ct{font-weight:700;font-size:14.5px;margin-bottom:6px;}
+.case .bg{font-size:13px;color:var(--muted);margin-bottom:6px;}
+.case .pro{font-size:13.5px;margin-bottom:6px;}
+.case .fix{font-size:13.5px;}
+.case .lbl{display:inline-block;font-size:11.5px;font-weight:700;border-radius:5px;padding:1px 7px;margin-right:6px;vertical-align:middle;}
+.lbl.bg{background:var(--brand-soft);color:var(--brand);}
+.lbl.pro{background:var(--warn-soft);color:var(--warn);}
+.lbl.fix{background:var(--ok-soft);color:var(--ok);}
+.case ul,.case ol{margin:6px 0;padding-left:20px;}
+.case li{margin:3px 0;font-size:13.5px;}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.def{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:#fbfcfe;margin:8px 0;}
+.def .k{font-weight:700;color:var(--brand);font-size:13.5px;margin-bottom:4px;}
+.def .v{font-size:13.5px;}
+.warnbox{background:var(--warn-soft);border:1px solid #f3cfa0;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:13.5px;}
+.warnbox .wt{font-weight:700;color:var(--warn);margin-bottom:4px;font-size:13px;}
+.keybox{background:var(--key-soft);border:1px solid #f3b8d1;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:13.5px;}
+.keybox .wt{font-weight:700;color:var(--key);margin-bottom:4px;font-size:13px;}
+.okbox{background:var(--ok-soft);border:1px solid #b3e0c4;border-radius:10px;padding:12px 16px;margin:12px 0;font-size:13.5px;}
+.okbox .wt{font-weight:700;color:var(--ok);margin-bottom:4px;font-size:13px;}
+ul.clean,ol.clean{margin:8px 0;padding-left:22px;}
+ul.clean li,ol.clean li{margin:4px 0;}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+th{background:var(--brand-soft);color:var(--brand);font-weight:600;}
+tr:nth-child(even) td{background:#fbfcfe;}
+.memo{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:26px;}
+.memo h3{margin:0 0 4px;font-size:16px;color:var(--key);}
+.memo .hint{font-size:12.5px;color:var(--muted);margin-bottom:16px;}
+.memo .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.memo .m{border:1px solid var(--line);border-radius:10px;padding:14px 12px;background:#fbfcfe;}
+.memo .m .no{font-size:11px;font-weight:700;color:var(--key);margin-bottom:4px;}
+.memo .m .t{font-size:13px;font-weight:600;margin-bottom:4px;}
+.memo .m .d{font-size:12px;color:var(--muted);}
+.quiz{background:var(--ok-soft);border:1px solid #b3e0c4;border-radius:12px;padding:18px 20px;margin-top:20px;}
+.quiz h4{margin:0 0 8px;color:var(--ok);font-size:15px;}
+.quiz .q{font-size:13.5px;margin:8px 0;}
+.quiz .a{font-size:13px;color:var(--muted);margin:4px 0 10px;padding-left:18px;border-left:2px solid var(--ok);}
+.quiz .a b{color:var(--ok);}
+footer{text-align:center;color:var(--muted);font-size:12.5px;padding:20px 0;}
+@media(max-width:980px){.map .row{grid-template-columns:1fr 1fr;}.memo .grid{grid-template-columns:1fr 1fr;}.cols{grid-template-columns:1fr;}}
+</style>
+
+/* ===== fold6-adapt: vivo X Fold6 折叠屏适配 (安全区/行宽/断点/防溢出) ===== */
+html{scroll-behavior:smooth}
+body{font-size:17px;line-height:1.8}
+.content,.inner,#main,main{max-width:38em;margin:0 auto}
+img,video,table,pre,iframe{max-width:100%;height:auto}
+table{display:block;overflow-x:auto}
+@media (min-width:600px){
+  body{font-size:19px}
+}
+@media (max-width:600px){
+  .content,.inner,#main,main{max-width:none}
+  .wrap{padding-left:20px!important;padding-right:20px!important}
+}
+img,video,svg,canvas{max-width:100%}
+/* ===== end fold6-adapt ===== */
+
+
+/* ===== fold6-center: 隐藏目录后内容居中 ===== */
+#sidebar.hidden{position:absolute;left:0;top:0;width:var(--sidebar-w);z-index:900;}
+#sidebar.hidden ~ main,
+#sidebar.hidden ~ #main,
+#sidebar.hidden ~ .content,
+#sidebar.hidden ~ .inner{max-width:none;margin:0;padding-left:20px;padding-right:20px;}
+#sidebar.hidden ~ main > *,
+#sidebar.hidden ~ #main > *,
+#sidebar.hidden ~ .content > *,
+#sidebar.hidden ~ .inner > *{max-width:38em;margin-left:auto;margin-right:auto;}
+/* ===== end fold6-center ===== */
+
+</head>
+<body data-page-node-id="TUSOlnQI9jN4kW9A7eHg19">
+<div id="progress" data-page-node-id="4E6A8iS0y9wYCRtOs1WZrG"></div>
+<div class="layout" data-page-node-id="vtCa8FAmijml0jq8fp7cmF">
+<aside id="sidebar" data-page-node-id="AXpn1EfzoeB6jXgBGMNCEs">
+  <h2 data-page-node-id="xvGDPwhOOwybDfQfOPBpYr">第七章 底稿与档案</h2>
+  <div class="sub" data-page-node-id="dFu919eFndcZZHBAl1erjd">2 节 · 底稿 + 档案全流程</div>
+  <a href="#map" data-page-node-id="S2mXPRWbVlfxZ4aba7n2SF">🗺️ 学习地图</a>
+  <a href="#memo" data-page-node-id="9Ji3TCExz8hD6mCDmu4t3j">📌 高频考点速记卡</a>
+  <a href="#s1" data-page-node-id="7j8aEEVMGYNHXc0ok24xXi">第一节 评估项目工作底稿</a>
+  <a class="lv2" href="#s1-1" data-page-node-id="Rcf8zHV6wyfbE7ACZHJIOs">一、基本概念与作用</a>
+  <a class="lv2" href="#s1-2" data-page-node-id="ZPbBZ1xPnzonu2lAMFXZ4c">二、分类</a>
+  <a class="lv2" href="#s1-3" data-page-node-id="3kvXwVxT50CqU5s9pxqAoF">三、编制要求（六项）</a>
+  <a class="lv2" href="#s1-4" data-page-node-id="8pjLJACzqSTFGGxxvUqnJu">四、底稿内容（管理+操作）</a>
+  <a href="#s2" data-page-node-id="SUkAoOFHR7WfwBPgmLX18Q">第二节 评估项目档案管理</a>
+  <a class="lv2" href="#s2-1" data-page-node-id="nfT20Mge5nQGFKwFulIn8h">一、基本概念</a>
+  <a class="lv2" href="#s2-2" data-page-node-id="4N6GQNbyhcrEdD1cmJ3Gxr">二、管理六环节</a>
+</aside>
+<main data-page-node-id="AJxYmRPvRzgiEcUMi812je">
+<div class="topbar" data-page-node-id="BkGFmlcVFyIlJn9UFcCaQO"><button id="toggle" onclick="toggleSidebar()" data-page-node-id="AH6dVttC6Pemvnuif24ZOF">☰ 目录</button></div>
+<div class="hero" data-page-node-id="hbkk8NNpxmmgkPZ3tdRXcO">
+  <h1 data-page-node-id="guDv7hmO1aFLfFugGuphtn">第七章 · 矿业权价值评估项目工作底稿与档案</h1>
+  <p data-page-node-id="NTy7NgZFVXFpzI6EPTDgLT">评估"留下什么、怎么留、留多久" —— 工作底稿是评估的"证据链"，档案是它的"归宿"。本章两节：底稿（编什么、怎么编）+ 档案（归档、保管、查阅、销毁）。</p>
+</div>
+
+<div class="map" id="map" data-page-node-id="CzTz9F0FtApbiXZAhVddTN">
+  <h3 data-page-node-id="Q4Tqa15WaixHcelRVkMSPP">🗺️ 学习地图</h3>
+  <div class="hint" data-page-node-id="a31hJhX1hlYKXjMrezYVVX">本章 2 节，一条主线：底稿（执行中的记录）→ 档案（项目后的归档保管）</div>
+  <div class="row" data-page-node-id="gfoTuNIIVUT4luODlWbWNQ">
+    <div class="node" data-page-node-id="AvERH4GCMuYTLTxK1niOjk"><div class="n" data-page-node-id="1B1IlPhAkaitQAkI8RlVeU">第 1 节点</div><div class="t" data-page-node-id="tbFSWHxicAmcseUKZXFaYU">底稿基本概念</div><div class="d" data-page-node-id="IqNwD22IFfVtzhK4u0Gq73">定义 + 四大作用 + 两类分类</div></div>
+    <div class="node" data-page-node-id="jw8oIe94SYE10RxJz9va2H"><div class="n" data-page-node-id="pIWK0qVv77ho5JcU8hDGeI">第 2 节点</div><div class="t" data-page-node-id="NGoFjX7EOcIMb7A9dDu2KM">编制要求六项</div><div class="d" data-page-node-id="wez7xo53wkoiLPNycjgb8v">合规·程序·真实·确认·审核·归档</div></div>
+    <div class="node" data-page-node-id="eYVNXpeNw115GYs28PKAEN"><div class="n" data-page-node-id="KdKaqccFUMkHpDIKKByfaD">第 3 节点</div><div class="t" data-page-node-id="QcjNty6eHeiWIiGvFI1SXn">底稿内容</div><div class="d" data-page-node-id="7mUjbZM1gbh1PnLtHItHea">管理类 4 项 + 操作类 8 项</div></div>
+    <div class="node" data-page-node-id="NRWr2BaJhFttzvPTB0thRr"><div class="n" data-page-node-id="zwte26TZjqIHV8NncN8CVN">第 4 节点</div><div class="t" data-page-node-id="wcxC5jMHwvzZmO9UpUfqhR">档案六环节</div><div class="d" data-page-node-id="qeJxbnfiUPtPUDSabAp3Py">归档·立卷·整理·保管·查阅·销毁</div></div>
+  </div>
+</div>
+
+<div class="memo" id="memo" data-page-node-id="A7VX5ASmr1hvMeo7BtpuCP">
+  <h3 data-page-node-id="1sF46GrWfSRb9HNo1oF1W9">📌 高频考点速记卡</h3>
+  <div class="hint" data-page-node-id="fB32dYF8a29ZB6z9f1xOFh">先记 8 张数字/要点卡，再进正文。底稿题多考"作用"和"编制要求"，档案题多考"期限"和"查阅"。</div>
+  <div class="grid" data-page-node-id="aj9cuSkGo8v6Ez98uXeipS">
+    <div class="m" data-page-node-id="ohmYVqseBtQ5FcmFFLD8EE"><div class="no" data-page-node-id="wqCg8PlCSBI1iapa7HZnZS">CARD 01</div><div class="t" data-page-node-id="ARl7ZMBWD9jI0DZmY6liHU">底稿定义核心</div><div class="d" data-page-node-id="28UJIHR27G4khXmgurgk80">执行中形成，反映程序履行 + 支持结论的依据、记录、资料</div></div>
+    <div class="m" data-page-node-id="IJcbeQGKsHabBMfLzGR286"><div class="no" data-page-node-id="SQndTC5cqJTE3VUh6CaVaX">CARD 02</div><div class="t" data-page-node-id="YDCOrSTmPyOB67cRPuNwkB">底稿四大作用</div><div class="d" data-page-node-id="cQdePfDRdVYNT7JYGFiS2H">①结论/报告依据 ②质检查/复议/诉讼依据 ③质控+胜任能力评价 ④实践参考资料</div></div>
+    <div class="m" data-page-node-id="TQisq4s3Aiv3AsnxNUUBsH"><div class="no" data-page-node-id="k46Bers9oEvnKqBSpUdGTX">CARD 03</div><div class="t" data-page-node-id="59BzOgorDFG0DgXTpE7u6P">底稿两分类</div><div class="d" data-page-node-id="3bp7iUy4dRLkomuPX2bEBv">管理类（承接计划控制管理）+ 操作类（尽职调查/参数确定等过程记录）</div></div>
+    <div class="m" data-page-node-id="nYWAqK2zKuw6mquIpa7Gwu"><div class="no" data-page-node-id="tJHrECIXeK7bqtx89qcvdV">CARD 04</div><div class="t" data-page-node-id="ab5el6XGuQuyMhkDD8zG0W">编制要求六项</div><div class="d" data-page-node-id="pZtziPdkQ5n1a45bwmQuZv">①合规 ②反映程序 ③内容真实要件齐全 ④资料提供方确认 ⑤反映内审 ⑥满足归档查阅</div></div>
+    <div class="m" data-page-node-id="pnOtP3Bz7LctgxYzlpuB4L"><div class="no" data-page-node-id="Rofz4AMYNmq5uSzG6pfWGR">CARD 05</div><div class="t" data-page-node-id="lh6CF0A8bBTzQyG5hLcT1v">管理类 4 项</div><div class="d" data-page-node-id="QpCFa2XNskDN3BDPvJ9fSa">委托合同·工作计划·重大问题处理记录·报告审核记录</div></div>
+    <div class="m" data-page-node-id="W1ZlMjGzVcgFm2ZoowRn6V"><div class="no" data-page-node-id="crlVW8lFdVVB1QqppBGMSE">CARD 06</div><div class="t" data-page-node-id="o6qS5Qge8uAkMAKBys1Qjp">操作类 8 项</div><div class="d" data-page-node-id="5GVzyh7KBJaDOZurvaEz6i">尽职调查·权属·地勘储量·矿山设计·财务·政策文件·市场信息·参数过程</div></div>
+    <div class="m" data-page-node-id="AZpGnEnADhx0IS8Zr5ydrA"><div class="no" data-page-node-id="FMLpuf26Wg1DeD3Cf6EXGe">CARD 07</div><div class="t" data-page-node-id="oNYePtGwf2RVeuq3XlsE0r">档案保存期限</div><div class="d" data-page-node-id="GbXU1K93XWKAStQU7LJMIB">不少于 15 年；法定评估业务不少于 30 年（易混数字，重点记）</div></div>
+    <div class="m" data-page-node-id="Ys0hDwgIVI7fnRKd55R31h"><div class="no" data-page-node-id="7hpYO40y9kdqQ6duzuwnCC">CARD 08</div><div class="t" data-page-node-id="I2rmevB72tRejaP4nEVoag">档案六环节</div><div class="d" data-page-node-id="XgmfPY2odEOuACZFNMWibZ">归档·立卷·整理·保管·查阅·鉴定销毁；归档=报告出具/采用日起 3 个月内</div></div>
+  </div>
+</div>
+<section id="s1" data-page-node-id="JXqNwcoaAqcrbdfyEalvqC">
+  <h2 data-page-node-id="kDjsBTGdZGXj2u1fRVryn6">第一节 · 矿业权价值评估项目工作底稿 <span class="tag" data-page-node-id="FwR7oWdfbkvGYnEM4sbHMZ">核心</span></h2>
+  <div class="lead" data-page-node-id="4DGe6sYUpAsF13eZaqIsBi">底稿 = 评估过程的"证据链"。先记定义与作用，再记分类，最后记编制要求六项与内容构成。</div>
+
+  <h3 id="s1-1" data-page-node-id="XeHyb7SKZkkSJAlmCmTS14">一、基本概念与作用</h3>
+  <div class="def" data-page-node-id="taG7zwD0UwpXXYeg2G7wqe">
+    <div class="k" data-page-node-id="D6GPvR1F8K5erJUmJbzpBo">📖 工作底稿定义（《矿业权评估项目工作底稿规范》）</div>
+    <div class="v" data-page-node-id="tNWKM6bW2fr48O230x2JWK">矿业权价值评估专业人员执行评估业务中形成的，<b data-page-node-id="KybA96CZuAIOZQfRLHhyJv">反映评估程序履行情况、支持评估结论</b>的相关依据、记录和资料。</div>
+  </div>
+  <div class="cols" data-page-node-id="wuFoiBlw9OgqSuILTnYtHu">
+    <div class="def" data-page-node-id="fsqZ1ctxyvRJntYYv37p6k">
+      <div class="k" data-page-node-id="tcsyzt8zETDs1tzwespNsF">作用 ① 结论与报告的直接依据</div>
+      <div class="v" data-page-node-id="m0OiWjoT6NWXrY8SVYoa0f">不仅含支持结论的依据、资料，还含履行程序、专业分析判断<b data-page-node-id="oi5dk3kmxDia3elrG6pnsV">全过程</b>记录，是编制出具评估报告的直接依据。</div>
+    </div>
+    <div class="def" data-page-node-id="7jVNIfB9vO31VgEXeeGnFg">
+      <div class="k" data-page-node-id="WBrzCF4lACqTh3ZckCGXfN">作用 ② 质检查 / 复议 / 诉讼依据</div>
+      <div class="v" data-page-node-id="VQFgPDdxtyBZmXXIvjIzUV">开展质量检查、执业责任鉴定或相关案件复议、诉讼时，底稿全面反映是否独立客观公正执行、正确履行程序、形成合理结论。</div>
+    </div>
+    <div class="def" data-page-node-id="VMcCp6FCqCLKF9qojADBKI">
+      <div class="k" data-page-node-id="xNrBuU0qFXYmo9ZMihZK5s">作用 ③ 质控 + 胜任能力评价</div>
+      <div class="v" data-page-node-id="J7it8ISHp9IejH0RSNOzZ8">机构内部审核、质量管理中，底稿帮助质控人员开展工作；并反映专业人员把握项目、专业判断的能力水平和业绩。</div>
+    </div>
+    <div class="def" data-page-node-id="JN9pvieVcBCCYz4Us6wlcW">
+      <div class="k" data-page-node-id="0S35kWgyG3iwGDQdRTWLHc">作用 ④ 重要实践参考资料</div>
+      <div class="v" data-page-node-id="I2on6TYx65W1RJgAr3AtqS">一是技术理论研究的基础资料；二是总结评估工作、开展同类/后续项目的参考资料。</div>
+    </div>
+  </div>
+
+  <h3 id="s1-2" data-page-node-id="5wXo3MQun3eCMZD59utDuj">二、分类（两个维度）</h3>
+  <table data-page-node-id="9XfTeEoI1zlSKFpVhWezsS">
+    <tr data-page-node-id="w2Pb4OhdcJzdO8TD7gfljW"><th data-page-node-id="uTqE1BKO6F9mpEn4LePCnB">分类维度</th><th data-page-node-id="DAzcNHsRZKgPgPT5B9fhkD">类别</th><th data-page-node-id="ZXLBkGmwaQdhLdf79icwi6">含义</th></tr>
+    <tr data-page-node-id="ZI8snGPjMsASI8POLRCRuA"><td rowspan="2" data-page-node-id="KRwXrNuLALDMl90tduu5qo">按内容（主分类）</td><td data-page-node-id="lXRralihnavqRIAvgDzE6J">管理类工作底稿</td><td data-page-node-id="GkGuzAq4w5TrFnq5HT1t2L">为<b data-page-node-id="JPSeoLxpm9yCxjq69gcAFF">承接、计划、控制和管理</b>评估项目所形成的行为依据、工作记录及其他资料</td></tr>
+    <tr data-page-node-id="EvZbnOrBsYqt67dWGSJowj"><td data-page-node-id="rLJme3DguNH9WetNQuJ8Rv">操作类工作底稿</td><td data-page-node-id="56UG98LnJgwEqCs2chW24Z">反映<b data-page-node-id="ZACrHn6Ifvduz8xE8399N7">尽职调查、评估参数确定</b>等评估过程的工作记录，及产权证明、取价依据等价值估算依据资料</td></tr>
+    <tr data-page-node-id="FvaHIGRDJvMMsTAeCeQFDe"><td data-page-node-id="7NifDi19GbxpEShXOm4ApB">按载体介质</td><td data-page-node-id="EDPwOTQucUPFCQMxf0iV4Z">纸质 / 电子 / 其他介质文档</td><td data-page-node-id="98lRtldCFH1EVlxsolaR2G">无论何种介质，都必须满足归档、查阅需要</td></tr>
+  </table>
+
+  <h3 id="s1-3" data-page-node-id="3bKpOeWBFxvAemg04x1F90">三、编制要求（六项，重点）</h3>
+  <div class="okbox" data-page-node-id="Sa8FHrfDUEBdzYdrx2t14S"><div class="wt" data-page-node-id="G4l4NS49G8CltNfj4e5OwH">✔ 六项要求口诀：合规 · 程序 · 真实 · 确认 · 审核 · 归档</div>
+  ① 遵守法律法规 + 准则要求（《资产评估法》《国有资产评估管理办法》《矿业权评估技术基本准则》《程序规范》《工作底稿规范》）</div>
+  <ul class="clean" data-page-node-id="H4iG1UkqI7A5tR4THQeS6I">
+    <li data-page-node-id="qelYOA6oGQ7wsoHKLwG5Yq"><b data-page-node-id="NYF4IXx0q08OJrTzFszV6d">① 合规</b>：遵守法律法规对底稿编制管理的规定 + 遵守矿业权价值评估准则的规范要求。</li>
+    <li data-page-node-id="J69LkEyVrVOPa2AeE9VB0k"><b data-page-node-id="8N7NDl7Sz97gKOnS4SnBpF">② 反映程序、支持结论</b>：如实反映<b data-page-node-id="PSlZ1rjM0PsjGlqmw8ICAX">八项评估程序</b>履行情况 + 记录从洽谈、委托到完成的全过程；支持结论的所有资料均应形成底稿；满足后<b data-page-node-id="OUn4fcTGfIQQZ1rVCHSXpS">可合理确定详简程度</b>。</li>
+    <li data-page-node-id="FRQFcpV93qGZ9WokOUTcWL"><b data-page-node-id="oUnFNZTN6WZ77Euu6kF4X8">③ 内容真实、要件齐全、格式规范、标识一致、记录清晰完整</b>：内容须实际存在/发生<b data-page-node-id="k6YOEMNHXF1PVOoO2bkDVy">不得杜撰</b>；准则规定内容（尤其程序履行 + 支持结论）不能缺少；按机构统一格式与标识；调查笔记清晰；扫描件与原件一致；资料完整不得遗漏页码。</li>
+    <li data-page-node-id="ohHqUV87cyG3YLmDY0jEAW"><b data-page-node-id="tlCEI00KRMvbHHNneLEkjt">④ 资料提供方确认</b>：落实《资产评估法》"委托人对所提供权属证明、财务会计信息和其他资料的<b data-page-node-id="k1lX3XWgX3KShc8FmEPRz4">真实性、完整性、合法性</b>负责"；确认方式含<b data-page-node-id="kROA57ROzpq3IBDlN6lK0i">盖章、签字及法律允许的其他方式</b>。</li>
+    <li data-page-node-id="Q00aGy5ph0yapHHzFD3sk0"><b data-page-node-id="r3zEsiCp3ALEp4NJkQ7QXL">⑤ 反映内部审核过程</b>：机构委派专人审核，审核内容含编制是否符合准则、文字数字计算是否清晰正确；<b data-page-node-id="OVqZRxrp0CBS1pfiRFz7V5">审核人员应出具审核意见并签字</b>。</li>
+    <li data-page-node-id="LzIJZHhrkylY36bWMlDrAl"><b data-page-node-id="B7RCNhDgHyQpCupNYZDahC">⑥ 满足归档、查阅需要</b>：介质可纸质/电子/其他；内容繁多应<b data-page-node-id="999vni0elqfDgCou8wRbGu">编制目录</b>，必要时建立<b data-page-node-id="gsqHe4fgOp6UEpUd3adcPD">索引号</b>。</li>
+  </ul>
+
+  <h3 id="s1-4" data-page-node-id="CEg1a2DwXSw1hC0YxzvFZh">四、底稿的内容构成</h3>
+  <h4 data-page-node-id="nMhuDnqff18PIiuXBttKja">（一）管理类工作底稿 —— 4 项</h4>
+  <table data-page-node-id="OXpW3eIMXfmzYiEhYy3I5c">
+    <tr data-page-node-id="IBfc0z0QFobxrycz72tv1Z"><th data-page-node-id="F48bUGLAbNFUgsBsuLiG2R">项目</th><th data-page-node-id="zxHF5VVtSIvSj7oAE6xmrB">要点</th></tr>
+    <tr data-page-node-id="UG60tNt90nZhlN0hAwvvOB"><td data-page-node-id="L2aCyJHQDk9JNZdHKcLov6">1. 评估委托合同（业务约定书）</td><td data-page-node-id="iA3Yyr4LxzZrkKMNcTqe7Q">含招投标文件、正式合同及变更；项目洽谈人/委托人/相关当事人信息、评估目的、对象范围、基准日、服务费、报告类型、提交时间方式、使用者及使用方式等<b data-page-node-id="cGBqXKgoZkmdYGOUYkDJuQ">基本事项</b></td></tr>
+    <tr data-page-node-id="pvG4H0fR7munTZB3gdtWX6"><td data-page-node-id="c1CMmqrCx2WsdZAtfAEVb0">2. 评估工作计划</td><td data-page-node-id="vq8TaLncoPfoP2ju5zhIyM">承办人员确定记录、相关技术方案、对计划变更与审核的记录</td></tr>
+    <tr data-page-node-id="RBMYeg0nD8zq96ZpQU3zVQ"><td data-page-node-id="HP4ctKZCKcY3OS8BAKrjvJ">3. 重大问题处理记录</td><td data-page-node-id="fm1mLUSzp671K0HECFf7Nh">①聘请专家/专业机构情况；②项目监督管理情况（文件、书面意见、会议纪要）；③重大问题处理（含提供影响结论资料的、无法正常履行程序的，逐级请示报告 + 批示 + 处理记录）</td></tr>
+    <tr data-page-node-id="6d8Qf45dtB1pbdjUuU5Gkc"><td data-page-node-id="lr0BifiRaeMCGALlW5g8yW">4. 评估报告审核记录</td><td data-page-node-id="2uEmACn8vxog0j2iTayt53">机构内三级审核签字意见及处理；委托人意见及处理；管理部门管理/评审意见及处理；外部专家审核审查意见及处理</td></tr>
+  </table>
+
+  <h4 data-page-node-id="TH5iXdkHjY844hLDd2H7C8">（二）操作类工作底稿 —— 8 项</h4>
+  <table data-page-node-id="kfjU5WPjzjmQPcjBMtBfBL">
+    <tr data-page-node-id="WHBPTQydRvLriCaRLjw5Lj"><th data-page-node-id="b3WDLRhYczQ5YzLLz97SKz">项目</th><th data-page-node-id="X4wJ2lCkkOPV4Cc5YlBzvh">要点</th></tr>
+    <tr data-page-node-id="sKzPZykCUWgq0CRPJEpFy0"><td data-page-node-id="wfhKnyHYdSFCxECHtP3KDb">1. 尽职调查记录</td><td data-page-node-id="VVV1tGjVxR1Aw6hcjMLvE6">符合《矿业权评估程序规范》；对结论有重大影响的相关资料应<b data-page-node-id="mpFioLC0fWTWDNGJfDaVcs">重点突出</b>体现</td></tr>
+    <tr data-page-node-id="xlalcvsevtyeLB6mqeo7xs"><td data-page-node-id="XK8vSZR7vX31LhoETSPVkR">2. 矿业权权属类文件</td><td data-page-node-id="2GbNUzpnq2Cib7VJecf9KC">勘查许可证、采矿许可证及划定矿区范围批复等；历史形成文件一并纳入</td></tr>
+    <tr data-page-node-id="eEM1XaRSEEYDD3maPuWHAe"><td data-page-node-id="16APs5QakWCtW7fdLvpAne">3. 地勘文件 / 储量报告（含图件）/ 矿山设计文件</td><td data-page-node-id="XuDRPLNhrpfCpCwk6Wzf7E">须<b data-page-node-id="dZBrpGoMXhzvxCpgwtY1gS">完整</b>：文件本身 + 评审意见 + 备案证明 + 有关部门批复，地勘与储量报告还含图件；必要时纳入历史勘查资料</td></tr>
+    <tr data-page-node-id="CrPnv2YmjbMEkI4aVDQG6F"><td data-page-node-id="X49fEhV07UodmTEaMaqAS3">4. 企业财务报告及生产经营资料</td><td data-page-node-id="MNrUIOdBvoIXwVS3Yi8HQG">除财务报表外，生产能力批复、安全生产许可等相关材料一并纳入</td></tr>
+    <tr data-page-node-id="3UBrXERQ2H4vz5DM7n1pGa"><td data-page-node-id="xIMYGCzitYtAtDDG5t0m2T">5. 参数确定依据的政策性文件</td><td data-page-node-id="emyBS7Lm17j6LGsckqaTCh">除法律法规、规范性文件外，有关部门针对该项目/企业的相关文件一并纳入</td></tr>
+    <tr data-page-node-id="ZtgGnzRRcTn625FR9yKdbm"><td data-page-node-id="csrw0H5f9YB1nv4PvzwAYe">6. 矿产品市场相关信息资料</td><td data-page-node-id="eI4UcdGAxbCBkIYzc9P9NI">市场调查记录及数据分析、市场询价记录等，应<b data-page-node-id="7bJWibOixpDzZvNaUHcstW">明确出处</b></td></tr>
+    <tr data-page-node-id="Gi8pVSnlR2nrYTmQmC3eP7"><td data-page-node-id="PeSJxSwECjfUDNnG6HM8vh">7. 评估参数确定过程</td><td data-page-node-id="MeMasusXpXkcxc3szR3zwV">参数选取、分析、判断、计算、确定的过程记录；参数确定、计算、结论形成过程一并纳入</td></tr>
+    <tr data-page-node-id="eU9oZaxGpbmUtWr5iEaCkk"><td data-page-node-id="nzJ12p9Wm5mEtost9efJwG">8. 评估收集的其他相关资料</td><td data-page-node-id="nedyBHwoqSldD9kjJiqRPs">其他与价值估算相关的补充资料</td></tr>
+  </table>
+
+  <div class="warnbox" data-page-node-id="SF2knywONXY0JlEKGzBfA8"><div class="wt" data-page-node-id="pSwiqUFgH0kMDzNT5mwINp">⚠ 易错提醒</div>
+  ① 底稿内容<b data-page-node-id="uhL5yibi5wONEyzjBSTCyg">不得杜撰</b>，必须实际存在或实际发生；② 扫描件要与<b data-page-node-id="0YLLF0zp5vSbO6Jo9v8A7p">原件一致</b>且清晰；③ 资料提供方确认 = <b data-page-node-id="QH1n2iISoPA7AERe2UiYwU">盖章 / 签字 / 法律允许的其他方式</b>；④ 内审由<b data-page-node-id="SGoeFjRnattF9voLmGijVF">专人</b>负责，审核人员须<b data-page-node-id="UD03A1FZYIHG8HS9VJzMWX">出具意见并签字</b>；⑤ 编制要求③中"标识一致"指同一机构不同项目须统一格式与标识。</div>
+
+  <div class="quiz" data-page-node-id="adeRIMAHK5BsEiLmeOkFCS">
+    <h4 data-page-node-id="H48643lPCjm23Cn57uMs4m">第一节 · 考点自测</h4>
+    <div class="q" data-page-node-id="HE6SUmuuRr1s8GA2QP65Uw">Q1：工作底稿的四大作用是什么？</div>
+    <div class="a" data-page-node-id="iE1nfgCGjme6Px3Rv3chUF">① 形成结论、编制出具评估报告的直接依据；② 质量检查、责任鉴定、复议和诉讼的重要依据；③ 机构质量控制、评价专业人员胜任能力和工作业绩的依据；④ 重要的实践参考资料。</div>
+    <div class="q" data-page-node-id="qI9kbBiWWwmevXhSRB83uf">Q2：编制要求中，"资料提供方确认"是为了落实《资产评估法》的什么要求？确认方式有哪些？</div>
+    <div class="a" data-page-node-id="QxDXRROek31nylG8X9MCHM">落实委托人对其提供的权属证明、财务会计信息和其他资料的<b data-page-node-id="9l6ItltnJYyWV5P4X9JXIq">真实性、完整性和合法性</b>负责的要求；确认方式包括<b data-page-node-id="ZhUBywpGNV98dnAQNrraKC">盖章、签字及法律上允许的其他方式</b>。</div>
+    <div class="q" data-page-node-id="6wva0uV2YoUjBRFpsN8eIi">Q3：管理类与操作类工作底稿各含哪些主要内容？</div>
+    <div class="a" data-page-node-id="CHu6PVEEJCs2EKeZ0G7zny">管理类 4 项：委托合同、工作计划、重大问题处理记录、报告审核记录；操作类 8 项：尽职调查记录、权属类文件、地勘/储量/矿山设计文件、企业财务报告及生产经营资料、参数政策文件、矿产品市场信息、参数确定过程、其他相关资料。</div>
+  </div>
+</section>
+<section id="s2" data-page-node-id="Ax0rc6Mr0AJOsjaajEVIrG">
+  <h2 data-page-node-id="n1X9MdsE9zFceWtM94o1nr">第二节 · 矿业权价值评估项目档案管理 <span class="tag" data-page-node-id="FACYz6X149EmTqtHjDIkDV">流程</span></h2>
+  <div class="lead" data-page-node-id="in6Hi2pFcM8o7VVj0Vioto">档案 = 项目结束后归档保管的历史记录。一条主线：归档 → 立卷 → 整理 → 保管 → 查阅 → 鉴定销毁。</div>
+
+  <h3 id="s2-1" data-page-node-id="OzBZRlMD0hqh9k4oJRMXXV">一、基本概念</h3>
+  <div class="def" data-page-node-id="hKB6HRUO3xbrH9lnd3eVtk">
+    <div class="k" data-page-node-id="89TKtLzkKg8r0kzQ8vwYou">📖 项目档案定义（《矿业权评估项目档案管理规范》）</div>
+    <div class="v" data-page-node-id="1QBNxUVXzehlhFpV5YJ98a">矿业权价值评估业务中形成的，具有<b data-page-node-id="i1qgnR6L8Ql1hukvF5vKDe">保存价值</b>的各种文字、图表和声像等不同形式的<b data-page-node-id="lutawoAtwZHhVhctZjoyww">历史记录</b>。</div>
+  </div>
+  <ul class="clean" data-page-node-id="Na03fzEB3mHXFZk12S02LI">
+    <li data-page-node-id="dBE1vhtcqblgxnHTf5qsXO">管理须遵守《中华人民共和国档案法》《资产评估法》及矿业权价值评估准则等法律、行政法规和技术规范。</li>
+    <li data-page-node-id="OoEw4vi9aAgELsHTv04ZAz">机构应<b data-page-node-id="D2mp4xCsvKshYl47XEkQvB">建立健全档案管理制度</b>，配置档案管理人员，采用科学方法管理，提高管理水平。</li>
+  </ul>
+
+  <h3 id="s2-2" data-page-node-id="pfO8TPzCjOml6DJDNUWPHA">二、档案管理六环节</h3>
+  <table data-page-node-id="rPPC792uOKg2tyRE1aTLab">
+    <tr data-page-node-id="S49SngDylzbAiHXrMRYwoI"><th data-page-node-id="bq9hrFtQ5E47bozLg1lH5o">环节</th><th data-page-node-id="wBLfrVQmI4Dfrl4UAWmhE6">要求与方法</th></tr>
+    <tr data-page-node-id="MuNHeAaG9f3E432DibtAaZ"><td data-page-node-id="7XekCcJ1KFnRSH3ziix7vp">① 归档</td><td data-page-node-id="KAhxxmYzVDVAHz3wdgqiqO"><b data-page-node-id="QJHtqGXKIPAL4NrFYqyY6p">范围</b>：工作底稿、评估报告、项目管理文件资料等。<b data-page-node-id="DJtFIkQgHOi8J4Ei5z2wVp">时间</b>：项目结束后，自评估报告出具日或评估结论采用日（矿业权出让收益评估项目）起 <b data-page-node-id="1scxCoKlDg71y8WsxrLUMp">3 个月内</b>。<b data-page-node-id="f4uqvXu7NkbJbw3x4HTMar">手续</b>：项目组编制移交目录，档案管理人员逐一清点、检查案卷质量、核对目录，交接双方在移交目录备考表上签字。</td></tr>
+    <tr data-page-node-id="38EaVBN6H2zJmRiRL2kfZp"><td data-page-node-id="A0ZcfJ2clTYLaclPQ4xbuD">② 立卷</td><td data-page-node-id="UUIFlk68K3tZDwVgQVWVIc"><b data-page-node-id="i0ojrEdmjRp1iyDoAjhBDX">方法</b>：以评估项目为单元，<b data-page-node-id="Yqh1XHW91ABPurjcPPrxK8">一项一卷</b>，不得两个及以上项目合并立卷；跨年度项目也按项目立卷，案卷存放于评估报告文号注明的年度类别中。<b data-page-node-id="eYpkc1zG0dCdcxTEa5jhxJ">编目</b>：案卷封面、案卷标题、卷内文件目录。</td></tr>
+    <tr data-page-node-id="sakTqO0G9zsct8yCpogwWs"><td data-page-node-id="qcKO6k1KlgaIpxAa4sltE0">③ 整理</td><td data-page-node-id="THrJGS4JJzkZH5d2AlxyEP">分类方法可由机构自行选择，但<b data-page-node-id="ePDipFUyEkqPwarcYKuYkg">只能采用一种</b>，不能同时采用两种以上。</td></tr>
+    <tr data-page-node-id="qfyGCfBPaGZw8GmGKrSNvG"><td data-page-node-id="BZFQZ1xjFB2c1ufCfTwzGD">④ 保管</td><td data-page-node-id="CyHhCDpEEsj5BYqgJeavqj"><b data-page-node-id="hDh5pH6nKWnMizQe63c60y">要求</b>：加强保管，确保档案<b data-page-node-id="qxWG4GOPjBWWKdHSXRzHkL">不丢失、不泄密</b>。<b data-page-node-id="PAu6WwOhEAuAQfaQmkjsua">保存期限</b>：不少于 <b data-page-node-id="VXBQylJvA8xQGET12uyL9U">15 年</b>；属于法定评估业务的，不少于 <b data-page-node-id="9EFRBo8rqrQRUosmIfdEDn">30 年</b>。</td></tr>
+    <tr data-page-node-id="spI2sUzyT9qnnr5HwJNOqm"><td data-page-node-id="bZ5BKGK23oHre9MPIT3J7t">⑤ 查阅</td><td data-page-node-id="5PVfCFij3CWKXYN3sGDCCA"><b data-page-node-id="BXuTeDVHJ9Uq2QuTFkBp3q">外部查阅</b>须经委托人和立档单位同意，但下列情形除外：①司法部门按法定程序；②有权审核检查项目的政府管理部门；③行业自律组织检查执业质量及受托组织鉴定；④其他依法可查阅情形。<b data-page-node-id="PKWhQD1ZtFXrSjBRc5vePV">制度</b>：借阅必须履行登记，遵守登记、审批和复制制度。</td></tr>
+    <tr data-page-node-id="jcFGdeFcEiKR9Sgj7ezAHn"><td data-page-node-id="86aipBRurUgDXFQKBDsX2V">⑥ 鉴定销毁</td><td data-page-node-id="iiMNN8m8byFHVD7tq5ccVO">超保存期限需销毁的，由机构负责人主持，与档案管理人员和相应评估人员组成<b data-page-node-id="ZRPgoVlz8pzrjdTlzLQ3nB">鉴定小组</b>逐卷审查；需延期的由鉴定小组提出调整意见。经鉴定需销毁的，清点核对、登记造册，经<b data-page-node-id="Qq7Rbg0r296YTtUBdiTeuy">法定代表人</b>批准后销毁，派<b data-page-node-id="dNxB6idyGByAGftHi2rAPW">专人监销</b>；销毁清册及监销报告由经手人签字后立卷归档。</td></tr>
+  </table>
+
+  <div class="keybox" data-page-node-id="Dg4OQ5b0Lgw9CbzfuhAks3"><div class="wt" data-page-node-id="tVb6iv8eB3VVeiEriGI7gI">★ 数字必背（高频）</div>
+  ① 归档时限：报告出具/结论采用日起 <b data-page-node-id="88F6xAQF0SAuQzEMFE0n3W">3 个月内</b>；② 保存期限：一般 <b data-page-node-id="3sQqAbRXmnEAKPEPpJuI0p">≥15 年</b>，法定评估业务 <b data-page-node-id="CnVN8NNuVDJqgoS7arZCP3">≥30 年</b>；③ 立卷原则：<b data-page-node-id="Mda1O9AuBz7VijMs6HmE96">一项一卷</b>（不合并）；④ 整理分类：<b data-page-node-id="OK3ajAfxVZLs1Rh7hv4GAS">只能一种</b>方法；⑤ 销毁批准：<b data-page-node-id="q5pO72bzQoZYY0ZOSYwnZr">法定代表人</b>，并派<b data-page-node-id="Q10ek7aDe1F2an9gMgz5Dk">专人监销</b>。</div>
+
+  <div class="warnbox" data-page-node-id="kw6GMQfUfN8raFJlbzIpXN"><div class="wt" data-page-node-id="DgSAJTjTqMGTO5uQfAa7jM">⚠ 易错提醒</div>
+  ① 外部查阅默认"须经委托人和立档单位同意"，四类例外情形才可直接查阅，别把例外记反；② 归档时间起点是"<b data-page-node-id="eIAl4JFcR3EA7sAv7PKIJh">报告出具日或结论采用日</b>"，不是项目签约日；③ 跨年度项目仍按项目立卷，案卷归入<b data-page-node-id="Ry8et7xE71UMO8VMkAIs1m">报告文号年度</b>而非结束年度；④ 销毁必须"鉴定 → 清点登记造册 → 法定代表人批准 → 专人监销 → 清册签字立卷归档"完整闭环。</div>
+
+  <div class="quiz" data-page-node-id="Zw1THK2qMMDml2P9232sRD">
+    <h4 data-page-node-id="0CrGZGx5GTrHS1SnLiC1Gk">第二节 · 考点自测</h4>
+    <div class="q" data-page-node-id="RQnKkl626k7shcVp4SNmwD">Q1：档案的保存期限和归档时限分别是多少？</div>
+    <div class="a" data-page-node-id="L7LiPBlbknS3f2bkLD0evp">保存期限<b data-page-node-id="9VhwqqhwuCt7KLfePXzIAh">不少于 15 年</b>，属于法定评估业务的<b data-page-node-id="AodMfHrqUJWorONXAl79Je">不少于 30 年</b>；归档时限为项目结束后，自评估报告出具日或评估结论采用日起 <b data-page-node-id="QCjQtTTl55c32dc9uHWY9a">3 个月内</b>。</div>
+    <div class="q" data-page-node-id="9SG7XvL6RYLYhBRFgTJ6Cu">Q2：立卷方法和整理分类有什么要求？</div>
+    <div class="a" data-page-node-id="3Vcgkwci1HAKDbb4KxrNrF">立卷：<b data-page-node-id="7IofONs8SVsSj9giiXuPMo">以评估项目为单元、一项一卷</b>，不得合并立卷，跨年度项目也按项目立卷；整理：分类方法机构可自行选择，但<b data-page-node-id="Txbhx2j7iRUCxmgkgRivRt">只能采用一种</b>，不能同时用两种以上。</div>
+    <div class="q" data-page-node-id="XRd02oyffpLPFxuNj9Vf1S">Q3：档案外部查阅的例外情形有哪些？销毁流程是怎样的？</div>
+    <div class="a" data-page-node-id="3F2S6TghOs9HKCX62A1yYk">例外：①司法部门按法定程序；②有权审核检查项目的政府管理部门；③行业自律组织检查执业质量及受托组织鉴定；④其他依法可查阅情形。销毁：鉴定小组逐卷审查 → 清点核对登记造册 → 法定代表人批准 → 专人监销 → 销毁清册及监销报告经手人签字后立卷归档。</div>
+  </div>
+</section>
+</main>
+</div>
+<footer data-page-node-id="7TdAKvsOnsa1JLBSrEFg8p">矿业权价值评估(2023) · 第七章 矿业权价值评估项目工作底稿与档案 · 学霸版学习页 · 生成于 2026-09-07</footer>
+<script>
+window.addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;document.getElementById('progress').style.width=p+'%';});
+var links=[].slice.call(document.querySelectorAll('#sidebar a'));
+var secs=[].slice.call(document.querySelectorAll('section[id],#map,#memo'));
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var id='#'+e.target.id;links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')===id);});}});},{rootMargin:'-20% 0px -70% 0px'});
+secs.forEach(function(s){obs.observe(s);});
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('hidden');}
+</script>
+
+<a href="index.html" id="backtoindex" data-page-node-id="backtoindex2" style="position:fixed;right:18px;bottom:22px;z-index:9999;background:#1d5fd6;color:#fff;text-decoration:none;font-size:14px;font-weight:700;padding:10px 18px;border-radius:999px;box-shadow:0 6px 18px rgba(29,95,214,.4);font-family:-apple-system,'PingFang SC',sans-serif;">← 返回目录</a>
+
+<script>
+/* ===== fold6-scroll: localStorage 滚动位置记忆 (折叠/展开重载恢复) ===== */
+(function(){
+  var key = 'fold6-scroll-' + location.pathname.split('/').pop() + location.search;
+  function save(){ try{ localStorage.setItem(key, String(window.scrollY || document.documentElement.scrollTop)); }catch(e){} }
+  function restore(){
+    try{
+      var y = parseInt(localStorage.getItem(key), 10);
+      if(isNaN(y) || y <= 0) return;
+      requestAnimationFrame(function(){
+        window.scrollTo(0, y);
+        setTimeout(function(){ window.scrollTo(0, y); }, 150);
+      });
+    }catch(e){}
+  }
+  if(location.hash) return; // 带锚点跳转时不恢复
+  window.addEventListener('beforeunload', save);
+  var t;
+  window.addEventListener('scroll', function(){ clearTimeout(t); t = setTimeout(save, 250); }, {passive:true});
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', restore);
+  else restore();
+})();
+/* ===== end fold6-scroll ===== */
+</script>
+</body>
+</html>
