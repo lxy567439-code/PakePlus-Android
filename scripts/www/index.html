@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="FgYS5y4QeYFO5DRoR76IXq">
+<head data-page-node-id="nap7SfXwRcJONvGPgMkBsh">
+<meta charset="UTF-8" data-page-node-id="BO1W3VFhHRKjE7Z1B5GGOt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" data-page-node-id="GVyM3e8NE2zOCEGM9Jwx7Q">
+<title>矿业权价值评估 · 学霸版学习导航</title>
+<style>
+:root{
+  --brand:#1d5fd6; --brand-soft:#e8f0fe;
+  --ok:#1f9d57; --ok-soft:#e6f6ed;
+  --warn:#d9730d; --warn-soft:#fdf0e2;
+  --key:#c02666; --key-soft:#fbe7f0;
+  --purple:#7c3aed; --purple-soft:#f1ebfd;
+  --ink:#1f2933; --muted:#5b6775; --line:#e2e8f0; --bg:#f5f7fa; --panel:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px}
+.wrap{max-width:1100px;margin:0 auto;padding:48px 24px 64px}
+
+/* hero */
+.hero{background:linear-gradient(135deg,#1d5fd6 0%,#3b82f6 55%,#6366f1 100%);color:#fff;border-radius:18px;padding:46px 44px;box-shadow:0 14px 34px rgba(29,95,214,.28);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.10)}
+.hero .badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:5px 14px;border-radius:999px;font-size:13px;letter-spacing:.5px;margin-bottom:16px}
+.hero h1{font-size:34px;font-weight:800;letter-spacing:.5px;margin-bottom:12px}
+.hero p{font-size:16px;opacity:.94;max-width:760px}
+.hero .meta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+.hero .meta span{background:rgba(255,255,255,.16);padding:6px 14px;border-radius:8px;font-size:13.5px}
+
+/* learning path strip */
+.path{background:var(--panel);border-radius:14px;padding:22px 26px;margin:26px 0;border:1px solid var(--line);box-shadow:0 3px 10px rgba(16,24,40,.05)}
+.path h3{font-size:16px;color:var(--brand);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.path .row{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.path .node{flex:1;min-width:110px;text-align:center;position:relative;padding-top:30px}
+.path .node::before{content:attr(data-n);position:absolute;top:0;left:50%;transform:translateX(-50%);width:24px;height:24px;border-radius:50%;background:var(--brand);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.path .node:not(:last-child)::after{content:"";position:absolute;top:11px;left:calc(50% + 14px);width:calc(100% - 28px);height:2px;background:var(--line)}
+.path .node .t{font-size:13.5px;font-weight:700;color:var(--ink)}
+.path .node .d{font-size:12px;color:var(--muted);margin-top:2px}
+
+/* section head */
+.sec-h{display:flex;align-items:center;gap:12px;margin:38px 0 18px}
+.sec-h .bar{width:6px;height:26px;border-radius:4px;background:var(--brand)}
+.sec-h h2{font-size:21px;font-weight:800}
+.sec-h .sub{font-size:13.5px;color:var(--muted);margin-left:4px}
+
+/* chapter cards grid */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:820px){.grid{grid-template-columns:1fr}.path .row{flex-direction:column}.path .node:not(:last-child)::after{display:none}}
+.card{display:block;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--c,var(--brand));border-radius:12px;padding:20px 22px;box-shadow:0 3px 10px rgba(16,24,40,.05);transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(16,24,40,.12)}
+.card .no{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--c,var(--brand));padding:3px 10px;border-radius:6px;letter-spacing:.5px}
+.card h3{font-size:18px;font-weight:800;margin:10px 0 6px;color:var(--ink)}
+.card .tag{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+.card .pts{list-style:none;display:flex;flex-direction:column;gap:6px}
+.card .pts li{font-size:13.5px;color:var(--muted);padding-left:18px;position:relative}
+.card .pts li::before{content:"▸";position:absolute;left:0;color:var(--c,var(--brand));font-weight:700}
+.card .go{margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:var(--c,var(--brand))}
+
+/* color per chapter */
+.c1{--c:#1d5fd6}.c2{--c:#0e9f6e}.c3{--c:#d9730d}.c4{--c:#7c3aed}
+.c5{--c:#c02666}.c6{--c:#0891b2}.c7{--c:#475569}.c8{--c:#b91c1c}
+
+/* study tip box */
+.tip{background:var(--brand-soft);border:1px solid #cfe0fb;border-radius:12px;padding:18px 22px;margin-top:22px;font-size:14.5px;color:#1e3a8a}
+.tip b{color:var(--brand)}
+
+footer{text-align:center;color:var(--muted);font-size:13px;margin-top:48px;padding-top:20px;border-top:1px solid var(--line)}
+</style>
+
+/* ===== fold6-adapt: vivo X Fold6 折叠屏适配 (安全区/行宽/断点/防溢出) ===== */
+html{scroll-behavior:smooth}
+body{font-size:17px;line-height:1.8}
+.content,.inner,#main,main{max-width:38em;margin:0 auto}
+img,video,table,pre,iframe{max-width:100%;height:auto}
+table{display:block;overflow-x:auto}
+@media (min-width:600px){
+  body{font-size:19px}
+}
+@media (max-width:600px){
+  .content,.inner,#main,main{max-width:none}
+  .wrap{padding-left:20px!important;padding-right:20px!important}
+}
+img,video,svg,canvas{max-width:100%}
+/* ===== end fold6-adapt ===== */
+
+
+/* ===== fold6-center: 隐藏目录后内容居中 ===== */
+#sidebar.hidden{position:absolute;left:0;top:0;width:var(--sidebar-w);z-index:900;}
+#sidebar.hidden ~ main,
+#sidebar.hidden ~ #main,
+#sidebar.hidden ~ .content,
+#sidebar.hidden ~ .inner{max-width:none;margin:0;padding-left:20px;padding-right:20px;}
+#sidebar.hidden ~ main > *,
+#sidebar.hidden ~ #main > *,
+#sidebar.hidden ~ .content > *,
+#sidebar.hidden ~ .inner > *{max-width:38em;margin-left:auto;margin-right:auto;}
+/* ===== end fold6-center ===== */
+
+</head>
+<body data-page-node-id="jFyeJLL5NlqHcJknNkrmx4">
+<div class="wrap" data-page-node-id="IH4ooXvMRyfE9u0BdtCM04">
+
+  <div class="hero" data-page-node-id="r4DFHCC2H4N49UC9T901kT">
+    <span class="badge" data-page-node-id="ZB2dhaklvh15UpbdMWqGeH">矿业权价值评估（2023）· 学霸版</span>
+    <h1 data-page-node-id="wCzKthQToruWdg8Y1GbqdE">全书八章 · 学习导航</h1>
+    <p data-page-node-id="LJhme92bEaQyF9qlIRW9Wk">从概述到项目管理，八章内容按"概念 → 事项 → 程序 → 方法 → 报告 → 案例 → 底稿 → 管理"递进展开。点击任意章节卡片进入对应学习页，每章内含高频考点速记卡、易错提醒与考点自测。</p>
+    <div class="meta" data-page-node-id="UUA2XU8P2UnGvGqEHQTAPu">
+      <span data-page-node-id="zCZQF6fhXVRG3yVvirHUoQ">📚 8 章</span>
+      <span data-page-node-id="GALLtjAnLzZF9yYHDGRNVL">🎯 每章 8 张速记卡</span>
+      <span data-page-node-id="TTdMfoM9RXwKIqIhTU6y7i">✅ 含考点自测</span>
+    </div>
+  </div>
+
+  <div class="path" data-page-node-id="jUdoGhOfkCYRYmc8AnEPLs">
+    <h3 data-page-node-id="CQZCFuvnybQBMoYBX4P7qW">🧭 建议学习路径</h3>
+    <div class="row" data-page-node-id="AtktgKpV8JWkNHKip39cIi">
+      <div class="node" data-n="1" data-page-node-id="ztvZREvPrC1avej8CagoGZ"><div class="t" data-page-node-id="EBMHCqQ0bpbhRqS1pS0VLt">概述</div><div class="d" data-page-node-id="MyvLcJd6WUITS8FDJCIbWv">概念·意义·范围</div></div>
+      <div class="node" data-n="2" data-page-node-id="KknVl2qB1illXSZLN9ubOW"><div class="t" data-page-node-id="6mGwxYxgxyoQjygjuAvH22">基本事项</div><div class="d" data-page-node-id="fIDAYCoycveYwVqRDV0lyh">主体·对象·依据</div></div>
+      <div class="node" data-n="3" data-page-node-id="CtBWMCDCN1GSwdKsznfy1z"><div class="t" data-page-node-id="mOUVZe85GuPYDSxwvnNVI4">评估程序</div><div class="d" data-page-node-id="aCbq1NqJHutmqMz1MEjVDF">八步流程</div></div>
+      <div class="node" data-n="4" data-page-node-id="Wp6br3v9lAQVDuIR3lv0uw"><div class="t" data-page-node-id="pAyRbqYVcQ59vy3XkoM6gC">方法与参数</div><div class="d" data-page-node-id="hQV3UdkFItVRfA6V66GWcY">三大方法·参数</div></div>
+      <div class="node" data-n="5" data-page-node-id="pUc0IhjR8INtX9g8bEb6jy"><div class="t" data-page-node-id="FZyOVMtmKsXg8R2ZmBME22">评估报告</div><div class="d" data-page-node-id="8T7zIbl0o64d01ItC1uHf8">格式·内容·签署</div></div>
+      <div class="node" data-n="6" data-page-node-id="IVgq0bL6gWBferzPSaEMZc"><div class="t" data-page-node-id="ERM6H07eaXXWysZg36qEVG">案例分析</div><div class="d" data-page-node-id="W5yd0p7jvgFkBS4OHONDja">典型项目拆解</div></div>
+      <div class="node" data-n="7" data-page-node-id="ZWvNcsccQKqLe2mkb3tO7F"><div class="t" data-page-node-id="XWRhcbBCJ6PDMRY7vboh87">底稿与档案</div><div class="d" data-page-node-id="kqradyqX8h0tIdKTmGsVR0">工作底稿·归档</div></div>
+      <div class="node" data-n="8" data-page-node-id="h9GY05HeVkJ24yvyMBodSv"><div class="t" data-page-node-id="S5fvHHPFkZaCPiBJFd3QhC">项目管理</div><div class="d" data-page-node-id="RlZnCWcXpAqczbEcI0HNo0">三条管理线</div></div>
+    </div>
+  </div>
+
+  <div class="sec-h" data-page-node-id="FGmjsgaHCUvmBJHd5rCUEK">
+    <span class="bar" data-page-node-id="8oBHZA33lGiMffgqznIs6F"></span>
+    <h2 data-page-node-id="uWXujFZ5eBHmxtnyn6Axch">章节入口</h2>
+    <span class="sub" data-page-node-id="PaiBeMA12RPxvAf1NhKOCn">按递进顺序排列，点击卡片进入对应章节</span>
+  </div>
+
+  <div class="grid" data-page-node-id="jHFXUB1OlQCdNDgVZ9GT6e">
+    <a class="card c1" href="第一章 概述.html" data-page-node-id="wmXREOrsQdYapu0qDtVOsK">
+      <span class="no" data-page-node-id="grhEDGYQ8mfbtlCHHEzooN">第一章</span>
+      <h3 data-page-node-id="QTWaGu5zAlkKBMdDmE4avv">矿业权价值评估概述</h3>
+      <div class="tag" data-page-node-id="rhhgRfO0m8VOemHvUxFFDy">全书总纲 · 打基础</div>
+      <ul class="pts" data-page-node-id="BYmX6RV4BCoPTKk3qcexzx">
+        <li data-page-node-id="r3v3OYz4G6apBwn5BgkEVw">矿业权价值评估的概念、意义与分类</li>
+        <li data-page-node-id="KU1Pb4iMWztrNXbH0DfCpJ">评估目的、价值类型与评估范围</li>
+        <li data-page-node-id="hLmwIdKT7c12AlI3qtQRMa">我国矿业权管理制度的基本框架</li>
+      </ul>
+      <span class="go" data-page-node-id="BCnzM7GSphVYWJoDR4Vt6Q">进入本章 →</span>
+    </a>
+
+    <a class="card c2" href="第二章 矿业权价值评估基本事项.html" data-page-node-id="G0LLvImrEfXMqwksEFojon">
+      <span class="no" data-page-node-id="WHDYC4kvoFBQWyS9plWzuI">第二章</span>
+      <h3 data-page-node-id="l2VCNt9omZBlE5McxJR958">矿业权价值评估基本事项</h3>
+      <div class="tag" data-page-node-id="iq5nrj8usLQ4p2M3lQWFx2">评估"五要素" · 必考</div>
+      <ul class="pts" data-page-node-id="mqDT0GyMTIOxahed3aC0H3">
+        <li data-page-node-id="j2fpA5BdOY5PNqhwJPHdDG">评估主体、对象、目的、价值类型</li>
+        <li data-page-node-id="FKR3Z9zfDSB8D7TjXPJi8H">评估依据与评估假设</li>
+        <li data-page-node-id="jazzdVw4dTx49vWg1kSP5K">基本事项之间的逻辑关系</li>
+      </ul>
+      <span class="go" data-page-node-id="4EIlXktqeMeXWUlp5EHuFc">进入本章 →</span>
+    </a>
+
+    <a class="card c3" href="第三章 矿业权价值评估程序.html" data-page-node-id="MSVzWulqW7LHAyFnp0oflr">
+      <span class="no" data-page-node-id="p0CPtj5X1e5mEfSR05wEb1">第三章</span>
+      <h3 data-page-node-id="y7iOIftwAV0nCQrSBR9GP2">矿业权价值评估程序</h3>
+      <div class="tag" data-page-node-id="pDonthDZiZElI4QF6lYsJF">八步流程 · 流程图</div>
+      <ul class="pts" data-page-node-id="VDFyiHCY5ANJoz1YsmbdPf">
+        <li data-page-node-id="aDiE322wGFF1J6dUn4OvlO">接受委托 → 评估实施 → 出具报告</li>
+        <li data-page-node-id="1sgu5cRm8HYLO5RV1WEM0c">各程序环节的关键动作与产出</li>
+        <li data-page-node-id="JScXpUpdZ7baglxIotDr3Q">程序违反的常见风险点</li>
+      </ul>
+      <span class="go" data-page-node-id="b6pXxnQkAU2OdYqHh4xWrE">进入本章 →</span>
+    </a>
+
+    <a class="card c4" href="第四章 矿业权价值评估方法与参数.html" data-page-node-id="FtIBAlUZ3c17D34MnfIRga">
+      <span class="no" data-page-node-id="tqEI76YmG5EziNJTPxLaBF">第四章</span>
+      <h3 data-page-node-id="fy09ySiCE56a5FRbLVESH8">矿业权价值评估方法与参数</h3>
+      <div class="tag" data-page-node-id="bvBWxEejrFRh18aw5tl5qK">三大方法 · 核心计算</div>
+      <ul class="pts" data-page-node-id="aq2COC6UVz3Wg2PxD23YUN">
+        <li data-page-node-id="jy9Jv2H4FrqbAQpcpiTJYI">折现现金流法、收益法、市场法</li>
+        <li data-page-node-id="adP1b11l7F01scC0yLEQrl">关键参数：品位、回收率、价格、折现率</li>
+        <li data-page-node-id="R89sFgzyxHR9fczbCANARf">方法选择与适用条件</li>
+      </ul>
+      <span class="go" data-page-node-id="RhALouRvSRrnetiyfzAndc">进入本章 →</span>
+    </a>
+
+    <a class="card c5" href="第五章 矿业权价值评估报告.html" data-page-node-id="oP1BSgUFHDLcnOJ7UODE3m">
+      <span class="no" data-page-node-id="No087nyBkNH37tc65gEMnf">第五章</span>
+      <h3 data-page-node-id="5sYCS0oayBOgl90r8cxjKt">矿业权价值评估报告</h3>
+      <div class="tag" data-page-node-id="aa9243LNkHDY7YGATfJOqb">报告格式 · 合规要点</div>
+      <ul class="pts" data-page-node-id="Ik3b5vESrQbWtjeZ8OHvSI">
+        <li data-page-node-id="MAkraxv9y4XRGGPhdcOdUR">报告基本格式与必备要素</li>
+        <li data-page-node-id="IAaBIxbl6Z0f7M7awwunFa">重要提示事项与使用限制</li>
+        <li data-page-node-id="vKowAJPT5jBVVv0pFCRUQk">签署、出具与归档要求</li>
+      </ul>
+      <span class="go" data-page-node-id="2NSBBPFFYuPb8CWvmCey4X">进入本章 →</span>
+    </a>
+
+    <a class="card c6" href="第六章 矿业权价值评估案例分析.html" data-page-node-id="wSTd3Lak5WjpjdhCnPabbL">
+      <span class="no" data-page-node-id="zaZF3oaPm9zkNRRBrg9gmD">第六章</span>
+      <h3 data-page-node-id="U17piiMY3E5TpwNA0GFTi0">矿业权价值评估案例分析</h3>
+      <div class="tag" data-page-node-id="8CmQZtbSE0Qu2NMYOO9BD5">典型项目 · 实战</div>
+      <ul class="pts" data-page-node-id="GtSQiwHcN8IRH95IwXAtui">
+        <li data-page-node-id="Ngcz5khUQbLfrZY6nQG1fF">典型评估项目全流程拆解</li>
+        <li data-page-node-id="sUniFxEX6SotR1SW8yClpG">参数取值与敏感性分析</li>
+        <li data-page-node-id="4JAxEpJbQGd4Jhu7ec44eO">案例中的易错点复盘</li>
+      </ul>
+      <span class="go" data-page-node-id="uNpuhOHL0YllPyy79dxN5D">进入本章 →</span>
+    </a>
+
+    <a class="card c7" href="第七章 矿业权价值评估项目工作底稿与档案.html" data-page-node-id="KqtV1otpy1jcPHyO64eGMu">
+      <span class="no" data-page-node-id="w1qcHxC3MqzRtYCfYsjcTo">第七章</span>
+      <h3 data-page-node-id="ClUDHGQaUZqGYZlCOYgwHZ">矿业权价值评估项目工作底稿与档案</h3>
+      <div class="tag" data-page-node-id="ovDHlvPLEpaOtGDw4jXPyv">底稿·档案 · 留痕</div>
+      <ul class="pts" data-page-node-id="pBE0UVRJp1fo5ZX999IWAv">
+        <li data-page-node-id="GT4yMSH4HEkouyYGkfF0XJ">工作底稿的编制规范与层次</li>
+        <li data-page-node-id="Ay1LtRiyDAwiqXWm7EvOpE">档案的整理、归档与保管</li>
+        <li data-page-node-id="L03puE85fxtS971tKvSrya">质量复核与底稿管理</li>
+      </ul>
+      <span class="go" data-page-node-id="f6i66sJzknLXFhN5dIuLuk">进入本章 →</span>
+    </a>
+
+    <a class="card c8" href="第八章 矿业权价值评估项目管理.html" data-page-node-id="ybzzCFaAzn80rGMXCKfH07">
+      <span class="no" data-page-node-id="ioT6DPeCcMl4kS4oXlhRMG">第八章</span>
+      <h3 data-page-node-id="xLzHRcDDBGoyTCE0toaexc">矿业权价值评估项目管理</h3>
+      <div class="tag" data-page-node-id="9sXhtmFI9qW2nQ08NJ4r2M">三条管理线 · 收官</div>
+      <ul class="pts" data-page-node-id="OFjYNU7jH5s84i9dAad0sJ">
+        <li data-page-node-id="PLGjWyIDLQyynQGQAMcsv6">质量、进度、成本三条管理线</li>
+        <li data-page-node-id="2JVTmGLILfg3ltouaEduUj">项目组织与风险控制</li>
+        <li data-page-node-id="WlRjNKYmVMYX1x3Lyx2mCA">评估机构内部管理制度</li>
+      </ul>
+      <span class="go" data-page-node-id="WYKc55PdMeWseUrV1jIga4">进入本章 →</span>
+    </a>
+  </div>
+
+  <div class="tip" data-page-node-id="5oe9cut588rcHy6qeGHpL8">
+    💡 <b data-page-node-id="EKgjTUkq4aZ13WASAwq2fV">学习建议</b>：按 1→8 顺序通读一遍建立框架，重点吃透第四章（方法参数，计算核心）与第二章（基本事项，必考概念）；每章末尾的"考点自测"做完再进下一章；第六章案例可结合第四章方法对照学习。
+  </div>
+
+  <footer data-page-node-id="5cIQ7uRns5EQWUTHewlll2">矿业权价值评估（2023）· 学霸版学习导航 · 共八章</footer>
+
+</div>
+
+<script>
+/* ===== fold6-scroll: localStorage 滚动位置记忆 (折叠/展开重载恢复) ===== */
+(function(){
+  var key = 'fold6-scroll-' + location.pathname.split('/').pop() + location.search;
+  function save(){ try{ localStorage.setItem(key, String(window.scrollY || document.documentElement.scrollTop)); }catch(e){} }
+  function restore(){
+    try{
+      var y = parseInt(localStorage.getItem(key), 10);
+      if(isNaN(y) || y <= 0) return;
+      requestAnimationFrame(function(){
+        window.scrollTo(0, y);
+        setTimeout(function(){ window.scrollTo(0, y); }, 150);
+      });
+    }catch(e){}
+  }
+  if(location.hash) return; // 带锚点跳转时不恢复
+  window.addEventListener('beforeunload', save);
+  var t;
+  window.addEventListener('scroll', function(){ clearTimeout(t); t = setTimeout(save, 250); }, {passive:true});
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', restore);
+  else restore();
+})();
+/* ===== end fold6-scroll ===== */
+</script>
+</body>
+</html>
